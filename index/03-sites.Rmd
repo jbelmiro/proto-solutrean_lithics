@@ -13,13 +13,17 @@ library(tidyr)
 Vale Boi is an open-air site and rockshelter, located on the western coast of Algarve (Portugal), near a small homonymous village, within the municipality of Vila do Bispo. The site is situated in a small valley that runs south to the Atlantic coast, about 2 km distance, relatively open, with a natural boundary to the East and bordered by a limestone hill through all its extension. This hill is marked, at specific points, by limestone exposures that form rock shelters with faces facing west or southwest (Bicho et al. 2003; Cascalheira et al. 2008; Cascalheira 2010).
 
 ```{r vbmap, fig.cap="Location of Vale Boi and Lapa do Picareiro archaeological sites.",fig.align='center', out.width = '50%', echo=FALSE}
-knitr::include_graphics("figure/mapVB_LP.png")
+
+knitr::include_graphics("figure/map_VB.png")
+
 ```
 
 The site extends for more than 10 000 m2 on the slope of this valley, which is marked by a series of steps that run parallel to the river, possibly the result of Middle Pleistocene fluviatile erosion (Bicho et al. 2003).
 
-```{r vbphoto, fig.cap="Archaeological site of Vale Boi.",fig.align='center', out.width = '50%', echo=FALSE}
-knitr::include_graphics("figure/VB_site.jpg")
+```{r vbphoto, fig.cap="Topographic plan, schematic profile and general view of Vale Boi, with location of the excavation loci. After Cascalheira et al. 2017.", fig.align='center', out.width = '50%', echo=FALSE}
+
+knitr::include_graphics("figure/vb_plan.png")
+
 ```
 
 The geologic context of Vale Boi is marked by heterogeneity. In the north, there are schist and greywacke formations from the Carboniferous, and in the south, Triassic and Jurassic dolomite and limestone formations, which are gradually covered by Holocene dunes further into the coastal area, until near St. Vincent’s cape where they appear uncovered once again, along with small occurrences of chert (Veríssimo 2004).
@@ -30,8 +34,10 @@ Lapa do Picareiro is a cave site on the west facing slope of Serra d’Aire, a l
 
 The cave appears to have an epigenetic origin, formed by infiltration of meteoric water through the overlying bedrock leading to the dissolution of the main chamber and roof collapse which formed the cave entrance [@benedettietal2019]. The interior of the chamber is about 11 x 14 m, and has more than 10 m of coarse sedimentary infill in inclined beds, derived from roof collapse, gravity flows and fine sediment infiltration [@benedettietal2019]. The cave opening is marked by the existence of a cone of large limestone stone blocks [@bicho2006] while the sediment inside the cave consists of smaller and angular limestone clasts in a matrix of fine sediment [@benedettietal2019].
 
-```{r fig.cap="Lapa do Picareiro generalized cross section showing surface topography, shape of the cave, and area excavated into sedimentary fill (Benedetti et al, 2019).", out.width = '100%', echo=FALSE}
+```{r fig.cap="Lapa do Picareiro generalized cross section showing surface topography, shape of the cave, and area excavated into sedimentary fill (after Benedetti et al, 2019).", out.width = '100%', echo=FALSE}
+
 knitr::include_graphics("figure/LP_units.jpg")
+
 ```
 
 
@@ -49,9 +55,6 @@ In 2012, a new 8 square meters area was open in the Terrace (rows H and I), to u
 
 Vale Boi shows a variety of human occupations, distributed across three main areas, which have been interpreted differently in terms of functionality: Slope, Shelter, and Terrace (fig x).
 
-```{r fig.cap="Vale Boi area scheme.", out.width = '100%', echo=FALSE}
-knitr::include_graphics("figure/Valeboi_areas.png")
-```
 
 ### Slope
 In this area, three moments of occupation have been identified, although the first layer seems to be very altered, with only the presence of sorted, small lithics and no associated fauna. This layer corresponds to a Magdalenian occupation. The other levels, however, seem to be in situ, since there were faunal remains in anatomical position, the presence of stacked, well preserved, shells and general horizontal disposition of the materials, without size sorting, which often happens through pluvial action (Bicho et al 2003).
@@ -62,8 +65,8 @@ Bellow the discontinuity, there is a Gravettian occupation, with a more signific
 
 This area has been interpreted as a midden, the result of waste produced by several human activities, such as the production and maintenance of lithic artifacts, preparation of food, and carcass treatment (Bicho et al 2003).
 
-### Shelter
 
+### Shelter
 The occupation levels in this area were located under blocks of limestone, which collapsed from the rockshelter ceiling, and where occupations of Magdalenian, Solutrean, and Gravettian chronologies have been identified across four distinct litho-stratigraphic units.
 
 A small combustion structure was identified in this area, within the Solutrean layers. This structure was circular, with around 50 cm of diameter, formed by limestone pebbles and blocks. The area around the fireplace was marked by calcination, where several artifacts were found with thermal alterations (Cascalheira et al 2008).
@@ -88,13 +91,13 @@ Layer 5 has a dark coloration and a silt and clay matrix characterized by an int
 
 Finally, layer 6 is very similar to the previous layer, although it shows the presence of a larger quantity of small and medium-sized limestone clasts. A Gravettian horizon has been attributed to this layer, but the analysis of the materials is currently in progress.
 
+
 ```{r layertable, include=FALSE}
+
 layers_table <- read_csv("data/VBlayers_table.csv")
 layers_table <- layers_table %>%
   na.omit()
-```
 
-```{r layerstable, echo = FALSE}
 knitr::kable(head(layers_table [1:2], 6),  booktabs = TRUE, caption = "Vale Boi terrace identified layers with sediment description.") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options=c("scale_down")) %>% 
@@ -103,19 +106,27 @@ knitr::kable(head(layers_table [1:2], 6),  booktabs = TRUE, caption = "Vale Boi 
   row_spec(2, background = "#F2F2F2") %>% 
   row_spec(4, background = "#F2F2F2") %>% 
   row_spec(6, background = "#F2F2F2")
+
 ```
+
 
 Regarding layers 4E and 5, although they are indeed layers with different sedimentary packages, they show similar technological and archaeological patterns, which led to the conclusion they were the same cultural horizon (the opposite, one single layer with different cultural horizons is equally present in the Terrace, as seen with the Epipaleolithic and Solutrean occupations of layer 3). These layers, 4E and 5, are vertically contiguous, separated by a relatively flat surface covered by large limestone blocks. Unlike what was expected, however, these levels did not reveal a Gravettian assemblage with characteristics similar to previous years (Marreiros 2009), but rather materials with patterns similar to those expected in a Proto-Solutrean assemblage (the most noticeable of all being the Vale Comprido points and blanks). The context was dated using a charcoal sample to c. 24.7-25.3 kcal BP, and a shell sample to c. 23.7-24.1 kcal BP.
 
-The bottom spits of layer 5, on the other hand, show a relatively dense concentration of Littorina littoreia, an unprecedented shell species at the site, and often associated with colder waters, having a high freezing tolerance (Murphy 1979). This context was dated through a shell sample, showing dates ranging between the 26-26.3 kcal BP, which corresponds to the first half of the HE2  (Sanchez-Goñi and Harrison 2010).
+The bottom spits of layer 5, on the other hand, show a relatively dense concentration of Littorina littoreia, an unprecedented shell species at the site, and often associated with colder waters, having a high freezing tolerance (Murphy 1979). This context was dated through a shell sample, showing dates ranging between the 26-26.3 kcal BP, which corresponds to the first half of the HE2 (Sanchez-Goñi and Harrison 2010).
 
+```{r vbradiocarbon, echo = FALSE}
 
-(Date figure)
+knitr::include_graphics("figure/vb_radiocarbon.png")
+
+```
+
 
 Figure X represents the vertical distribution of all piece-plotted lithics in the Terrace, rows H and I. One of the most noticeable features is the vertical constraint in the distribution of dolerite pieces, mostly concentrated on layer 4E and upper levels of 5, coinciding also with the higher concentration of lithic materials in these layers. Likewise, the presence of Vale Comprido points is also associated with the top levels of layer 4E and 5 (Belmiro in press), which coincide with the dates that range from c. 23.7 to 24.7 ka cal BP (lower calibrations). As mentioned in Chapter XXX, these dates seem to fall outside the timeframe for the Proto-Solutrean as defined by Zilhão (1997) for the Portuguese Estremadura, extending it as much as nearly 2 ka years, and thus, hinting that the Proto-Solutrean at Vale Boi might have either happened later or lasted longer than has been argued for Central Portugal. The WK-44416 date, however, seems to show that, at least from around c. 26 ka cal BP, the site was occupied even if at a lower intensity, a date that falls onto the Final Gravettian/Proto-Solutrean or Final Gravettian/Terminal Gravettian transition in the traditional models (Zilhão 1997).
 
 ```{r spatialvbfig, fig.cap="East profile stratigraphy in the Terrace area (above) and distribution of all tridimensionally coordenated lithics in the new excavation area until 2017 (under). Lithis from layers 4E and 5 are coloured in black. Blue crosses represent dolerite artefacts and stars mark the provenance of each radiocarbon date: A - WK-42830; B - WK-42831; C - WK-44416.", out.width = '100%', echo=FALSE}
+
 knitr::include_graphics("figure/SpatialanalysisVB.png")
+
 ```
 
 
@@ -162,12 +173,16 @@ The physical distinction between level U and the lower portion of T is hard to m
 Layer T/U is about 15 cm thick, with the presence of possible combustion features and distinct activity areas. The recovered artifacts show a rich faunal assemblage, with a high presence of red deer, though ibex presence is also important, and a superabundance of rabbit bones. A few bone tools were also found. Other recovered artifacts also include a perforated marine shell and a perforated red deer canine tooth.
 
 
-```{r fig.cap="Level U and lower T perforated red deer canine teeth.", out.width = '100%', echo=FALSE}
+```{r fig.cap="Level U and lower T perforated red deer canine teeth. After Haws et al. 2019.", out.width = '100%', echo=FALSE}
+
 knitr::include_graphics("figure/LP_teeth.jpg")
+
 ```
 
-```{r fig.cap="Spatial distribution of all plotted artefacts from levels T-U (in grey), lithic artefacts in colours and shapes refering to raw material and class.", out.width = '100%', echo=FALSE}
+```{r fig.cap="Spatial distribution of all plotted artefacts from levels T-U (in grey), lithic artefacts in colours and shapes refering to raw material and class. After Haws et al. 2019.", out.width = '100%', echo=FALSE}
+
 knitr::include_graphics("figure/LPspatial.jpg")
+
 ```
 
 The niche area was where most of the lithic assemblage from these levels was found. As shown in image X, there is an apparent concentration of lithics, comprised mostly of quartz and rock crystal, and some chert, all raw materials appearing mostly in the shape of bladelets.
@@ -194,22 +209,17 @@ However, the dates are not in concordance with the models developed for the Prot
 
 
 # Excavation methodology
-The site is mapped using a 1x1 m alphanumeric grid system, creating a combination of lettered and numbered rows, which correspond to the excavation units. The deposits were excavated by natural litho-stratigraphic units, subdivided into 5 cm spits.
+Both sites are mapped using a 1x1 m alphanumeric grid system, creating a combination of lettered and numbered rows, which correspond to the excavation units. The deposits were excavated by natural litho-stratigraphic units, subdivided into 5 and 10 cm spits for Vale Boi and Lapa do Picareiro, respectively.
 
-Within each spit, all artifacts with dimensions superior to 2 cm are coordinated three-dimensionally with a Total Station, except for small complete artifacts, such as ornaments, complete bones or small bladelets, which are always recorded despite their size.
+Within each spit, the 3D location of all artifacts with dimensions superior to 2 cm is recorded with a Total Station, except for small complete artifacts, such as ornaments, complete bones or small bladelets, which are always recorded despite their size.
 
-All pieces have a sequential identification number (ID) by unit. This ID is given by the software EDMWin where all the contextual information of the artifact is recorded (layer, spit, unit, and code), which is then associated with the materials through pre-printed labels. Each label has an ID, site designation and a barcode which allows accessing artifact information in the lab. The same type of label is used for the materials recovered from the sieves that correspond to all materials found in each 10 L bucket of sediment retrieved at the moment of the excavation, plotted at the center of the excavated area. These buckets, after full, are sieved near the excavation area, using 3 mm mesh grids, and then the recovered materials are associated with the respective label.
+All pieces have a sequential Identification Number (ID) by unit. This ID is given by the software EDM where all the contextual information of the artifact is recorded (layer, spit, unit, and code), which is then associated with the materials through pre-printed labels. Each label has an ID, site designation and a barcode which allows accessing artifact information in the lab. The same type of label is used for the materials recovered from the sieves that correspond to all materials found in each 10 L bucket of sediment for Vale Boi and each artificial spit for Lapa do Picareiro. In Vale Boi the association with Total Station data is made by measuring a coordinate in the center of the excavated area from where the sediment is coming from. All sediment is sieved using 3 mm mesh grids in the case of Vale Boi. At Lapa do Picareiro sieves with 2 mm and 4 mm meshes are used. The latter is sorted in the field, while the smaller sieve sediment is taken to the laboratory for water screening, in order to recover small bones or other types of artifacts like lithic chips.
 
-The cave is mapped using a 1 X 1 m alphanumeric grid system corresponding to the excavation units. The stratigraphy is subdivided into natural litho-stratigraphic layers and 10 cm artificial spits within these.
-
-As in the case of Vale Boi, all artifacts and bones larger than 2 cm are piece-plotted with a Total Station, which records the spatial information (X, Y and Z coordinates), level, unit, spit, type of material and excavator, and attributes a sequential identification number (ID) to the piece, generated by the software EDMWin. This ID is unique, composed of the unit information and a sequential number within the unit, pre-printed in labels with site information (LP), ID (Unit and sequential number) and a barcode, which are then stored with the plotted artIfact. This barcode or ID allows accessing all of the piece’s information in the laboratory.
 
 ```{r fig.cap="Lapa do Picareiro unit plan grid.", out.width = '100%', echo=FALSE}
+
 knitr::include_graphics("figure/LP_units.jpg")
+
 ```
-
-Sediment recovered from the excavation is sieved through two mesh screens (2 mm and 4 mm). The latter is sorted in the field, while the smaller screen sediment is taken to the laboratory for water screening, in order to recover small bones or other types of artIfacts like lithic chips.
-
-Any archaeological material recovered in the screens, or found during the excavation while being inferior to 2 mm, is placed inside a screen bag. To the screen bag is attributed an ID label at the start of each spit, with coordinates taken on the center of the unit, and corresponding to any material (small or unplotted) recovered in the 10 cm below coordinates within that 1 X 1 m square/unit.
 
 
