@@ -913,7 +913,7 @@ Although chert was not firstly classified regarding its visible characteristics,
 
 ```{r chert_setup, echo=FALSE}
 ## RM table
-RMtable <- tibble("Chert Type" = c("RM2", "RM3", "RM4", "RM5", "RM6", "RM7", "RM8"),
+RMtable <- tibble("Chert Type" = c("RM1", "RM2", "RM3", "RM4", "RM5", "RM6", "RM7"),
                     Description = c("Fine grain, 2.5Y 7/6 and 6/6 (yellow and olive yellow) translucent color with opaque smoke-like patterns.
 ","Mostly 5YR 4/2 (dark reddish gray) and 4/3 (reddish brown) colouration, with 1mm 10YR 7/3 (very pale brown) dots and bigger 0.5 to 1 mm circular 10YR 7/2 (light gray) inclusions with coarser texture.
 ","Coarser texture, with veins and fog-like patterns with colour mix of 10YR 8/3, 7/3 (very pale brown), 7.5YR 7/3 (pink), 5YR 7/4 (pink) and 10YR 5/3 brown.
@@ -929,7 +929,7 @@ spatialRM <- datasetlp %>%
   filter(Y > 1) %>%
   filter(Z > 1) %>% 
   select(ChertType,Z,Y) %>% 
-  filter(ChertType %in% c("RM2","RM3","RM4","RM5","RM6","RM7","RM8"))
+  filter(ChertType %in% c("RM1","RM2","RM3","RM4","RM5","RM6","RM7"))
 
 ```
 
@@ -942,7 +942,7 @@ knitr::kable(RMtable, booktabs=TRUE, caption = "Identified chert types. Descript
 
 After its identification, it was attempted to refit the pieces in each group, but due to the high level of modification and edge damage of each piece, this was not possible. However, using the spatial data, each group was plotted in order to understand any spatial restriction or relationship that might help identify a specific knapping behaviour (fig X).
 
-Although most groups seem to show no particular spatial restriction or pattern when plotted, RM7 seems to have a good concentration of materials, starting at depth 567 m, which corresponds to the second spit of what is considered the Proto-Solutrean occupation, matching also with the highest quantity of chert in the plot.
+Although most groups seem to show no particular spatial restriction or pattern when plotted, RM6 seems to have a good concentration of materials, starting at depth 567 m, which corresponds to the second spit of what is considered the Proto-Solutrean occupation, matching also with the highest quantity of chert in the plot.
 
 
 ```{r chertspatial, fig.cap="Types of chert spatial dispersion", echo=FALSE}
@@ -1115,7 +1115,6 @@ core_elongation <- coreB %>%
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000")) +
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 
@@ -1130,7 +1129,6 @@ core_flattening <- coreB %>%
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000")) +
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 ggarrange(core_elongation, core_flattening,
@@ -1165,9 +1163,6 @@ core_elongation_LP <- coreB_LP %>%
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Elongation") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FFCC00", "#FF9900", 
-                               "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000")) +
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 core_flattening_LP <- coreB_LP %>% 
@@ -1179,9 +1174,6 @@ core_flattening_LP <- coreB_LP %>%
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Flattening") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FFCC00", "#FF9900", 
-                               "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000")) +
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 ggarrange(core_elongation_LP, core_flattening_LP,
@@ -1200,24 +1192,34 @@ Core preparation products represent a small fraction of Vale Boi's total assembl
 Core preparation products are of two identified types, core fronts and core tablets (figure X), the individual of phase 1 being a core tablet in quartz. For phase 2, however, most core preparation products are in chert (n=5) with one identified individual in quartz.
 
 ```{r corepreptype, echo=FALSE}
-CP_table <- dataset %>% 
-  filter(Class=="CorePreparProd")
+CP_table_1 <- dataset %>% 
+  filter(Class=="CorePreparProd") %>% 
+  filter(Phase=="Phase 1") %>% 
+  select(RawMaterial, CorePreparProd) %>% 
+  group_by(RawMaterial)
 
-CP_table %>%
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert", "Greywacke", "Chalcedony",
-                                                      "Dolerite", "Other"))) %>% 
-  mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
-                                            "100%"))) %>% # order x axis
-  ggplot(aes(CorePreparProd)) +
-  geom_bar(position =  "fill", aes(fill = Phase), width = 0.5) + 
-  scale_y_continuous(labels = scales::percent_format()) + 
-  theme_minimal() + #type of theme
-  labs(x = " ", y = NULL) +# change labels
-  guides(fill=guide_legend(title=NULL)) + # remove legend title
-  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
-                               "#660000", "#CC6666", "#333333"))
+CP_table_2 <- dataset %>% 
+  filter(Class=="CorePreparProd") %>% 
+  filter(Phase=="Phase 2") %>% 
+  select(RawMaterial, CorePreparProd) %>% 
+  group_by(RawMaterial)
+
+CP_table2 <- table(CP_table_2$CorePreparProd, CP_table_2$RawMaterial)
+CP_table2 <- as.data.frame.matrix(CP_table2)
+CP_table2 <- CP_table2 %>% 
+  tibble::rownames_to_column() %>% 
+  adorn_totals(where = "col", name = "Total") %>% 
+  adorn_totals(where = "row", name = "Total") %>% 
+  dplyr::rename("Core preparation product" = "rowname")
+
+```
+
+```{r coreprep, echo=FALSE}
+
+knitr::kable(CP_table2, booktabs=TRUE, caption = "Core preparation products by raw material for Upper 5/4E.") %>% 
+  column_spec(1, bold = T) %>% 
+  kable_styling(latex_options = "scale_down")
+
 ```
 
 
@@ -1711,6 +1713,7 @@ retouch_table1 <- retouch_table1 %>%
   tibble::rownames_to_column()
 retouch_table1 <- dplyr::rename(retouch_table1, "Typology" = "rowname")
 
+retouched_order <- c("Endscraper", "Dihedral Burin", "Burin on truncation", "Truncation", "Notch", "Denticulate", "Splintered piece", "Double backed bladelet", "Retouched blade", "Retouched bladelet", "Retouched flake", "Total")
 
 retouch_table1 <- retouch_table1 %>% 
   mutate("Quartz (%)" = paste0(round(100 * Quartz/sum(Quartz), 2), "%")) %>% 
@@ -1723,7 +1726,9 @@ retouch_table1 <- retouch_table1 %>%
          "Chalcedony (n)" = "Chalcedony") %>% 
   adorn_totals(where = "col", name = "Total") %>% 
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
-  adorn_totals(where = "row", name = "Total (RM)")
+  adorn_totals(where = "row", name = "Total", fill = "100%") %>% 
+  as_tibble() %>% 
+  slice(match(retouched_order, Typology))
 
 retouch_table2 <- table(retouch2$RetouchedPieceTypology, retouch2$RawMaterial)
 retouch_table2 <- as.data.frame.matrix(retouch_table2)
@@ -1746,7 +1751,7 @@ retouch_table2 <- retouch_table2 %>%
          "Chalcedony (n)" = "Chalcedony") %>% 
   adorn_totals(where = "col", name = "Total") %>% 
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
-  adorn_totals(where = "row", name = "Total (RM)")
+  adorn_totals(where = "row", name = "Total", fill = "100%")
 
 ```
 
@@ -1881,7 +1886,7 @@ VCdb <- as.data.frame(VCdb)
 # Convert mm to cm + create new variables
 VCdb <- VCdb %>% 
   mutate(LengthCM = Length/10) %>% 
-  mutate(WidthCM = MaxWidth/10) %>% 
+  mutate(WidthCM = MedWidth/10) %>% 
   mutate(ThicknessCM = Thickness/10) %>% 
   mutate(PlatformWidthCM = PlatformWidth/10) %>% 
   mutate(PlatformThicknessCM = PlatformThickness/10) %>% 
