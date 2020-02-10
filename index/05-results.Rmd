@@ -518,129 +518,6 @@ Criteria used for raw material analysis focused on the identification of broader
 
 The raw materials identified in layers 4E and 5 in the present study were quartz (subdivided in rock crystal, fine, medium and coarse quality), chert, greywacke, dolerite, chalcedony, all other less represented raw materials having been collapsed in a variable named “Other”.
 
-```{r rmvb, fig.cap="Raw material % per phase without chips or shatter.", echo=FALSE}
-dfRM_vb <- dataset %>% 
-  filter(Class!="Chip") %>% 
-  filter(Class!="Shatter") %>% 
-  drop_na(Phase)
-
-dfRM_vb %>%
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert","Greywacke","Dolerite","Chalcedony","Other"))) %>% 
-  ggplot(aes(Phase)) +
-  geom_bar(position =  "fill", aes(fill = RawMaterial), width = 0.5) +
-  scale_y_continuous(labels = scales::percent_format()) +
-  theme_minimal() + #type of theme
-  labs(x = "Raw Material %", y = NULL) +# change labels
-  guides(fill=guide_legend(title=NULL)) + # remove legend title
-  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FFCC00", "#FF9933", "#993300", 
-                               "#660000", "#CC6666", "#333333"))
-```
-
-```{r rmcortex, fig.cap="Cortex % by raw material, without chips and shatterfor Phase 1 and 2.", echo=FALSE}
-
-dfRM_vb1 <- dfRM_vb %>% 
-  filter(Phase=="Phase 1")
-dfRM_vb2 <- dfRM_vb %>% 
-  filter(Phase=="Phase 2")
-
-RM_vb1 <- dfRM_vb1 %>% 
-  select(RawMaterial, Cortex) %>% 
-  na.omit() %>% 
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert", "Greywacke", "Chalcedony",
-                                                      "Dolerite", "Other"))) %>% 
-  mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
-                                            "100%"))) %>% # order x axis
-  ggplot(aes(RawMaterial)) +
-  geom_bar(position =  "fill", aes(fill = Cortex)) + 
-  scale_y_continuous(labels = scales::percent_format()) + 
-  theme_minimal() + #type of theme
-  labs(x = "Phase 1", y = NULL) +# change labels
-  guides(fill=guide_legend(title=NULL)) + # remove legend title
-  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
-                               "#660000", "#CC6666", "#333333")) # set colours
-
-RM_vb2 <- dfRM_vb2 %>% 
-  select(RawMaterial, Cortex) %>% 
-  na.omit() %>% 
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert", "Greywacke", "Chalcedony",
-                                                      "Dolerite", "Other"))) %>% 
-  mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
-                                            "100%"))) %>% # order x axis
-  ggplot(aes(RawMaterial)) +
-  geom_bar(position =  "fill", aes(fill = Cortex)) + 
-  scale_y_continuous(labels = scales::percent_format()) + 
-  theme_minimal() + #type of theme
-  labs(x = "Phase 2", y = NULL) +# change labels
-  guides(fill=guide_legend(title=NULL)) + # remove legend title
-  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
-                               "#660000", "#CC6666", "#333333")) # set colours
-
-ggarrange(RM_vb1, RM_vb2,
-          widths = c(8, 8),
-          heights = c(10, 10),
-          nrow = 2,
-          common.legend = TRUE,
-          legend = "right")
-
-```
-
-```{r cortextype, echo=FALSE}
-
-dfRM3p1 <- dfRM_vb1 %>% 
-  select(RawMaterial, Cortex, CortexType, CortexLocation)
-cortextabp1 <- tabmulti(dfRM3p1, "RawMaterial", c("CortexType","CortexLocation"),
-                      ymeasures = c("freq", "freq"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Cortex attributes")
-cortextabp1 <- as.data.frame(cortextabp1)
-cortextabp1 <- cortextabp1 %>% 
-  select("Cortex attributes", "Quartz", "Chert", 
-         "Greywacke", "Overall") %>% 
- dplyr::rename("Total" = "Overall")
-
-dfRM3p2 <- dfRM_vb2 %>% 
-  select(RawMaterial, Cortex, CortexType, CortexLocation)
-cortextabp2 <- tabmulti(dfRM3p2, "RawMaterial", c("CortexType","CortexLocation"),
-                      ymeasures = c("freq", "freq"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Cortex attributes")
-cortextabp2 <- as.data.frame(cortextabp2)
-cortextabp2 <- cortextabp2 %>% 
-  select("Cortex attributes", "Quartz", "Chert", 
-         "Greywacke", "Dolerite", 
-         "Other", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-```
-
-
-```{r cortextab1, echo=FALSE}
-
-knitr::kable(cortextabp1, booktabs=TRUE, caption = "Cortex type and localization by raw material (Phase 1).") %>% 
-  column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
-
-```
-
-```{r cortextab2, echo=FALSE}
-
-knitr::kable(cortextabp2, booktabs=TRUE, caption = "Cortex type and localization by raw material (Phase 2).") %>% 
-  column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
-
-```
 
 #### Quartz
 
@@ -653,7 +530,6 @@ Despite the low frequencies represented on the table, there is a large number of
 Alike other raw materials, most quartz does not show the presence of cortex, with nearly 95% of all materials having 0% cortex. When it is present, around 72% seems to come from cobbles or pebbles. These patterns are similar for both phase 1 and phase 2.
 
 As mentioned before, quartz was divided into groups regarding size of grain or, in case of rock crystal, regarding colouration as well. Analysing the artefact class frequency through the different identified types of quartz quality confirmed a pattern which was already expected: use of fine and medium quality quartz was mainly dedicated for the production of blanks (52.7% and 32.4% for P1, and 50.9% and 29.7% for P2, respectively) and retouched products (66.7% and 26.7% for P1, and 55.9% and 44.1% for P2). Alike coarse quality quartz, no retouched pieces were identified in rock crystal, this type of quartz having a small presence in the total assemblage. 
-
 
 
 ```{r quartz_quality_setup_vb, include=FALSE}
@@ -747,7 +623,6 @@ knitr::kable(quartztab2, booktabs=TRUE, caption = "Quartz quality by class (Phas
 ```
 
 #### Chert
-
 Chert, as defined by Haldar and Tisljar (2014), is a cryptocrystalline solid-silicon rock, characterized by sharp fractures, referred to as flint whenever it is “(…) used as artifacts, weapons and tools of prehistoric man.”
 
 This raw material shows high frequencies of blanks (15.8% for P1 and 19.5% for P2) when compared to every other class, excluding chips. These latter represent more than 50% of the chert, although at much smaller quantities than in quartz, with an absolute number of 649 chips for phase 1 and 1158 for phase 2.
@@ -760,7 +635,6 @@ Regarding cortex, chert shows the biggest variability of cortex presence percent
 
 
 #### Greywacke
-
 Greywacke is a variety of sandstone, often characterized by its hardness, dark colour and poorly sorted grains of quartz and feldspar (Haldar and Tisljar 2014). At Vale Boi, this raw material is highly heterogenous, with a wide variety of grain sizes and colourations.
 
 It is best represented by debitage waste, with nearly 25% of shatter and around 70% of chips, for both phase 1 and 2, with relatively low numbers for blanks (n=44 for P1 and n=80 for P2) and cores (n=3 for P1 and 1 for P2). The same applies for the retouched pieces, with an absolute number of 3 in the total assemblage, one of which is a Vale Comprido point in phase 2.
@@ -770,9 +644,7 @@ When the chips and shatter are removed, greywacke has a representation of less t
 Similarly to the other raw materials, there is, for both phases, the predominance of debitage without cortex, although there is a certain variability in cortex presence, even if in smaller frequencies than the observed in chert. Alike quartz, most cortex was identified as cobble.
 
 
-
 #### Dolerite
-
 Dolerite is a volcanic igneous rock, occurring mostly in dykes, varying between coarse and fine textures, and often having a dark, grey or greyish-green colouration (Haldar and Tisljar 2014; Wadley and Kempson 2011; Belmiro 2018). In the Algarve, its presence is registered in two main areas  : , and near Sagres, southwest of the Algarve, as outcrops within the Messejana fault (Belmiro 2018).
 
 This raw material was first identified as jasper when excavating the levels referring to the Proto-Solutrean occupation of Vale Boi, in the terrace area (units J-L), prior to 2012 (Marreiros 2009), being characterized by a reddish-brown coloration and fine texture, with a conchoidal fracture. Despite this coloration, which is also present in jasper, a red coloured variety of chalcedony, the raw material was later identified as dolerite, and its colouration explained by the presence of a reddish patina which would have altered the original rock, by processes of iron mineral oxidation through contact with terra rossa (Belmiro 2018).
@@ -796,7 +668,6 @@ Dolerite is an unprecedented raw material in the site of Vale Boi, appearing onl
 The absence of cores, with only 1 core fragment identified in the P1 group, and low quantity of debitage waste may be explained by the transportation of finished pieces or blanks, without carrying out knapping activities with this raw material at the site. This interpretation is, however, truncated by this study’s phase analysis. As the identification of the inner aspect of dolerite was only achieved at the start of the second phase, which as referred before, consisted of the analysis of all cores and debitage products with a wider database, shatter and chips were not revisited, thus not allowing for the possible identification of possible unpatinated dolerite within those classes, which might have been mistaken for fine grained greywacke. This caveat does not, however, seem to influence the patterns regarding blank and retouched piece frequency.   
 
 #### Chalcedony
-
 Chalcedony is a type of cryptocrystalline quartz, characterized by a waxy and glossy appearance, ranging from a variety of possible colourations (Haldar and Tisljar 2014), although white is the only present variety in the assemblage. The chalcedony in levels 4E and 5 can also be characterized by the presence of inclusions, making this raw material poorly homogeneous.
 
 Results indicate it may have been mainly used for the production of blanks, which represent 37.5% of chalcedony in phase 1 and 32.1% in phase 2, with a rather small representation of retouched pieces (n=2), which include a Vale Comprido point in the P2 group. The presence of a core in phase 1 may indicate the knapping of this raw material at the site, as well as the presence of shatter and chips, although in small numbers (less than 5 each for P1 and n=15 each for P2).
@@ -804,75 +675,70 @@ Results indicate it may have been mainly used for the production of blanks, whic
 Compared to other raw materials, chalcedony has the lowest frequencies of cortex, in both phases, with almost 100% of all artefacts (except shatter and chips) having 0% cortex, which, connected to its low representativity in the assemblage (figure X) might suggest the raw material was not frequently brought to the site and knapped for obtaining blanks and tools, possibly due to its poor quality and abundance of inclusions and flaws.
 
 
-### Lapa do Picareiro
-Comparatively to Vale Boi, Lapa do Picareiro shows less raw material variability, which might be explained by the lithology of the area, already explored in other works, showing similar raw material presence patterns [@almeida2000; @zilhao1997]. As such, during the analysis, the main raw materials identified were quartz and chert, with the sporadic occurrence of other raw materials, mainly comprised of quartzite.
-
-
-```{r rmlp, fig.cap="Raw material % per phase without chips or shatter.", echo=FALSE}
-dfRM_lp <- datasetlp %>% 
+```{r rmvb, fig.cap="Raw material % per phase without chips or shatter.", echo=FALSE}
+dfRM_vb <- dataset %>% 
   filter(Class!="Chip") %>% 
   filter(Class!="Shatter") %>% 
   drop_na(Phase)
 
-dfRM_lp %>%
+dfRM_vb %>%
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert","Other"))) %>% 
+                                                      "Chert","Greywacke","Dolerite","Chalcedony","Other"))) %>% 
   ggplot(aes(Phase)) +
   geom_bar(position =  "fill", aes(fill = RawMaterial), width = 0.5) +
   scale_y_continuous(labels = scales::percent_format()) +
   theme_minimal() + #type of theme
-  labs(x = "Raw Material %", y = NULL) +# change labels
+  labs(x = "Raw Material", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9933", "#993300", 
                                "#660000", "#CC6666", "#333333"))
 ```
 
-```{r cortexlp, echo=FALSE}
+```{r rmcortex, fig.cap="Cortex % by raw material, without chips and shatterfor Phase 1 and 2.", echo=FALSE}
 
-# Raw material %
+dfRM_vb1 <- dfRM_vb %>% 
+  filter(Phase=="Phase 1")
+dfRM_vb2 <- dfRM_vb %>% 
+  filter(Phase=="Phase 2")
 
-#Raw material % without shatter
-dfRM_TG <- dfRM_lp %>% 
-  filter(Phase == "Terminal Gravettian")
-dfRM_PR <- dfRM_lp %>% 
-  filter(Phase=="Proto-Solutrean")
-
-RM_TG <- dfRM_TG %>% 
+RM_vb1 <- dfRM_vb1 %>% 
   select(RawMaterial, Cortex) %>% 
   na.omit() %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert", "Other"))) %>% 
+                                                      "Chert", "Greywacke", "Chalcedony",
+                                                      "Dolerite", "Other"))) %>% 
   mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
                                             "100%"))) %>% # order x axis
   ggplot(aes(RawMaterial)) +
   geom_bar(position =  "fill", aes(fill = Cortex)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Raw materials (Terminal Gravettian)", y = NULL) +# change labels
+  labs(x = "Phase 1", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
                                "#660000", "#CC6666", "#333333")) # set colours
 
-RM_PR <- dfRM_PR %>% 
+RM_vb2 <- dfRM_vb2 %>% 
   select(RawMaterial, Cortex) %>% 
   na.omit() %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
-                                                      "Chert","Other"))) %>% 
+                                                      "Chert", "Greywacke", "Chalcedony",
+                                                      "Dolerite", "Other"))) %>% 
   mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
                                             "100%"))) %>% # order x axis
   ggplot(aes(RawMaterial)) +
   geom_bar(position =  "fill", aes(fill = Cortex)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Raw materials (Proto-Solutrean)", y = NULL) +# change labels
+  labs(x = "Phase 2", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
                                "#660000", "#CC6666", "#333333")) # set colours
 
-ggarrange(RM_TG, RM_PR,
+ggarrange(RM_vb1, RM_vb2,
           widths = c(8, 8),
           heights = c(10, 10),
           nrow = 2,
@@ -881,50 +747,64 @@ ggarrange(RM_TG, RM_PR,
 
 ```
 
-```{r cortextypelp, echo=FALSE}
+```{r cortextype, echo=FALSE}
 
-cortex_TG <- dfRM_TG %>% 
+dfRM3p1 <- dfRM_vb1 %>% 
   select(RawMaterial, Cortex, CortexType, CortexLocation)
-cortex_tabTG <- tabmulti(cortex_TG, "RawMaterial", c("CortexType","CortexLocation"),
-                      ymeasures = c("freq", "freq"),
+
+cortextabp1 <- tabmulti(dfRM3p1, "RawMaterial", "CortexType",
                       p.include = FALSE,
                       n.headings = FALSE,
                       bold.varnames = TRUE,
                       bold.colnames = TRUE,
                       variable.colname = "Cortex attributes")
-cortex_tabTG <- as.data.frame(cortex_tabTG)
-cortex_tabTG <- cortex_tabTG %>% 
-  select("Cortex attributes", "Quartz", "Chert", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
 
-cortex_PR <- dfRM_PR %>% 
-  select(RawMaterial, Cortex, CortexType, CortexLocation)
-cortex_tabPR <- tabmulti(cortex_PR, "RawMaterial", c("CortexType","CortexLocation"),
-                      ymeasures = c("freq", "freq"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Cortex attributes")
-cortex_tabPR <- as.data.frame(cortex_tabPR)
-cortex_tabPR <- cortex_tabPR %>% 
+cortextabp1 <- as.data.frame(cortextabp1)
+
+cortextabp1 <- cortextabp1 %>% 
   select("Cortex attributes", "Quartz", "Chert", 
+         "Greywacke", "Overall") %>% 
+ dplyr::rename("Total" = "Overall")
+
+dfRM3p2 <- dfRM_vb2 %>% 
+  select(RawMaterial, Cortex, CortexType, CortexLocation)
+
+cortextabp2 <- tabmulti(dfRM3p2, "RawMaterial", "CortexType",
+                      p.include = FALSE,
+                      n.headings = FALSE,
+                      bold.varnames = TRUE,
+                      bold.colnames = TRUE,
+                      variable.colname = "Cortex attributes")
+
+cortextabp2 <- as.data.frame(cortextabp2)
+
+cortextabp2 <- cortextabp2 %>% 
+  select("Cortex attributes", "Quartz", "Chert", 
+         "Greywacke", "Dolerite", 
          "Other", "Overall") %>% 
   dplyr::rename("Total" = "Overall")
 
 ```
 
-```{r cortextabtg, echo=FALSE}
-knitr::kable(cortex_tabTG, booktabs=TRUE, caption = "Cortex type and localization by raw material (Terminal Gravettian).") %>% 
+```{r cortextab1, echo=FALSE}
+
+knitr::kable(cortextabp1, booktabs=TRUE, caption = "Cortex type and localization by raw material (Phase 1).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
+
 ```
 
-```{r cortextabpr, echo=FALSE}
-knitr::kable(cortex_tabPR, booktabs=TRUE, caption = "Cortex type and localization by raw material (Proto-Solutrean).") %>% 
+```{r cortextab2, echo=FALSE}
+
+knitr::kable(cortextabp2, booktabs=TRUE, caption = "Cortex type and localization by raw material (Phase 2).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
+
 ```
+
+
+### Lapa do Picareiro
+Comparatively to Vale Boi, Lapa do Picareiro shows less raw material variability, which might be explained by the lithology of the area, already explored in other works, showing similar raw material presence patterns [@almeida2000; @zilhao1997]. As such, during the analysis, the main raw materials identified were quartz and chert, with the sporadic occurrence of other raw materials, mainly comprised of quartzite.
 
 
 #### Quartz
@@ -1030,6 +910,7 @@ Regarding cortex, chert shows mostly products without cortex, a pattern further 
 
 Although chert was not firstly classified regarding its visible characteristics, throughout the analysis, it seemed apparent there were several groups with identical colours and grains, which might have belonged to the same nodule. As such, these groups were individualized posteriorly, adding a variable to the database called “ChertType” which included codes for each identified type of chert, which can be seen on table X.
 
+
 ```{r chert_setup, echo=FALSE}
 ## RM table
 RMtable <- tibble("Chert Type" = c("RM2", "RM3", "RM4", "RM5", "RM6", "RM7", "RM8"),
@@ -1058,9 +939,11 @@ knitr::kable(RMtable, booktabs=TRUE, caption = "Identified chert types. Descript
   column_spec(2, width = "10cm")
 ```
 
+
 After its identification, it was attempted to refit the pieces in each group, but due to the high level of modification and edge damage of each piece, this was not possible. However, using the spatial data, each group was plotted in order to understand any spatial restriction or relationship that might help identify a specific knapping behaviour (fig X).
 
 Although most groups seem to show no particular spatial restriction or pattern when plotted, RM7 seems to have a good concentration of materials, starting at depth 567 m, which corresponds to the second spit of what is considered the Proto-Solutrean occupation, matching also with the highest quantity of chert in the plot.
+
 
 ```{r chertspatial, fig.cap="Types of chert spatial dispersion", echo=FALSE}
 spatialRM %>%
@@ -1073,6 +956,123 @@ spatialRM %>%
                                 "#FFCC00", "#CC6666", "#FF99FF", "#333333", "#990099","#FFFFFF"))
 ```
 
+
+```{r rmlp, fig.cap="Raw material % per phase without chips or shatter.", echo=FALSE}
+dfRM_lp <- datasetlp %>% 
+  filter(Class!="Chip") %>% 
+  filter(Class!="Shatter") %>% 
+  drop_na(Phase)
+
+dfRM_lp %>%
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
+                                                      "Chert","Other"))) %>% 
+  ggplot(aes(Phase)) +
+  geom_bar(position =  "fill", aes(fill = RawMaterial), width = 0.5) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  theme_minimal() + #type of theme
+  labs(x = "Raw Material %", y = NULL) +# change labels
+  guides(fill=guide_legend(title=NULL)) + # remove legend title
+  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
+  scale_fill_manual(values = c("#FFCC00", "#FF9933", "#993300", 
+                               "#660000", "#CC6666", "#333333"))
+```
+
+```{r cortexlp, echo=FALSE}
+
+# Raw material %
+
+#Raw material % without shatter
+dfRM_TG <- dfRM_lp %>% 
+  filter(Phase == "Terminal Gravettian")
+dfRM_PR <- dfRM_lp %>% 
+  filter(Phase=="Proto-Solutrean")
+
+RM_TG <- dfRM_TG %>% 
+  select(RawMaterial, Cortex) %>% 
+  na.omit() %>% 
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
+                                                      "Chert", "Other"))) %>% 
+  mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
+                                            "100%"))) %>% # order x axis
+  ggplot(aes(RawMaterial)) +
+  geom_bar(position =  "fill", aes(fill = Cortex)) + 
+  scale_y_continuous(labels = scales::percent_format()) + 
+  theme_minimal() + #type of theme
+  labs(x = "Raw materials (Terminal Gravettian)", y = NULL) +# change labels
+  guides(fill=guide_legend(title=NULL)) + # remove legend title
+  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
+  scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
+                               "#660000", "#CC6666", "#333333")) # set colours
+
+RM_PR <- dfRM_PR %>% 
+  select(RawMaterial, Cortex) %>% 
+  na.omit() %>% 
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
+                                                      "Chert","Other"))) %>% 
+  mutate(Cortex = factor(Cortex, levels = c("0%", "1-30%", "31-60%", "61-99%",
+                                            "100%"))) %>% # order x axis
+  ggplot(aes(RawMaterial)) +
+  geom_bar(position =  "fill", aes(fill = Cortex)) + 
+  scale_y_continuous(labels = scales::percent_format()) + 
+  theme_minimal() + #type of theme
+  labs(x = "Raw materials (Proto-Solutrean)", y = NULL) +# change labels
+  guides(fill=guide_legend(title=NULL)) + # remove legend title
+  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
+  scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
+                               "#660000", "#CC6666", "#333333")) # set colours
+
+ggarrange(RM_TG, RM_PR,
+          widths = c(8, 8),
+          heights = c(10, 10),
+          nrow = 2,
+          common.legend = TRUE,
+          legend = "right")
+
+```
+
+```{r cortextypelp, echo=FALSE}
+
+cortex_TG <- dfRM_TG %>% 
+  select(RawMaterial, Cortex, CortexType, CortexLocation)
+cortex_tabTG <- tabmulti(cortex_TG, "RawMaterial", "CortexType",
+                      p.include = FALSE,
+                      n.headings = FALSE,
+                      bold.varnames = TRUE,
+                      bold.colnames = TRUE,
+                      variable.colname = "Cortex attributes")
+cortex_tabTG <- as.data.frame(cortex_tabTG)
+cortex_tabTG <- cortex_tabTG %>% 
+  select("Cortex attributes", "Quartz", "Chert", "Overall") %>% 
+  dplyr::rename("Total" = "Overall")
+
+cortex_PR <- dfRM_PR %>% 
+  select(RawMaterial, Cortex, CortexType, CortexLocation)
+cortex_tabPR <- tabmulti(cortex_PR, "RawMaterial", c("CortexType","CortexLocation"),
+                      ymeasures = c("freq", "freq"),
+                      p.include = FALSE,
+                      n.headings = FALSE,
+                      bold.varnames = TRUE,
+                      bold.colnames = TRUE,
+                      variable.colname = "Cortex attributes")
+cortex_tabPR <- as.data.frame(cortex_tabPR)
+cortex_tabPR <- cortex_tabPR %>% 
+  select("Cortex attributes", "Quartz", "Chert", 
+         "Other", "Overall") %>% 
+  dplyr::rename("Total" = "Overall")
+
+```
+
+```{r cortextabtg, echo=FALSE}
+knitr::kable(cortex_tabTG, booktabs=TRUE, caption = "Cortex type and localization by raw material (Terminal Gravettian).") %>% 
+  column_spec(1, bold = T) %>% 
+  kable_styling(latex_options = "scale_down")
+```
+
+```{r cortextabpr, echo=FALSE}
+knitr::kable(cortex_tabPR, booktabs=TRUE, caption = "Cortex type and localization by raw material (Proto-Solutrean).") %>% 
+  column_spec(1, bold = T) %>% 
+  kable_styling(latex_options = "scale_down")
+```
 
 ## Technological analysis
 
@@ -1107,28 +1107,31 @@ coreB <- dataset %>%
 core_elongation <- coreB %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert","Chalcedony", 
                                                       "Greywacke", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=CoreElongation, fill = Phase)) + 
-  geom_boxplot() +
+  ggplot(aes(x=RawMaterial, y=CoreElongation, colour = Phase)) + 
+  geom_boxplot(outlier.shape = NA) +
   theme_minimal() + #type of theme
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Elongation") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000"))
+  scale_color_manual(values =c("#FF6666", "#330000")) +
+  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
+
 
 core_flattening <- coreB %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert","Chalcedony", 
                                                       "Greywacke", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=CoreFlattening, fill = Phase)) + 
-  geom_boxplot() +
+  ggplot(aes(x=RawMaterial, y=CoreFlattening, colour = Phase)) + 
+  geom_boxplot(outlier.shape = NA) +
   theme_minimal() + #type of theme
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Flattening") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000"))
+  scale_color_manual(values =c("#FF6666", "#330000")) +
+  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 ggarrange(core_elongation, core_flattening,
           widths = c(8, 8),
@@ -1156,28 +1159,30 @@ coreB_LP <- datasetlp %>%
 
 core_elongation_LP <- coreB_LP %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert"))) %>%
-  ggplot(aes(x=RawMaterial, y=CoreElongation, fill = Phase)) + 
-  geom_boxplot() +
+  ggplot(aes(x=RawMaterial, y=CoreElongation, colour = Phase)) + 
+  geom_boxplot(outlier.shape = NA) +
   theme_minimal() + #type of theme
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Elongation") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000"))
+  scale_color_manual(values =c("#FF6666", "#330000")) +
+  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 core_flattening_LP <- coreB_LP %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert","Chalcedony", 
                                                       "Greywacke", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=CoreFlattening, fill = Phase)) + 
-  geom_boxplot() +
+  ggplot(aes(x=RawMaterial, y=CoreFlattening, colour = Phase)) + 
+  geom_boxplot(outlier.shape = NA) +
   theme_minimal() + #type of theme
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Flattening") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000"))
+  scale_color_manual(values =c("#FF6666", "#330000")) +
+  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
 ggarrange(core_elongation_LP, core_flattening_LP,
           widths = c(8, 8),
@@ -1234,7 +1239,7 @@ flakeB <- dataset %>%
 flake_elongation <- flakeB %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert", 
                                                       "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=FlakeElongation, fill = Phase)) + 
+  ggplot(aes(x=RawMaterial, y=FlakeElongation, colour = Phase)) + 
   geom_boxplot() +
   theme_minimal() + #type of theme
   theme(legend.title = element_blank()) +
@@ -1242,11 +1247,12 @@ flake_elongation <- flakeB %>%
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000"))
+  scale_color_manual(values =c("#FF6666", "#330000")) 
+#  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.3))
 
 flake_flattening <- flakeB %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert",   "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=FlakeFlattening, fill = Phase)) + 
+  ggplot(aes(x=RawMaterial, y=FlakeFlattening, colour = Phase)) + 
   geom_boxplot() +
   theme_minimal() + #type of theme
   theme(legend.title = element_blank()) +
@@ -1254,7 +1260,8 @@ flake_flattening <- flakeB %>%
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#FF9900", 
                                "#660000", "#CC6666", "#333333"))+
-  scale_color_manual(values =c("#FF6666", "#330000"))
+  scale_color_manual(values =c("#FF6666", "#330000")) 
+#  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.3))
 
 ggarrange(flake_elongation, flake_flattening,
           widths = c(8, 8),
@@ -1280,7 +1287,6 @@ As for flattening, quartz shows very low values for flake flattening, compared t
 
 
 #### Lapa do Picareiro
-
 There are a total of plotted 122 Flakes, 46 attributed to the Terminal Gravettian group, more than 50% being in quartz, and 67 attributed to the Proto-Solutrean group, its vast majority in chert. On both groups, attributes are very similar.
 
 On the Terminal Gravettian phase, for quartz, there seems to be the predominance of parallel shapes (36.8%), followed by convergent ones (26.3%). Chert, however, shows higher percentages for irregular (28.6%) and divergent (42.9%) shapes. Cross sections are mostly triangular for all raw materials (over 40%), although chert also shows high frequencies of trapezoidal cross sections (42.9%). Profiles are, for all raw materials, mostly straight (57.9% on quartz and 85.7% on chert) and terminations show relevant raw material differences, with quartz having bigger frequencies of feathered and hinged terminations (36.8% both) and chert having a frequency of 42.9% on pointed terminations. For all raw materials, there is the predominance of unidirectional dorsal patterns, high frequencies over 85%. Dorsal scars show higher frequencies for 2 and 3 scars on quartz (36.8% and 42.1% respectively), while other raw materials show higher frequencies for 3 dorsal scars only (42.9% on chert).
@@ -1939,21 +1945,34 @@ VCplatform_all <- union(VCplatform,VC_platform)
 ```
 
 ```{r vca, fig.cap="Blank width and platform area of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Casal do Felipe, Vale de Porcos and Vale Comprido - Encosta (Zilhão and Aubry 1995).", fig.scap="Blank width and platform area of Vale Comprido points and blanks.", echo=FALSE}
+
 VC_widthxarea_all %>% 
-  ggplot(aes(x=WidthCM, y=PlatformArea, color=Group)) +
-  geom_point()
+  ggplot(aes(x=WidthCM, y=PlatformArea)) +
+  geom_point() +
+  geom_text(aes(label=Group),hjust=1.1, vjust=0.2) +
+  labs(x = "Width (cm)", y = "Platform Area (Width x Thickness) (cm)")
+
+
 ```
 
 ```{r vcb, fig.cap="Blank width and platform convexity of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Casal do Felipe, Vale de Porcos and Vale Comprido - Encosta (Zilhão and Aubry 1995)", fig.scap="Blank width and platform convexity of Vale Comprido points and blanks.", echo=FALSE}
+
 VC_widthxconvexity_all %>% 
-  ggplot(aes(x=WidthCM, y=PlatformConvexityCM, color=Group)) +
-  geom_point()
+  ggplot(aes(x=WidthCM, y=PlatformConvexityCM)) +
+  geom_point() +
+  geom_text(aes(label=Group),hjust=1.1, vjust=0.2) +
+  labs(x = "Width (cm)", y = "Platform Flattening (Width/Thickness) (cm)")
+  
+  
 ```
 
 ```{r vcc, fig.cap="Platform width and thickness of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Vale Comprido - Encosta (Zilhão and Aubry 1995).", fig.scap="Platform width and thickness of Vale Comprido points and blanks.", echo=FALSE}
+
 VCplatform_all %>% 
-ggplot(aes(x=PlatformWidthCM, y=PlatformThicknessCM, shape=Group, color=Group)) +
-  geom_point()
+ggplot(aes(x=PlatformWidthCM, y=PlatformThicknessCM,color=Group)) +
+  geom_point(size = 1.5) +
+  labs(x = "Platform Width (cm)", y = "Platform Thickness (cm)")
+
 ```
 
 
