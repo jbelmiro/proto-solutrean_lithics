@@ -112,7 +112,9 @@ datasetlp <- datasetlp %>%
 ```
 
 
-## Assemblage - Vale Boi
+## Assemblages
+
+### Vale Boi
 As mentioned in previous chapters, the lithic assemblage analysed in this study comes from layers 4E and 5 in the Terrace area, which correspond to the Proto-Solutrean human occupations. The present study only considered materials from units H, I and J, which resulted from the 2012 onwards excavations.
 
 Artefact distribution throughout layers 4E and 5 confirms an interesting pattern already evidenced in previous works (e.g. Belmiro 2018). As seen on figure X, the distribution of artefacts (excluding chips), shows a concentration of materials in the first 6 spits (which correspond to the first 3 spits of layer 4E and first 2 spits of layer 5). This concentration gradually diminishes throughout level 5 down to the base of the layer.
@@ -399,7 +401,7 @@ knitr::kable(head(general_table2[1:15], 12), booktabs=TRUE,caption="Technologica
   kableExtra::landscape()
 ```
 
-## Assemblage - Lapa do Picareiro
+### Lapa do Picareiro
 As previously discussed, the present assemblage, corresponding to layers U and T, seems to originate from two different moments of occupation of the cave, which were identified based on spatial distribution and raw material patterns, also having different dates for each of the moments. These patterns have been identified as Terminal Gravettian and Proto-Solutrean phases within the Proto-Solutrean transition model. 
 
 As such, and given the patterns, although the assemblage was analysed as a whole, for the statistic descriptive and multivariate analysis, the assemblage was separated into two groups: Terminal Gravettian (TG), which included all artefacts with depths inferior to 566.9 m or from levels U or T8 to T6 (Haws et al. 2019); Proto-Solutrean (PR), including all artefacts with depths equal or superior to 566.9 m of depth, or from the top 5 spits of level T. Any other artefact in the assemblage, which did not have a depth value or level was not considered in these results, since it lacked the needed information to contextualize its technological attributes.
@@ -793,8 +795,6 @@ Dolerite is an unprecedented raw material in the site of Vale Boi, appearing onl
 
 The absence of cores, with only 1 core fragment identified in the P1 group, and low quantity of debitage waste may be explained by the transportation of finished pieces or blanks, without carrying out knapping activities with this raw material at the site. This interpretation is, however, truncated by this study’s phase analysis. As the identification of the inner aspect of dolerite was only achieved at the start of the second phase, which as referred before, consisted of the analysis of all cores and debitage products with a wider database, shatter and chips were not revisited, thus not allowing for the possible identification of possible unpatinated dolerite within those classes, which might have been mistaken for fine grained greywacke. This caveat does not, however, seem to influence the patterns regarding blank and retouched piece frequency.   
 
-
-
 #### Chalcedony
 
 Chalcedony is a type of cryptocrystalline quartz, characterized by a waxy and glossy appearance, ranging from a variety of possible colourations (Haldar and Tisljar 2014), although white is the only present variety in the assemblage. The chalcedony in levels 4E and 5 can also be characterized by the presence of inclusions, making this raw material poorly homogeneous.
@@ -802,6 +802,7 @@ Chalcedony is a type of cryptocrystalline quartz, characterized by a waxy and gl
 Results indicate it may have been mainly used for the production of blanks, which represent 37.5% of chalcedony in phase 1 and 32.1% in phase 2, with a rather small representation of retouched pieces (n=2), which include a Vale Comprido point in the P2 group. The presence of a core in phase 1 may indicate the knapping of this raw material at the site, as well as the presence of shatter and chips, although in small numbers (less than 5 each for P1 and n=15 each for P2).
 
 Compared to other raw materials, chalcedony has the lowest frequencies of cortex, in both phases, with almost 100% of all artefacts (except shatter and chips) having 0% cortex, which, connected to its low representativity in the assemblage (figure X) might suggest the raw material was not frequently brought to the site and knapped for obtaining blanks and tools, possibly due to its poor quality and abundance of inclusions and flaws.
+
 
 ### Lapa do Picareiro
 Comparatively to Vale Boi, Lapa do Picareiro shows less raw material variability, which might be explained by the lithology of the area, already explored in other works, showing similar raw material presence patterns [@almeida2000; @zilhao1997]. As such, during the analysis, the main raw materials identified were quartz and chert, with the sporadic occurrence of other raw materials, mainly comprised of quartzite.
@@ -925,8 +926,8 @@ knitr::kable(cortex_tabPR, booktabs=TRUE, caption = "Cortex type and localizatio
   kable_styling(latex_options = "scale_down")
 ```
 
-#### Quartz
 
+#### Quartz
 The number of chips in quartz, as seen on table X, is extremely high, representing nearly 60% of this raw material in both groups, although the other debitage waste class shows much smaller numbers (n=4 for TG and n=3 for PR). Comparatively, blanks are the second most present class in quartz, with a frequency of 20% (n=30) for the Terminal Gravettian group, closely followed by blank fragments, which represent 15.2%, a relatively high fragmentation percentage compared to the total number of complete pieces. For the PR group, blanks and blank fragments show exactly the same frequencies, represing within quartz pieces 19%. Although in small numbers, quartz shows the highest number of cores (n=4, 2 in each group) from all raw materials, but a number of retouched pieces much smaller than the one in chert (n=1).
 
 Despite the large quantity of chips, quartz is still well represented in its other classes, as seen in figure X, although in variable degrees, depending on the stage. While during the Terminal Gravettian stage quartz (without chips) has a representativity of nearly 60% of the total assemblage, during the Proto-Solutrean stage this frequency drops to around 37%.
@@ -1021,8 +1022,8 @@ knitr::kable(quartztab2lp, booktabs=TRUE, caption = "Quartz quality by class (Pr
 
 ```
 
-#### Chert
 
+#### Chert
 This raw material is characterized by a high frequency of blanks (53.3% for TG and 63% for PR), with only a cumulative percentage of 24.4% and 15% for debitage waste, the Terminal Gravettian and Proto-Solutrean groups respectively, which might be related to chert’s breakage patterns, producing less waste than quartz. Likewise, blank fragments are also poorly represented comparatively to quartz, with an absolute count of 4 for TG and 9 for PR, representing only 8.8% and 12.3% of the chert. Although there are few cores in chert (n=2), retouched pieces have a relatively high frequency within the raw material (11.1 on TG and 6.85% on PR), and as seen above, most of the retouched piece total, thus hinting this raw material might have been used preferentially for the manufacture of formal tools.
 
 Regarding cortex, chert shows mostly products without cortex, a pattern further present in the Proto-Solutrean group. Whenever cortex is present however, its source was indeterminate, although a few pieces allowed to track its source to outcrops.
@@ -1137,8 +1138,8 @@ ggarrange(core_elongation, core_flattening,
           legend = "right")
 ```
 
-#### Lapa do Picareiro
 
+#### Lapa do Picareiro
 There are a total of 7 cores in the assemblage, 2 in the Terminal Gravettian group and 5 in the Proto-Solutrean, of which 2 are in chert and 2 in quartz.
 
 Cores show a variability of types, ranging between single platform, prismatic and pyramidal for the Proto-Solutrean group. These were mainly used to remove flakes, although on the Proto-Solutrean group there are also frequent removals of mixed types of blanks. Platforms tend to be plain, although there is also the presence of dihedral platforms. Core faces seem to be in greater numbers on chert, for the Proto-Solutrean group, with higher frequencies on 4 faces, while quartz varies between 1 face and 3.
@@ -1186,8 +1187,9 @@ ggarrange(core_elongation_LP, core_flattening_LP,
           legend = "right")
 ```
 
+
 ### Core preparation products
-#### Vale Boi
+
 Core preparation products represent a small fraction of Vale Boi's total assemblage, with 1 in phase 1 and 6 in phase 2.
 
 Core preparation products are of two identified types, core fronts and core tablets (figure X), the individual of phase 1 being a core tablet in quartz. For phase 2, however, most core preparation products are in chert (n=5) with one identified individual in quartz.
@@ -1213,9 +1215,10 @@ CP_table %>%
                                "#660000", "#CC6666", "#333333"))
 ```
 
-### Flakes
-#### Vale Boi
 
+### Flakes
+
+#### Vale Boi
 Flakes are composed of a total of 1474 pieces, 509 of those belonging to Phase 1 group, and 965 in Phase 2 group, a growth in number (not positively correlated to sediment weight) already expected by the general intensity of occupation and material density observed in the latter phase . Although there are generally more Flakes in quartz, it is obvious the difference in ratios between these two raw materials, when comparing Phase 1 to Phase 2 results.
 
 ```{r flakeboxplot, fig.cap="Flake elongation and flattening by phase and raw material.", echo=FALSE}
@@ -1425,9 +1428,10 @@ ggarrange(flake_elongation_LP, flake_flattening_LP,
 
 Regarding elongation (figure X), values between quartz and chert and even between groups seem to be fairly similar, all with elongation ratios which seem skewed above, thus showing less elongation variability above the 1.5 threshold. Flake flattening, however, shows more apparent differences between raw materials, with quartz showing lower flattening ratios than chert. Within chert, however, there also seems to be a difference in general flattening variability and interquartil skewness, showing a larger number of flakes with similar flattening values (at around 4).
 
-### Elongated blanks
-#### Vale Boi
 
+### Elongated blanks
+
+#### Vale Boi
 There are a total of 219 elongated products in the assemblage (fig X), 82 of them being inserted in phase 1, while 137 are inserted in phase 2. Comparatively to blanks, there seems to be a larger number of chert pieces (n=106), this number only changing in phase 1, where quartz elongated blank numbers (n=44) supersede chert ones (n=31).
 
 For both phases, however, elongated blank attributes are relatively similar, following the same general patterns.
@@ -1557,8 +1561,7 @@ ggMarginal(disp_2, type = "density", groupColour = TRUE, groupFill = TRUE)
 ```
 
 
-####Lapa do Picareiro
-
+#### Lapa do Picareiro
 There are a total of plotted 47 elongated blanks, 27 of which belong to the Terminal Gravettian group, more than 50% on chert, and 20 to the Proto-Solutrean group, also more than 50% on chert.
 
 Technological attributes follow closely those already described in blanks, also showing little variation between the Terminal Gravettian and the Proto-Solutrean.
@@ -1572,6 +1575,7 @@ When plotting width and length for elongated blanks, for chert and quartz, there
 For the Proto-Solutrean there is also a group of smaller blanks, with width ranging the 3-10 mm width, although length values vary a lot more, going between the 5-30 mm, where  the higher values are made up mostly of chert. Even so, this group may be characterized through the traditional classification of bladelet. The second group is made up entirely of chert, although it has less blanks and is very disperse in terms of width, which is higher than 15 mm, and length, higher than 45 mm, also being characterized as blades. Once again, for chert, density curves seem to show a unimodal curve.
 
 These patterns may represent differing production strategies for specific elongated blank sizes and ratios, although, given the altitude of the site, it might simply reflect the truncated reduction sequences present at the site, thus only showing the presence of two wide groups of small elongated blanks and larger elongated blanks. without the intermediate group which wasn't transported into the site.
+
 
 ```{r elongated_attribute_setup, echo=FALSE}
 
@@ -1677,8 +1681,7 @@ ggMarginal(disp_2_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
 
 ```
 
-### Retouched pieces
-#### Vale Boi
+### Retouched tools
 
 ```{r retouched_setup, echo=FALSE}
 
@@ -1741,6 +1744,8 @@ retouch_table2 <- retouch_table2 %>%
 
 ```
 
+
+#### Vale Boi
 As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the phase 1 group (fig X), while 112 in the phase 2 group (fig X).
 
 Phase 1 is comprised of several typologies, from which a few stand out by their high numbers, such as retouched flakes, corresponding to 27% of total retouched pieces, mostly in chert, splintered pieces, with 25.4% of representativity, followed by notches with a frequency of 12.7%, both occurring in similar numbers in chert (n=6 and n=4 respectively) and quartz (n=8 and n=3).
@@ -1770,7 +1775,6 @@ knitr::kable(retouch_table2, booktabs=TRUE, caption = "Phase 2 Retouched piece t
 
 ```
 
-#### Lapa do Picareiro
 
 ```{r LP_retouched_setup, echo=FALSE}
 
@@ -1820,6 +1824,8 @@ retouch_table2lp <- retouch_table2lp %>%
 
 ```
 
+
+#### Lapa do Picareiro
 The total number of retouched pieces which have spatial information, allowing the identification of phase is 11, of which 6 belong to the Terminal Gravettian group and 5 on the Proto-Solutrean.
 
 As seen on table X, the Terminal Gravettian shows 4 types of retouched piece typologies, the most present being the retouched flakes (of varied elongation ratios, n=3) all in chert, where the only quartz retouched piece is a splintered piece. From the retouched flakes, one shows similarities with the Vale Comprido point, although the platform/dorsal retouched as to thin the platform is questionable. 
@@ -1841,6 +1847,7 @@ knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Phase 2 Retouched piece
 ```
 
 The analysis of retouched pieces at Lapa do Picareiro is, however, possibly truncated by the edge damage of the assemblage. In all levels, many pieces, both quartz and chert, although in wider quantities in the latter, show variable degrees of edge damage, from light to extensive. Although some edges were obviously damaged by, either trampling or impact by blocks, since there was no homogeneity in its distribution or directionality, some other edges show dubious marks. As such, the present study opted for a more reserved approach regarding the classification of retouch, understanding the caveats of the decision. Thus, retouched pieces, specially the retouched flakes, were only identified as such whenever they displayed homogeneous, localized and unidirectional retouch, which could not be mistaken for edge damage.
+
 
 ### Vale Comprido technology
 
@@ -1948,6 +1955,8 @@ VCplatform_all %>%
 ggplot(aes(x=PlatformWidthCM, y=PlatformThicknessCM, shape=Group, color=Group)) +
   geom_point()
 ```
+
+
 
 ### Multivariate analysis
 #### Vale Boi
