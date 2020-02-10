@@ -1,0 +1,34 @@
+﻿Domain,Variables,Calculation formulas
+Core morphology,,
+,Weight,
+,Core elongation,Length/Maxwidth
+,Core flattening,MaxWidth/Thickness
+,Core convergence,MedWidth/DistWidth
+Core use,,
+,Main face platform angle,
+,Main face scar length,
+,Scar to core length ratio,MainFaceScarLength/Length
+,Scar convergence,MainFaceScarMedWidth/MainFaceScarDistWidth
+,Weight,
+,Core convergence,MedWidth/DistWidth
+Blank platform maintenance,,
+,Platform flattening (log),PlatformWidth/PlatformThickness
+,Elongation (log),Length/MaxWidth
+,Platform type,
+Blank dorsal surface convexity,,
+,Elongation (log),Length/MaxWidth
+,Blank shape,
+,Profile,
+,Cross section,
+,Vertical convexity (log),MaxWidth/Thickness
+Core exploitation,,
+,Scar pattern,
+,Cortex,
+,Elongation (log),Length/MaxWidth
+,Scar count,
+Elongated blanks attributes,,
+,Scar pattern,
+,Blank shape,
+,Blank tip,
+,Profile,
+,Scar count,

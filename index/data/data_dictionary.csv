@@ -1,0 +1,47 @@
+﻿Variable,Measurement units,Allowed values,Description
+ID,Numeric,-,ID number assigned to the piece.
+Raw material,-,"Chert, Quartz, Greywacke, Chalcedony, Schist, Silcrete, Dolerite, Other.",Type of raw material of the piece. 
+Quartz quality,-,"Coarse, Medium, Fine, Rock crystal.",Type of grain and quality of quartz. Coarse quality: large and visible grains (>0.5 mm). Medium quality: small visible grains. Fine quality: absence of visible grains. Rock crystal: absence of visible grains and transparent coloration. 
+Class,-,"Blank, Blank fragment, Retouched piece, Retouched piece fragment, Core, Core fragment, Core preparation product, Core preparation product fragment, Burin spall, Thinn flake, Thinn flake fragment, Anvil, Hammer, Manuport, Shatter, Chip.","Technological class of the piece. According to Andrefsky (1998), Bicho (2011), Debenath and Dibble (1994), Inizan et al. (1999)."
+Core preparation product,-,"Crested piece, Core trim, Core tablet, Core front.",Type of core preparation product. According to Inizan et al. (1999).
+Retouched piece blank,-,"Flake, Elonged blank, Shatter, Other, Indeterminate.",Type of retouched piece blank. According to Inizan et al (1999).
+Piece completeness,-,"Proximal, Distal, Other.",Part of the piece that is present. Proximal refers to the part which has a bulb and a striking platform; distal is the end of the piece; other refers to mesial.
+Cortex,-,"0%, 1-30%, 31-60%, 61-99%, 100%.","Percentage of cortex presence in the dorsal face of the piece. According to Andrefsky (2005, pp. 104-105) and Bicho (2011)."
+Cortex location,-,"Proximal, Distal, Mesial, Left lateral, Right lateral, Proximal left lateral, Proximal right lateral, Distal left lateral, Distal right lateral, Mesial left lateral, Mesial right lateral.",Location of cortex in the dorsal surface of the piece. 
+Cortex type,-,"Cobble, Outcrop, Indeterminate.",Type of cortex present on the piece. Cobble refers to rounded clasts of rock; Outcrop is an exposed bedrock or superficial deposits. 
+Platform type,-,"Plain, Dihedral, Faceted, Punctiform, Linear, Winged, Removed, Crushed, Other.","Type of platform. According to Inizan et al (1999, pp. 136)."
+Platform cortex,-,"No, Yes complete, Yes partial.",Presence of cortex on the piece’s platform.
+Lipping,-,"No, Yes.","Presence of a lip on the piece. According to Inizan et al (1999, pp. 144)."
+Blank shape,-,"Parallel, Convergent, Divergent, Biconvex, Irregular, Circular, Dejete, Other.","Type of blank shape. According to Almeida (2000, pp. 107)."
+Cross section,-,"Triangular, Trapezoidal, Quadrangular, Irregular, Lenticular, Other.","Type of cross section of the piece. According to Scerri et al (2015, pp. 19)."
+Blank tip,-,"Feather, Hinge, Step, Overshoot, Pointed.","Type of blank tip. According to Almeida (2000, pp. 106)."
+Profile,-,"Straight, Curved, Twisted, Irregular.","Type of blank profile. According to Almeida (2000, pp. 106)."
+Scar count,Numeric,,"Count of dorsal flake scars over 5 mm. According to Andrefsky (2005, pp. 106)."
+Scar pattern,-,"Unidirectional, Bidirectional, Crossed, Sub-centripedal, Centripedal, Other.","Type of scar pattern on the dorsal surface of the piece. According to Scerri et al (2015, pp. 19)."
+Thickness,In mm,-,Measurement of piece maximum thickness. 
+Max width,In mm,-,Measurement of piece maximum width.
+Proximal width,In mm,-,Measurement of piece proximal width.
+Mesial width,In mm,-,Measurement of piece mesial width.
+Distal width,In mm,-,Measurement of piece distal width.
+Length,In mm,-,Measurement of piece central length according to the technological axis.
+Platform thickness,In mm,-,Measurement of platform central thickness.
+Platform width,In mm,-,Measurement of platform central width.
+Weight,In grams,-,Weight measurement of piece.
+Exterior platform angle,In degrees,-,Measurement of the angle between the platform and the dorsal surface of the piece. According to Dibble (1997). 
+Core type,-,"Single platform, Single prismatic, Single pyramidal, Two single platforms, Opposed, Opposed twisted, Other opposed, Orthogonal, Inform, Bipolar, Globular, Centripedal, Discoidal, Levallois, Chopper, Tested, Other.","Type of core. According to Zilhao (1997, pp. 17)."
+Core Cross Section,-,"Circular, Triangular, Quadrangular, Irregular.",Type of core cross section.
+Number of core faces,-,"One, Two, Three, Four, More than four.",Count of core debitage surfaces.
+Core platform,-,"Plain, Dihedral, Faceted, Cortical, Crushed, Other.","Type of core platform. According to Inizan et al (1999, pp. 136)."
+Main face cortex,-,"0%, 1-30%, 31-60%, 61-99%.",Percentage of cortex of the core’s main face. Main face refers to the debitage surface with most scars.
+Main face scar count,Numeric,-,Count of scars over 5 mm in the main face of the core.
+Main face scar direction,-,"Unidirectional, Bidirectional opposed, Bidirectional alternate, Crossed, Sub-centripedal, Centripedal, Other.","Direction of scars in the main face of the core. According to Scerri et al (2015, pp. 19)."
+Main face aris orientation,-,"Parallel, Convergent, Indeterminate.",Orientation of main face aris.
+Main face scar length,In mm,-,"Central length measurement of the last scar, over 5 mm, in the main face of the core."
+Main face scar width,In mm,-,"Maximum width measurement of the last scar, over 5 mm, in the main face of the core."
+Main face platform angle,In degrees,-,Measurement of the angle between the platform and the main face of the core.
+Main face core use,-,"Flakes, Blades, Bladelets, Points, Mixed.",Type of products extracted from the main face of the core. Distinction of blade and bladelet according to Tixier (1963).
+Alteration,-,"None, Patinated, Concretion, Fire, Mix.",Type of alteration of the piece. Patina refers to a layer covering the surface of a piece; concretion is a mass of mineral formed around a nucleus.
+Fire,-,"Burned, Rubefact, Heat treatment.","Type of fire alteration to the piece. According to Inizan et al (1999, pp. 24)."
+Retouched piece typology,-,-,"Retouched piece typology as defined by Sonneville-Bordes and Perrot (1956), adapted by Zilhao (1997) for the Portuguese Estremadura."
+Chip quantity,Numeric,-,"Count of chips. According to Andrefsky (2005, pp. 12)."
+Other notes,-,-,
