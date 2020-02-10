@@ -273,21 +273,21 @@ ggsave(path = "figure", filename = "rm_cubic_meter.png", plot = rm_cubic_meter, 
 knitr::include_graphics("figure/rm_cubic_meter.png")
 ```
 
-As such, and given these chronological, density and raw material preference differences, it was decided that the assemblage would be analysed through its division in two analytical units, to better understand any possible technological differences: Phase 1, including all artefacts with Z values under 24.1; Phase 2, including all artefacts with Z values of 24.1 and above. The value 24.1  was chosen for two reasons: 1) it is where the density of lithic materials seems to start; 2) its where the frequencies of quartz and chert start to shift beyond the already observed through the stratigraphic record of layers 5.
+As such, and given these chronological, density and raw material preference differences, it was decided that the assemblage would be analysed through its division in two analytical units, to better understand any possible technological differences: Lower 5, including all artefacts with Z values under 24.1; Upper 5/4E, including all artefacts with Z values of 24.1 and above. The value 24.1  was chosen for two reasons: 1) it is where the density of lithic materials seems to start; 2) its where the frequencies of quartz and chert start to shift beyond the already observed through the stratigraphic record of layers 5.
 
-A total of 26711 pieces were analysed, 11094 from Phase 1 group (P1) and 15609 from phase 2 (P2), although most of these were chips (70.62% from P1 and 65.8% from P2), followed by shatters, which make up c. 21.4% and c. 24.5% of the groups respectively.
+A total of 26711 pieces were analysed, 11094 from Lower 5 group and 15609 from Upper 5/4E, although most of these were chips (70.62% from Lower 5 and 65.8% from Upper 5/4E), followed by shatters, which make up c. 21.4% and c. 24.5% of the groups respectively.
 
-For P1, cores and debitage products represent a cumulative frequency of 7.95%, whereas debitage debris represents 92% of the total assemblage. For P2 debitage products represent nearly 10% of the group assemblage, while debris represent 90%. These extremely high debris numbers can be mostly attributed to quartz, which may be explained not only by its knapping on the site, but also by its breakage patterns (especially when coarse), which might produce more waste than other raw materials.
+For Lower 5, cores and debitage products represent a cumulative frequency of 7.95%, whereas debitage debris represents 92% of the total assemblage. For Upper 5/4E debitage products represent nearly 10% of the group assemblage, while debris represent 90%. These extremely high debris numbers can be mostly attributed to quartz, which may be explained not only by its knapping on the site, but also by its breakage patterns (especially when coarse), which might produce more waste than other raw materials.
 
-Regarding debitage, blanks are the most represented class for both groups, with 1476 identified pieces, 4.5% for P1 and 6.18% for P2, followed by blank fragments with an absolute count of 248 for P1 and 336 for P2. Throughout the analysis, 167 retouched pieces were identified, 55 on P1, representing 0.5% of the group, and 112 on P2, with a frequency of 0.72%, while retouched piece fragments composed a much smaller number (n = 7 for P1 and n = 16 for P2).
+Regarding debitage, blanks are the most represented class for both groups, with 1476 identified pieces, 4.5% for Lower 5 and 6.18% for Upper 5/4E, followed by blank fragments with an absolute count of 248 for Lower 5 and 336 for Upper 5/4E. Throughout the analysis, 167 retouched pieces were identified, 55 on Lower 5, representing 0.5% of the group, and 112 on Upper 5/4E, with a frequency of 0.72%, while retouched piece fragments composed a much smaller number (n = 7 for Lower 5 and n = 16 for Upper 5/4E).
 
-Cores are also relatively frequent within the assemblage, with an absolute count of 123 cores, 46 for P1 and 77 for P2, while core fragments are, alike the classes already referenced, in much smaller numbers (n = 11 and n = 16, respectively).
+Cores are also relatively frequent within the assemblage, with an absolute count of 123 cores, 46 for Lower 5 and 77 for Upper 5/4E, while core fragments are, alike the classes already referenced, in much smaller numbers (n = 11 and n = 16, respectively).
 
 
 ```{r general_table_VB, echo=FALSE}
 
 
-### General table phase 1
+### General table Lower 5
 db_phase1 <- dataset %>% 
   filter(Phase=="Phase 1")
 
@@ -334,7 +334,7 @@ general_table1 <- general_table1 %>%
   adorn_totals(where = "row", name = "Total")
 
 
-### General table for phase 2
+### General table for Upper 5/4E
 
 db_phase2 <- dataset %>% 
   filter(Phase=="Phase 2")
@@ -386,16 +386,16 @@ general_table2 <- general_table2 %>%
   
 ```
 
-```{r general1, fig.cap="General table phase 1.", echo=FALSE}
-knitr::kable(head(general_table1[1:15], 12), booktabs=TRUE,caption="Technological class by raw material for Phase 1.") %>% 
+```{r general1, fig.cap="General table Lower 5.", echo=FALSE}
+knitr::kable(head(general_table1[1:15], 12), booktabs=TRUE,caption="Technological class by raw material for Lower 5.") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
 ```
 
 
-```{r general2, fig.cap="General table phase 2.", echo=FALSE}
-knitr::kable(head(general_table2[1:15], 12), booktabs=TRUE,caption="Technological class by raw material for Phase 2.") %>% 
+```{r general2, fig.cap="General table Upper 5/4E.", echo=FALSE}
+knitr::kable(head(general_table2[1:15], 12), booktabs=TRUE,caption="Technological class by raw material for Upper 5/4E.") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down") %>% 
   kableExtra::landscape()
@@ -404,15 +404,15 @@ knitr::kable(head(general_table2[1:15], 12), booktabs=TRUE,caption="Technologica
 ### Lapa do Picareiro
 As previously discussed, the present assemblage, corresponding to layers U and T, seems to originate from two different moments of occupation of the cave, which were identified based on spatial distribution and raw material patterns, also having different dates for each of the moments. These patterns have been identified as Terminal Gravettian and Proto-Solutrean phases within the Proto-Solutrean transition model. 
 
-As such, and given the patterns, although the assemblage was analysed as a whole, for the statistic descriptive and multivariate analysis, the assemblage was separated into two groups: Terminal Gravettian (TG), which included all artefacts with depths inferior to 566.9 m or from levels U or T8 to T6 (Haws et al. 2019); Proto-Solutrean (PR), including all artefacts with depths equal or superior to 566.9 m of depth, or from the top 5 spits of level T. Any other artefact in the assemblage, which did not have a depth value or level was not considered in these results, since it lacked the needed information to contextualize its technological attributes.
+As such, and given the patterns, although the assemblage was analysed as a whole, for the statistic descriptive and multivariate analysis, the assemblage was separated into two groups: U/Lower T, which included all artefacts with depths inferior to 566.9 m or from levels U or T8 to T6 (Haws et al. 2019); Middle T, including all artefacts with depths equal or superior to 566.9 m of depth, or from the top 5 spits of level T. Any other artefact in the assemblage, which did not have a depth value or level was not considered in these results, since it lacked the needed information to contextualize its technological attributes.
 	
-The assemblage is composed of 376 pieces (with identifiable provenance), 196 from the Terminal Gravettian phase and 180 from the Proto-Solutrean. In both phases, debitage waste is mostly composed of chips, which represent 49.4% of the TG group and 37.2% of the PR group. Alike Vale Boi, these values for debitage waste can be mostly explained by quartz, possibly related to the breakage patterns of this raw material.
+The assemblage is composed of 376 pieces (with identifiable provenance), 196 from the U/Lower T phase and 180 from the Middle T group. In both phases, debitage waste is mostly composed of chips, which represent 49.4% of the U/Lower T group and 37.2% of the Middle T group. Alike Vale Boi, these values for debitage waste can be mostly explained by quartz, possibly related to the breakage patterns of this raw material.
 	
-The second most present class for both groups are blanks, which represent 14.2% of the TG group and 37.2% of the PR group, followed by blank fragments (13.7% and 15.5% respectively).Retouched pieces have relatively small frequencies, representing 3% in TG and 2.7% in PR. Cores have a frequency of 1% in the Terminal Gravettian group (n=2) and 2.7% in the Proto-Solutrean (n=5) and there is the presence of 1 core preparation product in the TG group.
+The second most present class for both groups are blanks, which represent 14.2% of the U/Lower T group and 37.2% of the Middle T group, followed by blank fragments (13.7% and 15.5% respectively).Retouched pieces have relatively small frequencies, representing 3% in U/Lower T and 2.7% in Middle T. Cores have a frequency of 1% in the U/Lower T group (n=2) and 2.7% in the Middle T (n=5) and there is the presence of 1 core preparation product in the U/Lower T group.
 
 ```{r general_table_LP, echo=FALSE}
 
-## General table for TG (Terminal Gravettian)
+## General table for U/Lower T
 db_phaseTG <- datasetlp %>% 
   filter(Phase == "Terminal Gravettian")
 
@@ -449,7 +449,7 @@ general_table_TG <- general_table_TG %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total (RM)")
 
-## General table for PR (Proto-Solutrean)
+## General table for Middle T
 db_phasePR <- datasetlp %>% 
   filter(Phase == "Proto-Solutrean")
 
@@ -490,15 +490,15 @@ general_table_PR <- general_table_PR %>%
 
 ```{r generalTG, echo=FALSE}
 ## Plot Tables
-### TG table
-knitr::kable(head(general_table_TG[1:9], 9), booktabs=TRUE,caption="Technological class by raw material (Terminal Gravettian phase).") %>% 
+### U/Lower T table
+knitr::kable(head(general_table_TG[1:9], 9), booktabs=TRUE,caption="Technological class by raw material (U/Lower T phase).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
 ```
 
 ```{r generalPR, echo=FALSE}
-### PR table
-knitr::kable(head(general_table_PR[1:9], 7), booktabs=TRUE,caption="Technological class by raw material (Proto-Solutrean phase).") %>% 
+### Middle T table
+knitr::kable(head(general_table_PR[1:9], 7), booktabs=TRUE,caption="Technological class by raw material (Middle T phase).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
 ```
@@ -523,13 +523,13 @@ The raw materials identified in layers 4E and 5 in the present study were quartz
 
 Quartz is, unlike other raw materials in this study, a mineral (Inizan et al. 1999), characterized by either a smoky grey colouration or lack of colour, glassiness, hardness and conchoidal fracture (Haldar and Tisljar 2014).
 
-The number of chips and shatter in quartz in the total assemblage are, as seen in table X, extremely high, both in its representativity within the raw material, where it represents nearly 94.2% for P1 and 94% for P2 of all quartz, and through the comparison of its absolute numbers with other raw materials.
+The number of chips and shatter in quartz in the total assemblage are, as seen in table X, extremely high, both in its representativity within the raw material, where it represents nearly 94.2% for Lower 5 and 94% for Upper 5/4E of all quartz, and through the comparison of its absolute numbers with other raw materials.
 
-Despite the low frequencies represented on the table, there is a large number of  blanks made in quartz (n=281 for P1 and 438 for P2) compared to the rest of classes, as well as cores (n=18 for P1 and n=32 for P2) and retouched pieces (n=15 for P1 and n=34 for P2). These patterns are well represented in figure X, where the percentages of quartz (excluding shatter and chips), represent a great fraction of the total assemblage: more than 50% in phase 1 and around 45% in phase 2.
+Despite the low frequencies represented on the table, there is a large number of  blanks made in quartz (n=281 for Lower 5 and 438 for Upper 5/4E) compared to the rest of classes, as well as cores (n=18 for Lower 5 and n=32 for Upper 5/4E) and retouched pieces (n=15 for Lower 5 and n=34 for Upper 5/4E). These patterns are well represented in figure X, where the percentages of quartz (excluding shatter and chips), represent a great fraction of the total assemblage: more than 50% in the Lower 5 phase and around 45% in Upper 5/4E.
 
-Alike other raw materials, most quartz does not show the presence of cortex, with nearly 95% of all materials having 0% cortex. When it is present, around 72% seems to come from cobbles or pebbles. These patterns are similar for both phase 1 and phase 2.
+Alike other raw materials, most quartz does not show the presence of cortex, with nearly 95% of all materials having 0% cortex. When it is present, around 72% seems to come from cobbles or pebbles. These patterns are similar for both Lower 5 and Upper 5/4E.
 
-As mentioned before, quartz was divided into groups regarding size of grain or, in case of rock crystal, regarding colouration as well. Analysing the artefact class frequency through the different identified types of quartz quality confirmed a pattern which was already expected: use of fine and medium quality quartz was mainly dedicated for the production of blanks (52.7% and 32.4% for P1, and 50.9% and 29.7% for P2, respectively) and retouched products (66.7% and 26.7% for P1, and 55.9% and 44.1% for P2). Alike coarse quality quartz, no retouched pieces were identified in rock crystal, this type of quartz having a small presence in the total assemblage. 
+As mentioned before, quartz was divided into groups regarding size of grain or, in case of rock crystal, regarding colouration as well. Analysing the artefact class frequency through the different identified types of quartz quality confirmed a pattern which was already expected: use of fine and medium quality quartz was mainly dedicated for the production of blanks (52.7% and 32.4% for Lower 5, and 50.9% and 29.7% for Upper 5/4E, respectively) and retouched products (66.7% and 26.7% for Lower 5, and 55.9% and 44.1% for Upper 5/4E). Alike coarse quality quartz, no retouched pieces were identified in rock crystal, this type of quartz having a small presence in the total assemblage. 
 
 
 ```{r quartz_quality_setup_vb, include=FALSE}
@@ -548,7 +548,7 @@ quartzp1 %>%
   geom_bar(position =  "fill", aes(fill = Class)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Types of quartz quality (Phase 1)", y = NULL) +# change labels
+  labs(x = "Types of quartz quality (Lower 5)", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#CC6666", 
@@ -598,7 +598,7 @@ quartzp2 %>%
   geom_bar(position =  "fill", aes(fill = Class)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Types of quartz quality (Phase 2)", y = NULL) +# change labels
+  labs(x = "Types of quartz quality (Upper 5/4E)", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#CC6666", 
@@ -608,7 +608,7 @@ quartzp2 %>%
 
 ```{r quartzquality1, echo=FALSE}
 
-knitr::kable(quartztab1, booktabs=TRUE, caption = "Quartz quality by class (Phase 1).") %>% 
+knitr::kable(quartztab1, booktabs=TRUE, caption = "Quartz quality by class (Lower 5).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = c("hold_position", "scale_down"))
 
@@ -616,7 +616,7 @@ knitr::kable(quartztab1, booktabs=TRUE, caption = "Quartz quality by class (Phas
 
 ```{r quartzquality2, echo=FALSE}
 
-knitr::kable(quartztab2, booktabs=TRUE, caption = "Quartz quality by class (Phase 2).") %>% 
+knitr::kable(quartztab2, booktabs=TRUE, caption = "Quartz quality by class (Upper 5/4E).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = c("hold_position", "scale_down"))
 
@@ -625,11 +625,11 @@ knitr::kable(quartztab2, booktabs=TRUE, caption = "Quartz quality by class (Phas
 #### Chert
 Chert, as defined by Haldar and Tisljar (2014), is a cryptocrystalline solid-silicon rock, characterized by sharp fractures, referred to as flint whenever it is “(…) used as artifacts, weapons and tools of prehistoric man.”
 
-This raw material shows high frequencies of blanks (15.8% for P1 and 19.5% for P2) when compared to every other class, excluding chips. These latter represent more than 50% of the chert, although at much smaller quantities than in quartz, with an absolute number of 649 chips for phase 1 and 1158 for phase 2.
+This raw material shows high frequencies of blanks (15.8% for Lower 5 and 19.5% for Upper 5/4E) when compared to every other class, excluding chips. These latter represent more than 50% of the chert, although at much smaller quantities than in quartz, with an absolute number of 649 chips for Lower 5 and 1158 for Upper 5/4E.
 
-Although chert shows smaller numbers for blanks (n=171 for P1 and n=407 for P2) and blank fragments (n=90 for P1 and n=155 for P2) compared to quartz, there is a large quantity of cores which represent 2.1% of total chert in phase 1 and 2% in phase 2, showing that both raw materials were expediently used in these layers. However, table X shows an obvious difference in ratio between chert blanks and quartz blanks between phase 1 and phase 2, with the latter showing a higher ratio of chert blanks comparatively to phase 2. This can also be seen in figure X, where chert on phase 2 shows a frequency of around 30% (excluding chips and shatter), thus being the second most used raw material, while on phase 2 it represents almost 50%, a higher frequency than quartz, and thus becoming the first most used raw material in the group.
+Although chert shows smaller numbers for blanks (n=171 for Lower 5 and n=407 for Upper 5/4E) and blank fragments (n=90 for Lower 5 and n=155 for Upper 5/4E) compared to quartz, there is a large quantity of cores which represent 2.1% of total chert in Lower 5 and 2% in Upper 5/4E, showing that both raw materials were expediently used in these layers. However, table X shows an obvious difference in ratio between chert blanks and quartz blanks between Lower 5 and Upper 5/4E, with the latter showing a higher ratio of chert blanks comparatively to Upper 5/4E. This can also be seen in figure X, where chert on Upper 5/4E shows a frequency of around 30% (excluding chips and shatter), thus being the second most used raw material, while on Upper 5/4E it represents almost 50%, a higher frequency than quartz, and thus becoming the first most used raw material in the group.
 
-Regarding retouched pieces, these represent more than 3% of chert for both phases, a number far higher than those in other raw materials, thus showing chert, although less present than quartz in blanks (although barely in phase 2), might have been preferentially used for tools.
+Regarding retouched pieces, these represent more than 3% of chert for both phases, a number far higher than those in other raw materials, thus showing chert, although less present than quartz in blanks (although barely in Upper 5/4E), might have been preferentially used for tools.
 
 Regarding cortex, chert shows the biggest variability of cortex presence percentages in both phases, although there continues to be a clear dominance of debitage with 0% cortex, which was already expected, following the process of the knapping sequence, where only the first blanks removed from an unmodified block will be entirely cortical, showing increasingly less cortex for posterior removals (Andrefsky 2005). This variability in cortex presence is accompanied in variability of cortex types, with the presence of both cobble and outcrop sources, although almost 85% of cortex didn’t show enough characteristics to be identified with certainty.  
 
@@ -637,9 +637,9 @@ Regarding cortex, chert shows the biggest variability of cortex presence percent
 #### Greywacke
 Greywacke is a variety of sandstone, often characterized by its hardness, dark colour and poorly sorted grains of quartz and feldspar (Haldar and Tisljar 2014). At Vale Boi, this raw material is highly heterogenous, with a wide variety of grain sizes and colourations.
 
-It is best represented by debitage waste, with nearly 25% of shatter and around 70% of chips, for both phase 1 and 2, with relatively low numbers for blanks (n=44 for P1 and n=80 for P2) and cores (n=3 for P1 and 1 for P2). The same applies for the retouched pieces, with an absolute number of 3 in the total assemblage, one of which is a Vale Comprido point in phase 2.
+It is best represented by debitage waste, with nearly 25% of shatter and around 70% of chips, for both Lower 5 and 2, with relatively low numbers for blanks (n=44 for Lower 5 and n=80 for Upper 5/4E) and cores (n=3 for Lower 5 and 1 for Upper 5/4E). The same applies for the retouched pieces, with an absolute number of 3 in the total assemblage, one of which is a Vale Comprido point in Upper 5/4E.
 
-When the chips and shatter are removed, greywacke has a representation of less than 12% in the total assemblage (with a smaller frequency in phase 2), making it the third most used raw material in the assemblage, although with a wide difference in frequency when compared to chert and quartz.
+When the chips and shatter are removed, greywacke has a representation of less than 12% in the total assemblage (with a smaller frequency in Upper 5/4E), making it the third most used raw material in the assemblage, although with a wide difference in frequency when compared to chert and quartz.
 
 Similarly to the other raw materials, there is, for both phases, the predominance of debitage without cortex, although there is a certain variability in cortex presence, even if in smaller frequencies than the observed in chert. Alike quartz, most cortex was identified as cobble.
 
@@ -663,14 +663,14 @@ Understanding the interior look of dolerite allowed, during the second moment of
 
 The presence of this patina in several degrees of intensity, preferentially in dolerite (as a thick patinated layer) and greywacke, its presence in not only finished complete artefacts, but also flake fragments or shatter, and its occurrence also reported in the literature as a process frequently affecting raw materials like hornfels (e.g. Hallinan and Shaw 2017), suggests that it is, in fact, the result of geological and chemical processes affecting these raw materials. Its absence from other raw materials, like chert or quartz, may simply reflect the inherent mineral properties of these materials.
 
-Dolerite is an unprecedented raw material in the site of Vale Boi, appearing only in layers 4E and 5 of the Terrace and Proto-Solutrean levels of the Slope area. The most striking characteristic of this raw material in Vale Boi is the low presence of chips or shatter (n=1 each), but instead high frequencies of blanks (50% in P1 and 60.8% in P2) and blank fragments (16.6% in P1 and 13% in P2). Phase 2, unlike phase 1 in which no dolerite retouched piece was identified, shows the presence of 5 retouched pieces, some of which are Vale Comprido points. In fact, this raw material seems to have been used preferentially at Vale Boi for the production of these types of points, a pattern already observed in previous works (Marreiros 2009), where three of five Vale Comprido points were identified as dolerite (or jasper originally).
+Dolerite is an unprecedented raw material in the site of Vale Boi, appearing only in layers 4E and 5 of the Terrace and Proto-Solutrean levels of the Slope area. The most striking characteristic of this raw material in Vale Boi is the low presence of chips or shatter (n=1 each), but instead high frequencies of blanks (50% in Lower 5 and 60.8% in Upper 5/4E) and blank fragments (16.6% in Lower 5 and 13% in Upper 5/4E). Upper 5/4E, unlike Lower 5 in which no dolerite retouched piece was identified, shows the presence of 5 retouched pieces, some of which are Vale Comprido points. In fact, this raw material seems to have been used preferentially at Vale Boi for the production of these types of points, a pattern already observed in previous works (Marreiros 2009), where three of five Vale Comprido points were identified as dolerite (or jasper originally).
 
-The absence of cores, with only 1 core fragment identified in the P1 group, and low quantity of debitage waste may be explained by the transportation of finished pieces or blanks, without carrying out knapping activities with this raw material at the site. This interpretation is, however, truncated by this study’s phase analysis. As the identification of the inner aspect of dolerite was only achieved at the start of the second phase, which as referred before, consisted of the analysis of all cores and debitage products with a wider database, shatter and chips were not revisited, thus not allowing for the possible identification of possible unpatinated dolerite within those classes, which might have been mistaken for fine grained greywacke. This caveat does not, however, seem to influence the patterns regarding blank and retouched piece frequency.   
+The absence of cores, with only 1 core fragment identified in the Lower 5 group, and low quantity of debitage waste may be explained by the transportation of finished pieces or blanks, without carrying out knapping activities with this raw material at the site. This interpretation is, however, truncated by this study’s phase analysis. As the identification of the inner aspect of dolerite was only achieved at the start of the second phase, which as referred before, consisted of the analysis of all cores and debitage products with a wider database, shatter and chips were not revisited, thus not allowing for the possible identification of possible unpatinated dolerite within those classes, which might have been mistaken for fine grained greywacke. This caveat does not, however, seem to influence the patterns regarding blank and retouched piece frequency.   
 
 #### Chalcedony
 Chalcedony is a type of cryptocrystalline quartz, characterized by a waxy and glossy appearance, ranging from a variety of possible colourations (Haldar and Tisljar 2014), although white is the only present variety in the assemblage. The chalcedony in levels 4E and 5 can also be characterized by the presence of inclusions, making this raw material poorly homogeneous.
 
-Results indicate it may have been mainly used for the production of blanks, which represent 37.5% of chalcedony in phase 1 and 32.1% in phase 2, with a rather small representation of retouched pieces (n=2), which include a Vale Comprido point in the P2 group. The presence of a core in phase 1 may indicate the knapping of this raw material at the site, as well as the presence of shatter and chips, although in small numbers (less than 5 each for P1 and n=15 each for P2).
+Results indicate it may have been mainly used for the production of blanks, which represent 37.5% of chalcedony in Lower 5 and 32.1% in Upper 5/4E, with a rather small representation of retouched pieces (n=2), which include a Vale Comprido point in the Upper 5/4E group. The presence of a core in Lower 5 may indicate the knapping of this raw material at the site, as well as the presence of shatter and chips, although in small numbers (less than 5 each for Lower 5 and n=15 each for Upper 5/4E).
 
 Compared to other raw materials, chalcedony has the lowest frequencies of cortex, in both phases, with almost 100% of all artefacts (except shatter and chips) having 0% cortex, which, connected to its low representativity in the assemblage (figure X) might suggest the raw material was not frequently brought to the site and knapped for obtaining blanks and tools, possibly due to its poor quality and abundance of inclusions and flaws.
 
@@ -695,7 +695,7 @@ dfRM_vb %>%
                                "#660000", "#CC6666", "#333333"))
 ```
 
-```{r rmcortex, fig.cap="Cortex % by raw material, without chips and shatterfor Phase 1 and 2.", echo=FALSE}
+```{r rmcortex, fig.cap="Cortex % by raw material, without chips and shatterfor Lower 5 and 2.", echo=FALSE}
 
 dfRM_vb1 <- dfRM_vb %>% 
   filter(Phase=="Phase 1")
@@ -714,7 +714,7 @@ RM_vb1 <- dfRM_vb1 %>%
   geom_bar(position =  "fill", aes(fill = Cortex)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Phase 1", y = NULL) +# change labels
+  labs(x = "Lower 5", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
@@ -732,7 +732,7 @@ RM_vb2 <- dfRM_vb2 %>%
   geom_bar(position =  "fill", aes(fill = Cortex)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Phase 2", y = NULL) +# change labels
+  labs(x = "Upper 5/4E", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
@@ -788,7 +788,7 @@ cortextabp2 <- cortextabp2 %>%
 
 ```{r cortextab1, echo=FALSE}
 
-knitr::kable(cortextabp1, booktabs=TRUE, caption = "Cortex type and localization by raw material (Phase 1).") %>% 
+knitr::kable(cortextabp1, booktabs=TRUE, caption = "Cortex type and localization by raw material (Lower 5).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
 
@@ -796,7 +796,7 @@ knitr::kable(cortextabp1, booktabs=TRUE, caption = "Cortex type and localization
 
 ```{r cortextab2, echo=FALSE}
 
-knitr::kable(cortextabp2, booktabs=TRUE, caption = "Cortex type and localization by raw material (Phase 2).") %>% 
+knitr::kable(cortextabp2, booktabs=TRUE, caption = "Cortex type and localization by raw material (Upper 5/4E).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
 
@@ -808,13 +808,13 @@ Comparatively to Vale Boi, Lapa do Picareiro shows less raw material variability
 
 
 #### Quartz
-The number of chips in quartz, as seen on table X, is extremely high, representing nearly 60% of this raw material in both groups, although the other debitage waste class shows much smaller numbers (n=4 for TG and n=3 for PR). Comparatively, blanks are the second most present class in quartz, with a frequency of 20% (n=30) for the Terminal Gravettian group, closely followed by blank fragments, which represent 15.2%, a relatively high fragmentation percentage compared to the total number of complete pieces. For the PR group, blanks and blank fragments show exactly the same frequencies, represing within quartz pieces 19%. Although in small numbers, quartz shows the highest number of cores (n=4, 2 in each group) from all raw materials, but a number of retouched pieces much smaller than the one in chert (n=1).
+The number of chips in quartz, as seen on table X, is extremely high, representing nearly 60% of this raw material in both groups, although the other debitage waste class shows much smaller numbers (n=4 for U/Lower T and n=3 for Middle T). Comparatively, blanks are the second most present class in quartz, with a frequency of 20% (n=30) for the U/Lower T group, closely followed by blank fragments, which represent 15.2%, a relatively high fragmentation percentage compared to the total number of complete pieces. For the Middle T group, blanks and blank fragments show exactly the same frequencies, represing within quartz pieces 19%. Although in small numbers, quartz shows the highest number of cores (n=4, 2 in each group) from all raw materials, but a number of retouched pieces much smaller than the one in chert (n=1).
 
-Despite the large quantity of chips, quartz is still well represented in its other classes, as seen in figure X, although in variable degrees, depending on the stage. While during the Terminal Gravettian stage quartz (without chips) has a representativity of nearly 60% of the total assemblage, during the Proto-Solutrean stage this frequency drops to around 37%.
+Despite the large quantity of chips, quartz is still well represented in its other classes, as seen in figure X, although in variable degrees, depending on the stage. While during the U/Lower T stage quartz (without chips) has a representativity of nearly 60% of the total assemblage, during the Middle T occupation this frequency drops to around 37%.
 
-Regarding cortex, quartz shows frequencies as low as 6% for cortex presence on the Terminal Gravettian group, 12.5% on the Proto-Solutrenan, being mostly composed of pieces without the presence of cortex. Whenever present, however, cortex reveals a cobble source for this raw material.
+Regarding cortex, quartz shows frequencies as low as 6% for cortex presence on the U/Lower T group, 12.5% on the Proto-Solutrenan, being mostly composed of pieces without the presence of cortex. Whenever present, however, cortex reveals a cobble source for this raw material.
 
-As mentioned before, quartz was also categorized regarding grain quality and colouration. For both the Terminal Gravettian group and Proto-Solutrean, it is possible to observe a majority of fine quality quartz and rock crystal for both cores and blanks, with barely any presence of medium and coarse quality quartz, the latter inexistent on the Proto-Solutrean group. One observable difference between the two groups is in the percentages of rock crystal and fine quality: on the Terminal Gravettian, fine quality quartz represents 56% of quartz, while rock crystal has a frequency of nearly 41%; for Proto-Solutrean, these percentages change, as fine quality quartz represents 37%, against 54% of rock crystal. Finally, the identified retouched piece was made in fine quality quartz.
+As mentioned before, quartz was also categorized regarding grain quality and colouration. For both the U/Lower T group and Middle T, it is possible to observe a majority of fine quality quartz and rock crystal for both cores and blanks, with barely any presence of medium and coarse quality quartz, the latter inexistent on the Middle T group. One observable difference between the two groups is in the percentages of rock crystal and fine quality: on the U/Lower T, fine quality quartz represents 56% of quartz, while rock crystal has a frequency of nearly 41%; for Middle T, these percentages change, as fine quality quartz represents 37%, against 54% of rock crystal. Finally, the identified retouched piece was made in fine quality quartz.
 
 ```{r quartz_quality_setup, include=FALSE}
 
@@ -878,7 +878,7 @@ quartzp2lp %>%
   geom_bar(position =  "fill", aes(fill = Class)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Types of quartz quality (Proto-Solutrean)", y = NULL) +# change labels
+  labs(x = "Types of quartz quality (Middle T)", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FFCC00", "#CC6666", 
@@ -896,7 +896,7 @@ knitr::kable(quartztab1lp, booktabs=TRUE, caption = "Quartz quality by class (Te
 
 ```{r quartzqualityPR, echo=FALSE}
 
-knitr::kable(quartztab2lp, booktabs=TRUE, caption = "Quartz quality by class (Proto-Solutrean).") %>% 
+knitr::kable(quartztab2lp, booktabs=TRUE, caption = "Quartz quality by class (Middle T).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
 
@@ -904,9 +904,9 @@ knitr::kable(quartztab2lp, booktabs=TRUE, caption = "Quartz quality by class (Pr
 
 
 #### Chert
-This raw material is characterized by a high frequency of blanks (53.3% for TG and 63% for PR), with only a cumulative percentage of 24.4% and 15% for debitage waste, the Terminal Gravettian and Proto-Solutrean groups respectively, which might be related to chert’s breakage patterns, producing less waste than quartz. Likewise, blank fragments are also poorly represented comparatively to quartz, with an absolute count of 4 for TG and 9 for PR, representing only 8.8% and 12.3% of the chert. Although there are few cores in chert (n=2), retouched pieces have a relatively high frequency within the raw material (11.1 on TG and 6.85% on PR), and as seen above, most of the retouched piece total, thus hinting this raw material might have been used preferentially for the manufacture of formal tools.
+This raw material is characterized by a high frequency of blanks (53.3% for U/Lower T and 63% for Middle T), with only a cumulative percentage of 24.4% and 15% for debitage waste, the U/Lower T and Middle T groups respectively, which might be related to chert’s breakage patterns, producing less waste than quartz. Likewise, blank fragments are also poorly represented comparatively to quartz, with an absolute count of 4 for U/Lower T and 9 for the Middle T phase, representing only 8.8% and 12.3% of the chert. Although there are few cores in chert (n=2), retouched pieces have a relatively high frequency within the raw material (11.1 on U/Lower T and 6.85% on Middle T), and as seen above, most of the retouched piece total, thus hinting this raw material might have been used preferentially for the manufacture of formal tools.
 
-Regarding cortex, chert shows mostly products without cortex, a pattern further present in the Proto-Solutrean group. Whenever cortex is present however, its source was indeterminate, although a few pieces allowed to track its source to outcrops.
+Regarding cortex, chert shows mostly products without cortex, a pattern further present in the Middle T group. Whenever cortex is present however, its source was indeterminate, although a few pieces allowed to track its source to outcrops.
 
 Although chert was not firstly classified regarding its visible characteristics, throughout the analysis, it seemed apparent there were several groups with identical colours and grains, which might have belonged to the same nodule. As such, these groups were individualized posteriorly, adding a variable to the database called “ChertType” which included codes for each identified type of chert, which can be seen on table X.
 
@@ -942,7 +942,7 @@ knitr::kable(RMtable, booktabs=TRUE, caption = "Identified chert types. Descript
 
 After its identification, it was attempted to refit the pieces in each group, but due to the high level of modification and edge damage of each piece, this was not possible. However, using the spatial data, each group was plotted in order to understand any spatial restriction or relationship that might help identify a specific knapping behaviour (fig X).
 
-Although most groups seem to show no particular spatial restriction or pattern when plotted, RM6 seems to have a good concentration of materials, starting at depth 567 m, which corresponds to the second spit of what is considered the Proto-Solutrean occupation, matching also with the highest quantity of chert in the plot.
+Although most groups seem to show no particular spatial restriction or pattern when plotted, RM6 seems to have a good concentration of materials, starting at depth 567 m, which corresponds to the second spit of what is considered the Middle T levels, matching also with the highest quantity of chert in the plot.
 
 
 ```{r chertspatial, fig.cap="Types of chert spatial dispersion", echo=FALSE}
@@ -998,7 +998,7 @@ RM_TG <- dfRM_TG %>%
   geom_bar(position =  "fill", aes(fill = Cortex)) + 
   scale_y_continuous(labels = scales::percent_format()) + 
   theme_minimal() + #type of theme
-  labs(x = "Raw materials (Terminal Gravettian)", y = NULL) +# change labels
+  labs(x = "Raw materials (U/Lower T)", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
   theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_manual(values = c("#FF9933","#FFCC00", "#993300", 
@@ -1063,7 +1063,7 @@ cortex_tabPR <- cortex_tabPR %>%
 ```
 
 ```{r cortextabtg, echo=FALSE}
-knitr::kable(cortex_tabTG, booktabs=TRUE, caption = "Cortex type and localization by raw material (Terminal Gravettian).") %>% 
+knitr::kable(cortex_tabTG, booktabs=TRUE, caption = "Cortex type and localization by raw material (U/Lower T).") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down")
 ```
@@ -1080,17 +1080,17 @@ knitr::kable(cortex_tabPR, booktabs=TRUE, caption = "Cortex type and localizatio
 
 #### Vale Boi
 
-Cores are composed of a total of 123 pieces, with 46 total pieces on Phase 1, and 77 on Phase 2.
+Cores are composed of a total of 123 pieces, with 46 total pieces on Lower 5, and 77 on Upper 5/4E.
 
-Regarding their morphological types, and excluding inform cores, which were not considered here because they do not possess all the recordable attributes, there seems to be the preference for single platform types of core, for most raw materials, and through both phases. Chert, however, seems to have most variety of core types, although Phase 1 shows a preference for prismatic, while Phase 2 as relatively similar percentages between most types of cores. Cores appear mostly with 1 to 3 cores faces on both phases.
+Regarding their morphological types, and excluding inform cores, which were not considered here because they do not possess all the recordable attributes, there seems to be the preference for single platform types of core, for most raw materials, and through both phases. Chert, however, seems to have most variety of core types, although Lower 5 shows a preference for prismatic, while Upper 5/4E as relatively similar percentages between most types of cores. Cores appear mostly with 1 to 3 cores faces on both phases.
 
 The cores seem to have been used mainly for the extraction of flakes, which, on both phases, have the biggest percentages on main face core use, although blade scars also have relatively high  frequencies.
 
-Most of the analysed core platforms are plain or cortical. On Phase 2 there is, however, a small frequency (3% and 18.5% respectively) of faceted platforms on quartz and chert. Platforms width and thickness means show smaller platforms for chert on both phases, while greywacke shows the biggest means for platform measurements.
+Most of the analysed core platforms are plain or cortical. On Upper 5/4E there is, however, a small frequency (3% and 18.5% respectively) of faceted platforms on quartz and chert. Platforms width and thickness means show smaller platforms for chert on both phases, while greywacke shows the biggest means for platform measurements.
 
 This pattern is similar for core size, where chert and quartz exhibit the smaller means, although chert seems to have more elongated cores, on both phases, while greywacke and other raw materials have bigger dimensions. 
 
-Regarding elongation, figure X shows wider range and higher elongation values for chert cores in both phases, although phase 2 seems to have less elongated cores, in both chert and quartz. Other raw materials, including greywacke, show the lower values for elongation. Chert for both phases and quartz on P2 seem to be skewed bellow, showing less flake elongation variability when regarding low elongation ratios.
+Regarding elongation, figure X shows wider range and higher elongation values for chert cores in both phases, although Upper 5/4E seems to have less elongated cores, in both chert and quartz. Other raw materials, including greywacke, show the lower values for elongation. Chert for both phases and quartz on Upper 5/4E seem to be skewed bellow, showing less flake elongation variability when regarding low elongation ratios.
 
 Regarding flattening (figure X), calculated by dividing maximum width by thickness, greywacke and other raw materials show higher flattening values, with quartz and chert showing similar values for both phases, with flattening median values of around 1.5, fairly centered in between the second and third quartil.
 
@@ -1141,11 +1141,11 @@ ggarrange(core_elongation, core_flattening,
 
 
 #### Lapa do Picareiro
-There are a total of 7 cores in the assemblage, 2 in the Terminal Gravettian group and 5 in the Proto-Solutrean, of which 2 are in chert and 2 in quartz.
+There are a total of 7 cores in the assemblage, 2 in the U/Lower T group and 5 in the Middle T, of which 2 are in chert and 2 in quartz.
 
-Cores show a variability of types, ranging between single platform, prismatic and pyramidal for the Proto-Solutrean group. These were mainly used to remove flakes, although on the Proto-Solutrean group there are also frequent removals of mixed types of blanks. Platforms tend to be plain, although there is also the presence of dihedral platforms. Core faces seem to be in greater numbers on chert, for the Proto-Solutrean group, with higher frequencies on 4 faces, while quartz varies between 1 face and 3.
+Cores show a variability of types, ranging between single platform, prismatic and pyramidal for the Middle T group. These were mainly used to remove flakes, although on the Middle T group there are also frequent removals of mixed types of blanks. Platforms tend to be plain, although there is also the presence of dihedral platforms. Core faces seem to be in greater numbers on chert, for the Middle T group, with higher frequencies on 4 faces, while quartz varies between 1 face and 3.
 
-In terms of measurements, chert seems to have the smallest means for core size, compared to others raw materials, showing, however, the highest elongation ratios (fig X). Regarding quartz cores, the differences between the TG phase and the PR phase are very obvious, with TG showing fairly more elongated cores with low flattening values, although these explicit differences may simply be the result of the small sample, which offered reduced internal assemblage variability.
+In terms of measurements, chert seems to have the smallest means for core size, compared to others raw materials, showing, however, the highest elongation ratios (fig X). Regarding quartz cores, the differences between the U/Lower T phase and the Middle T phase are very obvious, with U/Lower T showing fairly more elongated cores with low flattening values, although these explicit differences may simply be the result of the small sample, which offered reduced internal assemblage variability.
 
 ```{r corebloxplotLP, fig.cap="Core elongation and flattening boxplots by Phase.", echo=FALSE}
 coreB_LP <- datasetlp %>% 
@@ -1187,9 +1187,9 @@ ggarrange(core_elongation_LP, core_flattening_LP,
 
 ### Core preparation products
 
-Core preparation products represent a small fraction of Vale Boi's total assemblage, with 1 in phase 1 and 6 in phase 2.
+Core preparation products represent a small fraction of Vale Boi's total assemblage, with 1 in Lower 5 and 6 in Upper 5/4E.
 
-Core preparation products are of two identified types, core fronts and core tablets (figure X), the individual of phase 1 being a core tablet in quartz. For phase 2, however, most core preparation products are in chert (n=5) with one identified individual in quartz.
+Core preparation products are of two identified types, core fronts and core tablets (figure X), the individual of Lower 5 being a core tablet in quartz. For Upper 5/4E, however, most core preparation products are in chert (n=5) with one identified individual in quartz.
 
 ```{r corepreptype, echo=FALSE}
 CP_table_1 <- dataset %>% 
@@ -1226,7 +1226,7 @@ knitr::kable(CP_table2, booktabs=TRUE, caption = "Core preparation products by r
 ### Flakes
 
 #### Vale Boi
-Flakes are composed of a total of 1474 pieces, 509 of those belonging to Phase 1 group, and 965 in Phase 2 group, a growth in number (not positively correlated to sediment weight) already expected by the general intensity of occupation and material density observed in the latter phase . Although there are generally more Flakes in quartz, it is obvious the difference in ratios between these two raw materials, when comparing Phase 1 to Phase 2 results.
+Flakes are composed of a total of 1474 pieces, 509 of those belonging to Lower 5 group, and 965 in Upper 5/4E group, a growth in number (not positively correlated to sediment weight) already expected by the general intensity of occupation and material density observed in the latter phase . Although there are generally more Flakes in quartz, it is obvious the difference in ratios between these two raw materials, when comparing Lower 5 to Upper 5/4E results.
 
 ```{r flakeboxplot, fig.cap="Flake elongation and flattening by phase and raw material.", echo=FALSE}
   
@@ -1273,31 +1273,31 @@ ggarrange(flake_elongation, flake_flattening,
           legend = "right")
 ```
 
-Regarding morphology, for phase 1 Flakes seem to have mostly irregular shapes, with frequencies over 45% for most raw materials, followed by convergent and parallel shapes in lower frequencies (under 15%). Dolerite, unlike other raw materials, shows only convergent and parallel shapes even if with low representativity (n=3). Cross sections are mostly irregular and triangular, varying slightly in frequency regarding each raw material, with straight and curved profiles, these two types of profiles representing each more than 40% of chert Flakes. All raw materials, with exception of quartz, show high frequencies of straight profiles (over 40%), chert showing a similar percentage between straight and curved profiles (44.3% and 42.9% respectively). Quartz, however, has a frequency of 65% of straight profiles, showing much smaller frequencies for other types.
+Regarding morphology, for Lower 5 Flakes seem to have mostly irregular shapes, with frequencies over 45% for most raw materials, followed by convergent and parallel shapes in lower frequencies (under 15%). Dolerite, unlike other raw materials, shows only convergent and parallel shapes even if with low representativity (n=3). Cross sections are mostly irregular and triangular, varying slightly in frequency regarding each raw material, with straight and curved profiles, these two types of profiles representing each more than 40% of chert Flakes. All raw materials, with exception of quartz, show high frequencies of straight profiles (over 40%), chert showing a similar percentage between straight and curved profiles (44.3% and 42.9% respectively). Quartz, however, has a frequency of 65% of straight profiles, showing much smaller frequencies for other types.
 
-On phase 2, irregular shapes are still frequent, with frequencies over 25% on all raw materials, although convergent and parallel shapes show higher frequencies (over 20%) for quartz, chert and dolerite. Alike phase 1, cross sections are mostly irregular (over 35% for most raw materials) or triangular (over 25% for all raw materials), and profile type show the same patterns and similar percentages as phase 1.
+On Upper 5/4E, irregular shapes are still frequent, with frequencies over 25% on all raw materials, although convergent and parallel shapes show higher frequencies (over 20%) for quartz, chert and dolerite. Alike Lower 5, cross sections are mostly irregular (over 35% for most raw materials) or triangular (over 25% for all raw materials), and profile type show the same patterns and similar percentages as Lower 5.
 
-Unidirectional scar patterns are dominant in both phases and all raw materials, with frequencies over 80%. Bidirectional patterns are slightly more relevant in chert (9.3%), and also in dolerite and chalcedony during Phase 2. Dorsal patterns also show a dominance on both phases of 1, 2 and 3 scars for most raw materials, although chert shows the widest numbers and variety for higher scar counts.
+Unidirectional scar patterns are dominant in both phases and all raw materials, with frequencies over 80%. Bidirectional patterns are slightly more relevant in chert (9.3%), and also in dolerite and chalcedony during Upper 5/4E. Dorsal patterns also show a dominance on both phases of 1, 2 and 3 scars for most raw materials, although chert shows the widest numbers and variety for higher scar counts.
 
-Flakes have mostly plain platforms, although for certain raw materials, like quartz, there is a relevant  presence of crushed platforms (33.3% for P1 and 35.9% for P2). Faceted platforms are present in both phases but in low frequencies, in chert for both Phase 1 (1.4%) and Phase 2 (2.4%), but in no other raw material. Platforms also mostly non-cortical (between 80% and 100% depending on raw material) in both phases.
+Flakes have mostly plain platforms, although for certain raw materials, like quartz, there is a relevant  presence of crushed platforms (33.3% for Lower 5 and 35.9% for Upper 5/4E). Faceted platforms are present in both phases but in low frequencies, in chert for both Lower 5 (1.4%) and Upper 5/4E (2.4%), but in no other raw material. Platforms also mostly non-cortical (between 80% and 100% depending on raw material) in both phases.
 
-Blank metrics, including platform measurements, show for Phase 1, the smallest means in chalcedony and dolerite, followed by chert and quartz, where greywacke mean values show bigger Flakes in this raw material. On Phase 2, however, the smallest Flakes are in chert, followed by quartz and chalcedony, where dolerite mean values are fairly closer to those of greywacke, thus making these the Flakes with highest metric mean values.
+Blank metrics, including platform measurements, show for Lower 5, the smallest means in chalcedony and dolerite, followed by chert and quartz, where greywacke mean values show bigger Flakes in this raw material. On Upper 5/4E, however, the smallest Flakes are in chert, followed by quartz and chalcedony, where dolerite mean values are fairly closer to those of greywacke, thus making these the Flakes with highest metric mean values.
 
-Regarding elongation, quartz, chert and chalcedony show the highest values, although the latter raw material shows a bigger concentration of similar elongation flakes in the third quartil, thus showing less general elongation. Despite having similar elongation ranges in both groups, quartz shows relatively different medians, on P1 showing a less variability in the lower quartil, while P2 shows lower variability in the upper quartil, hinting at a bigger number of consistently elongated quartz flakes in phase 2. For chert, P2 also seems to show higher elongation values for flakes, though once again, there is a wide range of variability within regarding elongation in the assemblage.
+Regarding elongation, quartz, chert and chalcedony show the highest values, although the latter raw material shows a bigger concentration of similar elongation flakes in the third quartil, thus showing less general elongation. Despite having similar elongation ranges in both groups, quartz shows relatively different medians, on Lower 5 showing a less variability in the lower quartil, while Upper 5/4E shows lower variability in the upper quartil, hinting at a bigger number of consistently elongated quartz flakes in Upper 5/4E. For chert, Upper 5/4E also seems to show higher elongation values for flakes, though once again, there is a wide range of variability within regarding elongation in the assemblage.
 
 As for flattening, quartz shows very low values for flake flattening, compared to other raw materials, although the data also shows the existance of a wide variability within each raw material, with the existance of several outliers which fall from the statistical groupings and quartils. As such, it seems that for all raw materials, perhaps with the exception of quartz, flake flattening is extremely variable in the assemblage.
 
 
 #### Lapa do Picareiro
-There are a total of plotted 122 Flakes, 46 attributed to the Terminal Gravettian group, more than 50% being in quartz, and 67 attributed to the Proto-Solutrean group, its vast majority in chert. On both groups, attributes are very similar.
+There are a total of plotted 122 Flakes, 46 attributed to the U/Lower T group, more than 50% being in quartz, and 67 attributed to the Middle T group, its vast majority in chert. On both groups, attributes are very similar.
 
-On the Terminal Gravettian phase, for quartz, there seems to be the predominance of parallel shapes (36.8%), followed by convergent ones (26.3%). Chert, however, shows higher percentages for irregular (28.6%) and divergent (42.9%) shapes. Cross sections are mostly triangular for all raw materials (over 40%), although chert also shows high frequencies of trapezoidal cross sections (42.9%). Profiles are, for all raw materials, mostly straight (57.9% on quartz and 85.7% on chert) and terminations show relevant raw material differences, with quartz having bigger frequencies of feathered and hinged terminations (36.8% both) and chert having a frequency of 42.9% on pointed terminations. For all raw materials, there is the predominance of unidirectional dorsal patterns, high frequencies over 85%. Dorsal scars show higher frequencies for 2 and 3 scars on quartz (36.8% and 42.1% respectively), while other raw materials show higher frequencies for 3 dorsal scars only (42.9% on chert).
+On the U/Lower T phase, for quartz, there seems to be the predominance of parallel shapes (36.8%), followed by convergent ones (26.3%). Chert, however, shows higher percentages for irregular (28.6%) and divergent (42.9%) shapes. Cross sections are mostly triangular for all raw materials (over 40%), although chert also shows high frequencies of trapezoidal cross sections (42.9%). Profiles are, for all raw materials, mostly straight (57.9% on quartz and 85.7% on chert) and terminations show relevant raw material differences, with quartz having bigger frequencies of feathered and hinged terminations (36.8% both) and chert having a frequency of 42.9% on pointed terminations. For all raw materials, there is the predominance of unidirectional dorsal patterns, high frequencies over 85%. Dorsal scars show higher frequencies for 2 and 3 scars on quartz (36.8% and 42.1% respectively), while other raw materials show higher frequencies for 3 dorsal scars only (42.9% on chert).
 
-On the Proto-Solutrean phase, quartz shows higher frequencies for irregular shapes (53.8%), followed by convergent ones (38.5%). Contrary to the patterns seen on the previous group, chert shows higher frequencies for parallel shapes (40.6%). For all raw materials, cross sections are predominantly triangular (over 40%) with straight profiles (over 50%) and feathered terminations for chert (40.6%), whereas quartz shows higher values for hinged terminations (46.2%) followed by feathered (38.5%). Alike the Terminal Gravettian group, there is the predominance of unidirectional dorsal scar patterns (over 90% for all raw materials), with high frequencies for 2 dorsal scars in quartz (61.5%) and 2-3 dorsal scars in chert (34.4% both).
+On the Middle T phase, quartz shows higher frequencies for irregular shapes (53.8%), followed by convergent ones (38.5%). Contrary to the patterns seen on the previous group, chert shows higher frequencies for parallel shapes (40.6%). For all raw materials, cross sections are predominantly triangular (over 40%) with straight profiles (over 50%) and feathered terminations for chert (40.6%), whereas quartz shows higher values for hinged terminations (46.2%) followed by feathered (38.5%). Alike the U/Lower T group, there is the predominance of unidirectional dorsal scar patterns (over 90% for all raw materials), with high frequencies for 2 dorsal scars in quartz (61.5%) and 2-3 dorsal scars in chert (34.4% both).
 
-Regarding platforms, for both groups, they are mostly plain for all raw materials (over 40%), followed by relatively high values of crushed platforms in quartz, with the presence of 1 faceted platform for quartz and chert in each group. Chert on the Proto-Solutrean group also shows dihedral platforms (18.8%). Platforms seem to have barely any cortex, for all raw materials in both groups.
+Regarding platforms, for both groups, they are mostly plain for all raw materials (over 40%), followed by relatively high values of crushed platforms in quartz, with the presence of 1 faceted platform for quartz and chert in each group. Chert on the Middle T group also shows dihedral platforms (18.8%). Platforms seem to have barely any cortex, for all raw materials in both groups.
 
-Measurements, including platform width and thickness, show larger means for the chert flakes (19.5 mm width and 27.3 mm length), comparatively to the quartz ones (16.7 mm width and 21.8 mm length), for P1 and for P2 (chert with 17.2 mm width and 20.9 mm length, and quartz with 13 mm width and 16.3 mm length). There also seems to be a size difference between groups, with the Terminal Gravettian flakes showing bigger means (although with high standard deviation values), while Proto-Solutrean means show smaller values and smaller SD values, the only constant seeming to be the thickness of flakes on chert (5-5.3 mm), wich seem to show little variability (standard deviations of 3.1 for the TG group and 2.3 for the PR group).
+Measurements, including platform width and thickness, show larger means for the chert flakes (19.5 mm width and 27.3 mm length), comparatively to the quartz ones (16.7 mm width and 21.8 mm length), for Lower 5 and for Upper 5/4E (chert with 17.2 mm width and 20.9 mm length, and quartz with 13 mm width and 16.3 mm length). There also seems to be a size difference between groups, with the U/Lower T flakes showing bigger means (although with high standard deviation values), while Middle T means show smaller values and smaller SD values, the only constant seeming to be the thickness of flakes on chert (5-5.3 mm), wich seem to show little variability (standard deviations of 3.1 for the U/Lower T group and 2.3 for the Middle T group).
 
 ```{r flakeattribute_setup, echo=FALSE}
 
@@ -1440,7 +1440,7 @@ Regarding elongation (figure X), values between quartz and chert and even betwee
 ### Elongated blanks
 
 #### Vale Boi
-There are a total of 219 elongated products in the assemblage (fig X), 82 of them being inserted in phase 1, while 137 are inserted in phase 2. Comparatively to blanks, there seems to be a larger number of chert pieces (n=106), this number only changing in phase 1, where quartz elongated blank numbers (n=44) supersede chert ones (n=31).
+There are a total of 219 elongated products in the assemblage (fig X), 82 of them being inserted in Lower 5, while 137 are inserted in Upper 5/4E. Comparatively to blanks, there seems to be a larger number of chert pieces (n=106), this number only changing in Lower 5, where quartz elongated blank numbers (n=44) supersede chert ones (n=31).
 
 For both phases, however, elongated blank attributes are relatively similar, following the same general patterns.
 
@@ -1483,7 +1483,7 @@ elong_metp1 <- as.data.frame(elong_metp1)
 elong_metp1 <- elong_metp1 %>% 
   select(Measurements, Quartz, Chert, Greywacke)
 
-#Elongated attribute table (all variables, by all raw materials) - Phase 2
+#Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
 elong_tablep2 <- tabmulti(elongAT2, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
                                                            "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
@@ -1515,22 +1515,22 @@ elong_metp2 <- elong_metp2 %>%
 
 ```
 
-Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although phase 1 shows wider raw material differences, where 63.6% of quartz has a parallel shapes whereas 51.6% of chert has convergent ones. Cross sections are mostly triangular, with straight profiles, although there are also high frequencies for curved profiles.
+Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows wider raw material differences, where 63.6% of quartz has a parallel shapes whereas 51.6% of chert has convergent ones. Cross sections are mostly triangular, with straight profiles, although there are also high frequencies for curved profiles.
 
-Scar patterns show an obvious tendency for unidirectional knapping strategies on all raw materials. For phase 1, however, there is the presence of bidirectional scar direction on chert even if in low frequencies (12.9%), phase 2 showing much lower values for this type of scar pattern, with 2% on quartz and 4% on chert. Scar count shows a tendency for 1 to 3 dorsal scars on both phases and all raw materials.
+Scar patterns show an obvious tendency for unidirectional knapping strategies on all raw materials. For Lower 5, however, there is the presence of bidirectional scar direction on chert even if in low frequencies (12.9%), Upper 5/4E showing much lower values for this type of scar pattern, with 2% on quartz and 4% on chert. Scar count shows a tendency for 1 to 3 dorsal scars on both phases and all raw materials.
 
-Elongated blanks on both phases seem to be obtained without platform preparation, since most platforms are plain, although quartz also shows crushed platforms. Only two faceted platforms were identified, in phase 2, on chert and dolerite. The general tendency for both phases is for the nonexistence of cortex on platforms, only certain raw materials showing complete cortical platforms, chert and greywacke on phase 1 (9.7% and 16.7% respectively) and chert on phase 2 (13.3%).
+Elongated blanks on both phases seem to be obtained without platform preparation, since most platforms are plain, although quartz also shows crushed platforms. Only two faceted platforms were identified, in Upper 5/4E, on chert and dolerite. The general tendency for both phases is for the nonexistence of cortex on platforms, only certain raw materials showing complete cortical platforms, chert and greywacke on Lower 5 (9.7% and 16.7% respectively) and chert on Upper 5/4E (13.3%).
 
 Finally, elongated products metrics, including platform measurements, show a tendency on both phases for smaller blanks on quartz, followed by chert, where greywacke, dolerite and chalcedony show the biggest blanks and widest platforms. On both stages, means for width, length and thickness for quartz and chert are around 9mm, 21-26mm, 5mm respectively, with higher standard deviation values for length, which is what seems to vary most in these blanks. Despite this, chert elongated blanks seem to show means which hint for higher elongation ratios than quartz.
 
 When plotting width and length for elongated products, by raw material, there seems to be separated groups, for both phases, instead of a continuous dispersion, which may indicate separate production strategies and/or desired dimensions for products.
 
-For phase 1 there seems to be the existence of one single group for quartz, and two differing groups of width-length combinations for chert (Fig X), although the sample is small, possibly having an impact on the data dispersion. As such, this group in quartz might suggest the preference in phase 1 for the production of small elongated blanks between 3-10 mm width and under 25 mm length, easily understood by the density curves. This group falls into the definition of bladelet, for the exception of a small quantity of pieces from the latter group, which, due to their width surpassing 12 mm width, are considered blades. Regarding chert, measurements are slightly more dispersed, allowing for the individualization of a wide group of smaller blanks, ranging between 2.5-12 mm width, peaking at around 10 mm, and 10-28 mm length peaking at around 20 mm, again mostly falling into the traditional definition of bladelets. The interpretation of the second group is further truncated by the small sample. The curves show not an increase in density, but instead a maintenance of the curve after a moment of drop, which might not represent a preference. Elongated products in this group have widths and lengths comprehended between 14-17 mm and 30-40 mm respectively, and can be classified as blades.
+For Lower 5 there seems to be the existence of one single group for quartz, and two differing groups of width-length combinations for chert (Fig X), although the sample is small, possibly having an impact on the data dispersion. As such, this group in quartz might suggest the preference in Lower 5 for the production of small elongated blanks between 3-10 mm width and under 25 mm length, easily understood by the density curves. This group falls into the definition of bladelet, for the exception of a small quantity of pieces from the latter group, which, due to their width surpassing 12 mm width, are considered blades. Regarding chert, measurements are slightly more dispersed, allowing for the individualization of a wide group of smaller blanks, ranging between 2.5-12 mm width, peaking at around 10 mm, and 10-28 mm length peaking at around 20 mm, again mostly falling into the traditional definition of bladelets. The interpretation of the second group is further truncated by the small sample. The curves show not an increase in density, but instead a maintenance of the curve after a moment of drop, which might not represent a preference. Elongated products in this group have widths and lengths comprehended between 14-17 mm and 30-40 mm respectively, and can be classified as blades.
 
-For phase 2, quartz continues to have a small sample that seems to show disperse concentrations of products, with a first group of small blanks between 2.5-6 mm width and under 20 mm length, and a second group ranging between 10-12.5 mm width and 20-30 mm length, both classified as bladelets. For quartz, there seems to be a wider dispersion without an obvious peak in the density curve, even within the two groups. For chert, there are three visible concentrations of elongated blanks, although with varying sample numbers on each group: one small group ranging between 2.5-5 mm width and 10-20 mm width, classifying as bladelets; an intermediate group and the best represented in terms of sample numbers, between 8-12.5 mm width and 15-30 mm length, classifying as bladelets with the exception of 2 pieces with slightly exceed the width bladelet limit; a group of larger blanks, with a small sample, ranging between 13-16 mm width and 30-42 mm length, traditionally classified as blades. Regarding the density curves, however, chert seems to peak between 7.5-10 mm width and 20 mm length, showing instead a unimodal curve and possibly, only one prefered width/length ratio with a wider dispersion.
+For Upper 5/4E, quartz continues to have a small sample that seems to show disperse concentrations of products, with a first group of small blanks between 2.5-6 mm width and under 20 mm length, and a second group ranging between 10-12.5 mm width and 20-30 mm length, both classified as bladelets. For quartz, there seems to be a wider dispersion without an obvious peak in the density curve, even within the two groups. For chert, there are three visible concentrations of elongated blanks, although with varying sample numbers on each group: one small group ranging between 2.5-5 mm width and 10-20 mm width, classifying as bladelets; an intermediate group and the best represented in terms of sample numbers, between 8-12.5 mm width and 15-30 mm length, classifying as bladelets with the exception of 2 pieces with slightly exceed the width bladelet limit; a group of larger blanks, with a small sample, ranging between 13-16 mm width and 30-42 mm length, traditionally classified as blades. Regarding the density curves, however, chert seems to peak between 7.5-10 mm width and 20 mm length, showing instead a unimodal curve and possibly, only one prefered width/length ratio with a wider dispersion.
 
 
-```{r elongdisp1, fig.cap="Elongated product width and length dispersion by raw material (Phase 1).", echo=FALSE}
+```{r elongdisp1, fig.cap="Elongated product width and length dispersion by raw material (Lower 5).", echo=FALSE}
 
 elong_disp1 <- elongAT1 %>% 
   filter(RawMaterial %in% c("Chert","Quartz","Greywacke")) %>% 
@@ -1550,7 +1550,7 @@ ggMarginal(disp_1, type = "density", groupColour = TRUE, groupFill = TRUE)
 
 ```
 
-```{r elongdisp2,fig.cap="Elongated product width and length dispersion by raw material (Phase 2).", echo=FALSE}
+```{r elongdisp2,fig.cap="Elongated product width and length dispersion by raw material (Upper 5/4E).", echo=FALSE}
 elong_disp2 <- elongAT2 %>% 
   filter(RawMaterial %in% c("Chert","Quartz","Greywacke")) %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
@@ -1570,17 +1570,17 @@ ggMarginal(disp_2, type = "density", groupColour = TRUE, groupFill = TRUE)
 
 
 #### Lapa do Picareiro
-There are a total of plotted 47 elongated blanks, 27 of which belong to the Terminal Gravettian group, more than 50% on chert, and 20 to the Proto-Solutrean group, also more than 50% on chert.
+There are a total of plotted 47 elongated blanks, 27 of which belong to the U/Lower T group, more than 50% on chert, and 20 to the Middle T group, also more than 50% on chert.
 
-Technological attributes follow closely those already described in blanks, also showing little variation between the Terminal Gravettian and the Proto-Solutrean.
+Technological attributes follow closely those already described in blanks, also showing little variation between the U/Lower T and the Middle T.
 
-Elongated blanks show a majority of parallel shapes, followed by convergent, with triangular cross sections, straight profiles followed by curved, with the exception of quartz on the Proto-Solutrean group, where curved profiles are more frequent. Dorsal scars are unidirectional, with 2 negatives for quartz and 2 to 4 negatives for chert.
+Elongated blanks show a majority of parallel shapes, followed by convergent, with triangular cross sections, straight profiles followed by curved, with the exception of quartz on the Middle T group, where curved profiles are more frequent. Dorsal scars are unidirectional, with 2 negatives for quartz and 2 to 4 negatives for chert.
 
 Platforms are mostly plain, with no cortex, where quartz seems to have the smaller dimensions.
 
-When plotting width and length for elongated blanks, for chert and quartz, there seems to be two groups of differing dimensions. Regarding the Terminal Gravettian, there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a larger group, although much more disperse and composed mostly of chert, with widths and length ranging between 13-26 mm and 40-60 mm respectively, which may be classified as blades. The density curves for width and length on chert, however, don't seem to show the relevant existance of two groups, with only a continuous increase in values within each variables.
+When plotting width and length for elongated blanks, for chert and quartz, there seems to be two groups of differing dimensions. Regarding the U/Lower T, there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a larger group, although much more disperse and composed mostly of chert, with widths and length ranging between 13-26 mm and 40-60 mm respectively, which may be classified as blades. The density curves for width and length on chert, however, don't seem to show the relevant existance of two groups, with only a continuous increase in values within each variables.
 
-For the Proto-Solutrean there is also a group of smaller blanks, with width ranging the 3-10 mm width, although length values vary a lot more, going between the 5-30 mm, where  the higher values are made up mostly of chert. Even so, this group may be characterized through the traditional classification of bladelet. The second group is made up entirely of chert, although it has less blanks and is very disperse in terms of width, which is higher than 15 mm, and length, higher than 45 mm, also being characterized as blades. Once again, for chert, density curves seem to show a unimodal curve.
+For the Middle T there is also a group of smaller blanks, with width ranging the 3-10 mm width, although length values vary a lot more, going between the 5-30 mm, where  the higher values are made up mostly of chert. Even so, this group may be characterized through the traditional classification of bladelet. The second group is made up entirely of chert, although it has less blanks and is very disperse in terms of width, which is higher than 15 mm, and length, higher than 45 mm, also being characterized as blades. Once again, for chert, density curves seem to show a unimodal curve.
 
 These patterns may represent differing production strategies for specific elongated blank sizes and ratios, although, given the altitude of the site, it might simply reflect the truncated reduction sequences present at the site, thus only showing the presence of two wide groups of small elongated blanks and larger elongated blanks. without the intermediate group which wasn't transported into the site.
 
@@ -1623,7 +1623,7 @@ elong_metp1lp <- as.data.frame(elong_metp1lp)
 elong_metp1lp <- elong_metp1lp %>% 
   select(Measurements, Quartz, Chert)
 
-#Elongated attribute table (all variables, by all raw materials) - Phase 2
+#Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
 elong_tablep2lp <- tabmulti(elongAT2lp, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
                                                            "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
@@ -1653,7 +1653,7 @@ elong_metp2lp <- elong_metp2lp %>%
 
 ```
 
-```{r elongdisp1LP, fig.cap="Elongated product width and length dispersion by raw material (Terminal Gravettian).", echo=FALSE}
+```{r elongdisp1LP, fig.cap="Elongated product width and length dispersion by raw material (U/Lower T).", echo=FALSE}
 
 elong_disp1_LP <- elongAT1lp %>% 
   filter(RawMaterial %in% c("Chert","Quartz")) %>% 
@@ -1672,7 +1672,7 @@ ggMarginal(disp_1_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
 
 ```
 
-```{r elongdisp2LP,fig.cap="Elongated product width and length dispersion by raw material (Proto-Solutrean).", echo=FALSE}
+```{r elongdisp2LP,fig.cap="Elongated product width and length dispersion by raw material (Middle T).", echo=FALSE}
 elong_disp2_LP <- elongAT2lp %>% 
   filter(RawMaterial %in% c("Chert","Quartz","Greywacke")) %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
@@ -1738,6 +1738,7 @@ retouch_table2 <- retouch_table2 %>%
   tibble::rownames_to_column()
 retouch_table2 <- dplyr::rename(retouch_table2, "Typology" = "rowname")
 
+retouched_order2 <- c("Endscraper","Carinated endscraper","Perforator-endscraper","Perforator", "Dihedral Burin", "Burin on truncation", "Truncation", "Vale Comprido point", "Notch", "Denticulate", "Splintered piece","Backed bladelet","Backed bladelet parcial", "Retouched blade", "Retouched bladelet", "Retouched flake", "Total")
 
 retouch_table2 <- retouch_table2 %>% 
   mutate("Quartz (%)" = paste0(round(100 * Quartz/sum(Quartz), 2), "%")) %>% 
@@ -1751,27 +1752,29 @@ retouch_table2 <- retouch_table2 %>%
          "Chalcedony (n)" = "Chalcedony") %>% 
   adorn_totals(where = "col", name = "Total") %>% 
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
-  adorn_totals(where = "row", name = "Total", fill = "100%")
+  adorn_totals(where = "row", name = "Total", fill = "100%") %>% 
+  as_tibble() %>% 
+  slice(match(retouched_order2, Typology))
 
 ```
 
 
 #### Vale Boi
-As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the phase 1 group (fig X), while 112 in the phase 2 group (fig X).
+As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the Lower 5 group (fig X), while 112 in the Upper 5/4E group (fig X).
 
-Phase 1 is comprised of several typologies, from which a few stand out by their high numbers, such as retouched flakes, corresponding to 27% of total retouched pieces, mostly in chert, splintered pieces, with 25.4% of representativity, followed by notches with a frequency of 12.7%, both occurring in similar numbers in chert (n=6 and n=4 respectively) and quartz (n=8 and n=3).
+Lower 5 is comprised of several typologies, from which a few stand out by their high numbers, such as retouched flakes, corresponding to 27% of total retouched pieces, mostly in chert, splintered pieces, with 25.4% of representativity, followed by notches with a frequency of 12.7%, both occurring in similar numbers in chert (n=6 and n=4 respectively) and quartz (n=8 and n=3).
 There is also the presence of endscrapers (9.09%) and burins (7.27%), mostly on chert, although their frequencies in the total of retouched pieces isn’t very representative.
 
-For phase 2, splintered pieces are still very frequent (24.1%), in both chert and quartz, followed by endscrapers which represent 22.3% of the total retouched piece number, most of them in chert, although it may be relevant to point out 2 are made of dolerite. Notches are, once again, the third most frequent retouched typology, with 11.6% representativity, though most are found in quartz. Every other typology has frequencies under 10%.
+For Upper 5/4E, splintered pieces are still very frequent (24.1%), in both chert and quartz, followed by endscrapers which represent 22.3% of the total retouched piece number, most of them in chert, although it may be relevant to point out 2 are made of dolerite. Notches are, once again, the third most frequent retouched typology, with 11.6% representativity, though most are found in quartz. Every other typology has frequencies under 10%.
 
-Phase 2 thus shows not only a larger number of retouched pieces, which might be the result of a bigger occupation intensity, but also a wider variety of typologies. As phase 1 shows 11 different retouched piece types, phase 2 shows 16 types, introducing 6 new different typologies, as the double backed blade of stage 1 doesn’t appear in the upper occupation.
+Upper 5/4E thus shows not only a larger number of retouched pieces, which might be the result of a bigger occupation intensity, but also a wider variety of typologies. As Lower 5 shows 11 different retouched piece types, Upper 5/4E shows 16 types, introducing 6 new different typologies, as the double backed blade of stage 1 doesn’t appear in the upper occupation.
 
-One of these newly introduced retouched type is the Vale Comprido point, although only representing 5.3% of retouched piece total for phase 2. As mentioned before, Vale Comprido points have been identified as a Proto-Solutrean only technological solution, which may appear during the Proto-Solutrean in the Two-phase model, or during either the Terminal Gravettian or Proto-Solutrean in the Three-phase model. Thus, its presence in phase 2 not only conforms to the data already presented for the Portuguese Estremadura (Zilhão 1997) it further strengths the separation of layers 4E and 5 in two moments of differing occupation.
+One of these newly introduced retouched type is the Vale Comprido point, although only representing 5.3% of retouched piece total for Upper 5/4E. As mentioned before, Vale Comprido points have been identified as a Proto-Solutrean only technological solution, which may appear during the Proto-Solutrean in the Two-phase model, or during either the Terminal Gravettian or Proto-Solutrean in the Three-phase model. Thus, its presence in Upper 5/4E not only conforms to the data already presented for the Portuguese Estremadura (Zilhão 1997) it further strengths the separation of layers 4E and 5 in two moments of differing occupation.
 
 The analysed Vale Comprido points have been identified in chert (n=1), greywacke (n=1), dolerite (n=3) and chalcedony (n=1, which makes up 100% of retouched pieces made in this raw material). In fact, dolerite had already been identified as a preferred means for making these products (Marreiros 2009), a fact only strengthened by the fact this raw material has more Vale Comprido points than any other, and only appears in one other typology, the endscraper. Comparatively, dolerite doesn’t seem to be used for the production of any retouched piece in stage 1. These shall be described into further detail in Chapter 7.4.6.
 
 ```{r retouchphase1, echo=FALSE}
-knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Phase 1 retouched piece typology by raw material.") %>% 
+knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Lower 5 retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(latex_options = c("hold_position", "scale_down")) %>% 
   kableExtra::landscape()
@@ -1779,7 +1782,7 @@ knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Phase 1 r
 ```
 
 ```{r retouchphase2, echo=FALSE}
-knitr::kable(retouch_table2, booktabs=TRUE, caption = "Phase 2 Retouched piece typology by raw material.") %>% 
+knitr::kable(retouch_table2, booktabs=TRUE, caption = "Upper 5/4E Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(latex_options = c("hold_position", "scale_down")) %>% 
    kableExtra::landscape()
@@ -1808,6 +1811,7 @@ retouch_table1lp <- retouch_table1lp %>%
   tibble::rownames_to_column()
 retouch_table1lp <- dplyr::rename(retouch_table1lp, "Typology" = "rowname")
 
+retouched_order3 <- c("Dihedral angle burin", "Notch", "Splintered piece", "Retouched flake")
 
 retouch_table1lp <- retouch_table1lp %>% 
   mutate("Quartz (%)" = paste0(round(100 * Quartz/sum(Quartz), 2), "%")) %>% 
@@ -1816,7 +1820,9 @@ retouch_table1lp <- retouch_table1lp %>%
   dplyr::rename("Quartz (n)" = "Quartz", "Chert (n)" = "Chert") %>% 
   adorn_totals(where = "col", name = "Total") %>% 
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
-  adorn_totals(where = "row", name = "Total")
+  adorn_totals(where = "row", name = "Total") %>% 
+  as_tibble() %>% 
+  slice(match(retouched_order3, Typology))
 
 retouch_table2lp <- table(retouch2lp$RetouchedPieceTypology, retouch2lp$RawMaterial)
 retouch_table2lp <- as.data.frame.matrix(retouch_table2lp)
@@ -1825,33 +1831,36 @@ retouch_table2lp <- retouch_table2lp %>%
   tibble::rownames_to_column()
 retouch_table2lp <- dplyr::rename(retouch_table2lp, "Typology" = "rowname")
 
+retouched_order4 <- c("Concave truncation", "Vale Comprido point (?)", "Notch", "Retouched flake")
 
 retouch_table2lp <- retouch_table2lp %>% 
   mutate("Chert (%)" = paste0(round(100 * Chert/sum(Chert), 2), "%")) %>% 
   select("Typology", "Chert", "Chert (%)") %>% 
   dplyr::rename("Chert (n)" = "Chert") %>% 
   adorn_totals(where = "col", name = "Total") %>% 
-  adorn_totals(where = "row", name = "Total")
+  adorn_totals(where = "row", name = "Total") %>% 
+  as_tibble() %>% 
+  slice(match(retouched_order4, Typology))
 
 ```
 
 
 #### Lapa do Picareiro
-The total number of retouched pieces which have spatial information, allowing the identification of phase is 11, of which 6 belong to the Terminal Gravettian group and 5 on the Proto-Solutrean.
+The total number of retouched pieces which have spatial information, allowing the identification of phase is 11, of which 6 belong to the U/Lower T group and 5 on the Middle T.
 
-As seen on table X, the Terminal Gravettian shows 4 types of retouched piece typologies, the most present being the retouched flakes (of varied elongation ratios, n=3) all in chert, where the only quartz retouched piece is a splintered piece. From the retouched flakes, one shows similarities with the Vale Comprido point, although the platform/dorsal retouched as to thin the platform is questionable. 
+As seen on table X, the U/Lower T shows 4 types of retouched piece typologies, the most present being the retouched flakes (of varied elongation ratios, n=3) all in chert, where the only quartz retouched piece is a splintered piece. From the retouched flakes, one shows similarities with the Vale Comprido point, although the platform/dorsal retouched as to thin the platform is questionable. 
 
-For the Proto-Solutrean group (table x), there is a smaller variety of retouched pieces, all in chert: a notch, retouched flakes (n=2), a truncation and possibly a Vale Comprido point.
+For the Middle T group (table x), there is a smaller variety of retouched pieces, all in chert: a notch, retouched flakes (n=2), a truncation and possibly a Vale Comprido point.
 
 ```{r retouchTG, echo=FALSE}
-knitr::kable(retouch_table1lp, booktabs=TRUE, caption = "Terminal Gravettian retouched piece typology by raw material.") %>% 
+knitr::kable(retouch_table1lp, booktabs=TRUE, caption = "U/Lower T retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(latex_options = c("hold_position", "scale_down"))
 
 ```
 
 ```{r retouchPR, echo=FALSE}
-knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Phase 2 Retouched piece typology by raw material.") %>% 
+knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Upper 5/4E Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(latex_options = c("hold_position", "scale_down"))
 
@@ -2136,7 +2145,7 @@ Dimension 1 is represented by flatter cores with larger weight values in the pos
 
 Dimension 2 shows an inverse correlation between weight, on the negative loadings (although seemingly not very pronounced) with core elongation, convergence and flattening, that, on the positive loadings, seem to correlate positively. This might represent the reduction of total core volume and subsequential core shapping (Scerri et al. 2014).
 
-Regarding phases, the assemblage from phase 2 seems concentrated on the negative loadings of dimension 2, which might represent the assemblage is driven by morphological changes, between cores that are more elongated, convergent and flatter and some that are less elongated (Scerri et al. 2014). Despite this, core morphology variation between groups seems similar, although phase 1 does show more weight driven variation than phase 2.
+Regarding phases, the assemblage from Upper 5/4E seems concentrated on the negative loadings of dimension 2, which might represent the assemblage is driven by morphological changes, between cores that are more elongated, convergent and flatter and some that are less elongated (Scerri et al. 2014). Despite this, core morphology variation between groups seems similar, although Lower 5 does show more weight driven variation than Upper 5/4E.
 
 ```{r fig.cap="Variable plot of the first and second components of the Core Morphology PCA on chert (CMC).", echo = FALSE}
 
@@ -2171,7 +2180,7 @@ Dimension 1, representing 32.9% of variance, shows on the positive loadings flat
 
 Dimension 2, explaining 29.4% of variance, is dominated by the inverse correlation between weight (on the negative loadings) with core elongations, convergence and flattening (on the positive loadings), once again repeating the pattern already observed on chert, and which might represent the reduction of core volume through knapping.
 
-Phase 1 is mostly represented on the positive loadings of dimension 2, meaning it is dominated by high scores in core elongation, convergence and flattening, while phase 2 seems to be mostly located on the negative loadings. This might mean that cores in phase 1 might be more elongated and smaller, with a variation better explained by morphology, whereas core variation from phase 2 might be better explained by changes in mass than changes in convergence or flattening, although there seems to be some tendency for elongated cores in phase 2 as well.
+Lower 5 is mostly represented on the positive loadings of dimension 2, meaning it is dominated by high scores in core elongation, convergence and flattening, while Upper 5/4E seems to be mostly located on the negative loadings. This might mean that cores in Lower 5 might be more elongated and smaller, with a variation better explained by morphology, whereas core variation from Upper 5/4E might be better explained by changes in mass than changes in convergence or flattening, although there seems to be some tendency for elongated cores in Upper 5/4E as well.
 
 ```{r fig.cap="Variable plot of the first and second components of the Core Morphology PCA on quartz (CMQ).", echo = FALSE}
 
@@ -2233,9 +2242,9 @@ Core use domain aims to understand how knappers reduced cores using different te
 
 Dimension one (table X) explains 29.9% of the sample's variability. On the positive loadings there are the variables Core to length ratio, main face scar length, weight and mainface scar platform, negatively correlated to core convergence. This may represent that heavier cores are less convergent, with longer scars and bigger angle values. Using weight as a proxy for size, this may show that, as there is more reduction, and the cores become smaller, they also become more convergent, although blank length might become smaller as the angles reduce as well.
 
-There seems to be some difference in phase dispersion. While Phase 1 individuals point towards less convergent cores, varying in weight, Phase 2 individuals shows highter values for convergence, also with some size variation.
+There seems to be some difference in phase dispersion. While Lower 5 individuals point towards less convergent cores, varying in weight, Upper 5/4E individuals shows highter values for convergence, also with some size variation.
 
-Dimension 2 explains 23.6% of sample variability. Positive loadings show that, as overall variables increase, weight and main face platform angle decreases, which may be understood by core mass reduction through shaping (making them more or less convergent), which in turn creates smaller platform angles. In this dimension, Phase 2 shows a dispersed number of individuals in the negative loadings, hinting for a wider number of size driven individuals, although the biggest difference between phases seems to happen in regards to convergence and scar length/scar to core length ratio.
+Dimension 2 explains 23.6% of sample variability. Positive loadings show that, as overall variables increase, weight and main face platform angle decreases, which may be understood by core mass reduction through shaping (making them more or less convergent), which in turn creates smaller platform angles. In this dimension, Upper 5/4E shows a dispersed number of individuals in the negative loadings, hinting for a wider number of size driven individuals, although the biggest difference between phases seems to happen in regards to convergence and scar length/scar to core length ratio.
 
 ```{r fig.cap="Variable plot of the first and second components of the Core Use PCA on chert (CUC).", echo = FALSE}
 
@@ -2266,7 +2275,7 @@ For quartz, the two dimensions in core use explain a cumulative 62% of variabili
 
 Dimension 1 shows a positive correlation between all variables, although with different representations. Core convergence, scar to core length ratio, main face platform angles and scar length all show high values in the positive loadings of Dim 1, which means there is an association between convergent cores and longer blanks.These values, however, might be influenced the the high percentage of represention a few invididuals seem to have, located on the further negative loadings of Dim 1, which are less convergent, with smaller and shorter scars. Despite those values, most individuals for both phases seem to be equaly located on the positive loadings or fairly close.
 
-As for dimension 2, it shows a negative correlation between core convergence and scar convergence with weight, meaning that as weight reduces, cores become more convergent accompanied by more convergent scars as well, although these become smaller. Once again, this might represent core mass reduction through the shapping of the core. Phase 2 is better represented on the negative loadings of this dimension, showing a bigger quantity of heavier and less convergent individuals than Phase 1. 
+As for dimension 2, it shows a negative correlation between core convergence and scar convergence with weight, meaning that as weight reduces, cores become more convergent accompanied by more convergent scars as well, although these become smaller. Once again, this might represent core mass reduction through the shapping of the core. Upper 5/4E is better represented on the negative loadings of this dimension, showing a bigger quantity of heavier and less convergent individuals than Lower 5. 
 
 ```{r fig.cap="Variable plot of the first and second components of the Core Use PCA on quartz (CUQ).", echo = FALSE}
 
@@ -2337,7 +2346,7 @@ Dimension 1 explains 25.9% of variance. Low elongation is correlated positively 
 
 Dimension 2, which explains 17.3% of sample variance, show an association of medium elongation with crushed platforms, which may reflect atypical flakes, with unprepared production compared to either low elongation (which should represent flakes) and high elongation blanks. Comparatively, high and low elongation values show association with other types of platforms, which included faceted platforms.
 
-For both dimensions, neither Phase 1 or 2 show particular differences, both showing equal internal variability regarding the variables chosen for the MCA.
+For both dimensions, neither Lower 5 or 2 show particular differences, both showing equal internal variability regarding the variables chosen for the MCA.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Platform Maintenance PCA on chert (BPC).", echo=FALSE}
@@ -2373,7 +2382,7 @@ Dimension 1, which explains 31% of variability, shows the association between hi
 
 Dimension 2, representing 23.4% of variability, shows medium elongation values on the negative area, where high and low elongation are found on the positive axis, as well as other types of platform. This may reflect an intermediate blank with no particular preparation, while high elongation blanks are more often achieved with resource to specific platform types.
 
-Alike on chert, Phase 1 and 2 don’t show significant differences between each other, both represented at the centre of the MCA. 
+Alike on chert, Lower 5 and Upper 5/4E don’t show significant differences between each other, both represented at the centre of the MCA. 
 
 
 
@@ -2437,7 +2446,7 @@ Dimension 1 shows an association between high elongation, low vertical convexity
 
 Dimension 2, which as seen, explains much less variability, differentiates between two groups: a group with irregular attributes and a group with other attributes such as lenticular cross sections or “other” blank shapes, showing that there is a group of blanks, correlated with low elongation, which shows much more irregular characteristics than the other two identified blank groups.
 
-There seems to exist a difference between phases, where Phase 2 is relatively centered, though pulling towards the negative dimension 1 axis, and thus towards the high elongation, convergent/parallel with triangular cross section blanks, and Phase 1 is further into the positive axis. This slight difference between phases might represent a difference in blank production between Phase 1 and 2, which might be understood as the result of the presence of Vale Comprido points in Phase 2, which are represented by a specific type of elongated blanks with convergent shapes, absent from Phase 1.
+There seems to exist a difference between phases, where Upper 5/4E is relatively centered, though pulling towards the negative dimension 1 axis, and thus towards the high elongation, convergent/parallel with triangular cross section blanks, and Lower 5 is further into the positive axis. This slight difference between phases might represent a difference in blank production between Lower 5 and Upper 5/4E, which might be understood as the result of the presence of Vale Comprido points in Upper 5/4E, which are represented by a specific type of elongated blanks with convergent shapes, absent from Lower 5.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Dorsal Convexity PCA on chert (BDC).", echo=FALSE}
@@ -2592,7 +2601,7 @@ Dimension 1 shows the association of more than 60% cortex, “other” scar patt
 
 Dimension 2 seems to differentiate as well two groups of differing reduction strategies, alike chert. There is the correction between high elongation with dorsal scar counts of 2 and 3, on the negative axis, while on the positive there is the association between 31-60%  and 1-30% cortex, dorsal scar counts of 1 and low elongations. This may represent an early stage of core reduction as well, where less elongated blanks still have cortex and have less scars, in comparison to a later stage of reduction, where the desired elongated products have more scars and much less cortex.
 
-Regarding phases, both Phase 1 and Phase 2 seem very alike on quartz, almost completely overlapping at the centre of both dimensions axis.
+Regarding phases, both Lower 5 and Upper 5/4E seem very alike on quartz, almost completely overlapping at the centre of both dimensions axis.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Core Exploitation PCA on quartz (CEQ).", echo=FALSE}
@@ -2661,7 +2670,7 @@ Dimension 1 shows a strong association between an earlier moment of reduction, w
 
 Dimension 2 shows the association between pointed terminations, convergent shapes, straight profiles, unidirectional patterns and 1 to 2 dorsal scars on the negative axis, and the correlation between curved profiles, parallel shapes, 4 or more dorsal scars, steps and degète terminations and bidirectional patterns.
 
-Regarding the supplementary loadings, there seems to be some similarity between Phase 1 and 2, although the biggest differences occur within the elongated blank type. While bladelets fall further into the negative axis of dim 2, closer to the unidirectional, convergent and pointed blanks, blades fall onto the positive axis of dim 2, showing more correlation to curved profiles and more variability in terms of attributes and dorsal scar counts, which may indicate that smaller products have more standardized attributes than larger elongated blanks.
+Regarding the supplementary loadings, there seems to be some similarity between Lower 5 and 2, although the biggest differences occur within the elongated blank type. While bladelets fall further into the negative axis of dim 2, closer to the unidirectional, convergent and pointed blanks, blades fall onto the positive axis of dim 2, showing more correlation to curved profiles and more variability in terms of attributes and dorsal scar counts, which may indicate that smaller products have more standardized attributes than larger elongated blanks.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the Elongated product attributes PCA on chert (EAC).", echo=FALSE}
@@ -2700,7 +2709,7 @@ Dimension 1, which explains 23%, shows a strong association between bidirectiona
 
 Dimension 2, representing 16.7% of variability,  shows the association between curved profiles, convergent shapes, pointed terminations with 3 dorsal scars on the positive axis, while the negative axis, although contributing less, shows the association between parallel shapes, 1 to 2 dorsal scars, straight profiles, feathered terminations, both axis seemingly sharing the unidirectionality of dorsal scar patterns.
 
-Unlike chert, there is no great difference between Phase 1 and 2, neither between bladelets and blades, hinting to perhaps a continuous production strategy for both large and small elongated blanks, instead of two different sequences for the obtention of blades and bladelets.
+Unlike chert, there is no great difference between Lower 5 and 2, neither between bladelets and blades, hinting to perhaps a continuous production strategy for both large and small elongated blanks, instead of two different sequences for the obtention of blades and bladelets.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the Elongated product attributes PCA on quartz (EAQ).", echo=FALSE}
@@ -2886,7 +2895,7 @@ Dimension 1, which explains 27.5%, shows a correlation between high elongation w
 
 Dimension 2, explaining 24.5% of variability, shows on the negative axis, high elongation values associated with low flattening, plain and crushed platforms, while the positive axis is represented by low elongation with high platform flattening values, dihedral and other platforms, which once again seems to show blank elongation through platform depth, perhaps more than platform type.
 
-The supplementary variables show some differences, where the Terminal Gravettian group seems further pulled into the high elongation and high flattening log, which might represent a knapping strategy most present in this group, while the Proto-Solutrean is closer to the centre, and thus seemingly much more variable.
+The supplementary variables show some differences, where the U/Lower T group seems further pulled into the high elongation and high flattening log, which might represent a knapping strategy most present in this group, while the Middle T is closer to the centre, and thus seemingly much more variable.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Platform Maintenance PCA on chert (BPC).", echo=FALSE}
@@ -2922,7 +2931,7 @@ Dimension 1, on the positive axis, has the association between low elongation an
 
 Dimension 2 shows on the negative axis the correlation between high and low elongations and plain platforms, while on the positive axis there are medium elongations and other platforms, crushed platforms and low platform flattening values. This axis might represent probable differences between high and low elongations mostly represented by plain platforms, from intermediate elongation products.
 
-Similarly to chert, the supplementary variables seem to show some differences between the two groups, where the Proto-Solutrean seems closer to the medium elongation products while the Terminal Gravettin gravitates close to the centre of both dimensions.
+Similarly to chert, the supplementary variables seem to show some differences between the two groups, where the Middle T seems closer to the medium elongation products while the Terminal Gravettin gravitates close to the centre of both dimensions.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Platform Maintenance PCA on quartz (BPQ).", echo=FALSE}
@@ -2986,7 +2995,7 @@ Dimension 1, which explains 27.7%, shows the correlation on the positive axis be
 
 Dimension 2, explaining 17.5% of variability,  shows once again low and high elongations opposed to medium elongations, the latter associated with divergent blank shapes, low vertical convexity values, curved profiles and convergent blank shapes. This might represent different strategies to control elongation based on the morphology of dorsal convexity, although this domain seems better explained by dimension 1.
 
-Once again, there seems to be a difference between the Terminal Gravettian and Proto-Solutrean groups, which appear in opposing axis. While TG shows more proximity towards the high elongation, parallel and triangular cross section correlations, the PS group seems closer to the low elongation group, a pattern already established in the previous domain.
+Once again, there seems to be a difference between the U/Lower T and Middle T groups, which appear in opposing axis. While U/Lower T shows more proximity towards the high elongation, parallel and triangular cross section correlations, the Middle T group seems closer to the low elongation group, a pattern already established in the previous domain.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Dorsal Convexity PCA on chert (BDC).", echo=FALSE}
@@ -3022,7 +3031,7 @@ Dimension 1 shows the association between irregular blank attributes, low vertic
 
 Dimension 2 shows the correlation between medium elongation blanks with low convexities, trapezoidal cross sections, straight profiles, and a wider variability of attributes on the negative axis, while high and low elongations are still on the opposed axis like on chert, although this dimensions explain much less the dimension 1.
 
-Supplementary variables also seem to follow the patterns shown on chert, where the Proto-Solutrean group shows a tendency closer to the less elongated blanks, while the TG group shows a slight tendency for more elongated blanks, the two groups again showing some differences in terms of technology.
+Supplementary variables also seem to follow the patterns shown on chert, where the Middle T group shows a tendency closer to the less elongated blanks, while the U/Lower T group shows a slight tendency for more elongated blanks, the two groups again showing some differences in terms of technology.
 
 
 ``` {r fig.cap="Variable plot of the first and second components of the blanks Dorsal Convexity PCA on quartz (BDQ).", echo=FALSE}
@@ -3096,7 +3105,7 @@ Dimension 1, which explains 30.6%, shows the association between low elongation 
 
 Dimension 2, explaining 22.2% of variability, shows a correlation between 2 scars with high elongation and unidirectional dorsal patterns on the negative axis, and 3 to 4 or more scars with use of other types of dorsal patterns. This shows the use of simple unidirectional strategies with less dorsal patterns, and other patterns with more dorsal patterns, which might reflect either different strategies or moments in the reduction sequence.
 
-Differences between the TG and PS groups are more obvious in the dimension 1, once again reflecting differences in the elongations, with PS having lower elongation values comparatively to TG groups, although differences in dimension 2 are barely inexistent.
+Differences between the U/Lower T and Middle T groups are more obvious in the dimension 1, once again reflecting differences in the elongations, with Middle T having lower elongation values comparatively to U/Lower T groups, although differences in dimension 2 are barely inexistent.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the blanks Core Exploitation PCA on chert (CEC).", echo=FALSE}
@@ -3197,7 +3206,7 @@ The two dimensions in elongated attributes for chert (EAC) explain 47.1% of the 
 Dimension 1, which explains 27.4%,  shows on the positive axis, the association between hinged and step terminations, irregular profiles and 4 or more dorsal scars, while opposed on the negative axis by blanks with convergent shapes, curved profiles and pointed terminations, with 3 to 2 scars even if with less contribution. This may represent the existence of a group of more standardized elongated blanks, as opposed to a group of less standardized ones.
 On dimension 2, explaining 19.7% of variability, there is the association of twisted and straight profiles, parallel blank shapes, step and feathered terminations, with 2 scar counts, on the negative axis. The positive axis of Dim 2 shows the correlation between the groups mentioned on dimension 1, possibly showing the existence of 3 groups of similar elongated blanks, each with specific characteristics.
 
-Regarding the supplementary variables, there seems to be significant differences between both the Terminal Gravettian and Proto-Solutrean groups, and bladelet/blade groups. The differences between TG and PS seem to happen mostly on Dim 1, where the PS group seems closer to the group of blanks with convergent shapes, pointed terminations and curved profiles than the TG. As for the other supplementary variables, there seems to be a wide gap between them, with blades being far closer to the 4 or more scars group, while the bladelet positions itself closer to the negative axis of both dimension 1 and 2. This may mean that blades show more scars than bladelets, possibly with other morphological characteristics, while bladelets show less scars and score closer to the group of convergent, pointed and curved blanks and 2 scars, parallel, feathered and straight group.
+Regarding the supplementary variables, there seems to be significant differences between both the U/Lower T and Middle T groups, and bladelet/blade groups. The differences between U/Lower T and Middle T seem to happen mostly on Dim 1, where the Middle T group seems closer to the group of blanks with convergent shapes, pointed terminations and curved profiles than the U/Lower T. As for the other supplementary variables, there seems to be a wide gap between them, with blades being far closer to the 4 or more scars group, while the bladelet positions itself closer to the negative axis of both dimension 1 and 2. This may mean that blades show more scars than bladelets, possibly with other morphological characteristics, while bladelets show less scars and score closer to the group of convergent, pointed and curved blanks and 2 scars, parallel, feathered and straight group.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the Elongated product attributes PCA on chert (EAC).", echo=FALSE}
@@ -3235,7 +3244,7 @@ Dimension 2, explaining much less of the variability (24%) differentiates betwee
 
 These two dimensions seem to, alike chert, create 3 groups of more or less standardized attributes, although the strong association between 3 dorsal scars and hinged termination, as well as with the supplementary variable blade, are probably the result of the small sample.
 
-As such, bladelets are localized right at the centre of both dimensions, since they represent most of the sample. Regarding the other supplementary variables, the Terminal Gravettian group seems closer to the step and feathered terminations, with parallel shapes and straight profiles, with 1 to 2 scars, while the Proto-Solutrean group is further closer to the group of pointed termination, curved profile and convergent bladelets, which might represent a standardized preference for small elongated blank morphologies in quartz.
+As such, bladelets are localized right at the centre of both dimensions, since they represent most of the sample. Regarding the other supplementary variables, the U/Lower T group seems closer to the step and feathered terminations, with parallel shapes and straight profiles, with 1 to 2 scars, while the Middle T group is further closer to the group of pointed termination, curved profile and convergent bladelets, which might represent a standardized preference for small elongated blank morphologies in quartz.
 
 
 ```{r fig.cap="Variable plot of the first and second components of the Elongated product attributes PCA on quartz (EAQ).", echo=FALSE}
