@@ -76,6 +76,7 @@ dataset <- dataset %>%
 ```
 
 ```{r lp_analysis_setup, include=FALSE}
+
 lithicslp <- read_csv("data/Basedados_LP.csv")
 xyzlp <- read_csv("data/xyzlp.csv")
 cols_to_concat <- c("UNIT", "ID")
