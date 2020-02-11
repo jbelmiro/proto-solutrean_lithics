@@ -1113,7 +1113,7 @@ core_elongation <- coreB %>%
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Elongation") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FFCC00", "#FF9900", 
+  scale_color_manual(values = c("#5D939E", "#B0413E", 
                                "#660000", "#CC6666", "#333333"))+
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
@@ -1127,7 +1127,7 @@ core_flattening <- coreB %>%
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Flattening") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_manual(values = c("#FFCC00", "#FF9900", 
+  scale_color_manual(values = c("#5D939E", "#B0413E", 
                                "#660000", "#CC6666", "#333333"))+
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2))
 
