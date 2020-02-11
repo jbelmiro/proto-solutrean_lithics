@@ -1,8 +1,127 @@
-# Conclusion {-}
+# Discussion
 
-If we don't want Conclusion to have a chapter number next to it, we can add the `{-}` attribute.
+## Vale Comprido technology
+```{r vcsetup, echo=FALSE}
 
-**More info**
+blades <- datasetlp %>% 
+  filter(BlankType == "ElongatedProd" & MedWidth >= 12 & Phase == "Proto-Solutrean") %>% 
+  select(Length, MedWidth, Thickness, BlankShape, PlatformThickness, PlatformWidth, OtherNotes, RawMaterial) %>% 
+  mutate(Elongation = Length/MedWidth, Flattening = MedWidth/Thickness, PlatFlattening = PlatformWidth/PlatformThickness)
 
-And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
+measur <- blades %>% 
+  dplyr::summarise(Elongmean = mean(Elongation), ElongSD = sd(Elongation),
+            Flattmean = mean(Flattening), FlattSD = sd(Flattening),
+            PlatFlatmean = mean(PlatFlattening), PlatFlatSD = sd(PlatFlattening),
+            n = n())
 
+shape <- blades %>% 
+  group_by(BlankShape) %>% 
+  summarise(n = n()) %>% 
+  ungroup() %>% 
+  mutate(freq = n/sum(n)*100)
+
+
+VC <- dataset %>% 
+  filter(OtherNotes == "TVC?") %>% 
+  select(Length, MedWidth, Thickness, BlankShape, PlatformThickness, PlatformWidth, OtherNotes) %>% 
+  mutate(Elongation = Length/MedWidth, Flattening = MedWidth/Thickness, PlatFlattening = PlatformWidth/PlatformThickness)
+
+
+VCmeasur <- VC %>% 
+  summarise(Elongmean = mean(Elongation), ElongSD = sd(Elongation),
+            Flattmean = mean(Flattening), FlattSD = sd(Flattening),
+            PlatFlatmean = mean(PlatFlattening), PlatFlatSD = sd(PlatFlattening),
+            n = n())
+
+VCshape <- VC %>% 
+  group_by(BlankShape) %>% 
+  summarise(n = n()) %>% 
+  ungroup() %>% 
+  mutate(freq = n/sum(n)*100)
+
+
+
+blades_meas <- read_csv("data/blade_VC_measurements.csv")
+
+elong <- ggplot(blades_meas, aes(x=Assemblage, y=ElongMean, fill=Class)) + 
+  geom_bar(stat="identity", color="black", 
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=ElongMean-ElongSD, ymax=ElongMean+ElongSD), width=.2,
+                position=position_dodge(.9))+
+  ggpubr::color_palette("jco")+
+  theme_pubclean() +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1))
+
+
+flat <- ggplot(blades_meas, aes(x=Assemblage, y=FlatMean, fill=Class)) + 
+  geom_bar(stat="identity", color="black", 
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=FlatMean-FlatSD, ymax=FlatMean+FlatSD), width=.2,
+                position=position_dodge(.9))+
+  ggpubr::color_palette("jco")+
+  theme_pubclean() +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1))
+
+
+plat_flat <- blades_meas %>% 
+  filter(!Assemblage %in% c("Casal do Cepo", "Vale Almoinha"))
+
+plat_flat <- ggplot(plat_flat, aes(x=Assemblage, y=PflatMean, fill=Class)) + 
+  geom_bar(stat="identity", color="black", 
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=PflatMean-PflatSD, ymax=PflatMean+PflatSD), width=.2,
+                position=position_dodge(.9))+
+  ggpubr::color_palette("jco")+
+  theme_pubclean() +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1))
+
+converg <- blades_meas %>% 
+  filter(Class != "Points a face plan")
+
+converge <- ggplot(converg, aes(Assemblage, ConvergentEdges)) +
+  geom_linerange(
+    aes(x = Assemblage, ymin = 0, ymax = ConvergentEdges), 
+    color = "lightgray", size = 4
+  ) +
+  geom_point(aes(color = Class), size = 4)+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  ggpubr::color_palette("jco")+
+  theme_pubclean() +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1))
+```
+
+Elongation means (\ref{fig: plotsVCelong) show through all of the groups somewhat similar ratios of elongation, with the lowest values appearing in Vale Boi, Vale Comprido – encosta, for the points, Lapa do Picareiro, Casal do Cepo and Vale Almoinha for the points à face plan, although the differences aren’t very significant.
+
+However, the lower elongation values for blades and points from these sites, especially from those with Proto-Solutrean assemblages, might reflect the use of both blades and elongated flakes for the production of the points, thus having a reduction sequence focused on the production of elongated blanks, without the goal of obtaining products with high elongation ratios.
+
+```{r plotsVCelong, echo=FALSE}
+plot(elong)
+```
+
+Regarding flattening (mesial width / thickness, \ref{fig: plotVCflat}) there seems to be a group of sites with smaller values, and thus with blades and points which are less flat: Vale Boi, Vale Comprido – encosta and Vale de Porcos. This seems to be in concordance with the already established patterns for Proto-Solutrean assemblages, where the production strategies seem to focus thick blanks which are then thinned at the platform. However, it is possible to notice the association between the Lapa do Picareiro blades with other assemblages, with blades and points with higher levels of flattening, thus showing that the Vale Comprido blades show some morphological differences in the flattening ratios from Vale Boi and Vale Comprido – encosta, both with Proto-Solutrean assemblages.
+
+```{r plotVCflat, echo=FALSE}
+plot(flat)
+```
+
+A similar pattern can be observed for platform flattening means (\ref{fig:plotVCplatflat}), although the differences between Lapa do Picareiro and Vale Boi or Vale Comprido – Encosta don’t seem as obvious. Using this morphological indicator, Casal do Felipe shows the widest differences, with high values for platform flatterning, while the other groups seems rather similar. It is possible to observe, however, that Lapa do Picareiro shows a wide dispersion and variability in terms of platform flattening, comparing, for example, to the low values and low standard deviations from Lapa do Picareiro and Vale Comprido – Encosta.
+
+```{r plotVCplatflat, echo=FALSE}
+plot(plat_flat)
+```
+
+Regarding the convergence of the edges, figure \ref{fig:plotVCconverge} shows a distinct difference in the percentage of convergence between Lapa do Picareiro, Vale Boi (blades and points) and Vale Comprido – encosta (blades and points). The blades from these sites show the highest percentages of convergent edges (above 30%) from all the groups, only surpassed by the values from Vale Comprido points, which reach 50% in Vale Comprido – Encosta and more than 60% in Vale Boi. All the other blades from sites with assemblages belonging to the Solutrean, Gravettian or Aurignacian show values of 20% or under. This shows not just the already established preference for convergent edges in Vale Comprido points, as well as a high component of convergence in the blank assemblages of these three sites, more specifically, in the blades.
+
+```{r plotVCconverge, echo=FALSE}
+plot(converge)
+```
+
+As such, it seems that the analyzed morphological indicators are good for understanding some variability between the groups and assemblages, as well as distinguishing between blades and points from the same site, which might be useful to understand blade production within the Proto-Solutrean assemblages with the goal of obtaining Vale Comprido points. Although, as seen, all assemblages seem to have a wide variability regarding morphological attributes, which creates difficulties in understanding specific groups based on the means of those indicators. This is especially noticeable with the elongation ratio mean, which didn’t show very evident differences between the blade assemblages from the different technocomplexes, although this might also be related to a certain homogeneity in the elongation of blades throughout the Upper Paleolithic.
+
+Regarding the ratios and morphological attribute analysis, Vale Boi seemed to be in concordance with the Vale Comprido – Encosta values, for both the points and the blanks. The results for the blanks also showed wide similarities with the points, indicating the production of blades is related to the production of the Vale Comprido points. 
+
+However, from all of the attributes analyzed, it was the frequency of convergent edges that showed the biggest differences between the Proto-Solutrean assemblages and Lapa do Picareiro against the other assemblages with lesser percentages of convergent edges. This clearly shows that convergence is an important attribute to define the assemblage, its blanks and points.
+
+Despite this similarity, Lapa do Picareiro, especially within the flattening ratios, showed values which were closer to those from the Solutrean assemblages, with flatter blades than those from Vale Boi and Vale Comprido – Encosta.
+
+These differences, along with the difficulty in identifying Vale Comprido points in the site’s Middle T assemblage, for the similarities with the type but lack of defining qualities such as the thickness of the platform or of the blank, and the fairly late chronology attributed to Middle T in Lapa do Picareiro, might represent the nonexistence of a Proto-Solutrean assemblage at the site. Instead, and given the similarities of the Lapa do Picareiro blades with both Proto-Solutrean and Solutrean blades, the assemblage of Middle T might be better explained by a transitional assemblage, chronologically located somewhere in between the Proto-Solutrean and the Middle Solutrean.
