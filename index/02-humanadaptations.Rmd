@@ -80,6 +80,12 @@ The Aurignacian V, meanwhile, has been a slightly more complicated subject. Its 
 
 The study of materials from old excavations by Manuel Heleno in Rio Maior (Portuguese Estremadura), and new archaeological works in the same region, in the 1980s, revealed assemblages from the Upper Paleolithic, some with levels of similar chronologies and typological characteristics which parallel those of Laugerie Haute. These projects allowed one of the most comprehensive descriptions of the Upper Paleolithic occupations in Portugal, and the understanding of the Gravettian-Solutrean transition in more detail, including the problematic Aurignacian V (Zilhão 1994; Almeida 2000).
 
+```{r vbmap, fig.cap="Location of Proto-Solutrean sites in Portugal, including the two sites analysed in this study.",fig.align='center', out.width = '50%', echo=FALSE}
+
+knitr::include_graphics("figure/map_proto_solutrean.png")
+
+```
+
 The Proto-Solutrean has thus been described as a transitional techno-complex from Gravettian to Solutrean technologies, through a process of local development, and synchronous to all of the Southwestern Europe (Aquitaine, Pyrenees, Languedoc and the Iberian Peninsula) (Zilhão et al. 1999). 
 
 In total, 9 sites with either Proto-Solutrean assemblages or transitional characteristics were identified in the Portuguese Estremadura area (although not all have been dated). Table X shows the dates for Proto-Solutrean occupations in Portugal, including the sites analyzed in this study.

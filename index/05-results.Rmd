@@ -1901,21 +1901,55 @@ VCdb <- VCdb %>%
   mutate(PlatformWidthCM = PlatformWidth/10) %>% 
   mutate(PlatformThicknessCM = PlatformThickness/10) %>% 
   mutate(ElongationCM=LengthCM/WidthCM) %>% 
-  mutate(VerticalConvexityCM=WidthCM/ThicknessCM) %>% 
-  mutate(PlatformConvexityCM=PlatformWidthCM/PlatformThicknessCM) %>% 
+  mutate(FlatteningCM=WidthCM/ThicknessCM) %>% 
+  mutate(PlatformFlatteningCM=PlatformWidthCM/PlatformThicknessCM) %>% 
   mutate(PlatformArea=PlatformWidthCM*PlatformThicknessCM) %>% 
   dplyr::rename(Type = ValeComprido) %>% 
   select(Site,RawMaterial, Type, BlankType, PlatformType, LengthCM, WidthCM, 
-         ThicknessCM, ElongationCM, VerticalConvexityCM, PlatformThicknessCM, PlatformWidthCM, Class,
-         PlatformConvexityCM, PlatformArea)
+         ThicknessCM, ElongationCM, FlatteningCM, PlatformThicknessCM, PlatformWidthCM, Class,
+         PlatformFlatteningCM, PlatformArea, BlankShape, CrossSection, Profile)
 
 # Create groups based on site and type
-VCdb <- VCdb %>% 
+VCdb <- VCdb %>%
   mutate(Group = case_when(
     Site == "VB" & Class == "RetouchedPiece" ~ "VB - Points",
     Site == "LP" & Class == "RetouchedPiece" ~ "LP - Points",
     Site == "VB" & Type == "VCblank" ~ "VB - Blanks",
     Site == "LP" & Type == "VCblank" ~ "LP - Blanks"))
+
+VCblanks_vb <- VCdb %>% 
+  filter(Group =="VB - Blanks") %>%
+  filter(RawMaterial %in% c("Chert", "Greywacke", "Dolerite"))
+
+VCblanks_lp <- VCdb %>% 
+  filter(Group=="LP - Blanks") 
+
+VC_blanks_tabVB <- tabmulti(VCblanks_vb, "RawMaterial", c("BlankType", "BlankShape", 
+                                                           "Profile", "CrossSection",
+                                                           "PlatformType", "WidthCM", "LengthCM","FlatteningCM","PlatformWidthCM","PlatformThicknessCM","PlatformFlatteningCM", "PlatformArea"),
+                        ymeasures = c("freq", "freq", "freq", "freq","freq","mean","mean","mean","mean","mean", "mean", "mean"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        variable.colname = "VC blanks attributes")
+VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
+VC_blanks_tabVB<- VC_blanks_tabVB %>% 
+  select("VC blanks attributes", Chert, Dolerite, Greywacke, Overall)
+
+## not working
+VC_blanks_tabLP <- tabmulti(VCblanks_lp, "RawMaterial", c("BlankType", "BlankShape", 
+                                                           "Profile", "CrossSection",
+                                                           "PlatformType", "WidthCM", "LengthCM","FlatteningCM","PlatformWidthCM","PlatformThicknessCM","PlatformFlatteningCM", "PlatformArea"),
+                        ymeasures = c("freq", "freq", "freq", "freq","freq","mean","mean","mean","mean","mean", "mean", "mean"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        variable.colname = "VC blanks attributes")
+VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
+VC_blanks_tabVB<- VC_blanks_tabVB %>% 
+  select("VC blanks attributes", Chert)
 
 # Read Estremaduran DBs (Zilhão and Aubry 1995) + make plots using all data
 ### Width/Platform area
