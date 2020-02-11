@@ -12,9 +12,9 @@ library(tidyr)
 ## Vale Boi
 Vale Boi is an open-air site and rockshelter, located on the western coast of Algarve (Portugal), near a small homonymous village, within the municipality of Vila do Bispo. The site is situated in a small valley that runs south to the Atlantic coast, about 2 km distance, relatively open, with a natural boundary to the East and bordered by a limestone hill through all its extension. This hill is marked, at specific points, by limestone exposures that form rock shelters with faces facing west or southwest (Bicho et al. 2003; Cascalheira et al. 2008; Cascalheira 2010).
 
-```{r vbmap, fig.cap="Location of Vale Boi and Lapa do Picareiro archaeological sites.",fig.align='center', out.width = '50%', echo=FALSE}
+```{r vbmap, fig.cap="Location of Vale Boi.",fig.align='center', out.width = '50%', echo=FALSE}
 
-knitr::include_graphics("figure/map_VB.png")
+knitr::include_graphics("figure/vale_boi_map.png")
 
 ```
 
@@ -33,6 +33,13 @@ The geologic context of Vale Boi is marked by heterogeneity. In the north, there
 Lapa do Picareiro is a cave site on the west facing slope of Serra d’Aire, a limestone massif north of the Tagus River valley and Lisbon, Portugal [@benedettietal2019; @bicho2006]. The massif is underlain by the Serra d’Aire Formation, a thick-bedded limestone of the Middle Jurassic age [@carvalho2018]. The Serra d’Aire is part of a large limestone province (Maciço Calcário Estremenho), which accounts for several Palaeolithic occupations, both cave and open-air sites [@almeida2000; @benedettietal2019].
 
 The cave appears to have an epigenetic origin, formed by infiltration of meteoric water through the overlying bedrock leading to the dissolution of the main chamber and roof collapse which formed the cave entrance [@benedettietal2019]. The interior of the chamber is about 11 x 14 m, and has more than 10 m of coarse sedimentary infill in inclined beds, derived from roof collapse, gravity flows and fine sediment infiltration [@benedettietal2019]. The cave opening is marked by the existence of a cone of large limestone stone blocks [@bicho2006] while the sediment inside the cave consists of smaller and angular limestone clasts in a matrix of fine sediment [@benedettietal2019].
+
+```{r fig.cap="Lapa do Picareiro location.", out.width = '100%', echo=FALSE}
+
+knitr::include_graphics("figure/picareiro_map.png")
+
+```
+
 
 ```{r fig.cap="Lapa do Picareiro generalized cross section showing surface topography, shape of the cave, and area excavated into sedimentary fill (after Benedetti et al, 2019).", out.width = '100%', echo=FALSE}
 
