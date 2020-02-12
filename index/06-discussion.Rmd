@@ -16,7 +16,7 @@ measur <- blades %>%
 
 shape <- blades %>% 
   group_by(BlankShape) %>% 
-  summarise(n = n()) %>% 
+  dplyr::summarise(n = n()) %>% 
   ungroup() %>% 
   mutate(freq = n/sum(n)*100)
 
@@ -28,14 +28,14 @@ VC <- dataset %>%
 
 
 VCmeasur <- VC %>% 
-  summarise(Elongmean = mean(Elongation), ElongSD = sd(Elongation),
+  dplyr::summarise(Elongmean = mean(Elongation), ElongSD = sd(Elongation),
             Flattmean = mean(Flattening), FlattSD = sd(Flattening),
             PlatFlatmean = mean(PlatFlattening), PlatFlatSD = sd(PlatFlattening),
             n = n())
 
 VCshape <- VC %>% 
   group_by(BlankShape) %>% 
-  summarise(n = n()) %>% 
+  dplyr::summarise(n = n()) %>% 
   ungroup() %>% 
   mutate(freq = n/sum(n)*100)
 

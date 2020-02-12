@@ -121,13 +121,6 @@ Regarding layers 4E and 5, although they are indeed layers with different sedime
 
 The bottom spits of layer 5, on the other hand, show a relatively dense concentration of Littorina littoreia, an unprecedented shell species at the site, and often associated with colder waters, having a high freezing tolerance (Murphy 1979). This context was dated through a shell sample, showing dates ranging between the 26-26.3 kcal BP, which corresponds to the first half of the HE2 (Sanchez-Goñi and Harrison 2010).
 
-```{r vbradiocarbon, echo = FALSE}
-
-knitr::include_graphics("figure/vb_radiocarbon.png")
-
-```
-
-
 Figure X represents the vertical distribution of all piece-plotted lithics in the Terrace, rows H and I. One of the most noticeable features is the vertical constraint in the distribution of dolerite pieces, mostly concentrated on layer 4E and upper levels of 5, coinciding also with the higher concentration of lithic materials in these layers. Likewise, the presence of Vale Comprido points is also associated with the top levels of layer 4E and 5 (Belmiro in press), which coincide with the dates that range from c. 23.7 to 24.7 ka cal BP (lower calibrations). As mentioned in Chapter XXX, these dates seem to fall outside the timeframe for the Proto-Solutrean as defined by Zilhão (1997) for the Portuguese Estremadura, extending it as much as nearly 2 ka years, and thus, hinting that the Proto-Solutrean at Vale Boi might have either happened later or lasted longer than has been argued for Central Portugal. The WK-44416 date, however, seems to show that, at least from around c. 26 ka cal BP, the site was occupied even if at a lower intensity, a date that falls onto the Final Gravettian/Proto-Solutrean or Final Gravettian/Terminal Gravettian transition in the traditional models (Zilhão 1997).
 
 ```{r spatialvbfig, fig.cap="East profile stratigraphy in the Terrace area (above) and distribution of all tridimensionally coordenated lithics in the new excavation area until 2017 (under). Lithis from layers 4E and 5 are coloured in black. Blue crosses represent dolerite artefacts and stars mark the provenance of each radiocarbon date: A - WK-42830; B - WK-42831; C - WK-44416.", out.width = '100%', echo=FALSE}

@@ -1938,18 +1938,18 @@ VC_blanks_tabVB<- VC_blanks_tabVB %>%
   select("VC blanks attributes", Chert, Dolerite, Greywacke, Overall)
 
 ## not working
-VC_blanks_tabLP <- tabmulti(VCblanks_lp, "RawMaterial", c("BlankType", "BlankShape", 
-                                                           "Profile", "CrossSection",
-                                                           "PlatformType", "WidthCM", "LengthCM","FlatteningCM","PlatformWidthCM","PlatformThicknessCM","PlatformFlatteningCM", "PlatformArea"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","mean","mean","mean","mean","mean", "mean", "mean"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "VC blanks attributes")
-VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
-VC_blanks_tabVB<- VC_blanks_tabVB %>% 
-  select("VC blanks attributes", Chert)
+#VC_blanks_tabLP <- tabmulti(VCblanks_lp, "RawMaterial", c("BlankType", "BlankShape", 
+                                                         #  "Profile", "CrossSection",
+                                                          # "PlatformType", "WidthCM", "LengthCM","FlatteningCM","PlatformWidthCM","PlatformThicknessCM","PlatformFlatteningCM", "PlatformArea"),
+                      #  ymeasures = c("freq", "freq", "freq", "freq","freq","mean","mean","mean","mean","mean", "mean", "mean"),
+                       # p.include = FALSE,
+                      #  n.headings = FALSE,
+                      #  bold.varnames = TRUE,
+                      #  bold.colnames = TRUE,
+                      #  variable.colname = "VC blanks attributes")
+#VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
+#VC_blanks_tabVB<- VC_blanks_tabVB %>% 
+  #select("VC blanks attributes", Chert)
 
 # Read Estremaduran DBs (Zilhão and Aubry 1995) + make plots using all data
 ### Width/Platform area
@@ -1967,14 +1967,14 @@ VC_widthxarea_all <- union(VC_widthxarea_mean, VC_plat3)
 ### Width/Platform convexity
 VC_plat2 <- read_csv("data/Fig.6_B.csv")
 VC_plat2 <- VC_plat2 %>% 
-  select(Group,WidthCM,PlatformConvexityCM)
+  select(Group,WidthCM,PlatformFlatteningCM)
 VC_widthxconvexity <- VCdb %>% 
-  select(Group,WidthCM,PlatformConvexityCM)
+  select(Group,WidthCM,PlatformFlatteningCM)
 ## Calculate means f/ VB + LP
 VC_widthxconvexity_mean <- aggregate(VC_widthxconvexity[, 2:3], list(VC_widthxconvexity$Group), mean)
 VC_widthxconvexity_mean <- VC_widthxconvexity_mean %>% 
   dplyr::rename(Group = Group.1) %>% 
-  select(Group, WidthCM, PlatformConvexityCM)
+  select(Group, WidthCM, PlatformFlatteningCM)
 ## Join tables
 VC_widthxconvexity_all <- union(VC_widthxconvexity_mean, VC_plat2)
 
@@ -2007,7 +2007,7 @@ VC_widthxarea_all %>%
 ```{r vcb, fig.cap="Blank width and platform convexity of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Casal do Felipe, Vale de Porcos and Vale Comprido - Encosta (Zilhão and Aubry 1995)", fig.scap="Blank width and platform convexity of Vale Comprido points and blanks.", echo=FALSE}
 
 VC_widthxconvexity_all %>% 
-  ggplot(aes(x=WidthCM, y=PlatformConvexityCM)) +
+  ggplot(aes(x=WidthCM, y=PlatformFlatteningCM)) +
   geom_point() +
   geom_text(aes(label=Group),hjust=1.1, vjust=0.2) +
   labs(x = "Width (cm)", y = "Platform Flattening (Width/Thickness) (cm)")

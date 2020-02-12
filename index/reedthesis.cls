@@ -104,7 +104,7 @@
 % This gives us rules below the headers
 \AtBeginDocument{%
   \fancyhf{}
-  \fancyhead[LE,RO]{\thepage}
+%  \fancyhead[LE,RO]{\thepage}
 %  \fancyhead[RE]{\slshape \leftmark}
 %  \fancyhead[LO]{\slshape \rightmark}
 %	The above makes your headers in all caps. If you would like different headers, choose one of the following options (be sure to remove the % symbol from both the right and left headers):
@@ -114,6 +114,7 @@
 %	\fancyhead[RE]{\scshape \leftmark} % The RIGHT headers will be in small caps.
 %	\fancyhead[LO]{\scshape \rightmark} %  And so will the LEFT headers
   \pagestyle{fancy}
+  \fancyfoot[R]{\thepage}
 
 % Psych majors: You do not need the following six lines, as it conflicts with apacite, so comment them out.
   \let\oldthebibliography=\thebibliography
@@ -133,13 +134,13 @@
 }
 
 % Stolen from book.cls and modified
-\let\RToldchapter\chapter
-\renewcommand{\chapter}{\if@openright\RTcleardoublepage
-		    \else\clearpage\fi
-		    \thispagestyle{empty}%
-		    \global\@topnum\z@
-		    \@afterindentfalse
-		    \secdef\@chapter\@schapter}
+%\let\RToldchapter\chapter
+%\renewcommand{\chapter}{\if@openright\RTcleardoublepage
+%		    \else\clearpage\fi
+%		    \thispagestyle{empty}%
+%		    \global\@topnum\z@
+%		    \@afterindentfalse
+%		    \secdef\@chapter\@schapter}
 
 % Stolen from book.cls PBC 5/12/05
 % Using this to actually show "Chapter 1" in TOC instead of "1"
@@ -165,13 +166,13 @@
                       \@afterheading
                     \fi}
 
-\newcommand{\RTcleardoublepage}{
-	\clearpage\if@twoside \ifodd\c@page\else
-	\thispagestyle{empty}\hbox{}\newpage
-	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+%\newcommand{\RTcleardoublepage}{
+%	\clearpage\if@twoside \ifodd\c@page\else
+%	\thispagestyle{empty}\hbox{}\newpage
+%	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
-\let\RToldcleardoublepage\cleardoublepage
-\renewcommand{\cleardoublepage}{\RTcleardoublepage}
+%\let\RToldcleardoublepage\cleardoublepage
+%\renewcommand{\cleardoublepage}{\RTcleardoublepage}
 
 % adjust margins for binding  (changed 2007-04-24 tgp)
 \setlength{\oddsidemargin}{.5in}
@@ -342,7 +343,7 @@
   \end{titlepage}
 
 %% Approved for the division page
-  \cleardoublepage
+  %\cleardoublepage
   {\fontsize{12}{14}
   \setbox0=\hbox{Approved for the \@approvedforthe}
   \thispagestyle{empty}
@@ -356,7 +357,7 @@
   \centerline{\makebox[\wd0][c]{\@advisor}
 	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\@altadvisor} \fi}
   \par\vfil\null}
-  \cleardoublepage
+  %\cleardoublepage
   }
 }
 
