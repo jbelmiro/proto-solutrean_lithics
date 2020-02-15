@@ -30,6 +30,7 @@ library(janitor)
 ```
 
 ```{r echo=FALSE}
+
 basic_db <- tibble(Items = c("Site","Area", "Lot", "ID", "Raw material", "Class", "Cortex presence (%)", "Max length", "Max width", "Mesial thickness", "Weight", "Type of fracture", "Retouched type", "Alteration", "Count", "Other notes"),
                     Text_1 = c("All", "All", "All", "All", "All", "All", "All except shatter and chips", "All except fragments, shatter and chips", "All except shatter and chips","All except shatter and chips", "All except chips", "Debitage fragments", "Retouched pieces", "All except shatter and chips", "Chips", "All"))
 
@@ -39,14 +40,8 @@ knitr::kable(head(basic_db[1:2],15), booktabs = TRUE, col.names = c("Recorded va
   kable_styling(position = "center")
 ```
 
-```{r echo=FALSE}
-package_list <- tibble(Items = c("Bchron","readr","dplyr","stringr","tidyr","knitr","tab","ggplot2","FactoMineR","factoextra","RcmdrMisc","IDPmisc","forcats","kableExtra","float","janitor"),
-                    Text_1 = c("4.3.0","1.3.1","0.8.3","1.4.0","1.0.0","1.26","3.1.2","3.2.1","2.0","1.0.6","2.5.1","1.1.19","0.4.0","1.1.0","0.2.3","1.2.0"))
 
-knitr::kable(head(package_list[1:2],16), booktabs = TRUE, col.names = c("Packages","Used version"),caption = "List of all R packages and respective versions used in the thesis.")
-```
-
-```{r echo=FALSE}
+```{r datadictionary, echo=FALSE}
 data_dictionary <- read.csv("data/data_dictionary.csv")
 data_dictionary <- data_dictionary %>% 
   dplyr::rename("Measurement units" = "Measurement.units") %>% 
@@ -62,29 +57,28 @@ knitr::kable(head(data_dictionary [1:4],46),longtable = TRUE, booktabs=TRUE, cap
 
 ```
 
-```{r fig.cap="Dolerite thin section under seen through a polarized microscope.", out.width = '100%', echo=FALSE}
+```{r doleritemicro, fig.cap="Dolerite thin section under seen through a polarized microscope.", out.width = '100%', echo=FALSE}
+
 knitr::include_graphics("figure/thin_section.png")
+
 ```
 
-```{r fig.cap="Location of recovered dolerite sample (yellow) comparatively to Vale Boi (orange).", out.width = '100%', echo=FALSE}
-knitr::include_graphics("figure/dolerite_sample.png")
-```
 
-```{r core attributes and measurements tables setup, echo=FALSE}
+# VALE BOI - CORES
+
+
+```{r coreattributesVB1, echo=FALSE}
+
 # Subset cores and phases
 coreAT <- dataset %>% 
   filter(Class=="Core")
+
 coreAT1 <- coreAT %>% 
-  filter(Phase=="Phase 1")
-coreAT2 <- coreAT %>% 
-  filter(Phase=="Phase 2")
-
-
+  filter(Phase=="Lower 5")
 
 core_tablep1 <- tabmulti(coreAT1, "RawMaterial", c("CoreType","NumberCoreFaces", 
-                                               "CorePlatform","PlatformWidth","PlatformThickness",
-                                              "MainFaceCoreUse","MainFacePlatformAngle"),
-                        ymeasures = c("freq","freq","freq","mean","mean","freq","mean"),
+                                               "CorePlatform", "MainFaceCoreUse"),
+                        ymeasures = c("freq","freq","freq","freq","mean"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         bold.varnames = TRUE,
@@ -94,202 +88,203 @@ core_tablep1 <- as.data.frame(core_tablep1)
 core_tablep1 <- core_tablep1 %>% 
   select("Tecnological attributes", "Quartz", "Chert","Greywacke","Other")
 
-core_metp1 <- tabmulti(coreAT1, "RawMaterial", c("MaxWidth", 
-                                              "Length", 
-                                              "Thickness"),
-                      ymeasures = c("mean", "mean", "mean"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Core metrics")
-core_metp1 <- as.data.frame(core_metp1)
-core_metp1 <- core_metp1 %>% 
-  select("Core metrics", "Quartz", "Chert","Greywacke","Other")
+knitr::kable(core_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - core attributes frequencies.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center")
 
+```
+
+```{r coreattributesVB2, echo=FALSE}
+
+coreAT2 <- coreAT %>% 
+  filter(Phase=="Upper 5/4E")
 
 core_tablep2 <- tabmulti(coreAT2, "RawMaterial", c("CoreType","NumberCoreFaces",
-                                               "CorePlatform","PlatformWidth","PlatformThickness",
-                                               "MainFaceCoreUse","MainFacePlatformAngle"),
-                        ymeasures = c("freq","freq", "freq","mean","mean","freq","mean"),
+                                               "CorePlatform", "MainFaceCoreUse"),
+                        ymeasures = c("freq","freq", "freq","freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         bold.varnames = TRUE,
                         bold.colnames = TRUE,
                         variable.colname = "Tecnological attributes")
-core_tablep2 <- as.data.frame(core_tablep2)
-core_tablep2 <- core_tablep2 %>% 
-  select("Tecnological attributes", "Quartz", "Chert","Other")
 
-core_metp2 <- tabmulti(coreAT2, "RawMaterial", c("MaxWidth", 
-                                              "Length", 
-                                              "Thickness"),
-                      ymeasures = c("mean", "mean", "mean"),
+core_tablep2 <- core_tablep2 %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" =  "Overall") %>% 
+  select("Tecnological attributes", "Quartz", "Chert","Other", "Total")
+
+
+knitr::kable(core_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - core attributes frequencies.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center")
+
+```
+
+```{r coremetricsVB1, echo=FALSE}
+
+core_metp1 <- tabmulti(coreAT1, "RawMaterial", c("MedWidth", "Length", "Thickness",
+                                                 "PlatformWidth","PlatformThickness", 
+                                                 "MainFacePlatformAngle", "Weight"),
+                      ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean", "mean"),
                       p.include = FALSE,
                       n.headings = FALSE,
                       bold.varnames = TRUE,
                       bold.colnames = TRUE,
+                      listwise.deletion = FALSE,
                       variable.colname = "Core metrics")
-core_metp2 <- as.data.frame(core_metp2)
+
+core_metp1 <- core_metp1 %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select("Core metrics", "Quartz", "Chert","Greywacke","Other", "Total")
+
+knitr::kable(core_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean and standard deviation of core measurements (in mm).") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center", latex_options = "hold_position")
+
+```
+
+```{r coremetricsVB2, echo=FALSE}
+
+core_metp2 <- tabmulti(coreAT2, "RawMaterial", c("MedWidth", "Length", "Thickness",
+                                                 "PlatformWidth","PlatformThickness", 
+                                                 "MainFacePlatformAngle", "Weight"),
+                      ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean", "mean"),
+                      p.include = FALSE,
+                      n.headings = FALSE,
+                      bold.varnames = TRUE,
+                      bold.colnames = TRUE,
+                      listwise.deletion = FALSE,
+                      variable.colname = "Core metrics")
+
+
 core_metp2 <- core_metp2 %>% 
-  select("Core metrics", "Quartz", "Chert","Greywacke","Other")
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select("Core metrics", "Quartz", "Chert","Greywacke","Other", "Total")
 
-```
-
-```{r echo=FALSE}
-knitr::kable(core_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Phase 1 Core attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
-
-```
-
-```{r echo=FALSE}
-knitr::kable(core_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Phase 2 Core attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
-
-```
-
-```{r echo=FALSE}
-knitr::kable(core_metp1, booktabs=TRUE, caption = "Phase 1 Core measurements (width, length and thickness) with mean and standard deviation values.") %>% 
+knitr::kable(core_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center", latex_options = "hold_position")
 
 ```
 
-```{r echo=FALSE}
-knitr::kable(core_metp2, booktabs=TRUE, caption = "Phase 2 Core measurements (width, length and thickness) with mean and standard deviation values.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", latex_options = "hold_position")
 
-```
+# VALE BOI - FLAKES
 
-```{r blank attribute table setup, echo=FALSE}
+```{r flakeattributeVB1, echo=FALSE}
 
 blanksAT <- dataset %>% 
-  filter(BlankType=="Flake")
+  filter(BlankType == "Flake")
 blanksAT1 <- blanksAT %>% 
-  filter(Phase=="Phase 1")
-blanksAT2 <- blanksAT %>% 
-  filter(Phase=="Phase 2")
+  filter(Phase=="Lower 5")
 
-blank_tablep1 <- tabmulti(blanksAT1, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-blank_tablep1 <- as.data.frame(blank_tablep1)
+
+blank_tablep1 <- tabmulti(dataset = blanksAT1,
+                          xvarname = "RawMaterial", 
+                          yvarname = c("CrossSection", "BlankShape", "Profile",
+                                       "BlankTip", "PlatformType", "PlatformCortex",
+                                       "ScarCount", "Cortex"),
+                          ymeasures = c("freq", "freq", "freq", "freq", 
+                                        "freq", "freq", "freq", "freq", "freq"),
+                          listwise.deletion = FALSE,
+                          p.include = FALSE,
+                          n.headings = FALSE,
+                          variable.colname = "Attributes")
+
 blank_tablep1<- blank_tablep1 %>% 
-  select(`Attributes`, `Quartz`, `Chert`, 
-         `Greywacke`, `Dolerite`, `Chalcedony`, 
-         `Other`)
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Attributes, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other, Total)
 
-blank_metp1 <- tabmulti(blanksAT1, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
+
+knitr::kable(blank_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - flake attributes frequencies.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center") %>% 
+  column_spec(1:7, width = "1cm")
+
+```
+
+```{r flakeattributeVB2, echo=FALSE}
+
+blanksAT2 <- blanksAT %>% 
+  filter(Phase=="Upper 5/4E")
+
+blank_tablep2 <- tabmulti(dataset = blanksAT2,
+                          xvarname = "RawMaterial", 
+                          yvarname = c("CrossSection", "BlankShape", "Profile",
+                                       "BlankTip", "PlatformType", "PlatformCortex",
+                                       "ScarCount", "Cortex"),
+                          ymeasures = c("freq", "freq", "freq", "freq", 
+                                        "freq", "freq", "freq", "freq", "freq"),
+                          listwise.deletion = FALSE,
                           p.include = FALSE,
                           n.headings = FALSE,
-                          bold.varnames = TRUE,
-                          bold.colnames = TRUE,
-                          variable.colname = "Measurements")
-blank_metp1 <- as.data.frame(blank_metp1)
+                          variable.colname = "Attributes")
+
+blank_tablep2<- blank_tablep2 %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Attributes, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other, Total)
+
+
+knitr::kable(blank_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - flake attributes frequencies.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center") %>% 
+  column_spec(1:7, width = "1cm")
+
+```
+
+
+```{r flakemetricsVB1, echo=FALSE}
+
+blank_metp1 <- tabmulti(blanksAT1, "RawMaterial", c("MedWidth", "Length",
+                                                    "Thickness", "PlatformWidth",
+                                                    "PlatformThickness"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        listwise.deletion = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        variable.colname = "Measurements")
+
 blank_metp1 <- blank_metp1 %>% 
-  select(Measurements, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other)
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Measurements, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other, Total)
 
+knitr::kable(blank_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean and standard deviation of flake measurements (in mm).") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center", latex_options = c("hold_position", "scale_down"))
 
+```
 
-blank_tablep2 <- tabmulti(blanksAT2, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
+```{r flakemetricsVB2, echo=FALSE}
+
+blank_metp2 <- tabmulti(blanksAT2, "RawMaterial", c("MedWidth", "Length", 
+                                                    "Thickness", "PlatformWidth", "PlatformThickness"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         bold.varnames = TRUE,
                         bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-blank_tablep2 <- as.data.frame(blank_tablep2)
-blank_tablep2<- blank_tablep2 %>% 
-  select(`Attributes`, `Quartz`, `Chert`, 
-         `Greywacke`, `Dolerite`, `Chalcedony`, 
-         `Other`)
+                        listwise.deletion = FALSE,
+                        variable.colname = "Measurements")
 
-blank_metp2 <- tabmulti(blanksAT2, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
-                          p.include = FALSE,
-                          n.headings = FALSE,
-                          bold.varnames = TRUE,
-                          bold.colnames = TRUE,
-                          variable.colname = "Measurements")
-blank_metp2 <- as.data.frame(blank_metp2)
 blank_metp2 <- blank_metp2 %>% 
-  select(Measurements, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other)
+  as.data.frame %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Measurements, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other, Total)
 
-## cortex tab
-
-cortexblank1 <- tabmulti(blanksAT1, "RawMaterial", c("Cortex","CortexLocation"),
-                      ymeasures = c("freq", "freq"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Cortex attributes")
-cortexblank1 <- as.data.frame(cortexblank1)
-cortexblank1 <- cortexblank1 %>% 
-  select("Cortex attributes", "Quartz", "Chert", 
-         "Greywacke", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-
-cortexblank2 <- tabmulti(blanksAT2, "RawMaterial", c("Cortex","CortexLocation"),
-                      ymeasures = c("freq", "freq"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Cortex attributes")
-cortexblank2 <- as.data.frame(cortexblank2)
-cortexblank2 <- cortexblank2 %>% 
-  select("Cortex attributes", "Quartz", "Chert", 
-         "Greywacke","Dolerite", "Other", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-```
-
-```{r echo=FALSE}
-knitr::kable(blank_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Phase 1 Blank attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
-  column_spec(1:7, width = "1cm")
-
-```
-
-```{r echo=FALSE}
-knitr::kable(blank_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Phase 2 Blank attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
-  column_spec(1:7, width = "1cm")
-
-```
-
-
-```{r echo=FALSE}
-knitr::kable(blank_metp1, booktabs=TRUE, caption = "Phase 1 Blank measurements (width, length and thickness) with mean and standard deviation values.") %>% 
+knitr::kable(blank_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center", latex_options = c("hold_position", "scale_down"))
 
 ```
 
-```{r echo=FALSE}
-knitr::kable(blank_metp2, booktabs=TRUE, caption = "Phase 2 Blank measurements (width, length and thickness) with mean and standard deviation values.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", latex_options = c("hold_position", "scale_down"))
 
-```
+# VALE BOI - ELONGATED
 
 
 ```{r echo=FALSE}
@@ -322,64 +317,36 @@ knitr::kable(elong_metp2, booktabs=TRUE, caption = "Phase 2 Elongated product me
 
 ```
 
-```{r lp core attributes and measurements tables setup, echo=FALSE}
+
+# LAPA DO PICAREIRO - CORES
+
+```{r lp coreattributesLP1, echo=FALSE}
+
 # Subset cores and phases
 coreATlp <- datasetlp %>% 
   filter(Class=="Core")
+
 coreAT1lp <- coreATlp %>% 
-  filter(Phase=="Terminal Gravettian")
-coreAT2lp <- coreATlp %>% 
-  filter(Phase=="Proto-Solutrean")
+  filter(Phase== "U/Lower T")
 
 
-core_tablep1lp <- tabmulti(coreAT1lp, "QuartzQuality", c("CoreType","NumberCoreFaces",                                             "CorePlatform","PlatformWidth","PlatformThickness",
-                                              "MainFaceCoreUse"),
-                        ymeasures = c("freq","freq","freq","mean","mean","freq"),
+
+core_tablep1lp <- tabmulti(coreAT1lp, "RawMaterial", c("CoreType","NumberCoreFaces", 
+                                                         "CorePlatform", "MainFaceCoreUse"),
+                        ymeasures = c("freq","freq","freq","freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         bold.varnames = TRUE,
                         bold.colnames = TRUE,
-                        variable.colname = "Tecnological attributes")
-core_tablep1lp <- as.data.frame(core_tablep1lp)
+                        listwise.deletion = FALSE,
+                        variable.colname = "Attributes")
+
 core_tablep1lp <- core_tablep1lp %>% 
-  select("Tecnological attributes", "RockCrystal", "Fine","Overall") %>% 
-  dplyr::rename("Quartz" = "Overall")
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall")
+  select(Attributes, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other, Total) 
 
-core_metp1lp <- coreAT1lp %>% 
-  select(MaxWidth,Length,Thickness)
-
-
-core_tablep2lp <- tabmulti(coreAT2lp, "RawMaterial", c("CoreType", "NumberCoreFaces",
-                                               "CorePlatform","PlatformWidth","PlatformThickness",
-                                               "MainFaceCoreUse","MainFacePlatformAngle"),
-                        ymeasures = c("freq","freq", "freq","mean","mean","freq","mean"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Tecnological attributes")
-core_tablep2lp <- as.data.frame(core_tablep2lp)
-core_tablep2lp <- core_tablep2lp %>% 
-  select("Tecnological attributes", "Quartz", "Chert","Other")
-
-core_metp2lp <- tabmulti(coreAT2lp, "RawMaterial", c("MaxWidth", 
-                                              "Length", 
-                                              "Thickness"),
-                      ymeasures = c("mean", "mean", "mean"),
-                      p.include = FALSE,
-                      n.headings = FALSE,
-                      bold.varnames = TRUE,
-                      bold.colnames = TRUE,
-                      variable.colname = "Core metrics")
-core_metp2lp <- as.data.frame(core_metp2lp)
-core_metp2lp <- core_metp2lp %>% 
-  select("Core metrics", "Quartz", "Chert","Other")
-
-```
-
-
-```{r echo=FALSE}
-knitr::kable(core_tablep1lp, booktabs = TRUE, caption = "Terminal Gravettian Core attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
+knitr::kable(core_tablep1lp, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - core attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center") %>% 
   kable_styling(latex_options = "HOLD_position")
@@ -387,58 +354,206 @@ knitr::kable(core_tablep1lp, booktabs = TRUE, caption = "Terminal Gravettian Cor
 ```
 
 
-```{r echo=FALSE}
-knitr::kable(core_tablep2lp, booktabs = TRUE, caption = "Proto-Solutrean Core attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
+```{r coreattributesLP2, echo=FALSE}
+
+coreAT2lp <- coreATlp %>% 
+  filter(Phase== "Middle T")
+
+coreAT2lp <- coreATlp %>% 
+  filter(Phase=="Proto-Solutrean")
+
+
+core_tablep2lp <- tabmulti(coreAT2lp, "RawMaterial", c("CoreType","NumberCoreFaces", 
+                                                         "CorePlatform", "MainFaceCoreUse"),
+                        ymeasures = c("freq","freq","freq","freq"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        listwise.deletion = FALSE,
+                        variable.colname = "Attributes")
+
+core_tablep1lp <- core_tablep1lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall")
+  select(Attributes, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other, Total) 
+
+
+knitr::kable(core_tablep2lp, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T - core attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
 ```
 
 
-```{r echo=FALSE}
-knitr::kable(core_metp1lp, booktabs=TRUE, caption = "Terminal Gravettian Core measurements (width, length and thickness) 
-             on quartz (with quartz type).") %>% 
+```{r coremetricsLP1, echo=FALSE}
+
+core_metp1lp <- tabmulti(coreAT1lp, "RawMaterial", c("MedWidth", "Length", "Thickness",
+                                                 "PlatformWidth","PlatformThickness", 
+                                                 "MainFacePlatformAngle", "Weight"),
+                      ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean", "mean"),
+                      p.include = FALSE,
+                      n.headings = FALSE,
+                      bold.varnames = TRUE,
+                      bold.colnames = TRUE,
+                      listwise.deletion = FALSE,
+                      variable.colname = "Core metrics")
+
+core_metp1lp <- core_metp1lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select("Core metrics", "Quartz", "Chert","Quartzite","Other", "Total")
+
+knitr::kable(core_metp1lp, booktabs=TRUE, caption = "Lapa do Picareiro - U/Lower T - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
 ```
 
-```{r echo=FALSE}
-knitr::kable(core_metp2lp, booktabs=TRUE, caption = "Proto-Solutrean Core measurements (width, length and thickness) with mean and standard deviation values.") %>% 
+
+```{r coremetricsLP2, echo=FALSE}
+
+core_metp2lp <- tabmulti(coreAT2lp, "RawMaterial", c("MedWidth", "Length", "Thickness",
+                                                 "PlatformWidth","PlatformThickness", 
+                                                 "MainFacePlatformAngle", "Weight"),
+                      ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean", "mean"),
+                      p.include = FALSE,
+                      n.headings = FALSE,
+                      bold.varnames = TRUE,
+                      bold.colnames = TRUE,
+                      listwise.deletion = FALSE,
+                      variable.colname = "Core metrics")
+
+core_metp2lp <- core_metp2lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select("Core metrics", "Quartz", "Chert","Quartzite","Other", "Total")
+
+knitr::kable(core_metp2lp, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
 ```
 
-```{r echo=FALSE}
-knitr::kable(blank_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Terminal Gravettian Blank attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
+
+# LAPA DO PICAREIRO - FLAKES
+
+
+```{r flakeattributesLP1, echo=FALSE}
+
+flakesATlp <- datasetlp %>% 
+  filter(ClassType == "Flake")
+
+flakesAT1lp <- flakesATlp %>% 
+  filter(Phase == "U/Lower T")
+
+
+flakes_tablep1lp <- tabmulti(dataset = flakesAT1lp,
+                          xvarname = "RawMaterial", 
+                          yvarname = c("CrossSection", "BlankShape", "Profile",
+                                       "BlankTip", "PlatformType", "PlatformCortex",
+                                       "ScarCount", "Cortex"),
+                          ymeasures = c("freq", "freq", "freq", "freq", 
+                                        "freq", "freq", "freq", "freq", "freq"),
+                          listwise.deletion = FALSE,
+                          p.include = FALSE,
+                          n.headings = FALSE,
+                          variable.colname = "Attributes")
+
+flakes_tablep1lp<- flakes_tablep1lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Attributes, Quartz, Chert, Other, Total)
+
+
+knitr::kable(flakes_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
 ```
 
-```{r echo=FALSE}
-knitr::kable(blank_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Proto-Solutrean Blank attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
+```{r flakeattributesLP2, echo=FALSE}
+
+flakesAT2lp <- flakesATlp %>% 
+  filter(Phase == "Middle T")
+
+
+flakes_tablep2lp <- tabmulti(dataset = flakesAT2lp,
+                          xvarname = "RawMaterial", 
+                          yvarname = c("CrossSection", "BlankShape", "Profile",
+                                       "BlankTip", "PlatformType", "PlatformCortex",
+                                       "ScarCount", "Cortex"),
+                          ymeasures = c("freq", "freq", "freq", "freq", 
+                                        "freq", "freq", "freq", "freq", "freq"),
+                          listwise.deletion = FALSE,
+                          p.include = FALSE,
+                          n.headings = FALSE,
+                          variable.colname = "Attributes")
+
+flakes_tablep2lp <- flakes_tablep2lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Attributes, Quartz, Chert, Other, Total)
+
+knitr::kable(flakes_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center") 
 
 ```
 
 
-```{r echo=FALSE}
-knitr::kable(blank_metp1lp, booktabs=TRUE, caption = "Terminal Gravettian Blank measurements (width, length and thickness) with mean and standard deviation values.") %>% 
+```{r flakemetricsLP1, echo=FALSE}
+
+flakes_metplp1lp <- tabmulti(flakesAT1lp, "RawMaterial", c("MedWidth", "Length",
+                                                    "Thickness", "PlatformWidth",
+                                                    "PlatformThickness"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        listwise.deletion = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        variable.colname = "Measurements")
+
+flakes_metp1lp <- flakes_metp1lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Measurements, Quartz, Chert, Other, Total)
+
+knitr::kable(flakes_metp1lp, booktabs=TRUE, caption = "Lapa do Picarerio - U/Lower T - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", latex_options = "scale_down")
+  kable_styling(position = "center", latex_options = c("hold_position", "scale_down"))
 
 ```
 
 
-```{r echo=FALSE}
-knitr::kable(blank_metp2lp, booktabs=TRUE, caption = "Proto-Solutrean Blank measurements (width, length and thickness) with mean and standard deviation values.") %>% 
+```{r flakemetricsLP2, echo=FALSE}
+
+flakes_metplp12lp <- tabmulti(flakesAT2lp, "RawMaterial", c("MedWidth", "Length",
+                                                    "Thickness", "PlatformWidth",
+                                                    "PlatformThickness"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        listwise.deletion = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        variable.colname = "Measurements")
+
+flakes_metp2lp <- flakes_metp2lp %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Measurements, Quartz, Chert, Other, Total)
+
+knitr::kable(flakes_metp2lp, booktabs=TRUE, caption = "Lapa do Picarerio - Middle T - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", latex_options = "scale_down")
+  kable_styling(position = "center", latex_options = c("hold_position", "scale_down"))
 
 ```
+
+
+# LAPA DO PICAREIRO - ELONGATED
+
 
 ```{r echo=FALSE}
 knitr::kable(elong_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Terminal Gravettian Elongated product attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
@@ -468,4 +583,16 @@ knitr::kable(elong_metp2lp, booktabs=TRUE, caption = "Proto-Solutrean Elongated 
 
 ```
 
+
+# Colophon
+
+
+This dissertation was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+
+# which R packages and versions?
+devtools::session_info()
+
+```
 
