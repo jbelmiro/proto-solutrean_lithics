@@ -1462,7 +1462,7 @@ shape <- fisher.test(table(elong_groups_AT2$BlankShape, elong_groups_AT2$elong_g
 ```
 
 
-Testing this apparent division (artifacts wider than 12.5 mm and those with less than 12.5 in width) against all other relevant morphological variables revealed, however, no significant difference between the two groups (Fisher's exact test for: *Platform Type* p-value = `r round(plat$p.value, 2)`, *Profile* p-value = `r count(prof$p.value, 2)`, *Cross-Section* p-value = `r round(cross$p.value, 2)`, *Edge Shape* p-value = `r round(shape$p.value, 2)`). These results, together with the fairly linear positive correlation showed by the chert tendecy line displayed on Figure \@ref(fig:elongdisp2), seem enough to do the technological description of all elongated products as a single category.
+Testing this apparent division (artifacts wider than 12.5 mm and those with less than 12.5 in width) against all other relevant morphological variables revealed, however, no significant difference between the two groups (Fisher's exact test for: *Platform Type* p-value = `r round(plat$p.value, 2)`, *Profile* p-value = `r count(prof$p.value, 2)`, *Cross section* p-value = `r round(cross$p.value, 2)`, *Edge Shape* p-value = `r round(shape$p.value, 2)`). These results, together with the fairly linear positive correlation showed by the chert tendecy line displayed on Figure \@ref(fig:elongdisp2), seem enough to do the technological description of all elongated products as a single category.
 
 ```{r elongdisp1, fig.cap="Vale Boi - Lower 5. Elongated products width and length dispersion by raw material.", echo=FALSE}
   
@@ -1510,44 +1510,61 @@ ggMarginal(disp_2, type = "density", groupColour = TRUE, groupFill = TRUE)
 ```
 
 
-Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows more significant differences across the different raw materials, where 63.6% of quartz has parallel shapes whereas 51.6% of chert has convergent ones. Cross sections are mostly triangular, with mostly straight and curved profiles. Differences in profile types are rather significant between both phases, but only for quartz artifacts. While in Lower 5, quartz eçongated blanks present a significant percentage of curved profiles (c. 23%), in Upper 5/4E this percentage drops to c. 12%. Curved and twisted profiles are usually associated to carinated cores, such as the ones presented by Almeida (2000) for the Terminal Gravettian of Estremadura. Although no carinated cores were identified in the Lower 5 assemblage, the presence of a significant number of bladelets with curved profiles might indicate the use of such a type of reduction sequence.
+Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows significant differences across the different raw materials, since c. 64% of quartz has parallel shapes whereas c. 52% of chert has convergent ones. Cross sections are mostly triangular, with straight and curved profiles. Differences in profile types are rather significant between both phases, but only for quartz artifacts. While in Lower 5, quartz elongated blanks present a percentage of curved profiles of c. 23%, in Upper 5/4E this percentage drops to c. 12%. Curved and twisted profiles in bladelets are usually associated to the exploitation carinated cores, particularly in the Gravettian-Solutrean transition as presented by Almeida (2000) for the Terminal Gravettian of Estremadura. Although no carinated cores were identified in the Lower 5 assemblage, the presence of a significant number of bladelets with curved profiles might indicate the use of such a type of reduction strategy.
 
-Scar patterns show an obvious tendency for unidirectional knapping strategies on all raw materials. For Lower 5, however, there is the presence of bidirectional scar patterns on chert even if in low frequencies (12.9%). Upper 5/4E shows much lower values for this type of scar pattern, with 2% on quartz and 4% on chert. Scar count shows a tendency for 1 to 3 dorsal scars on both phases and all raw materials.
+Scar patterns show an obvious tendency for unidirectional knapping strategies on all raw materials. For Lower 5, however, bidirectional scar patterns are present on two chert artifacts (c. 13%). Upper 5/4E shows much lower values for this type of scar pattern, with c. 2% on quartz and c. 4% on chert. Scar count shows a tendency for 1 to 3 dorsal scars on both phases and all raw materials.
 
-Elongated blanks on both phases seem to be obtained without platform preparation, although quartz also shows a significant presence of crushed platforms. Only two faceted platforms were identified, in Upper 5/4E, on chert and dolerite pieces. The general tendency for both phases is for the absence of cortical platforms. Only chert and greywacke on Lower 5 (9.7% and 16.7% respectively) and chert on Upper 5/4E (13.3%) show completely cortical platforms.
+Elongated blanks on both phases seem to be obtained without platform preparation, although quartz also shows a significant presence of crushed platforms. Only two faceted platforms were identified, in Upper 5/4E, on chert and dolerite pieces. The general tendency for both phases is for the absence of cortical platforms. Only chert and greywacke on Lower 5 (c. 10% and c. 17% respectively) and chert on Upper 5/4E (c. 13%) show completely cortical platforms.
 
-Finally, elongated products metrics, including platform measurements, show a tendency on both phases for smaller blanks on quartz, followed by chert, where greywacke, dolerite and chalcedony show the biggest blanks and widest platforms. On both stages, means for width, length and thickness for quartz and chert are around 9mm, 21-26mm, 5mm respectively, with higher standard deviation values for length, which is what seems to vary most in these blanks. Despite this, chert elongated blanks seem to show means which hint for higher elongation ratios than quartz.
-
-When plotting width and length for elongated products, by raw material, there seems to be separated groups, for both phases, instead of a continuous dispersion, which may indicate separate production strategies and/or desired dimensions for products.
-
-For Lower 5 there seems to be the existence of one single group for quartz, and two differing groups of width-length combinations for chert (Fig X), although the sample is small, possibly having an impact on the data dispersion. As such, this group in quartz might suggest the preference in Lower 5 for the production of small elongated blanks between 3-10 mm width and under 25 mm length, easily understood by the density curves. This group falls into the definition of bladelet, for the exception of a small quantity of pieces from the latter group, which, due to their width surpassing 12 mm width, are considered blades. Regarding chert, measurements are slightly more dispersed, allowing for the individualization of a wide group of smaller blanks, ranging between 2.5-12 mm width, peaking at around 10 mm, and 10-28 mm length peaking at around 20 mm, again mostly falling into the traditional definition of bladelets. The interpretation of the second group is further truncated by the small sample. The curves show not an increase in density, but instead a maintenance of the curve after a moment of drop, which might not represent a preference. Elongated products in this group have widths and lengths comprehended between 14-17 mm and 30-40 mm respectively, and can be classified as blades.
-
-For Upper 5/4E, quartz continues to have a small sample that seems to show disperse concentrations of products, with a first group of small blanks between 2.5-6 mm width and under 20 mm length, and a second group ranging between 10-12.5 mm width and 20-30 mm length, both classified as bladelets. For quartz, there seems to be a wider dispersion without an obvious peak in the density curve, even within the two groups. For chert, there are three visible concentrations of elongated blanks, although with varying sample numbers on each group: one small group ranging between 2.5-5 mm width and 10-20 mm width, classifying as bladelets; an intermediate group and the best represented in terms of sample numbers, between 8-12.5 mm width and 15-30 mm length, classifying as bladelets with the exception of 2 pieces with slightly exceed the width bladelet limit; a group of larger blanks, with a small sample, ranging between 13-16 mm width and 30-42 mm length, traditionally classified as blades. Regarding the density curves, however, chert seems to peak between 7.5-10 mm width and 20 mm length, showing instead a unimodal curve and possibly, only one prefered width/length ratio with a wider dispersion.
-
-
-
+Finally, elongated products metrics, including platform measurements, show a tendency on both phases for smaller blanks on quartz, followed by chert, whereas greywacke, dolerite and chalcedony show the biggest blanks and widest platforms. On both phases, means for width, length and thickness for quartz and chert are around 9mm, 21-26mm, and 5mm, respectively. Higher standard deviation values are observed for length. Despite this, chert elongated blanks seem to show means which hint for higher elongation ratios than quartz.
 
 
 #### Lapa do Picareiro
-There are a total of plotted 47 elongated blanks, 27 of which belong to the U/Lower T group, more than 50% on chert, and 20 to the Middle T group, also more than 50% on chert.
+A total of 47 elongated blanks were recorded for Lapa do Picareiro. U/Lower T phase contains 27 in total, of which more than 50% are on chert. For the Middle T phase, 20 elongated blanks were recorded, with also more than 50% on chert.
 
-Technological attributes follow closely those already described in blanks, also showing little variation between the U/Lower T and the Middle T.
+Technological attributes follow closely those already described for flakes, also showing little variation between the U/Lower T and the Middle T.
 
-Elongated blanks show a majority of parallel shapes, followed by convergent, with triangular cross sections, straight profiles followed by curved, with the exception of quartz on the Middle T group, where curved profiles are more frequent. Dorsal scars are unidirectional, with 2 negatives for quartz and 2 to 4 negatives for chert.
+When plotting width and length for elongated blanks, for chert and quartz, there seems to be two groups of different dimensions in both phases. Concerning the U/Lower T, there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a group that although more disperse is composed mostly of chert, with widths and length ranging between 13-26 mm and 40-60 mm respectively, which may be classified, according to the traditional definition, as blades.
 
-Platforms are mostly plain, with no cortex, where quartz seems to have the smaller dimensions.
+For the Middle T there is also a group of smaller blanks, with widths ranging from 3 to 10mm, and highly variable length values, ranging from between 5 to 30mm, from which the higher values represent mostly chert artifacts. Even so, these pieces may be characterized through the traditional classification as bladelets. The second group is made up entirely of chert, although it has less blanks and is very disperse in terms of width (>15mm), and length (>45mm), and thus classified as blades.
 
-When plotting width and length for elongated blanks, for chert and quartz, there seems to be two groups of differing dimensions. Regarding the U/Lower T, there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a larger group, although much more disperse and composed mostly of chert, with widths and length ranging between 13-26 mm and 40-60 mm respectively, which may be classified as blades. The density curves for width and length on chert, however, don't seem to show the relevant existance of two groups, with only a continuous increase in values within each variables.
+These patterns may represent different production strategies for specific elongated blank sizes and ratios, although, given the location of the site, it might simply reflect the truncated nature of the reduction sequences present at the site, only showing the presence of two groups of bladelets and blades.
 
-For the Middle T there is also a group of smaller blanks, with width ranging the 3-10 mm width, although length values vary a lot more, going between the 5-30 mm, where  the higher values are made up mostly of chert. Even so, this group may be characterized through the traditional classification of bladelet. The second group is made up entirely of chert, although it has less blanks and is very disperse in terms of width, which is higher than 15 mm, and length, higher than 45 mm, also being characterized as blades. Once again, for chert, density curves seem to show a unimodal curve.
-
-These patterns may represent differing production strategies for specific elongated blank sizes and ratios, although, given the altitude of the site, it might simply reflect the truncated reduction sequences present at the site, thus only showing the presence of two wide groups of small elongated blanks and larger elongated blanks. without the intermediate group which wasn't transported into the site.
+In fact, both blades and bladelets show a majority of parallel and convergent edge shapes, straight and curved profiles. Dorsal scars are unidirectional on the dorsal surfaces of all artifacts, with mostly two scars for quartz and two to four scars for chert. Platforms are mostly plain, with no cortex.
 
 
-```{r elongated_attribute_setup, echo=FALSE}
+```{r fishertestelongLP, echo = FALSE}
 
 elongATlp <- datasetlp %>% 
   filter(BlankType=="ElongatedProd")
+
+elong_groups_LP1 <- elongATlp %>% 
+  mutate(elong_group = case_when(MedWidth < 12.5 ~ "Bladelet",
+                                  MedWidth >= 12.5 ~ "Blade")) %>% 
+  filter(RawMaterial == "Chert" & Phase == "U/Lower T")
+
+
+platLP1 <- fisher.test(table(elong_groups_LP1$PlatformType, elong_groups_LP1$elong_group))
+profLP1 <- fisher.test(table(elong_groups_LP1$Profile, elong_groups_LP1$elong_group))
+crossLP1 <- fisher.test(table(elong_groups_LP1$CrossSection, elong_groups_LP1$elong_group))
+shapeLP1 <- fisher.test(table(elong_groups_LP1$BlankShape, elong_groups_LP1$elong_group))
+
+
+
+elong_groups_LP2 <- elongATlp %>% 
+  mutate(elong_group = case_when(MedWidth < 12.5 ~ "Bladelet",
+                                  MedWidth >= 12.5 ~ "Blade")) %>% 
+  filter(RawMaterial == "Chert" & Phase == "Middle T")
+
+
+platLP2 <- fisher.test(table(elong_groups_LP2$PlatformType, elong_groups_LP2$elong_group))
+profLP2 <- fisher.test(table(elong_groups_LP2$Profile, elong_groups_LP2$elong_group))
+crossLP2 <- fisher.test(table(elong_groups_LP2$CrossSection, elong_groups_LP2$elong_group))
+shapeLP2 <- fisher.test(table(elong_groups_LP2$BlankShape, elong_groups_LP2$elong_group))
+
+```
+
+```{r elongated_attribute_setup, echo=FALSE}
   
 elongAT1lp <- elongATlp %>% 
   filter(Phase=="U/Lower T") 
@@ -1563,13 +1580,14 @@ elong_disp1_LP <- elongAT1lp %>%
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
                                                       "Chert")))
 
-disp_1_LP <- ggplot(elong_disp1_LP, aes(MaxWidth, Length, color = RawMaterial)) +
+disp_1_LP <- ggplot(elong_disp1_LP, aes(MedWidth, Length, color = RawMaterial)) +
   geom_point() +
   theme_minimal() + #type of theme
   labs(x = "Width", y = "Length") + # change labels
   theme(axis.title = element_text(size = 10, vjust = -1), legend.position="bottom") +
   labs(color = "Raw Material") + # x axis size
-  scale_color_jco()  # set colours
+  scale_color_jco()  + # set colours
+  geom_smooth(method = "lm", se = FALSE)
 
 ggMarginal(disp_1_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
 
@@ -1582,13 +1600,14 @@ elong_disp2_LP <- elongAT2lp %>%
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
                                                       "Chert", "Greywacke")))
 
-disp_2_LP <- ggplot(elong_disp2_LP, aes(MaxWidth, Length, color = RawMaterial)) +
+disp_2_LP <- ggplot(elong_disp2_LP, aes(MedWidth, Length, color = RawMaterial)) +
   geom_point() +
   theme_minimal() + #type of theme
   labs(x = "Width", y = "Length") + # change labels
   theme(axis.title = element_text(size = 10, vjust = -1), legend.position="bottom") +
   labs(color = "Raw Material") + # x axis size
-  scale_color_jco()  # set colours
+  scale_color_jco() + # set colours
+  geom_smooth(method = "lm", se = FALSE)
 
 ggMarginal(disp_2_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
 
