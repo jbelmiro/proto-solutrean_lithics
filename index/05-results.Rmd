@@ -1454,66 +1454,6 @@ elongAT1 <- elongAT %>%
   filter(Phase=="Lower 5") 
 elongAT2 <- elongAT %>% 
   filter(Phase=="Upper 5/4E")
-
-#Elongated attribute table (all variables, by all raw materials)
-elong_tablep1 <- tabmulti(elongAT1, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-elong_tablep1 <- as.data.frame(elong_tablep1)
-elong_tablep1 <- elong_tablep1 %>% 
-  select("Attributes", "Quartz", "Chert", 
-         "Greywacke", "Chalcedony", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-#Elongated metrics (mean) by raw material
-elong_metp1 <- tabmulti(elongAT1, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
-                          p.include = FALSE,
-                          n.headings = FALSE,
-                          bold.varnames = TRUE,
-                          bold.colnames = TRUE,
-                          variable.colname = "Measurements")
-elong_metp1 <- as.data.frame(elong_metp1)
-elong_metp1 <- elong_metp1 %>% 
-  select(Measurements, Quartz, Chert, Greywacke)
-
-#Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
-elong_tablep2 <- tabmulti(elongAT2, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-elong_tablep2 <- as.data.frame(elong_tablep2)
-elong_tablep2 <- elong_tablep2 %>% 
-  select("Attributes", "Quartz", "Chert", 
-         "Greywacke", "Dolerite", "Chalcedony", 
-         "Other", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-#Elongated metrics (mean) by raw material
-elong_metp2 <- tabmulti(elongAT2, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
-                          p.include = FALSE,
-                          n.headings = FALSE,
-                          bold.varnames = TRUE,
-                          bold.colnames = TRUE,
-                          variable.colname = "Measurements")
-elong_metp2 <- as.data.frame(elong_metp2)
-elong_metp2 <- elong_metp2 %>% 
-  select(Measurements, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other)
-
 ```
 
 Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows wider raw material differences, where 63.6% of quartz has a parallel shapes whereas 51.6% of chert has convergent ones. Cross sections are mostly triangular, with straight profiles, although there are also high frequencies for curved profiles.
@@ -1595,62 +1535,6 @@ elongAT1lp <- elongATlp %>%
   filter(Phase=="U/Lower T") 
 elongAT2lp <- elongATlp %>% 
   filter(Phase=="Middle T")
-
-#Elongated attribute table (all variables, by all raw materials)
-elong_tablep1lp <- tabmulti(elongAT1lp, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-elong_tablep1lp <- as.data.frame(elong_tablep1lp)
-elong_tablep1lp <- elong_tablep1lp %>% 
-  select("Attributes", "Quartz", "Chert", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-#Elongated metrics (mean) by raw material
-elong_metp1lp <- tabmulti(elongAT1lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
-                          p.include = FALSE,
-                          n.headings = FALSE,
-                          bold.varnames = TRUE,
-                          bold.colnames = TRUE,
-                          variable.colname = "Measurements")
-elong_metp1lp <- as.data.frame(elong_metp1lp)
-elong_metp1lp <- elong_metp1lp %>% 
-  select(Measurements, Quartz, Chert)
-
-#Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
-elong_tablep2lp <- tabmulti(elongAT2lp, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-elong_tablep2lp <- as.data.frame(elong_tablep2lp)
-elong_tablep2lp <- elong_tablep2lp %>% 
-  select("Attributes", "Quartz", "Chert","Overall") %>% 
-  dplyr::rename("Total" = "Overall")
-
-#Elongated metrics (mean) by raw material
-elong_metp2lp <- tabmulti(elongAT2lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
-                          p.include = FALSE,
-                          n.headings = FALSE,
-                          bold.varnames = TRUE,
-                          bold.colnames = TRUE,
-                          variable.colname = "Measurements")
-elong_metp2lp <- as.data.frame(elong_metp2lp)
-elong_metp2lp <- elong_metp2lp %>% 
-  select(Measurements, Quartz, Chert)
 
 ```
 
