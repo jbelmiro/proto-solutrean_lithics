@@ -40,9 +40,9 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
 ```{r VB_analysis_setup, include=FALSE}
 
 # Read db
-context <- read_csv("data/context.csv") #Field DB
-xyz <- read_csv("data/xyz.csv") #Field DB
-lithics <- read_csv("data/Basedados_VB.csv") #Analysis DB
+context <- read_csv("index/data/context.csv") #Field DB
+xyz <- read_csv("index/data/xyz.csv") #Field DB
+lithics <- read_csv("index/data/Basedados_VB.csv") #Analysis DB
 
 # Df cleaning and uniformizing
 cols_to_concat <- c("Unit", "ID")
@@ -70,7 +70,6 @@ lithics <- lithics %>%
   mutate(BlankType = case_when(
     Class == "Blank" & elong > 0 ~ "Flake",
     Class == "Blank" & elong <= 0 ~ "ElongatedProd")) %>% 
-  select(-elong) %>% 
   as.data.frame()
 
 # Join both tables and (optionally) write csv with final result
@@ -93,8 +92,8 @@ dataset <- dataset %>%
 
 ```{r lp_analysis_setup, include=FALSE}
 
-lithicslp <- read_csv("data/Basedados_LP.csv")
-xyzlp <- read_csv("data/xyzlp.csv")
+lithicslp <- read_csv("index/data/Basedados_LP.csv")
+xyzlp <- read_csv("index/data/xyzlp.csv")
 cols_to_concat <- c("UNIT", "ID")
 xyzlp$ID <- str_squish(xyzlp$ID)
 
