@@ -1870,7 +1870,7 @@ knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Upper 5/4E Retouched pi
 
 ```{r VC_setup, include=FALSE}
 # Read df
-VCdb <- read_csv("data/ValeComprido_table.csv") #Vale comprido points and blanks db
+VCdb <- read_csv("index/data/ValeComprido_table.csv") #Vale comprido points and blanks db
 
 # Df cleaning and uniformizing
 cols_to_concat <- c("Unit", "ID")
@@ -1933,6 +1933,38 @@ VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
 VC_blanks_tabVB<- VC_blanks_tabVB %>% 
   select("VC blanks attributes", Chert, Dolerite, Greywacke, Overall)
 
+## LP blanks
+
+VC_blanktype <- rbind(tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$BlankType),
+                      tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$BlankShape),
+                      tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$Profile),
+                      tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$CrossSection),
+                      tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$PlatformType))
+VC_blanktype <- as.data.frame(VC_blanktype)
+VC_blanktype <- VC_blanktype
+
+means <- VCblanks_lp %>% 
+  dplyr::summarise(Width=round(mean(WidthCM), digits = 2), Length=round(mean(LengthCM),digits = 2), Flattening=round(mean(FlatteningCM), digits = 2),
+                   PlatformWidth=round(mean(PlatformWidthCM), digits = 2), PlatformThickness=round(mean(PlatformThicknessCM), digits = 2),
+                   PlatformFlattening=round(mean(PlatformFlatteningCM), digits = 2), PlatformArea=round(mean(PlatformArea), digits = 2))
+means <- t(means)
+means <- as.data.frame(means)
+means <- means %>% 
+  tibble::rownames_to_column("Variable") %>% 
+  dplyr::rename(Mean = V1)
+
+
+
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$WidthCM),
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$LengthCM),
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$FlatteningCM),
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$PlatformWidthCM),
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$PlatformThicknessCM),
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$PlatformFlatteningCM),
+                      tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$PlatformArea))
+
+means <- tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$LengthCM)
+
 ## not working
 #VC_blanks_tabLP <- tabmulti(VCblanks_lp, "RawMaterial", c("BlankType", "BlankShape", 
                                                          #  "Profile", "CrossSection",
@@ -1947,44 +1979,31 @@ VC_blanks_tabVB<- VC_blanks_tabVB %>%
 #VC_blanks_tabVB<- VC_blanks_tabVB %>% 
   #select("VC blanks attributes", Chert)
 
-# Read Estremaduran DBs (Zilhão and Aubry 1995) + make plots using all data
-### Width/Platform area
-VC_plat3 <- read_csv("data/Fig.6_A.csv")
-VC_widthxarea <- VCdb %>% 
-  select(Group,WidthCM,PlatformArea)
-## Calculate means f/ VB + LP
-VC_widthxarea_mean <- aggregate(VC_widthxarea[, 2:3], list(VC_widthxarea$Group), mean)
-VC_widthxarea_mean <- VC_widthxarea_mean %>% 
-  dplyr::rename(Group = Group.1) %>% 
-  select(Group, WidthCM, PlatformArea)
-## Join tables
-VC_widthxarea_all <- union(VC_widthxarea_mean, VC_plat3)
-
-### Width/Platform convexity
-VC_plat2 <- read_csv("data/Fig.6_B.csv")
-VC_plat2 <- VC_plat2 %>% 
-  select(Group,WidthCM,PlatformFlatteningCM)
-VC_widthxconvexity <- VCdb %>% 
-  select(Group,WidthCM,PlatformFlatteningCM)
-## Calculate means f/ VB + LP
-VC_widthxconvexity_mean <- aggregate(VC_widthxconvexity[, 2:3], list(VC_widthxconvexity$Group), mean)
-VC_widthxconvexity_mean <- VC_widthxconvexity_mean %>% 
-  dplyr::rename(Group = Group.1) %>% 
-  select(Group, WidthCM, PlatformFlatteningCM)
-## Join tables
-VC_widthxconvexity_all <- union(VC_widthxconvexity_mean, VC_plat2)
-
-### Platform width/thickness
-VC_platform <- read_csv("data/Fig.6_C.csv")
-VC_platform <- VC_platform %>%
-  select(Group,PlatformThicknessCM,PlatformWidthCM)
-VCplatform <- VCdb %>% 
-  select(Group,PlatformThicknessCM,PlatformWidthCM)
-VCplatform <- VCplatform %>% 
-  filter(Group %in% c("VB - Blanks", "LP - Blanks"))
-VC_platform <- VC_platform %>% 
-  filter(Group == "VCE - Blades")
-## Join tables
-VCplatform_all <- union(VCplatform,VC_platform)
 
 ```
+
+Throughout the analysis, some blanks, both in Vale Boi and Lapa do Picareiro, have been identified possibly as the result of Vale Comprido technology. These types of blanks have been identified in the Estremadura, as part of a specific reduction sequence with the end goal of producing convergent elongated flakes or blades, often characterized by plain platforms and unidirectional dorsal patterns (Zilhão 1997).
+
+In Vale Boi (table \@ref(tab:VCvb), these blanks seem to be mostly flakes (71.4%), the rest being blades, while at Lapa do Picareiro (\@ref(tab:VClp) these blanks are all blades. For both sites, blank attributes seem relatively similar, with high frequencies of straight profiles (57.1% and 100% respectively), triangular cross sections (57.1% and 80%) and plain platforms (71.4% and 80%). Regarding shape, there seems to be a slight difference, where Vale Boi shows 57.1% of convergent shapes (the rest being parallel) while Lapa do Picareiro has a frequency of 60% parallel shapes (followed by convergent).
+
+Regarding measurements, Vale Boi and Lapa do Picareiro seem to show fairly similar results, where the only relevantly differing values seem to be the length and the flattening. While the mean for length in chert and dolerite, at Vale Boi, seems to be 3.12 cm, at Lapa do Picareiro, the blanks show higher mean lengths (4.63 cm). As for flattening, while the ratio for Vale Boi is 2.91, Lapa do Picareiro shows a ratio of 4. This shows that Vale Comprido-like blanks from Lapa do Picareiro are flatter than those from Vale Boi, even if platform flattening means are fairly similar between sites, something already observed during the analysis, and which difficulted the attribution of a Vale Comprido designation to these blanks.
+
+
+```{r VCvb, echo = FALSE}
+
+knitr::kable(VC_blanks_tabVB, booktabs=TRUE, caption = "Vale Comprido blank attributes and measurement means from Vale Boi by raw material.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(latex_options = "scale_down")
+```
+
+```{r VClp, echo = FALSE}
+
+knitr::kable(VC_blanktype, booktabs=TRUE, caption = "Vale Comprido-like chert blank attributes from Lapa do Picareiro") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(latex_options = "scale_down")
+
+knitr::kable(means, booktabs=TRUE, caption = "Vale Comprido-like chert blank measurement means from Lapa do Picareiro") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(latex_options = "scale_down")
+```
+
