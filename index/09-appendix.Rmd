@@ -288,25 +288,74 @@ knitr::kable(blank_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean
 
 ## VALE BOI - ELONGATED
 
-```{r VBelongatedtable_setup, include=FALSE}
-#Elongated attribute table (all variables, by all raw materials)
-elong_tablep1 <- tabmulti(elongAT1, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-elong_tablep1 <- as.data.frame(elong_tablep1)
-elong_tablep1 <- elong_tablep1 %>% 
-  select("Attributes", "Quartz", "Chert", 
-         "Greywacke", "Chalcedony", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
+```{r elongtableVB1, echo = FALSE}
 
-#Elongated metrics (mean) by raw material
+elongAT <- dataset %>% 
+  filter(BlankType == "ElongatedProd")
+elongAT1 <- elongAT %>% 
+  filter(Phase=="Lower 5")
+
+
+elong_tablep1 <- tabmulti(dataset = elongAT1,
+                          xvarname = "RawMaterial", 
+                          yvarname = c("CrossSection", "BlankShape", "Profile",
+                                       "BlankTip", "PlatformType", "PlatformCortex",
+                                       "ScarCount", "Cortex"),
+                          ymeasures = c("freq", "freq", "freq", "freq", 
+                                        "freq", "freq", "freq", "freq", "freq"),
+                          listwise.deletion = FALSE,
+                          p.include = FALSE,
+                          n.headings = FALSE,
+                          variable.colname = "Attributes")
+
+elong_tablep1<- elong_tablep1 %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Attributes, Quartz, Chert, Greywacke, Chalcedony, Total)
+
+
+knitr::kable(elong_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - elongated products attributes frequencies.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center") %>% 
+  column_spec(1:6, width = "0.8cm")
+
+```
+
+
+```{r elongtableVB2, echo = FALSE}
+
+elongAT2 <- elongAT %>% 
+  filter(Phase=="Upper 5/4E")
+
+
+elong_tablep2 <- tabmulti(dataset = elongAT2,
+                          xvarname = "RawMaterial", 
+                          yvarname = c("CrossSection", "BlankShape", "Profile",
+                                       "BlankTip", "PlatformType", "PlatformCortex",
+                                       "ScarCount", "Cortex"),
+                          ymeasures = c("freq", "freq", "freq", "freq", 
+                                        "freq", "freq", "freq", "freq", "freq"),
+                          listwise.deletion = FALSE,
+                          p.include = FALSE,
+                          n.headings = FALSE,
+                          variable.colname = "Attributes")
+
+elong_tablep2 <- elong_tablep2 %>% 
+  as.data.frame() %>% 
+  dplyr::rename("Total" = "Overall") %>% 
+  select(Attributes, Quartz, Chert, Greywacke, Dolerite, Other, Chalcedony, Total)
+
+knitr::kable(elong_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - elongated products attributes frequencies.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center") %>% 
+  column_spec(1:8, width = "0.8cm")
+
+```
+
+
+
+```{r elongmetricsVB1, echo = FALSE}
+
 elong_metp1 <- tabmulti(elongAT1, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
                           ymeasures = c("mean", "mean", "mean"),
                           p.include = FALSE,
@@ -314,29 +363,23 @@ elong_metp1 <- tabmulti(elongAT1, "RawMaterial", c("MaxWidth", "Length", "Thickn
                           bold.varnames = TRUE,
                           bold.colnames = TRUE,
                           variable.colname = "Measurements")
-elong_metp1 <- as.data.frame(elong_metp1)
-elong_metp1 <- elong_metp1 %>% 
+
+elong_metp1 <- elong_metp1 %>%
+  as.data.frame() %>% 
   select(Measurements, Quartz, Chert, Greywacke)
+  
+  
+knitr::kable(elong_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean and standard deviation of elongated products measurements (in mm).") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center", latex_options = c("hold_position","scale_down"))
 
-#Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
-elong_tablep2 <- tabmulti(elongAT2, "RawMaterial", c("CrossSection", "BlankShape", 
-                                                           "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-elong_tablep2 <- as.data.frame(elong_tablep2)
-elong_tablep2 <- elong_tablep2 %>% 
-  select("Attributes", "Quartz", "Chert", 
-         "Greywacke", "Dolerite", "Chalcedony", 
-         "Other", "Overall") %>% 
-  dplyr::rename("Total" = "Overall")
+```
 
-#Elongated metrics (mean) by raw material
+
+
+
+```{r elongmtericsVB2, echo=FALSE}
+
 elong_metp2 <- tabmulti(elongAT2, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
                           ymeasures = c("mean", "mean", "mean"),
                           p.include = FALSE,
@@ -347,37 +390,17 @@ elong_metp2 <- tabmulti(elongAT2, "RawMaterial", c("MaxWidth", "Length", "Thickn
 elong_metp2 <- as.data.frame(elong_metp2)
 elong_metp2 <- elong_metp2 %>% 
   select(Measurements, Quartz, Chert, Greywacke, Dolerite, Chalcedony, Other)
-```
 
-```{r echo=FALSE}
-knitr::kable(elong_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Phase 1 Elongated product attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
-  column_spec(1:6, width = "0.8cm")
 
-```
-
-```{r echo=FALSE}
-knitr::kable(elong_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Phase 2 Elongated product attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
-  column_spec(1:8, width = "0.8cm")
-
-```
-
-```{r echo=FALSE}
-knitr::kable(elong_metp1, booktabs=TRUE, caption = "Phase 1 Elongated product measurements (width, length and thickness) with mean and standard deviation values.") %>% 
+knitr::kable(elong_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean and standard deviation of elongated products measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center", latex_options = c("hold_position","scale_down"))
 
 ```
 
-```{r echo=FALSE}
-knitr::kable(elong_metp2, booktabs=TRUE, caption = "Phase 2 Elongated product measurements (width, length and thickness) with mean and standard deviation values.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", latex_options = c("hold_position","scale_down"))
 
-```
+
+
 
 
 ## LAPA DO PICAREIRO - CORES
@@ -620,23 +643,35 @@ knitr::kable(flakes_metp2lp, booktabs=TRUE, caption = "Lapa do Picarerio - Middl
 #Elongated attribute table (all variables, by all raw materials)
 elong_tablep1lp <- tabmulti(elongAT1lp, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
+                                                         "PlatformType", 
+                                                         "PlatformCortex","ScarCount",
+                                                         "ScarPattern"),
+                        ymeasures = c("freq", "freq", "freq",
+                                      "freq","freq","freq","freq","freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         bold.varnames = TRUE,
                         bold.colnames = TRUE,
                         variable.colname = "Attributes")
-elong_tablep1lp <- as.data.frame(elong_tablep1lp)
+
+
 elong_tablep1lp <- elong_tablep1lp %>% 
+  as.data.frame() %>% 
   select("Attributes", "Quartz", "Chert", "Overall") %>% 
   dplyr::rename("Total" = "Overall")
 
+knitr::kable(elong_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Terminal Gravettian Elongated product attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(position = "center")
+
+```
+
+
+```{r echo = FALSE}
 #Elongated metrics (mean) by raw material
 elong_metp1lp <- tabmulti(elongAT1lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
                           ymeasures = c("mean", "mean", "mean"),
-                          p.include = FALSE,
+                          p.include = TRUE,
                           n.headings = FALSE,
                           bold.varnames = TRUE,
                           bold.colnames = TRUE,
@@ -645,6 +680,10 @@ elong_metp1lp <- as.data.frame(elong_metp1lp)
 elong_metp1lp <- elong_metp1lp %>% 
   select(Measurements, Quartz, Chert)
 
+```
+
+
+```{r echo = FALSE}
 #Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
 elong_tablep2lp <- tabmulti(elongAT2lp, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
@@ -674,13 +713,6 @@ elong_metp2lp <- elong_metp2lp %>%
   select(Measurements, Quartz, Chert)
 ```
 
-
-```{r echo=FALSE}
-knitr::kable(elong_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Terminal Gravettian Elongated product attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
-
-```
 
 ```{r echo=FALSE}
 knitr::kable(elong_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Proto-Solutrean Elongated product attributes (frequencies) and platform measurements (mean and standard deviation) table.") %>% 
