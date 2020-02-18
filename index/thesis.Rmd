@@ -1,9 +1,133 @@
 ---
+author: 'Joana Belmiro'
+date: 'May 2020'
+institution: 'Universidade do Algarve'
+division: 'Faculdade de Ciências Humanas e Sociais'
+advisor: 'João Cascalheira'
+# If you have more two advisors, un-silence line 7
+#altadvisor: 'Your Other Advisor'
+department: 'Arqueologia'
+degree: 'Mestrado em Arqueologia'
+title: 'Proto-Solutrean lithic technology of Western Iberia: sites of Vale Boi and Lapa do Picareiro'
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output: 
+  thesisdown::thesis_pdf: default
+  fig_caption: yes
+header-includes:
+- \usepackage[T1]{fontenc}
+- \usepackage[utf8]{inputenc}
+#  thesisdown::thesis_gitbook: default
+#  thesisdown::thesis_word: default
+#  thesisdown::thesis_epub: default
+# If you are creating a PDF you'll need to write your preliminary content (e.g., abstract, acknowledgements) here or
+# use code similar to line 22-23 for the .RMD files. If you are NOT producing a PDF, you can delete or silence lines 21-32 in this YAML header.
+abstract: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = '\n  ')`
+# If you'd rather include the preliminary content in files instead of inline
+# like below, use a command like that for the abstract above.  Note that a tab is 
+# needed on the line after the `|`.
+resumo: |
+  `r if(knitr:::is_latex_output()) paste(readLines("00-resumo.Rmd"), collapse = '\n  ')`
+#acknowledgements: |
+ # I want to thank a few people.
+#dedication: |
+ # You can have a dedication here if you wish. 
+#preface: |
+ # This is an example of a thesis setup to use the reed thesis document class
+  #(for LaTeX) and the R bookdown package, in general.
+# Specify the location of the bibliography below
+bibliography: bib/thesis.bib
+# Download your specific csl file and refer to it in the line below.
+csl: csl/apa.csl
+lot: true
+lof: true
+# If you prefer blank lines between paragraphs, un-silence lines  40-41 (this requires package tikz)
+#header-includes:
+#- \usepackage{tikz}
+---
+
+# If you have more two advisors, un-silence line 7
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction
+
+The replacement of the Gravettian culture by the Solutrean, impacted by the adverse climatic conditions onset by the Heinrich Event 2 and its development through the last glacial maximum, continues to be an essential topic for understanding the Upper Paleolithic and Human adaptations. The Proto-Solutrean is, in this topic, an essential piece to understand how hunter-gatherer communities adapted, reinvented and destroyed behaviours that eventually allowed the development of the Solutrean. However, the existing knowledge on this technocomplex is still geographically constricted and lacking good chronological markers (Cascalheira and Bicho 2013), which hampers the understanding of the Proto-Solutrean itself and its role in the transition between the Gravettian and Solutrean technocomplexes.
+
+By understanding the need of a better understanding of the Proto-Solutrean and how adverse climate impacted these communities, this thesis aims to answer the following question: what impact did the Heinrich 2 event have on the technological organization of human communities, on the onset of the last glacial maximum, in south western Iberia?
+
+To answer this question, the present thesis has a number of goals, each connected to a problematic regarding the topic at hand, which will be met with resource to the lithic proto-solutrean assemblages of two sites, Vale Boi (south of Portugal) and Lapa do Picareiro (central Portugal).
+
+To understand technological organization, our goal is to characterize and understand technological patterns, reduction sequences and assemblage variability in Proto-Solutrean occupations for both sites, as well as comprehend raw material use and preference patterns. The results will then be compared with the existing data from other Proto-Solutrean assemblages, mostly from the Estremadura Portuguesa area.
+
+To better comprehend the transition from the Gravettian into the Solutrean, and how climate might have impacted this transition, we aim to test the existing Proto-Solutrean transitional models, the Two-phase and Three-phase, and understand how the two studied sites fit within the models, and whether there exists geographic variability. To do so, two question need to be answered: 1) if the proto-solutrean layers in Vale Boi show a Terminal Gravettian horizon; 2) if the two identified proto-solutrean phases in Lapa do Picareiro (Terminal Gravettian and Proto-Solutrean) show chronological significance.
+
+Through the accomplishment of these goals, we hope to contribute to the understanding of the Proto-Solutrean in western Iberia, but also to the topic of the Gravettian culture replacement and subsequentially, the appearance of the Solutrean, through new data resulting from recent excavations and a wider geographic range (extending the knowledge of this transition to the south of Portugal).
+
+The present thesis is organized in 9 chapters. Chapter 2, which follows the present introduction, will offer some contextualization on the human adaptations which characterize the start of the last glacial maximum, starting with a brief review of paleoclimate during the Upper Paleolithic in western Iberia, the several climate events and their relationship with cultural systems, and finishing with a brief overview of the Proto-Solutrean, its origins, chronology, technological characteristics and evolution models.
+
+On chapter 3 we will introduce the archaeological site of Vale Boi, with a brief description of its localization and geological context, followed by an overview of excavation works, excavation methodology, human occupation layers through the several areas, and stratigraphy of the Terrace area, with particular focus on layer 4E and 5, the Proto-Solutrean occupation layers.
+
+Chapter 4 follows the same organization as the previous chapter, this time focusing on the introduction of the archaeological site of Lapa do Picareiro, on the final part describing instead layers U and T which correspond to the Terminal Gravettian and Proto-Solutrean occupations.
+
+Chapter 5 is dedicated to the description of the methodology employed in both the lithic assemblage analysis and data analysis.
+
+Chapter 6 and 7 will follow the same structure, to present the results obtained in the analysis of the assemblage from Vale Boi and Lapa do Picareiro respectively. As such, the chapters are divided between assemblage description, raw materials and technology, this latter subsection presenting results from the descriptive and multivariate analysis.
+
+Chapter 8 will consist on the discussion of both the results shown in the previous chapters, whenever possible connecting and comparing them, and extending this comparison to other results from Proto-Solutrean assemblages, mostly from the Portuguese Estremadura.
+
+Chapter 9 offers some conclusions, systematizing the analysis interpretations and discussion.
+
+<!--chapter:end:01-introduction.Rmd-->
+
+
+# Human adaptations at the start of the last glacial maximum
+
+Placeholder
+
+
+## Paleoclimate, paleoenvironment and human adaptation models
+## Proto-Solutrean: origins and the Portuguese model
+
+<!--chapter:end:02-humanadaptations.Rmd-->
+
+
+# Location and geological context
+
+Placeholder
+
+
+## Vale Boi
+## Lapa do Picareiro
+## Vale Boi
+### Slope
+### Shelter
+### Terrace
+## Lapa do Picareiro
+## Levels U and lower T
+
+<!--chapter:end:03-sites.Rmd-->
+
+
+# Methodology
+
+Placeholder
+
+
+## Attribute analysis
+## Data analysis
+
+<!--chapter:end:04-methodology.Rmd-->
+
+---
 output:
   pdf_document: default
   html_document: default
-editor_options: 
-  chunk_output_type: console
 ---
 
 
@@ -1448,7 +1572,7 @@ Regarding elongation (figure X), values between quartz and chert and even betwee
 ### Elongated blanks
 
 #### Vale Boi
-A total of 219 elongated products were recorded in the Vale Boi's assemblages (Table  XXX). 82 of these blanks are from Lower 5, while 137 are from the Upper 5/4E group. Comparatively to the whole group of blanks, there is a more significant number of chert pieces (n=106), this number only changing in Lower 5, where quartz elongated blank numbers (n=44) supersede chert ones (n=31). Figures \@ref(fig:elongdisp1) and \@ref(fig:elongdisp2) show the scatterplots for width and length of elongated blanks of the two main raw materials present at both phases identified at Vale Boi. Following the traditional subdivision between blade and bladelet, both charts clearly show that the main goal of the reduction sequences for elongated products were bladelets. Only in the Upper 5/4E group, there seems to be a bimodal distribution in the width variable for chert artifacts. 
+A total of 219 elongated products were recorded in the Vale Boi's assemblages (Table  XXX). 82 of these blanks are from Lower 5, while 137 are from the Upper 5/4E group. Comparatively to the whole group of blanks, there is a larger number of chert pieces (n=106), this number only changing in Lower 5, where quartz elongated blank numbers (n=44) supersede chert ones (n=31). Figures \@ref(fig:elongdisp1) and \@ref(fig:elongdisp2) show the scatterplots for width and length of elongated blanks of the two main raw materials present at both phases identified at Vale Boi. Following the traditional subdivision between blade and bladelet, both charts clearly show that the main goal of the reduction sequences for elongated products were bladelets. Only in the Upper 5/4E group there seems to be a bimodal distribution in the width variable for chert artifacts. 
 
 ```{r fishertestelongVB, echo = FALSE}
 
@@ -1469,7 +1593,7 @@ shape <- fisher.test(table(elong_groups_AT2$BlankShape, elong_groups_AT2$elong_g
 ```
 
 
-Testing this apparent division (artifacts wider than 12.5 mm and those with less than 12.5 in width) against all other relevant morphological variables revealed, however, no significant difference between the two groups for almost all variables (Table \@ref(tab:fisherelongVB2)). The exception to this pattern were the tests for scar count, scar pattern and cortex presence. In the first case, due to a more substantial presence of three scars on the blade products and two scars on the bladelet products. In the second case because of the higher frequency (c. 13% vs. c. 2%) of bidirectional removals on the dorsal surfaces of blades and bladelets, respectively. Finally, in the third case, as a result of the higher frequencies of cortical surfaces recorded for blades (c. 67%) vs. bladelets (c. 18%). Altogether, these results seem to indicate that the difference between the two classes is likely not related with the existence of two distinct reduction sequences but of a single reduction sequence with cortical or partially cortical elongated products at the beginning of core exploitation, when bidirectional strategies were used to perform decortication and core configuration. Together with the reasonably linear positive correlation showed by the chert tendency line displayed in Figure \@ref(fig:elongdisp2), the results seem enough to do the technological description of all elongated products as a single category.
+Testing this apparent division (artifacts wider than 12.5 mm and those with less than 12.5 in width) against all other relevant morphological variables revealed, however, no significant difference between the two groups for almost all variables (Table \@ref(tab:fisherelongVB2)). The exception to this pattern were the tests for scar count, scar pattern and cortex presence. In the first case due to a larger presence of three scars on the blade products and of two scars on the bladelet products. In the second case because of the higher frequency (c. 13% vs. c. 2%) of bidirectional removals on the dorsal surfaces of blades and bladelets, respectively. And, finally, in the third case, as a result of the higher frequencies of cortical surfaces recorded for blades (c. 67%) vs. bladelets (c. 18%). Altogether, these results seem to indicate that the difference between the two classes is likely not related with the existence of two distinct reduction sequences but of a single reduction sequence with cortical or partially cortical elongated products at the beginning of core exploitation, when bidirectional strategies were used to perform decortication and core configuration. Together with the fairly linear positive correlation showed by the chert tendecy line displayed on Figure \@ref(fig:elongdisp2), the results seem enough to do the technological description of all elongated products as a single category.
 
 ```{r elongdisp1, fig.cap="Vale Boi - Lower 5. Elongated products width and length dispersion by raw material.", echo=FALSE}
   
@@ -1548,16 +1672,16 @@ elong_test_AT2 <- tabmulti(elong_groups_AT2, "elong_group", c("CrossSection",
                         variable.colname = "Attributes")
 
 
-knitr::kable(elong_test_AT2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper5/4E. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
+knitr::kable(elong_test_AT2, longtable= TRUE, booktabs = TRUE, caption = ".") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
 ```
 
 
-Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows significant differences across the different raw materials, since c. 64% of quartz has parallel shapes, whereas c. 52% of chert has convergent ones. Cross sections are mostly triangular, with straight and curved profiles. Differences in profile types are rather significant between both phases, but only for quartz artifacts. While in Lower 5, quartz elongated blanks present a percentage of curved profiles of c. 23%, in Upper 5/4E, this percentage drops to c. 12%. Curved and twisted profiles in bladelets are usually associated with the exploitation of carinated cores, particularly in the Gravettian-Solutrean transition as presented by Almeida (2000) for the Terminal Gravettian of Estremadura. Although no carinated cores were identified in the Lower 5 assemblage, the presence of a significant number of bladelets with curved profiles might indicate the use of such a type of reduction strategy.
+Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows significant differences across the different raw materials, since c. 64% of quartz has parallel shapes whereas c. 52% of chert has convergent ones. Cross sections are mostly triangular, with straight and curved profiles. Differences in profile types are rather significant between both phases, but only for quartz artifacts. While in Lower 5, quartz elongated blanks present a percentage of curved profiles of c. 23%, in Upper 5/4E this percentage drops to c. 12%. Curved and twisted profiles in bladelets are usually associated to the exploitation carinated cores, particularly in the Gravettian-Solutrean transition as presented by Almeida (2000) for the Terminal Gravettian of Estremadura. Although no carinated cores were identified in the Lower 5 assemblage, the presence of a significant number of bladelets with curved profiles might indicate the use of such a type of reduction strategy.
 
-Scar patterns show an evident tendency for unidirectional knapping strategies on all raw materials. For Lower 5, however, bidirectional scar patterns are present on two chert artifacts (c. 13%). Upper 5/4E shows much lower values for this type of scar pattern, with c. 2% on quartz and c. 4% on chert. Scar count shows a tendency for 1 to 3 dorsal scars on both phases and all raw materials.
+Scar patterns show an obvious tendency for unidirectional knapping strategies on all raw materials. For Lower 5, however, bidirectional scar patterns are present on two chert artifacts (c. 13%). Upper 5/4E shows much lower values for this type of scar pattern, with c. 2% on quartz and c. 4% on chert. Scar count shows a tendency for 1 to 3 dorsal scars on both phases and all raw materials.
 
 Elongated blanks on both phases seem to be obtained without platform preparation, although quartz also shows a significant presence of crushed platforms. Only two faceted platforms were identified, in Upper 5/4E, on chert and dolerite pieces. The general tendency for both phases is for the absence of cortical platforms. Only chert and greywacke on Lower 5 (c. 10% and c. 17% respectively) and chert on Upper 5/4E (c. 13%) show completely cortical platforms.
 
@@ -1565,65 +1689,20 @@ Finally, elongated products metrics, including platform measurements, show a ten
 
 
 #### Lapa do Picareiro
-A total of 47 elongated blanks were recorded for Lapa do Picareiro. U/Lower T phase contains 27 in total, of which more than 50% are on chert. For the Middle T phase, 20 elongated blanks were recorded, with also more than 50% on chert (Table XXX).
+A total of 47 elongated blanks were recorded for Lapa do Picareiro. U/Lower T phase contains 27 in total, of which more than 50% are on chert. For the Middle T phase, 20 elongated blanks were recorded, with also more than 50% on chert.
 
-When plotting width and length for elongated blanks, for chert and quartz, there seem to be two groups of different dimensions in both phases. Concerning the U/Lower T, there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a group that although more disperse is composed mostly of chert, with width and length ranging between 13-26 mm and 40-60 mm, respectively, and that may be classified, according to the traditional definition, as blades.
+Technological attributes follow closely those already described for flakes, also showing little variation between the U/Lower T and the Middle T.
 
-For the Middle T, there is also a group of smaller blanks, with widths ranging from 3 to 10mm, and highly variable length values, ranging from between 5 to 30mm, from which the higher values represent mostly chert artifacts. Even so, these pieces may be characterized through the traditional classification as bladelets. The second group is made up entirely of chert, although it has fewer blanks and is very disperse in terms of width (>15mm), and length (>45mm), and thus classified as blades.
+When plotting width and length for elongated blanks, for chert and quartz, there seems to be two groups of different dimensions in both phases. Concerning the U/Lower T, there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a group that although more disperse is composed mostly of chert, with width and length ranging between 13-26 mm and 40-60 mm, respectively, and that may be classified, according to the traditional definition, as blades.
 
-These patterns may represent different production strategies for specific chert elongated blank sizes, although, given the location of the site, it might merely reflect the truncated nature of the reduction sequences present at the site, only showing the presence of two groups of bladelets and blades.
+For the Middle T there is also a group of smaller blanks, with widths ranging from 3 to 10mm, and highly variable length values, ranging from between 5 to 30mm, from which the higher values represent mostly chert artifacts. Even so, these pieces may be characterized through the traditional classification as bladelets. The second group is made up entirely of chert, although it has less blanks and is very disperse in terms of width (>15mm), and length (>45mm), and thus classified as blades.
 
-Tables \@ref(tab:fisherelongLP1) and \@ref(tab:fisherelongLP2) show the results of Fisher exact tests to evaluate whether the distribution of all the relevant technological variables differed across groups of chert artifacts. No significant statistical differences were detected in any of the technological variables for both phases.
+These patterns may represent different production strategies for specific elongated blank sizes and ratios, although, given the location of the site, it might simply reflect the truncated nature of the reduction sequences present at the site, only showing the presence of two groups of bladelets and blades.
 
-In fact, both blades and bladelets show a majority of parallel and convergent edge shapes, straight and curved profiles. Dorsal scars are unidirectional on the dorsal surfaces of all artifacts, with a majority of two previous removals for quartz and two to four scars for chert. Platforms are mostly plain, with no cortex (Table XXX).
+Tables \@ref(tab:fisherelongLP1) and  \@ref(tab:fisherelongLP2) show the results of a Fisher exact test to test whether the distribution of all the relevant technological variables differed across groups. 
 
+In fact, both blades and bladelets show a majority of parallel and convergent edge shapes, straight and curved profiles. Dorsal scars are unidirectional on the dorsal surfaces of all artifacts, with mostly two scars for quartz and two to four scars for chert. Platforms are mostly plain, with no cortex.
 
-```{r elongdisp1LP, fig.cap="Lapa do Picareiro - U/Lower T. Elongated product width and length dispersion by raw material.", echo=FALSE}
-
-elongAT1lp <- elongATlp %>% 
-  filter(Phase=="U/Lower T") 
-
-elong_disp1_LP <- elongAT1lp %>% 
-  filter(RawMaterial %in% c("Chert","Quartz")) %>% 
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
-                                                      "Chert")))
-
-disp_1_LP <- ggplot(elong_disp1_LP, aes(MedWidth, Length, color = RawMaterial)) +
-  geom_point() +
-  theme_minimal() + #type of theme
-  labs(x = "Width", y = "Length") + # change labels
-  theme(axis.title = element_text(size = 10, vjust = -1), legend.position="bottom") +
-  labs(color = "Raw Material") + # x axis size
-  scale_color_jco()  + # set colours
-  geom_smooth(method = "lm", se = FALSE)
-
-ggMarginal(disp_1_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
-
-
-```
-
-```{r elongdisp2LP,fig.cap="Lapa do Picareiro - Middle T. Elongated product width and length dispersion by raw material.", echo=FALSE}
-
-elongAT2lp <- elongATlp %>% 
-  filter(Phase=="Middle T")
-
-elong_disp2_LP <- elongAT2lp %>% 
-  filter(RawMaterial %in% c("Chert","Quartz","Greywacke")) %>% 
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
-                                                      "Chert", "Greywacke")))
-
-disp_2_LP <- ggplot(elong_disp2_LP, aes(MedWidth, Length, color = RawMaterial)) +
-  geom_point() +
-  theme_minimal() + #type of theme
-  labs(x = "Width", y = "Length") + # change labels
-  theme(axis.title = element_text(size = 10, vjust = -1), legend.position="bottom") +
-  labs(color = "Raw Material") + # x axis size
-  scale_color_jco() + # set colours
-  geom_smooth(method = "lm", se = FALSE)
-
-ggMarginal(disp_2_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
-
-```
 
 ```{r fisherelongLP1, echo = FALSE}
 
@@ -1652,7 +1731,7 @@ elong_test_LP2 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "B
                         variable.colname = "Attributes")
 
 
-knitr::kable(elong_test_LP2, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
+knitr::kable(elong_test_LP2, longtable= TRUE, booktabs = TRUE, caption = ".") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
@@ -1680,36 +1759,73 @@ elong_test_LP2 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "B
                         overall.column = FALSE,
                         variable.colname = "Attributes")
 
-knitr::kable(elong_test_LP2, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
+knitr::kable(elong_test_LP2, longtable= TRUE, booktabs = TRUE, caption = ".") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center")
 
 ```
 
 
+```{r elongdisp1LP, fig.cap="Elongated product width and length dispersion by raw material (U/Lower T).", echo=FALSE}
+
+elongAT1lp <- elongATlp %>% 
+  filter(Phase=="U/Lower T") 
+
+elong_disp1_LP <- elongAT1lp %>% 
+  filter(RawMaterial %in% c("Chert","Quartz")) %>% 
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
+                                                      "Chert")))
+
+disp_1_LP <- ggplot(elong_disp1_LP, aes(MedWidth, Length, color = RawMaterial)) +
+  geom_point() +
+  theme_minimal() + #type of theme
+  labs(x = "Width", y = "Length") + # change labels
+  theme(axis.title = element_text(size = 10, vjust = -1), legend.position="bottom") +
+  labs(color = "Raw Material") + # x axis size
+  scale_color_jco()  + # set colours
+  geom_smooth(method = "lm", se = FALSE)
+
+ggMarginal(disp_1_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
+
+
+```
+
+```{r elongdisp2LP,fig.cap="Elongated product width and length dispersion by raw material (Middle T).", echo=FALSE}
+
+elongAT2lp <- elongATlp %>% 
+  filter(Phase=="Middle T")
+
+elong_disp2_LP <- elongAT2lp %>% 
+  filter(RawMaterial %in% c("Chert","Quartz","Greywacke")) %>% 
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
+                                                      "Chert", "Greywacke")))
+
+disp_2_LP <- ggplot(elong_disp2_LP, aes(MedWidth, Length, color = RawMaterial)) +
+  geom_point() +
+  theme_minimal() + #type of theme
+  labs(x = "Width", y = "Length") + # change labels
+  theme(axis.title = element_text(size = 10, vjust = -1), legend.position="bottom") +
+  labs(color = "Raw Material") + # x axis size
+  scale_color_jco() + # set colours
+  geom_smooth(method = "lm", se = FALSE)
+
+ggMarginal(disp_2_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
+
+```
+
 ### Retouched tools
 
-#### Vale Boi
-As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the Lower 5 group (fig X), while 112 in the Upper 5/4E group (Table XXX).
-
-Lower 5 is comprised of several types, from which a few stand out by their high numbers, such as retouched flakes, corresponding to c. 27% of all retouched pieces, splintered pieces, with c. 25% of representativity, followed by notches with a frequency of 12.7%, the latter two occurring in similar numbers in chert (n=6 and n=4, respectively) and quartz (n=8 and n=3) (Table \@ref(tab:retouchVB1)).
-
-There is also the presence of endscrapers (c. 10%) and burins (c. 7%), mostly on chert.
-
-For Upper 5/4E, splintered pieces are still very frequent (c. 24%), in both chert and quartz, followed by endscrapers, which represent c. 22% of the total retouched pieces assemblage. Most of the endscapers are chert, although it may be relevant to point out that two of them are made of dolerite. Notches are, once again, the third most frequent retouched typology, representing c. 12%. Every other retouched tool type has frequencies under 10% (Table \@ref(retouchVB2)).
-
-Upper 5/4E thus shows not only a more significant number of retouched pieces, which might be the result of a more intensive occupation or series of occupations but also a wider variety of types, probably as a result of a more diverse set of activities occurring at the site. While Lower 5 shows 11 different retouched piece types, Upper 5/4E shows 15 types, introducing six new different types.
-
-One of these newly introduced retouched types is the Vale Comprido point, although only representing c. 5% of retouched pieces for Upper 5/4E. As mentioned before, Vale Comprido points have been identified as a Proto-Solutrean only technological solution, which may appear during the Proto-Solutrean in the Two-phase model, or during either the Terminal Gravettian or Proto-Solutrean in the Three-phase model. Thus, its presence in Upper 5/4E not only conforms to the data already presented for the Portuguese Estremadura (Zilhão 1997), and it further strengthens the separation of the two defined phases as two discrete temporal and cultural occupation horizons.
-
-The analyzed Vale Comprido points have been identified in chert (n=1), greywacke (n=1), dolerite (n=3) and chalcedony (n=1, which makes up 100% of retouched pieces made in this raw material). In fact, dolerite had already been identified as a preferred means for making these products (Marreiros 2009), a fact only strengthened by the fact this raw material has more Vale Comprido points than any other and only appears in one other typology: endscrapers. Comparatively, dolerite does not seem to be used for the production of any retouched piece in Lower 5.
-
-
-```{r retouchVB1, echo=FALSE}
+```{r retouched_setup, echo=FALSE}
 
 retouch1 <- dataset %>% 
   filter(Class == "RetouchedPiece") %>%
   filter(Phase=="Lower 5") %>% 
+  select(RawMaterial, RetouchedPieceTypology) %>% 
+  group_by(RawMaterial)
+
+retouch2 <- dataset %>% 
+  filter(Class == "RetouchedPiece") %>%
+  filter(Phase=="Upper 5/4E") %>% 
   select(RawMaterial, RetouchedPieceTypology) %>% 
   group_by(RawMaterial)
 
@@ -1719,7 +1835,7 @@ retouch_table1 <- retouch_table1 %>%
   select(Quartz, Chert, Greywacke, 
         Chalcedony) %>% 
   tibble::rownames_to_column()
-retouch_table1 <- dplyr::rename(retouch_table1, "Types" = "rowname")
+retouch_table1 <- dplyr::rename(retouch_table1, "Typology" = "rowname")
 
 retouched_order <- c("Endscraper", "Dihedral Burin", "Burin on truncation", "Truncation", "Notch", "Denticulate", "Splintered piece", "Double backed bladelet", "Retouched blade", "Retouched bladelet", "Retouched flake", "Total")
 
@@ -1736,22 +1852,7 @@ retouch_table1 <- retouch_table1 %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total", fill = "100%") %>% 
   as_tibble() %>% 
-  slice(match(retouched_order, Types))
-
-knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Lower 5 retouched piece typology by raw material.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(latex_options = c("hold_position", "scale_down")) %>% 
-  kableExtra::landscape()
-
-```
-
-```{r retouchVB2, echo=FALSE}
-
-retouch2 <- dataset %>% 
-  filter(Class == "RetouchedPiece") %>%
-  filter(Phase=="Upper 5/4E") %>% 
-  select(RawMaterial, RetouchedPieceTypology) %>% 
-  group_by(RawMaterial)
+  slice(match(retouched_order, Typology))
 
 retouch_table2 <- table(retouch2$RetouchedPieceTypology, retouch2$RawMaterial)
 retouch_table2 <- as.data.frame.matrix(retouch_table2)
@@ -1759,9 +1860,9 @@ retouch_table2 <- retouch_table2 %>%
   select(Quartz, Chert, Greywacke, Dolerite,
         Chalcedony) %>% 
   tibble::rownames_to_column()
-retouch_table2 <- dplyr::rename(retouch_table2, "Types" = "rowname")
+retouch_table2 <- dplyr::rename(retouch_table2, "Typology" = "rowname")
 
-retouched_order2 <- c("Endscraper","Carinated endscraper","Perforator-endscraper","Perforator", "Dihedral Burin", "Burin on truncation", "Truncation", "Vale Comprido Point", "Notch", "Denticulate", "Splintered piece","Backed bladelet","Backed bladelet parcial", "Retouched blade", "Retouched bladelet", "Retouched flake", "Total")
+retouched_order2 <- c("Endscraper","Carinated endscraper","Perforator-endscraper","Perforator", "Dihedral Burin", "Burin on truncation", "Truncation", "Vale Comprido point", "Notch", "Denticulate", "Splintered piece","Backed bladelet","Backed bladelet parcial", "Retouched blade", "Retouched bladelet", "Retouched flake", "Total")
 
 retouch_table2 <- retouch_table2 %>% 
   mutate("Quartz (%)" = paste0(round(100 * Quartz/sum(Quartz), 2), "%")) %>% 
@@ -1769,7 +1870,7 @@ retouch_table2 <- retouch_table2 %>%
   mutate("Greywacke (%)" = paste0(round(100 * Greywacke/sum(Greywacke), 2), "%")) %>%
   mutate("Dolerite (%)" = paste0(round(100 * Dolerite/sum(Dolerite), 2), "%")) %>% 
   mutate("Chalcedony (%)" = paste0(round(100 * Chalcedony/sum(Chalcedony), 2), "%")) %>% 
-  select("Types", "Quartz", "Quartz (%)", "Chert", "Chert (%)", "Greywacke", "Greywacke (%)", "Dolerite", "Dolerite (%)",
+  select("Typology", "Quartz", "Quartz (%)", "Chert", "Chert (%)", "Greywacke", "Greywacke (%)", "Dolerite", "Dolerite (%)",
          "Chalcedony", "Chalcedony (%)") %>% 
   dplyr::rename("Quartz (n)" = "Quartz", "Chert (n)" = "Chert", "Greywacke (n)" = "Greywacke", "Dolerite (n)" = "Dolerite",
          "Chalcedony (n)" = "Chalcedony") %>% 
@@ -1777,8 +1878,35 @@ retouch_table2 <- retouch_table2 %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total", fill = "100%") %>% 
   as_tibble() %>% 
-  slice(match(retouched_order2, Types))
+  slice(match(retouched_order2, Typology))
 
+```
+
+
+#### Vale Boi
+As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the Lower 5 group (fig X), while 112 in the Upper 5/4E group (fig X).
+
+Lower 5 is comprised of several typologies, from which a few stand out by their high numbers, such as retouched flakes, corresponding to 27% of total retouched pieces, mostly in chert, splintered pieces, with 25.4% of representativity, followed by notches with a frequency of 12.7%, both occurring in similar numbers in chert (n=6 and n=4 respectively) and quartz (n=8 and n=3).
+
+There is also the presence of endscrapers (9.09%) and burins (7.27%), mostly on chert, although their frequencies in the total of retouched pieces is not very representative.
+
+For Upper 5/4E, splintered pieces are still very frequent (24.1%), in both chert and quartz, followed by endscrapers which represent 22.3% of the total retouched piece number, most of them in chert, although it may be relevant to point out 2 are made of dolerite. Notches are, once again, the third most frequent retouched typology, with 11.6% representativity, though most are found in quartz. Every other typology has frequencies under 10%.
+
+Upper 5/4E thus shows not only a larger number of retouched pieces, which might be the result of a bigger occupation intensity, but also a wider variety of typologies. As Lower 5 shows 11 different retouched piece types, Upper 5/4E shows 16 types, introducing 6 new different typologies, as the double backed blade of stage 1 doesn’t appear in the upper occupation.
+
+One of these newly introduced retouched type is the Vale Comprido point, although only representing 5.3% of retouched piece total for Upper 5/4E. As mentioned before, Vale Comprido points have been identified as a Proto-Solutrean only technological solution, which may appear during the Proto-Solutrean in the Two-phase model, or during either the Terminal Gravettian or Proto-Solutrean in the Three-phase model. Thus, its presence in Upper 5/4E not only conforms to the data already presented for the Portuguese Estremadura (Zilhão 1997) it further strengths the separation of layers 4E and 5 in two moments of differing occupation.
+
+The analysed Vale Comprido points have been identified in chert (n=1), greywacke (n=1), dolerite (n=3) and chalcedony (n=1, which makes up 100% of retouched pieces made in this raw material). In fact, dolerite had already been identified as a preferred means for making these products (Marreiros 2009), a fact only strengthened by the fact this raw material has more Vale Comprido points than any other, and only appears in one other typology, the endscraper. Comparatively, dolerite doesn’t seem to be used for the production of any retouched piece in stage 1. These shall be described into further detail in Chapter 7.4.6.
+
+```{r retouchphase1, echo=FALSE}
+knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Lower 5 retouched piece typology by raw material.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(latex_options = c("hold_position", "scale_down")) %>% 
+  kableExtra::landscape()
+
+```
+
+```{r retouchphase2, echo=FALSE}
 knitr::kable(retouch_table2, booktabs=TRUE, caption = "Upper 5/4E Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(latex_options = c("hold_position", "scale_down")) %>% 
@@ -1787,16 +1915,7 @@ knitr::kable(retouch_table2, booktabs=TRUE, caption = "Upper 5/4E Retouched piec
 ```
 
 
-#### Lapa do Picareiro
-The total number of retouched pieces from Lapa do Picareiro with spatial information, allowing the identification of phase is 11, of which six belong to the U/Lower T group and five to the Middle T group.
-
-The analysis of retouched pieces at Lapa do Picareiro is, however, possibly truncated by the edge damage of the assemblage. In all levels, many pieces, both quartz, and chert, although in larger quantities in the latter, show variable degrees of edge damage, from light to extensive (Figure XXX). Although some edges were damaged by either trampling or impact of clasts coming from roof collapsing, since there was no homogeneity in its distribution or directionality, some other edges show dubious marks. As such, the present study opted for a more reserved approach regarding the classification of retouch, understanding the caveats of the decision. Thus, retouched pieces, especially the retouched flakes, were only identified as such whenever they displayed homogeneous, localized and unidirectional retouch, which could not be mistaken for edge damage.
-
-As seen in Table \@ref(tab_retouchLP1), the U/Lower T shows four types of retouched piece types, the most present being the retouched flakes (n=3) all in chert, and the only quartz retouched piece is a splintered piece. From the retouched flakes, one shows similarities with a Vale Comprido point, although the use of platform/dorsal retouch to thin the proximal end is questionable (Figure XXX).
-
-For the Middle T group (Table \@ref(retouchLP2)), there is a smaller variety of retouched pieces, all in chert: a notch, two retouched flakes, one truncation, and possibly a Vale Comprido point.
-
-```{r retouchLP1, echo=FALSE}
+```{r LP_retouched_setup, echo=FALSE}
 
 retouch1lp <- datasetlp %>% 
   filter(Class == "RetouchedPiece") %>%
@@ -1804,16 +1923,20 @@ retouch1lp <- datasetlp %>%
   select(RawMaterial, RetouchedPieceTypology) %>% 
   group_by(RawMaterial)
 
+retouch2lp <- datasetlp %>% 
+  filter(Class == "RetouchedPiece") %>%
+  filter(Phase=="Middle T") %>% 
+  select(RawMaterial, RetouchedPieceTypology) %>% 
+  group_by(RawMaterial)
 
 retouch_table1lp <- table(retouch1lp$RetouchedPieceTypology, retouch1lp$RawMaterial)
 retouch_table1lp <- as.data.frame.matrix(retouch_table1lp)
 retouch_table1lp <- retouch_table1lp %>% 
   select(Quartz, Chert) %>% 
   tibble::rownames_to_column()
-retouch_table1lp <- dplyr::rename(retouch_table1lp, "Types" = "rowname")
+retouch_table1lp <- dplyr::rename(retouch_table1lp, "Typology" = "rowname")
 
 retouched_order3 <- c("Dihedral angle burin", "Notch", "Splintered piece", "Retouched flake")
-
 
 retouch_table1lp <- retouch_table1lp %>% 
   mutate("Quartz (%)" = paste0(round(100 * Quartz/sum(Quartz), 2), "%")) %>% 
@@ -1824,22 +1947,7 @@ retouch_table1lp <- retouch_table1lp %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total") %>% 
   as_tibble() %>% 
-  slice(match(retouched_order3, Types))
-
-
-knitr::kable(retouch_table1lp, booktabs=TRUE, caption = "U/Lower T retouched piece typology by raw material.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(latex_options = c("hold_position", "scale_down"))
-
-```
-
-```{r retouchLP2, echo=FALSE}
-
-retouch2lp <- datasetlp %>% 
-  filter(Class == "RetouchedPiece") %>%
-  filter(Phase=="Middle T") %>% 
-  select(RawMaterial, RetouchedPieceTypology) %>% 
-  group_by(RawMaterial)
+  slice(match(retouched_order3, Typology))
 
 retouch_table2lp <- table(retouch2lp$RetouchedPieceTypology, retouch2lp$RawMaterial)
 retouch_table2lp <- as.data.frame.matrix(retouch_table2lp)
@@ -1859,11 +1967,31 @@ retouch_table2lp <- retouch_table2lp %>%
   as_tibble() %>% 
   slice(match(retouched_order4, Typology))
 
+```
+
+
+#### Lapa do Picareiro
+The total number of retouched pieces which have spatial information, allowing the identification of phase is 11, of which 6 belong to the U/Lower T group and 5 on the Middle T.
+
+As seen on table X, the U/Lower T shows 4 types of retouched piece typologies, the most present being the retouched flakes (of varied elongation ratios, n=3) all in chert, where the only quartz retouched piece is a splintered piece. From the retouched flakes, one shows similarities with the Vale Comprido point, although the platform/dorsal retouched as to thin the platform is questionable. 
+
+For the Middle T group (table x), there is a smaller variety of retouched pieces, all in chert: a notch, retouched flakes (n=2), a truncation and possibly a Vale Comprido point.
+
+```{r retouchTG, echo=FALSE}
+knitr::kable(retouch_table1lp, booktabs=TRUE, caption = "U/Lower T retouched piece typology by raw material.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(latex_options = c("hold_position", "scale_down"))
+
+```
+
+```{r retouchPR, echo=FALSE}
 knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Upper 5/4E Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(latex_options = c("hold_position", "scale_down"))
 
 ```
+
+The analysis of retouched pieces at Lapa do Picareiro is, however, possibly truncated by the edge damage of the assemblage. In all levels, many pieces, both quartz and chert, although in wider quantities in the latter, show variable degrees of edge damage, from light to extensive. Although some edges were obviously damaged by, either trampling or impact by blocks, since there was no homogeneity in its distribution or directionality, some other edges show dubious marks. As such, the present study opted for a more reserved approach regarding the classification of retouch, understanding the caveats of the decision. Thus, retouched pieces, specially the retouched flakes, were only identified as such whenever they displayed homogeneous, localized and unidirectional retouch, which could not be mistaken for edge damage.
 
 
 ### Vale Comprido technology
@@ -1988,3 +2116,95 @@ VC_platform <- VC_platform %>%
 VCplatform_all <- union(VCplatform,VC_platform)
 
 ```
+
+```{r vca, fig.cap="Blank width and platform area of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Casal do Felipe, Vale de Porcos and Vale Comprido - Encosta (Zilhão and Aubry 1995).", fig.scap="Blank width and platform area of Vale Comprido points and blanks.", echo=FALSE}
+
+VC_widthxarea_all %>% 
+  ggplot(aes(x=WidthCM, y=PlatformArea)) +
+  geom_point() +
+  geom_text(aes(label=Group),hjust=1.1, vjust=0.2) +
+  labs(x = "Width (cm)", y = "Platform Area (Width x Thickness) (cm)")
+
+
+```
+
+```{r vcb, fig.cap="Blank width and platform convexity of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Casal do Felipe, Vale de Porcos and Vale Comprido - Encosta (Zilhão and Aubry 1995)", fig.scap="Blank width and platform convexity of Vale Comprido points and blanks.", echo=FALSE}
+
+VC_widthxconvexity_all %>% 
+  ggplot(aes(x=WidthCM, y=PlatformFlatteningCM)) +
+  geom_point() +
+  geom_text(aes(label=Group),hjust=1.1, vjust=0.2) +
+  labs(x = "Width (cm)", y = "Platform Flattening (Width/Thickness) (cm)")
+  
+  
+```
+
+```{r vcc, fig.cap="Platform width and thickness of Vale Comprido points and blanks from Vale Boi, Lapa do Picareiro (present analysis) and Vale Comprido - Encosta (Zilhão and Aubry 1995).", fig.scap="Platform width and thickness of Vale Comprido points and blanks.", echo=FALSE}
+
+VCplatform_all %>% 
+ggplot(aes(x=PlatformWidthCM, y=PlatformThicknessCM,color=Group)) +
+  geom_point(size = 1.5) +
+  labs(x = "Platform Width (cm)", y = "Platform Thickness (cm)")
+
+```
+
+<!--chapter:end:05-results.Rmd-->
+
+
+# Discussion
+
+Placeholder
+
+
+## Technology
+## Vale Comprido technology
+## Chronology
+## Raw material use and preference
+
+<!--chapter:end:06-discussion.Rmd-->
+
+# Conclusion {-}
+
+If we don't want Conclusion to have a chapter number next to it, we can add the `{-}` attribute.
+
+**More info**
+
+And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
+
+
+<!--chapter:end:07-conclusion.Rmd-->
+
+# References {-}
+
+\markboth{References}{References}
+<!--
+To remove the indentation of the first entry.
+-->
+\noindent
+
+<!--
+To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
+-->
+
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+
+
+<!--chapter:end:08-references.Rmd-->
+
+
+# Appendix
+
+Placeholder
+
+
+## VALE BOI - CORES
+## VALE BOI - FLAKES
+## VALE BOI - ELONGATED
+## LAPA DO PICAREIRO - CORES
+## LAPA DO PICAREIRO - FLAKES
+## LAPA DO PICAREIRO - ELONGATED
+
+<!--chapter:end:09-appendix.Rmd-->
+
