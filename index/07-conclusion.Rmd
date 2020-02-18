@@ -1,8 +1,18 @@
 # Conclusion {-}
+Layers U/Lower T and Middle T from Lapa do Picareiro and layers 5 and 4E from Vale Boi have allowed the expansion of our understading on the Terminal Gravettian and Proto-Solutrean cultural horizons, not only testing the existing evolution models, as well as extending the geographical range of this horizon in Portugal. 
 
-If we don't want Conclusion to have a chapter number next to it, we can add the `{-}` attribute.
+As such, through the data obtained from these two sites, both recently excavated, with resource to total stations and for which a wide set of radiocarbon dates are available, the present study has reached 4 main conclusions, each responding to the goals defined in Chapter 1:
 
-**More info**
+*	Technological patterns are similar in the analyzed assemblages, dominated by reduction sequences focused on the obtention of elongated blanks and flakes, though prismatic cores, with little platform preparation and with resource to unidirectional strategies. These strategies are equally applied to chert and quartz.
 
-And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
+*	Differences between phases within site are mostly explained by differences in raw material use and presence of Vale Comprido technology. In a first phase quartz is used in high frequencies, mainly in the production of bladelets or flakes, reducing in frequency in posterior moments. Vale Comprido technology seems to be an innovation in the second moment of occupation.
 
+*	This first phase (U/Lower T and Lower 5), corresponding to a Terminal Gravettian occupation, seems to occur around 26 kcal BP. The second phase (Upper 5/4E) occurs around 25.5 kcal BP, corresponding to the Proto-Solutrean. These technological and raw material patterns correlated with the obtained dates show that the Three-phase model seems to apply best to both Estremaduran sites (as suggested by Almeida 2000) and the south of Portugal. As such, the Terminal Gravettian is not a facies, but a cultural horizon with chronological relevance.
+
+*	Middle T from Lapa do Picareiro shows a horizon with technological similarities with the Proto-Solutrean, but without the diagnostic Vale Comprido technology, having instead similar blanks with some resemblances to Middle Solutrean blanks and points. Radiocarbon dates place this occupation around 24.5-24 kcal BP, which offers two hypothesis: 1) it represents a Proto-Solutrean occupation, happening at younger dates than other sites, without Vale Comprido technology; 2) it may correspond to an Early Solutrean occupation, with transitional characteristics with similarities to Proto-Solutrean and Middle Solutrean tools, a horizon yet unidentified in Portugal.
+
+The latter is still rather inconclusive, needing further studies to understand whether there is Vale Comprido technology in Lapa do Picareiro. This may be achieved through the analysis of not only Vale Comprido technology in the Estremadura through morphological data, as well as Middle Solutrean blanks and point à face plan, without relying on typological attributes.
+
+This may be important to understand a link that seems to be missing in the Upper Paleolithic in Portugal and that connects the Proto-Solutrean to the Middle Solutrean, further building onto the existing evolution models for the Gravettian-Solutrean transition.
+
+Furthermore, in the future, it seems important to understand the presence of dolerite in Vale Boi. Given the now known internal characteristics of this raw material, it may be interesting to test its actual nonexistence in the other occupations in the site, to further understand possible niche expansions in this horizon, as a result to climatic changes.
