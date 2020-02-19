@@ -42,6 +42,27 @@ knitr::kable(head(basic_db[1:2],15), booktabs = TRUE, col.names = c("Recorded va
   kable_styling(position = "center")
 ```
 
+```{r layertablevb, include=FALSE}
+
+lp_strat <- read_csv("data/lp_strat.csv")
+
+lp_strat <- lp_strat %>% 
+  mutate_if(is.numeric , replace_na, replace = " ")
+
+```
+
+```{r lpstrat, echo=FALSE}
+
+knitr::kable(head(lp_strat [1:6], 35),  booktabs = TRUE, caption = "Lapa do Picareiro identified layers with sediment description and associated cultural horizons, whenever existent. After Benedetti et al. (2019).") %>% 
+  column_spec(1, bold = T, width = "1cm") %>%
+  column_spec(2, width = "1cm") %>% 
+  column_spec(3, width = "2cm") %>% 
+  column_spec(4, width = "3cm") %>% 
+  column_spec(5, width = "8cm") %>% 
+  column_spec(6, width = "3cm") %>% 
+  kable_styling(latex_options = c("scale_down"))
+  
+```
 
 ```{r datadictionary, echo=FALSE}
 data_dictionary <- read.csv("data/data_dictionary.csv")

@@ -1,0 +1,35 @@
+﻿Zone,Level,Depth interval (mbd),Matrix color (Munsell),"Sediment description a, b, c",Lithic assemblage
+1,D,0.87–1.12,Brown (10YR5/3),"Medium clasts in very muddy matrix, friable to slightly hard, common fine charcoal and bone fragments, chalky appearance",Epipaleolithic
+,E,1.12–1.86,Grayish brown(10YR5/2),"Small to medium clasts in very muddy matrix, friable to slightly hard, abundant charcoal and bone fragments, chalky appearance",Late Magdalenian
+,F,1.86–2.17,Dark grayish brown (10YR4/2),"Medium to large clasts with little fine sediment, loose, muddy dark brown lenses with abundant charcoal and bone fragments",Late Magdalenian
+,I,2.17–2.37,Light yellowish brown (10YR6/4),"Large to very large clasts with very little fine sediment, loose to friable, few bones",Late Magdalenian
+,J,2.37–2.55,Yellowish brown (10YR5/4),"Medium to large clasts with very little fine sediment, loose, few bones",Late Magdalenian
+2,K,2.55–2.75,Strong brown (7.5YR5/6),"Small clasts, friable, few bones",Early Magdalenian
+,L,2.75–3.13,Strong brown (7.5YR5/6),"Small to medium clasts in muddy matrix, friable to slightly hard, few bones and fragments, few boulders up to 100 cm",Early Magdalenian
+,M,3.13–3.19,Strong brown (7.5YR5/6),"Very small clasts in muddy matrix, friable",None
+,N,3.19–3.53,Strong brown (7.5YR4/6),"Medium to large clasts, loose to friable, common medium‐large bones and bone fragments",None
+,O,3.53–3.81,Strong brown (7.5YR4/6),"Medium clasts, friable, common charcoal, and bones",Solutrean
+,P,3.81–3.93,Brown (7.5YR4/4),"Medium to large clasts, loose to friable",None
+,R,3.93–4.01,Brown (7.5YR5/4),"Small to medium clasts, friable, common charcoal, and small bones",Solutrean
+,S,4.01–4.13,Light brown (7.5YR6/4),"Small clasts, friable, common charcoal, and bones",Solutrean
+,T,4.13–4.86,Strong brown (7.5YR4/6),"Medium to large clasts, friable, common boulders up to 80 cm, muddy in lower half with abundant charcoal and bones",Solutrean and Proto‐Solutrean
+3,U,4.86–5.02,Strong brown (7.5YR5/6),"Small to medium clasts in muddy matrix, friable, includes lenses with abundant small animal bones and bone fragments",Terminal Gravettian
+,V,5.02–5.12,Strong brown (7.5YR5/6),"Medium to large clasts, little fine sediment, loose to friable, abundant small animal bones",Gravettian
+,W,5.12–5.25,Strong brown (7.5YR4/6),"Small to medium clasts in very muddy matrix, friable to slightly hard, abundant small animal bones and bone fragments",Gravettian
+,X,5.25–5.32,Strong brown (7.5YR5/6),"Medium clasts, little fine sediment, friable, abundant small animal bones",Gravettian
+,Y,5.32–5.53,Strong brown (7.5YR5/6),"Medium to large clasts, little fine sediment, common bones",None
+,Z,5.53–5.71,Strong brown (7.5YR5/6),"Medium clasts in muddy matrix, friable, common bones",None
+,BB,5.71–5.96,Strong brown (7.5YR5/6),"Large clasts, friable, common bones, few boulders up to 60 cm",Early Upper Paleolithic
+,CC,5.96–6.03,Strong brown (7.5YR5/6),"Very small clasts, friable",None
+,DD,6.03–6.14,Strong brown (7.5YR4/6),"Medium clasts in very muddy matrix, slightly to moderately hard",Early Upper Paleolithic
+,EE,6.14–6.27,Reddish brown (5YR4/4),"Small clasts in muddy matrix, friable to slightly hard, common bones",None
+,FF,6.27–6.45,Dark reddish brown (5YR3/4),"Medium clasts, slightly to moderately hard, abundant charcoal and bones",Early Upper and/or Middle Paleolithic
+4,GG,6.45–6.62,Strong brown (7.5YR5/6),"Large clasts, extremely hard, cemented by calcite crystals filling voids, common bones, and bone fragments",Aurignacian
+,HH,6.62–6.76,Strong brown (7.5YR4/6),"Medium clasts in muddy matrix, slightly hard, common bones",Aurignacian
+,II,6.76–6.87,Strong brown (7.5YR5/6),"Medium to large clasts in muddy matrix, very hard, calcite cement filling voids",Aurignacian
+,JJ (upper),6.87–7.73,Reddish brown (5YR4/4),"Medium to large clasts in muddy matrix, slightly hard, common bones; up to 20 cm thick lenses of dark reddish brown fine sediment with dispersed charcoal",Mousterian
+5,JJ (lower),7.73–8.35,Reddish brown (5YR4/4),"Medium clasts in very muddy matrix, slightly hard, lenses of dark reddish‐brown fine sediment with dispersed charcoal and large animal bones",Mousterian
+,KK,8.35–8.64,Yellowish red (5YR5/8),"Medium to large clasts, slightly to moderately hard, few bones",None
+,LL,8.64–9.15,Reddish brown (5YR4/4),"Large clasts, slightly hard, concentration of angular boulders up to 60 cm in lower part",None
+,MM,9.15–9.98,Reddish brown (5YR5/4),"Medium to large clasts in muddy matrix, moderately hard, few small animal bones",None
+,NN,9.98–10.62,Reddish brown (5YR5/4),"Very large clasts and boulders up to 70 cm in muddy matrix, slightly hard, few bones",None
