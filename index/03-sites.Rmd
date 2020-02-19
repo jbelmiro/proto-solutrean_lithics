@@ -129,6 +129,12 @@ knitr::include_graphics("figure/SpatialanalysisVB.png")
 
 ```
 
+```{r c14VB, echo = FALSE, fig.cap = "Radiocarbon results for Vale Boi's Layers 5 and 4. The results presented are modeled dates based on a Bayesian model using all dates available for the straitgraphic sequence of the Terrace area.", fig.align= 'center', out.width = '100%'}
+
+knitr::include_graphics("index/figure/c14_VB.png")
+
+```
+
 
 ## Lapa do Picareiro
 Lapa do Picareiro was first investigated during the 1950s by Marques, and then in 1964 by Fernandes Gomes and Gil Andrade, who excavated the cave and opened a test pit. Although the results have never been published, it is known the finds included several human remains associated with decorated pottery (Bicho 2000; Bicho 2006; Haws 2003; Zilhão 1997b).
@@ -159,8 +165,7 @@ Level T, approximately 50 cm thick, has a dark brown color matrix, with the pres
 
 The Terminal Gravettian occupation was also identified in level U, a ~15cm thick layer with a brown color matrix and, near the rear wall, a reddish muddy matrix that resembles lower T sediment. It has small to medium clasts and includes several lenses with abundant small animal bones and bone fragments.
 
-Levels V, W, and X were associated with Gravettian occupations, all three showing a dark brown matrix, with variation between muddy and fine sediment, all with the abundant presence of small animal bones.
-Levels BB, DD, and FF (each intercalated with a culturally sterile level), varying between a dark brown and reddish-brown color matrix, have an associated Early Upper Paleolithic lithic assemblage, with internal sediment variability but the frequent presence of bone fragments and small to medium clasts.
+Levels V, W, and X were associated with Gravettian occupations, all three showing a dark brown matrix, with variation between muddy and fine sediment, all with the abundant presence of small animal bones. Levels BB, DD, and FF (each intercalated with a culturally sterile level), varying between a dark brown and reddish-brown color matrix, have an associated Early Upper Paleolithic lithic assemblage, with internal sediment variability but the frequent presence of bone fragments and small to medium clasts.
 
 An Aurignacian occupation is present in level GG, which presents a dark brown color matrix, and a slightly hard to very hard sediment matrix, with the presence of calcite cement, bones, and bone fragments.
 
@@ -185,11 +190,16 @@ knitr::include_graphics("figure/LPspatial.jpg")
 
 ```
 
+
 The niche area was where most of the lithic assemblage from these levels was found. As shown in image X, there is an apparent concentration of lithics, comprised mostly of quartz and rock crystal, and some chert, all raw materials appearing mostly in the shape of bladelets.
 
 For U and lower T, the dates (table), all obtained from charcoal samples, show results of c. 27-26 cal ka BP, except for one of lower T dates which presents a result of c. 25-24 cal ka BP.
 
-(T and U dates table)
+```{r c14LP, echo = FALSE, fig.cap = "Radiocarbon results for Lapa do Picareiro's Levels U and T. The results presented are modeled dates based on a Bayesian model using all dates available for the stratigraphic sequence of the cave.", fig.align= 'center', out.width = '100%'}
+
+knitr::include_graphics("index/figure/c14_LP.png")
+
+```
 
 The middle part of T shows the presence of circular concentrations of charcoals, about 10-15 cm thick, which have been interpreted as hearths. Aside from these features, there is a high frequency of animal bones, following the same species patterns as level U and lower T (although these results are preliminary).
 
