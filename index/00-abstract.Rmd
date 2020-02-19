@@ -1,9 +1,12 @@
-The present thesis aims to answer the following question: what impact did the Heinrich 2 event have on the technological organization of human communities, on the onset of the last glacial maximum, in south western Iberia? This question follows the understanding that climatic events such as the HE2 seem to correlate to cultural changes, although the existing models do not consider the Proto-Solutrean technocomplex as an individual phase for the Gravettian-Solutrean transition, thus leaving a gap in the current knowledge of the Upper Paleolithic. \par
+The present study aims to answer the question: what impact did the Heinrich 2 event have on the technological organization of human communities, at the onset of the last glacial maximum, in south western Iberia? The impact of this event on the Gravettian-Soluttrean transition has been previously suggested [@bradtmoller2012]. However, the existing models do not consider the Proto-Solutrean technocomplex as an individual phase for this transition [@cascalheiraandbicho2013]. \par
 
-To approach this problematic we analysed the lithic assemblages from Vale Boi (south Portugal) and Lapa do Picareiro (central Portugal) to understand the technological patterns and territory exploitation during the Proto-Solutrean, with the following goals: 1) understand and explain specific site technological and raw material use patterns; 2) establish parallels between the two sites; 3) compare these results with those obtained for other Proto-Solutrean sites, mostly from the Portuguese Estremadura.
+To address this question, this study analysed the lithic assemblages from Vale Boi (south Portugal) and Lapa do Picareiro (central Portugal). We aimed to understand the technological patterns and raw material exploitation during the Proto-Solutrean, and test the existing models with assemblages from recently excavated sites, while expanding the geographic range.
 
-The analysis followed a technologic and morphologic attribute approach, with the statistical treatment of data through descriptive and multivariate analysis, the latter through the use of a technological domain approach to reduce assemblage variability.
+The analysis followed a technologic and morphologic attribute approach. The retrieved data was then analysed through descritive statistics in R environment.
 
-Results – 
+Results show the existence of two occupations within the assemblages. The first, with high frequency of quartz use for bladelet production, seems to reflect a Terminal Gravettian horizon. The appearance of Vale Comprido technology and lower quartz frequencies in a second moment in Vale Boi seem to represent a Proto-Solutrean occupation. The second horizon in Lapa do Picareiro, with the presence of Vale Comprido-like technology but with low flattening ratios may be attributed to a Proto-Solutrean or an Early Solutrean occupation.
 
-Keywords: Upper Paleolithic; Technological patterns; Raw material exploitation.
+The Terminal Gravettian and Proto-Solutrean seem to be chronologically different phases, in concordance with the Three-Phase model for the Proto-Solutrean [@zilhao1997]. The similarities between Vale Boi and the Estremadura may be explained by the expansion of social networks [@cascalheiraandbicho2013]. Associated with the dominance of different technologic patterns and intensive use of quartz, we may understand these horizons as a moment of cultural reorganization, onset by environmental pressures.
+
+Keywords: Upper Paleolithic; Attribute analysis; Raw material exploitation; Climatic changes.
+
