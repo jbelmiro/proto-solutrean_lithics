@@ -4,14 +4,18 @@ The replacement of the Gravettian technocomplex by the Solutrean, impacted by ad
 
 By understanding the need to better comprehend the Proto-Solutrean and how adverse climate impacted these communities, this study aims to answer the following question: what impact did the HE 2 have on the technological organization of human communities, at the onset of the last glacial maximum, in south western Iberia? To do so, this study will analyse the lithic terminal gravettian/proto-solutrean assemblages of two recently excavated sites with resource to total stations, Vale Boi (south of Portugal) and Lapa do Picareiro (central Portugal).
 
-To answer this question, we aim to accomplish the following goals: 
+To answer this question, we aim to accomplish the following goals:
+
 * Understand the technological organization of layers 5/4E of Vale Boi and U to Middle T from Lapa do Picareiro, by characterizing their technological patterns, reduction sequences and raw material use/preference patterns. The results will then be compared with the existing data from other proto-solutrean assemblages, mostly from the Estremadura Portuguesa.
+
 * Identify possible terminal gravettian horizons or facies within the proto-solutrean occupations in Vale Boi and Lapa do Picareiro and their chronologies.
+
 * Test the proto-solutrean transition models (Two-phase and Three-phase) developed through results from the Estremadura to understand which model best explains the transition between the Final Gravettian to the Proto-Solutrean, and whether the model may be applied to other geographic areas outside of the Estremadura.
 
 By accomplishing these goals, through the use of new data resulting from recent excavations, with good chronological markers and a wider geographic range (south of Portugal), we hope to contribute to the understanding of the Proto-Solutrean and the Gravettian-Solutrean transition in western Iberia.
 
 The present thesis is organized in 7 chapters:
+
 * Chapter 2, where we will discuss the impact of climatic changes on culture replacement, especially during the HE 2, describe the paleoclimate during this event and finally describe the Proto-Solutrean and its technological characteristics.
 
 * Chapter 3 which will introduce the archaeological sites used in the study with a brief description of their location and geological context, followed by an overview of excavation works, excavation methodology, human occupation through the several areas and layers, then focusing on the layers associated with terminal gravettian/proto-solutrean horizons.
