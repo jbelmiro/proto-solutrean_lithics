@@ -9,7 +9,7 @@ If you feel it necessary to include an appendix, it goes here.
 -->
 
 
-# Appendix
+# Figures and tables
 
 ```{r appendixsetup, include=FALSE}
 
@@ -45,7 +45,7 @@ knitr::kable(head(lp_strat [1:6], 35),  booktabs = TRUE, caption = "Lapa do Pica
   column_spec(4, width = "3cm") %>% 
   column_spec(5, width = "8cm") %>% 
   column_spec(6, width = "3cm") %>% 
-  kable_styling(latex_options = c("scale_down"))
+  kable_styling(latex_options = c("scale_down"), font_size = 9)
   
 ```
 
@@ -57,7 +57,7 @@ basic_db <- tibble(Items = c("Site","Area", "Lot", "ID", "Raw material", "Class"
 knitr::kable(head(basic_db[1:2],15), booktabs = TRUE, col.names = c("Recorded variables","Class conditions"),caption = "Basic database attributes recorded. Class conditions represent the classes/artefacts which were considered for each variable, given the programmed system of conditions.") %>% 
   column_spec(1:2, width = "5cm") %>%
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9)
 ```
 
 ```{r datadictionary, echo=FALSE}
@@ -68,7 +68,7 @@ data_dictionary <- data_dictionary %>%
   dplyr::rename("Variable" = 1)
 knitr::kable(head(data_dictionary [1:4],46),longtable = TRUE, booktabs=TRUE, caption = "Data Dictionary with variables considered in the attributes analysis, including measurement units, allowed vallued, definitions and/or references.", caption.short = "Lithic analysis Data Dictionary") %>% 
   landscape() %>%
-  kable_styling(latex_options = "repeat_header") %>% 
+  kable_styling(latex_options = "repeat_header", font_size = 9) %>% 
   column_spec(1, width = "2cm") %>% 
   column_spec(2, width = "3cm") %>%
   column_spec(3, width = "6cm") %>% 
@@ -76,22 +76,35 @@ knitr::kable(head(data_dictionary [1:4],46),longtable = TRUE, booktabs=TRUE, cap
 
 ```
 
-```{r doleritemicro, fig.cap="Dolerite thin section under seen through a polarized microscope.", out.width = '100%', echo=FALSE}
+```{r doleritemicro, fig.cap="Dolerite thin section under seen through a polarized microscope.", out.width = '70%', fig.align='center', echo=FALSE}
 
 knitr::include_graphics("figure/thin_section.png")
 
 ```
 
-```{r doleritephoto, fig.cap="Dolerite flake removed from a debitage waste piece. Left: ventral side with interior colour and texture of the raw material; Right: dorsal side with patina.", fig.scap="Dolerite flake removed from a debitage waste piece.", out.width = '100%', echo=FALSE}
+```{r cherttable, echo=FALSE}
 
-knitr::include_graphics("figure/doleritephoto.jpg")
+## RM table
+RMtable <- tibble("Chert Type" = c("RM1", "RM2", "RM3", "RM4", "RM5", "RM6", "RM7"),
+                    Description = c("Fine grain, 2.5Y 7/6 and 6/6 (yellow and olive yellow) translucent color with opaque smoke-like patterns.
+","Mostly 5YR 4/2 (dark reddish gray) and 4/3 (reddish brown) colouration, with 1mm 10YR 7/3 (very pale brown) dots and bigger 0.5 to 1 mm circular 10YR 7/2 (light gray) inclusions with coarser texture.
+","Coarser texture, with veins and fog-like patterns with colour mix of 10YR 8/3, 7/3 (very pale brown), 7.5YR 7/3 (pink), 5YR 7/4 (pink) and 10YR 5/3 brown.
+","Mostly 2.5Y 8/1 (white) with interior translucent areas.
+","2.5Y 6/2 (light brownish gray), closer to cortex 10YR 8/2 and 8/3 (very pale yellow) with circular 0.5 mm marks of 10YR 7/2 /(light gray) and 5Y 5/1 (gray) dots.
+","10YR 8/3 (very pale brown) on borders, center fog-like pattern with mix of 10YR 4/2,3/3 (dark brown), 2.5Y 6/3 (light yellowish brown) and 5/1 (gray).
+","Stripped-like ondulating pattern with several tonalities: 5YR 7/3, 8/3 (pink), 6/6 (reddish yellow), 7/1 (light gray), with certain areas with 7.5YR 7/8 (reddish yellow).
+"))
+
+knitr::kable(RMtable, booktabs=TRUE, caption = "Lapa do Picareiro. Identified chert types. Description is mostly based on colour patterns, following the Munsel manual of color chart (Munsel Color, 2010).") %>% 
+  column_spec(1, bold = T) %>% 
+  column_spec(2, width = "10cm") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
-## VALE BOI - CORES
+# Attribute analysis
 
-
-```{r coreattributesVB1, echo=FALSE}
+```{r coreattributesVB1, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Subset cores and phases
 coreAT <- dataset %>% 
@@ -114,11 +127,13 @@ core_tablep1 <- core_tablep1 %>%
 
 knitr::kable(core_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - core attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(font_size = 9, latex_options = "repeat_header")
 
 ```
 
-```{r coreattributesVB2, echo=FALSE}
+\newpage
+
+```{r coreattributesVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 coreAT2 <- coreAT %>% 
   filter(Phase=="Upper 5/4E")
@@ -140,11 +155,13 @@ core_tablep2 <- core_tablep2 %>%
 
 knitr::kable(core_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - core attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 
 ```
 
-```{r coremetricsVB1, echo=FALSE}
+\newpage
+
+```{r coremetricsVB1, echo=FALSE, message=FALSE, warning=FALSE}
 
 core_metp1 <- tabmulti(coreAT1, "RawMaterial", c("MedWidth", "Length", "Thickness",
                                                  "PlatformWidth","PlatformThickness", 
@@ -164,11 +181,11 @@ core_metp1 <- core_metp1 %>%
 
 knitr::kable(core_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(latex_options = c("scale_down", "hold_position"), font_size = 9)
 
 ```
 
-```{r coremetricsVB2, echo=FALSE}
+```{r coremetricsVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 core_metp2 <- tabmulti(coreAT2, "RawMaterial", c("MedWidth", "Length", "Thickness",
                                                  "PlatformWidth","PlatformThickness", 
@@ -189,14 +206,14 @@ core_metp2 <- core_metp2 %>%
 
 knitr::kable(core_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(latex_options = c("scale_down", "hold_position"), font_size = 9)
+  
 
 ```
 
+\newpage
 
-## VALE BOI - FLAKES
-
-```{r flakeattributeVB1, echo=FALSE}
+```{r flakeattributeVB1, echo=FALSE, message=FALSE, warning=FALSE}
 
 blanksAT <- dataset %>% 
   filter(BlankType == "Flake")
@@ -224,12 +241,14 @@ blank_tablep1<- blank_tablep1 %>%
 
 knitr::kable(blank_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
-  column_spec(1:7, width = "1cm")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position")) %>% 
+  column_spec(1:8, width = "1cm")
 
 ```
 
-```{r flakeattributeVB2, echo=FALSE}
+\newpage
+
+```{r flakeattributeVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 blanksAT2 <- blanksAT %>% 
   filter(Phase=="Upper 5/4E")
@@ -254,13 +273,14 @@ blank_tablep2<- blank_tablep2 %>%
 
 knitr::kable(blank_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
-  column_spec(1:7, width = "1cm")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position")) %>% 
+  column_spec(1:8, width = "1cm")
 
 ```
 
+\newpage
 
-```{r flakemetricsVB1, echo=FALSE}
+```{r flakemetricsVB1, echo=FALSE, message=FALSE, warning=FALSE}
 
 blank_metp1 <- tabmulti(blanksAT1, "RawMaterial", c("MedWidth", "Length",
                                                     "Thickness", "PlatformWidth",
@@ -280,11 +300,11 @@ blank_metp1 <- blank_metp1 %>%
 
 knitr::kable(blank_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(latex_options = c("scale_down", "hold_position"), font_size = 9)
 
 ```
 
-```{r flakemetricsVB2, echo=FALSE}
+```{r flakemetricsVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 blank_metp2 <- tabmulti(blanksAT2, "RawMaterial", c("MedWidth", "Length", 
                                                     "Thickness", "PlatformWidth", "PlatformThickness"),
@@ -303,14 +323,13 @@ blank_metp2 <- blank_metp2 %>%
 
 knitr::kable(blank_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(latex_options = c("scale_down", "hold_position"), font_size = 9)
 
 ```
 
+\newpage
 
-## VALE BOI - ELONGATED
-
-```{r elongtableVB1, echo = FALSE}
+```{r elongtableVB1, echo = FALSE, message=FALSE, warning=FALSE}
 
 elongAT <- dataset %>% 
   filter(BlankType == "ElongatedProd")
@@ -338,13 +357,14 @@ elong_tablep1<- elong_tablep1 %>%
 
 knitr::kable(elong_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - elongated products attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
+  kable_styling(position = "center", font_size = 9, latex_options = "repeat_header") %>% 
   column_spec(1:6, width = "0.8cm")
 
 ```
 
+\newpage
 
-```{r elongtableVB2, echo = FALSE}
+```{r elongtableVB2, echo = FALSE, message=FALSE, warning=FALSE}
 
 elongAT2 <- elongAT %>% 
   filter(Phase=="Upper 5/4E")
@@ -369,13 +389,14 @@ elong_tablep2 <- elong_tablep2 %>%
 
 knitr::kable(elong_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - elongated products attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") %>% 
+  kable_styling(position = "center", font_size = 9, latex_options = "repeat_header") %>% 
   column_spec(1:8, width = "0.8cm")
 
 ```
 
+\newpage
 
-```{r elongmetricsVB1, echo = FALSE}
+```{r elongmetricsVB1, echo = FALSE, message=FALSE, warning=FALSE}
 
 elong_metp1 <- tabmulti(elongAT1, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
                           ymeasures = c("mean", "mean", "mean"),
@@ -392,12 +413,12 @@ elong_metp1 <- elong_metp1 %>%
   
 knitr::kable(elong_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean and standard deviation of elongated products measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(font_size = 9, latex_options = c("hold_position"))
 
 ```
 
 
-```{r elongmtericsVB2, echo=FALSE}
+```{r elongmtericsVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 elong_metp2 <- tabmulti(elongAT2, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
                           ymeasures = c("mean", "mean", "mean"),
@@ -413,15 +434,13 @@ elong_metp2 <- elong_metp2 %>%
 
 knitr::kable(elong_metp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E - mean and standard deviation of elongated products measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(latex_options = c("scale_down", "hold_position"), font_size = 9)
 
 ```
 
+\newpage
 
-
-## LAPA DO PICAREIRO - CORES
-
-```{r coreattributesLP1, echo=FALSE}
+```{r coreattributesLP1, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Subset cores and phases
 coreATlp <- datasetlp %>% 
@@ -449,12 +468,11 @@ core_tablep1lp <- core_tablep1lp %>%
 
 knitr::kable(core_tablep1lp, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - core attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 
 ```
 
-
-```{r coreattributesLP2, echo=FALSE}
+```{r coreattributesLP2, echo=FALSE, message=FALSE, warning=FALSE}
 
 coreAT2lp <- coreATlp %>% 
   filter(Phase== "Middle T")
@@ -477,12 +495,13 @@ core_tablep2lp <- core_tablep2lp %>%
 
 knitr::kable(core_tablep2lp, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T - core attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 
 ```
 
+\newpage
 
-```{r coremetricsLP1, echo=FALSE}
+```{r coremetricsLP1, echo=FALSE, message=FALSE, warning=FALSE}
 
 core_metp1lp <- tabmulti(coreAT1lp, "RawMaterial", c("MedWidth", "Length", "Thickness",
                                                  "PlatformWidth","PlatformThickness", 
@@ -501,12 +520,12 @@ core_metp1lp <- core_metp1lp %>%
 
 knitr::kable(core_metp1lp, booktabs=TRUE, caption = "Lapa do Picareiro - U/Lower T - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9)
 
 ```
 
 
-```{r coremetricsLP2, echo=FALSE}
+```{r coremetricsLP2, echo=FALSE, message=FALSE, warning=FALSE}
 
 core_metp2lp <- tabmulti(coreAT2lp, "RawMaterial", c("MedWidth", "Length", "Thickness",
                                                  "PlatformWidth","PlatformThickness", 
@@ -526,14 +545,13 @@ core_metp2lp <- core_metp2lp %>%
 
 knitr::kable(core_metp2lp, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9)
 
 ```
 
+\newpage
 
-## LAPA DO PICAREIRO - FLAKES
-
-```{r flakeattributesLP1, echo=FALSE}
+```{r flakeattributesLP1, echo=FALSE, message=FALSE, warning=FALSE}
 
 flakesATlp <- datasetlp %>% 
   filter(BlankType == "Flake")
@@ -562,11 +580,13 @@ flakes_tablep1lp<- flakes_tablep1lp %>%
 
 knitr::kable(flakes_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = "repeat_header")
 
 ```
 
-```{r flakeattributesLP2, echo=FALSE}
+\newpage
+
+```{r flakeattributesLP2, echo=FALSE, message=FALSE, warning=FALSE}
 
 flakesAT2lp <- flakesATlp %>% 
   filter(Phase == "Middle T")
@@ -591,12 +611,13 @@ flakes_tablep2lp <- flakes_tablep2lp %>%
 
 knitr::kable(flakes_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center") 
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position")) 
 
 ```
 
+\newpage
 
-```{r flakemetricsLP1, echo=FALSE}
+```{r flakemetricsLP1, echo=FALSE, message=FALSE, warning=FALSE}
 
 flakes_metp1lp <- tabmulti(flakesAT1lp, "RawMaterial", c("MedWidth", "Length",
                                                     "Thickness", "PlatformWidth",
@@ -616,12 +637,12 @@ flakes_metp1lp <- flakes_metp1lp %>%
 
 knitr::kable(flakes_metp1lp, booktabs=TRUE, caption = "Lapa do Picarerio - U/Lower T - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = "hold_position")
 
 ```
 
 
-```{r flakemetricsLP2, echo=FALSE}
+```{r flakemetricsLP2, echo=FALSE, message=FALSE, warning=FALSE}
 
 flakes_metp2lp <- tabmulti(flakesAT2lp, "RawMaterial", c("MedWidth", "Length",
                                                     "Thickness", "PlatformWidth",
@@ -641,12 +662,11 @@ flakes_metp2lp <- flakes_metp2lp %>%
 
 knitr::kable(flakes_metp2lp, booktabs=TRUE, caption = "Lapa do Picarerio - Middle T - mean and standard deviation of flake measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = "hold_position")
 
 ```
 
-
-## LAPA DO PICAREIRO - ELONGATED
+\newpage
 
 ```{r elongtableLP1, include=FALSE}
 #Elongated attribute table (all variables, by all raw materials)
@@ -671,11 +691,13 @@ elong_tablep1lp <- elong_tablep1lp %>%
 
 knitr::kable(elong_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - elongated blanks attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 
 ```
 
-```{r elongtableLP2, echo = FALSE}
+\newpage
+
+```{r elongtableLP2, echo = FALSE, message=FALSE, warning=FALSE}
 #Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
 elong_tablep2lp <- tabmulti(elongAT2lp, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
@@ -694,11 +716,12 @@ elong_tablep2lp <- elong_tablep2lp %>%
 
 knitr::kable(elong_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T -  elongated blanks attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 ```
 
+\newpage
 
-```{r elongmetricsLP1, echo = FALSE}
+```{r elongmetricsLP1, echo = FALSE, message=FALSE, warning=FALSE}
 #Elongated metrics (mean) by raw material
 elong_metp1lp <- tabmulti(elongAT1lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
                           ymeasures = c("mean", "mean", "mean"),
@@ -712,13 +735,17 @@ elong_metp1lp <- elong_metp1lp %>%
   select(Measurements, Quartz, Chert)
 
 knitr::kable(elong_metp1lp, booktabs=TRUE, caption = "Lapa do Picarerio - U/Lower T - mean and standard deviation of elongated blanks measurements (in mm).") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  row_spec(0, bold = T, align = "c") %>%
+  column_spec(1, width = "4cm") %>% 
+  column_spec(2, width = "2cm") %>% 
+  column_spec(3, width = "2cm") %>%
+  column_spec(4, width = "2cm") %>%
+  kable_styling(latex_options = "hold_position", font_size = 9)
 
 ```
 
 
-```{r elongmetricsLP2, echo=FALSE}
+```{r elongmetricsLP2, echo=FALSE, message=FALSE, warning=FALSE}
 
 #Elongated metrics (mean) by raw material
 elong_metp2lp <- tabmulti(elongAT2lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
@@ -734,12 +761,11 @@ elong_metp2lp <- elong_metp2lp %>%
 
 knitr::kable(elong_metp2lp, booktabs=TRUE, caption = "Lapa do Picarerio - Middle T - mean and standard deviation of elongated blanks measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  kable_styling(latex_options = "hold_position", font_size = 9)
 
 ```
 
-
-## Colophon
+# Colophon
 
 
 This dissertation was generated on `r Sys.time()` using the following computational environment and dependencies: 

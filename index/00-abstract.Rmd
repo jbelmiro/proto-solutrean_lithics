@@ -2,11 +2,12 @@ The present study aims to answer the question: what impact did the Heinrich 2 ev
 
 To address this question, this study analysed the lithic assemblages from Vale Boi (south Portugal) and Lapa do Picareiro (central Portugal). We aimed to understand the technological patterns and raw material exploitation during the Proto-Solutrean, and test the existing models with assemblages from recently excavated sites, while expanding the geographic range.
 
-The analysis followed a technologic and morphologic attribute approach. The retrieved data was then analysed through descritive statistics in R environment.
+The analysis followed a technologic and morphologic attribute approach. The retrieved data was then analysed through descriptive statistics in R environment.
 
-Results show the existence of two occupations within the assemblages. The first, with high frequency of quartz use for bladelet production, seems to reflect a Terminal Gravettian horizon. The appearance of Vale Comprido technology and lower quartz frequencies in a second moment in Vale Boi seem to represent a Proto-Solutrean occupation. The second horizon in Lapa do Picareiro, with the presence of Vale Comprido-like technology but with low flattening ratios may be attributed to a Proto-Solutrean or an Early Solutrean occupation.
+Results show the existence of two occupations within the assemblages. The first, with high frequency of quartz use for bladelet production, seems to reflect a terminal gravettian horizon. The appearance of Vale Comprido technology and lower quartz frequencies in a second moment in Vale Boi, seem to represent a proto-solutrean occupation. The second horizon in Lapa do Picareiro, with the presence of technology similar to Vale Comprido but with low flattening ratios may be attributed to a Proto-Solutrean or an Early Solutrean occupation.
 
-The Terminal Gravettian and Proto-Solutrean seem to be chronologically different phases, in concordance with the Three-Phase model for the Proto-Solutrean [@zilhao1997]. The similarities between Vale Boi and the Estremadura may be explained by the expansion of social networks [@cascalheiraandbicho2013]. Associated with the dominance of different technologic patterns and intensive use of quartz, we may understand these horizons as a moment of cultural reorganization, onset by environmental pressures.
+The Terminal Gravettian and Proto-Solutrean seem to be chronologically different phases, in concordance with the Three-Phase model for the Proto-Solutrean [@zilhao1997]. The similarities between Vale Boi and the Estremadura may be explained by the expansion of social networks [@cascalheiraandbicho2013]. Associated with the dominance of different technological patterns and intensive use of quartz, we may understand these horizons as a moment of cultural reorganization, onset by environmental pressures.
 
-Keywords: Upper Paleolithic; Attribute analysis; Raw material exploitation; Climatic changes.
+\  
 
+**Keywords:** Upper Paleolithic; Attribute analysis; Raw material exploitation; Climatic changes.

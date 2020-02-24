@@ -1,5 +1,3 @@
-# Results
-
 ```{r setup, include=FALSE}
 
 # Call packages
@@ -26,7 +24,6 @@ library(ggalluvial)
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
 
 ```
-
 
 ```{r VB_analysis_setup, include=FALSE}
 
@@ -118,18 +115,21 @@ datasetlp <- datasetlp %>%
 
 ```
 
+# Results
 
 ## Assemblages
 
 ### Vale Boi
-As mentioned in previous chapters, the lithic assemblages analyzed in this study come from layers 4E and 5 of the Terrace area. The present study only considered materials from rows H, I and J, excavated between 2012 and 2019.
 
-Artifact distribution across Layers 5 and 4E confirms an interesting pattern already evidenced in previous works (e.g., Belmiro, 2017). As seen in Figure \@ref(fig:spatialdistribution), the distribution of artifacts (excluding chips), clearly shows a concentration of materials in the top of the sequence, corresponding to the totality of Layer 4E and the first c. 10 cm of Layer 5. The discard rates of artifacts then gradually diminishes in the middle and bottom sections of Level 5.
+As mentioned in previous chapters, the lithic assemblages analysed in this study come from layers 4E and 5 of the Terrace area. The present study only considered materials from rows H, I and J, excavated between 2012 and 2019.
 
-A preliminary visual analysis to the artifact distribution presented in Figure \@ref(fig:spatialdistribution) does not seem to show concentrations of specific raw materials along the stratigraphy. 
+Artifact distribution across layers 5 and 4E confirms an interesting pattern already evidenced in previous works (*e.g.*, Belmiro, 2017). As seen in Figure \@ref(fig:spatialdistributionVB), the distribution of artifacts (excluding chips), clearly shows a concentration of materials in the top of the sequence, corresponding to the totality of layer 4E and the first c. 10 cm of Layer 5. The discard rates of artifacts then gradually diminish in the middle and bottom sections of layer 5.
 
+A preliminary visual analysis to the artifact distribution presented in Figure \@ref(fig:spatialdistributionVB) does not seem to show concentrations of specific raw materials along the stratigraphy. 
 
-```{r spatialdistributionVB, fig.cap="Spatial distribution of lithic artefacts (without chips) by raw material, on unit H.", echo=FALSE}
+However, when calculating the percentages of the three most important raw materials by cubic meter of excavated sediment (Figure \@ref(fig:rmdispersion)) and plotting them by depth, there are significant differences in raw material distribution over time. From around 24.1 m of depth upwards, there is an important shift in quartz and chert frequencies, the latter increasing more than 10%, and quartz dropping from c. 50% to nearly 30%. Greywacke frequencies follow those of quartz.
+
+```{r spatialdistributionVB, fig.cap="Vale Boi. Spatial distribution of lithic artefacts (without chips) by raw material, on unit H.", echo=FALSE, out.width = '80%', fig.align='center'}
 
 # Setup filters for graph
 spatial <- dataset %>% 
@@ -154,12 +154,13 @@ mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", # order y axis
 
 ```
 
-However, when calculating the percentages of the three most important raw materials by cubic meter of excavated sediment (Figure \@ref(fig:rmdispersion)) and plotting them by depth, there are significant differences in raw material distribution over time. From around 24.1 m of depth upwards, there is an important shift in quartz and chert frequencies, the latter increasing more than 10%, and quartz dropping from c. 50% to nearly 30%. Greywacke frequencies follow those of quartz.
+\  
 
-This shift seems to be associated with other significant changes in the Terrace sequence, such as the abovementioned increase in the amount of lithic materials in top Layer 5 and Layer 4E, but also the appearance of Vale Comprido technology (fig. \@ref(fig:spatialvbfig)). Additionally, these two moments are stratigraphically correlated with two different chronological horizons, the first, dated to c. 26 kcal BP, at c. 23.9 m depth, and associated with higher frequencies of quartz, and the second, dated to c. 24.7 kcal BP, at around 24.1 m depth, associated with higher frequencies of chert and a reduction in quartz presence.
+This shift seems to be associated with other significant changes in the Terrace sequence, such as the aforementioned increase in the amount of lithic materials in top layer 5 and layer 4E, but also the appearance of Vale Comprido technology (Figure \@ref(fig:spatialvbfig)). Additionally, these two moments are stratigraphically correlated with two different chronological horizons, the first, dated to c. 26 kcal BP, at c. 23.9 m depth, and associated with higher frequencies of quartz, and the second, dated to c. 24.7 kcal BP, at around 24.1 m depth, associated with higher frequencies of chert and a reduction in quartz presence.
 
+As such, and given the chronological data, density of artifacts, and raw material preference patterns, it was decided that for this study the materials would be subdivided in two analytical units, to better understand any possible technological differences: *Lower 5*, including all artifacts with Z values under 24.1; *Upper 5/4E*, including all artifacts with Z values of 24.1 and above. The value 24.1 is arbitrary and was chosen for the reasons aforementioned: it seems to be where the separation between higher and lower densities of lithic materials occurs and, also, where the inversion of quartz and chert frequencies happens.
 
-```{r rmdispersion, fig.cap = "Raw material discard rates over time at Vale Boi. Each point is an excavation unit (spit). The lines are locally weighted regression lines (span ¼ 0.4) to aid in visualising the trend of increased discard in the upper part of the deposit.", echo = FALSE, out.width= '100%'}
+```{r rmdispersion, fig.cap = "Vale Boi. Raw material discard rates over time. Each point is an excavation unit (spit). The lines are locally weighted regression lines (span ¼ 0.4) to aid in visualising the trend of increased discard in the upper part of the deposit.", echo = FALSE, message=FALSE, warning=FALSE, out.width = '80%', fig.align='center', fig.pos="H"}
 
 # Calulate spit volumes
 cols_to_concat <- c("Level", "Spit")
@@ -269,20 +270,15 @@ rm_cubic_meter <- ggplot(rm_by_cubic_meter, (aes(spit_aver_depth, freq, colour =
   scale_color_jco()
 
 rm_cubic_meter
-
-#ggsave(path = "figure", filename = "rm_cubic_meter.png", plot = rm_cubic_meter, width = 7, height = 5, dpi = 300, )
-
 ```
 
+\  
 
-As such, and given the chronological, density of artifacts, and raw material preference patterns, it was decided that for this study the materials would be subdivided in two analytical units, to better understand any possible technological differences: *Lower 5*, including all artifacts with Z values under 24.1; *Upper 5/4E*, including all artifacts with Z values of 24.1 and above. The value 24.1 is arbitrary and was chosen for the reasons aforementioned: it seems to be where the separation between higher and lower densities of lithic materials occurs and, also, where the inversion of quartz and chert frequencies happens.
-
-A total of 26703 pieces were analyzed for both groups, 11094 from Lower 5 group (table \@ref(tab:general1)) and 15609 for the Upper 5/4E (table \@ref(tab:general2)). Most of these are chips (70.62% from Lower 5 and 65.68% from Upper 5/4E), followed by shatters, which make up c. 21% and c. 24% of the groups, respectively. These extremely high numbers for debris are mostly the result of quartz use, which can be explained not only by on-site knapping of this raw material but mostly by its breakage patterns (especially when coarser), which typically produces more waste than in other raw materials.
+A total of 26703 pieces were analysed for both groups, 11094 from Lower 5 group (Table \@ref(tab:general1)) and 15609 for the Upper 5/4E (Table \@ref(tab:general2)). Most of these are chips (70.62% from Lower 5 and 65.68% from Upper 5/4E), followed by shatters, which make up c. 21% and c. 24% of the groups, respectively. These extremely high numbers for debris are mostly the result of quartz use, which can be explained not only by on-site knapping of this raw material but mostly by its breakage patterns (especially when coarser), which typically produces more waste than in other raw materials.
 
 For Lower 5, cores and debitage products represent a cumulative frequency of c. 8%. For Upper 5/4E, debitage products represent nearly 10% of the group's assemblage. Complete blanks are the most represented class for both groups, with 1474 identified pieces, 4.59% for Lower 5 and 6.18% for Upper 5/4E, followed by blank fragments, with an absolute count of 248 for Lower 5 and 336 for Upper 5/4E. Cores are also relatively frequent within these assemblages, with an absolute count of 123 cores, 46 for Lower 5 and 77 for Upper 5/4E, while core fragments appear in much smaller numbers (n=11 and n=14, respectively).
 
-During the analysis, 167 retouched pieces were identified, 55 on Lower 5, representing 0.5% of the group, and 112 on Upper 5/4E, with a frequency of 0.72%. Retouched piece fragments composed a much smaller number (n = 7 for Lower 5 and n = 16 for Upper 5/4E).
-
+During the analysis, 167 retouched pieces were identified, 55 on Lower 5, representing 0.5% of the group, and 112 on Upper 5/4E, with a frequency of 0.72%. Retouched piece fragments composed a much smaller number (n=7 for Lower 5 and n=16 for Upper 5/4E).
 
 ```{r general1, echo=FALSE}
 
@@ -294,7 +290,7 @@ db_phase1 <- dataset %>%
 table1 <- db_phase1 %>% 
   select(RawMaterial, Class) %>% 
   filter(Class != "Chip") %>% 
-  group_by(RawMaterial) 
+  dplyr::group_by(RawMaterial) 
 
 
 chip_table1 <- db_phase1 %>% 
@@ -333,13 +329,17 @@ general_table1 <- general_table1 %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total")
   
-knitr::kable(head(general_table1[1:15], 12), booktabs=TRUE,caption="Technological class by raw material for Lower 5.") %>% 
+knitr::kable(head(general_table1[1:15], 12), booktabs=TRUE,caption="Vale Boi - Lower 5. Technological class by raw material.") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
+  kableExtra::landscape() %>% 
+  column_spec(2:5, width = "1cm") %>% 
+  column_spec(6:7, width = "2cm") %>% 
+  column_spec(8:9, width = "1.5cm") %>% 
+  column_spec(10:11, width = "2cm") %>% 
+  column_spec(12:15, width = "1cm")
 
 ```
-
 
 ```{r general2, fig.cap="General table Upper 5/4E.", echo=FALSE}
 
@@ -351,7 +351,7 @@ db_phase2 <- dataset %>%
 table2 <- db_phase2 %>% 
   select(RawMaterial, Class) %>% 
   filter(Class != "Chip") %>% 
-  group_by(RawMaterial) 
+  dplyr::group_by(RawMaterial) 
 
 
 chip_table2 <- db_phase2 %>% 
@@ -394,23 +394,31 @@ general_table2 <- general_table2 %>%
   adorn_totals(where = "row", name = "Total")
 
 
-knitr::kable(head(general_table2[1:15], 12), booktabs=TRUE,caption="Technological class by raw material for Upper 5/4E.") %>% 
+knitr::kable(head(general_table2[1:15], 12), booktabs=TRUE,caption="Vale Boi - Upper 5/4E. Technological class by raw material.") %>% 
   column_spec(1, bold = T) %>% 
   kable_styling(latex_options = "scale_down") %>% 
-  kableExtra::landscape()
+  kableExtra::landscape() %>% 
+  column_spec(2:5, width = "1cm") %>% 
+  column_spec(6:7, width = "2cm") %>% 
+  column_spec(8:9, width = "1.5cm") %>% 
+  column_spec(10:11, width = "2cm") %>% 
+  column_spec(12:15, width = "1cm")
 
 ```
 
-
 ### Lapa do Picareiro
-The materials from Lapa do Picareiro selected for this study come exclusively from Levels U and T. Based on chronological data and artifact distribution along the sequence, these levels had been previously organized into two distinct cultural horizons [@hawsetal2019], somehow similar to the Terminal Gravettian and Proto-Solutrean phases in the traditional transition model [@zilhao1997; @zilhaoetal1999]. 
 
-Given this geo-archaeological background, for the present analysis the materials were separated into two assemblages: *U/Lower T*, which included all artifacts with depths inferior to 566.9 m or (in case of artifacts lacking 3D coordinates) from all spits from Level U and spits 6 through 8 from Level T [@hawsetal2019]; *Middle T*, including all artifacts with depths equal or superior to 566.9 m, or from the top five spits of Level T. Any other artifact in the assemblage which did not have a depth value or Level/Spit was not considered in these results since it lacked the needed information to contextualize its technological attributes. Also excluded from this study are the materials found on top of Level T, undoubtedly attributeable to the solutrean [@hawsetal2019; @benedettietal2019].
+The materials from Lapa do Picareiro selected for this study come exclusively from levels U and T. Based on chronological data and artifact distribution along the sequence, these levels had been previously organized into two distinct cultural horizons [@hawsetal2019], somehow similar to the terminal gravettian and proto-solutrean phases in the traditional transition model [@zilhao1997; @zilhaoetal1999]. 
+
+Given this geo-archaeological background, for the present analysis the materials were separated into two assemblages: *U/Lower T*, which included all artifacts with depths inferior to 566.9 m or (in case of artifacts lacking 3D coordinates) from all spits from level U and spits 6 through 8 from level T [@hawsetal2019]; *Middle T*, including all artifacts with depths equal or superior to 566.9 m, or from the top five spits of level T. Any other artifact in the assemblage which did not have a depth value or level/spit was not considered in these results since it lacked the needed information to contextualize its technological attributes. Also excluded from this study are the materials found on top of level T, undoubtedly attributeable to the solutrean [@hawsetal2019; @benedettietal2019].
 
 A total of 376 pieces were analyzed, 196 coming from the U/Lower T phase and 180 from the Middle T group. In both groups, debitage waste is mostly composed of chips, which represents 49.5% of the U/Lower T group and 37.2% of the Middle T group. As in Vale Boi, these values for chippage can be mostly explained by quartz breakage patterns.
 
 The second most present class for both assemblages are complete blanks, which represent 13.7% of the U/Lower T group and 37.2% of the Middle T group, followed by blank fragments (13.7% and 15.5%, respectively). Retouched pieces have relatively small frequencies, representing c. 3% in both U/Lower T and Middle T. Cores are very scarce in both groups, 1% in the U/Lower T group (n=2) and c. 3% in the Middle T (n=5).
 
+\  
+
+\  
 
 ```{r general1lp, echo=FALSE}
 
@@ -421,7 +429,7 @@ db_phaseTG <- datasetlp %>%
 table_TG <- db_phaseTG %>% 
   select(RawMaterial, Class) %>% 
   filter(Class != "Chip") %>% 
-  group_by(RawMaterial) 
+  dplyr::group_by(RawMaterial) 
 
 chip_table_TG <- db_phaseTG %>% 
   filter(Class == "Chip") %>%
@@ -451,9 +459,9 @@ general_table_TG <- general_table_TG %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total (RM)")
 
-knitr::kable(head(general_table_TG[1:9], 9), booktabs=TRUE,caption="Technological class by raw material (U/Lower T phase).") %>% 
+knitr::kable(head(general_table_TG[1:9], 9), booktabs=TRUE,caption="Lapa do Picareiro - U/Lower T. Technological class by raw material.") %>% 
   column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
+  kable_styling(latex_options = c("scale_down", "hold_position"))
 
 ```
 
@@ -466,7 +474,7 @@ db_phasePR <- datasetlp %>%
 table_PR <- db_phasePR %>% 
   select(RawMaterial, Class) %>% 
   filter(Class != "Chip") %>% 
-  group_by(RawMaterial) 
+  dplyr::group_by(RawMaterial) 
 
 chip_table_PR <- db_phasePR %>% 
   filter(Class == "Chip") %>%
@@ -496,27 +504,27 @@ general_table_PR <- general_table_PR %>%
   mutate("Total (%)" = paste0(round(100 * Total/sum(Total), 2), "%")) %>% 
   adorn_totals(where = "row", name = "Total (RM)")
 
-knitr::kable(head(general_table_PR[1:9], 7), booktabs=TRUE,caption="Technological class by raw material (Middle T phase).") %>% 
+knitr::kable(head(general_table_PR[1:9], 7), booktabs=TRUE,caption="Lapa do Picareiro - Middle T. Technological class by raw material.") %>% 
   column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
+  kable_styling(latex_options = c("scale_down", "hold_position"))
 
 ```
 
 ## Raw materials
+
 Raw material use and availability, specifically abundance and quality, stand as important factors for understanding the organization of technology, as it may affect decisions regarding tool design and conservation of such tools [@andrefsky1994], as well as mobility and niche expansion [@cascalheira2013]. This quality is connected to both the raw material’s fracture mechanics and their intrinsic mineral characteristics, such as the size of their grain, homogeneity [@andrefsky1994], or even hardness [@kempson2011], which allow the knapper predictability over the outcome [@andrefsky2005].
 
 There are a number of stones that are constant throughout the stone age archaeological record for having the necessary properties described above. Stones or minerals characterized by high frequencies of silica, such as chert or quartz, allow for good fracture predictability, while other materials with less homogeneity may progressively result in less predictable characteristics [@andrefsky2005]. Thus, despite the raw material variability within the pre-historic archaeological record, linked to its availability and geomorphological contexts of the sites, the selection is often coherent regarding fracture mechanics, where predictable conchoidal fractures are preferred [@inizan1999; @tixier1980; @andrefsky2005].
 
-This pattern is also observable at Vale Boi and Lapa do Picareiro as shown below. Previous studies have shown that throughout most levels of human occupation at both sites, chert, fine quartz and greywacke (the latter in the case of Vale Boi only) or quartzite (in the case of Lapa do Picareiro) (all three characterized by conchoidal fracture, although greywacke and quartzite are often coarse and more unpredictable) were the most frequently used [@bichoetal2012; @cascalheira2010; @marreiros2009; @hawsetal2019; @benedettietal2019; @pereira2016]. While at Vale Boi all the materials are available at a regional and local scale, at Lapa do Picareiro a more detailed analysis is needed to assess raw material provenance. Also, although the presence of the main raw materials is documented across all archaeological levels in Vale Boi, with each occupation differing in the frequency of their use,   chert is always the primary material used for knapping [@cascalheira2010]. At Lapa do Picareiro, the use of chert is not always a preference, such as in the case of Level FF, where quartzite is clearly dominant. The characteristics of Lapa do Picareiro and the potential functional specificities of each occupation must have had a significant impact on the type and quality of the discard materials.
+This pattern is also observable at Vale Boi and Lapa do Picareiro as shown below. Previous studies have shown that throughout most levels of human occupation at both sites, chert, fine quartz and greywacke (the latter in the case of Vale Boi only) or quartzite (in the case of Lapa do Picareiro) (all characterized by conchoidal fracture, although greywacke and quartzite are often coarse and more unpredictable) were the most frequently used [@bichoetal2012; @cascalheira2010; @marreiros2009; @hawsetal2019; @benedettietal2019; @pereira2016]. While at Vale Boi all the materials are available at a regional and local scale, at Lapa do Picareiro a more detailed analysis is needed to assess raw material provenance. Also, although the presence of the main raw materials is documented across all archaeological levels in Vale Boi, with each occupation differing in the frequency of their use,   chert is always the primary material used for knapping [@cascalheira2010]. At Lapa do Picareiro, the use of chert is not always a preference, such as in the case of Level FF, where quartzite is clearly dominant. The characteristics of Lapa do Picareiro and the potential functional specificities of each occupation must have had a significant impact on the type and quality of the discard materials.
 
 For the present study, criteria used for raw material analysis focused on the identification of broader groups of stones and minerals, based on their general observable characteristics, without focusing on particular features within each raw material. Two exceptions were made, however. At both sites, quartz was subdivided into different categories regarding the size of the grain, to isolate and better understand the different uses of quartz over time. At Lapa do Picareiro, chert was organized based on color to evaluate the integrity of the deposits and, preliminarly, explore the spatial organization of levels U and T. Both of these exceptions are presented in the following sections where the patterns of exploitation of the more relevant raw materials are discussed for each site.
 
-
 ### Vale Boi
-One of the most relevant raw materials in both of Vale Boi analytical units used for this study is quartz (encompassing rock crystal, fine, medium and coarse qualities), which represents c. 43% of the total assemblage for the Upper 5/4E group, and c. 51% for Lower 5. Chert, on the other hand, represents c. 46% of the Upper 5/4E phase and 38% of the Lower 5. Finally,  greywacke, dolerite, chalcedony, and other raw materials that due to their low frequencies were collapsed in the category “Other”, together represent c. 11% of both assemblages (Figure \@ref(fig:rmvb)).
 
+One of the most relevant raw materials in both of Vale Boi's analytical units used for this study is quartz (encompassing rock crystal, fine, medium and coarse qualities), which represents c. 43% of the total assemblage for the Upper 5/4E group, and c. 51% for Lower 5. Chert, on the other hand, represents c. 46% of the Upper 5/4E phase and 38% of the Lower 5. Finally,  greywacke, dolerite, chalcedony, and other raw materials that due to their low frequencies were collapsed in the category “Other”, together represent c. 11% of both assemblages (Figure \@ref(fig:rmvb)).
 
-```{r rmvb, fig.cap="Vale Boi. Frequencies of raw materials by phase. Chips and shatters not included.", echo=FALSE}
+```{r rmvb, fig.cap="Vale Boi. Frequencies of raw materials by phase. Chips and shatters not included.", echo=FALSE, out.width = '80%', fig.align='center'}
 
 dfRM_vb <- dataset %>% 
   filter(Class!="Chip") %>% 
@@ -525,7 +533,7 @@ dfRM_vb <- dataset %>%
 
 dfRM_vb %>%
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz","Chert","Greywacke","Dolerite","Chalcedony","Other"))) %>%
-  group_by(Phase, RawMaterial) %>% 
+  dplyr::group_by(Phase, RawMaterial) %>% 
   dplyr::summarise(n = n()) %>%
   mutate(percent = n/sum(n)) %>% 
   ggplot(aes(x=Phase, y = percent, fill = RawMaterial)) +
@@ -541,15 +549,16 @@ dfRM_vb %>%
 
 ```
 
-
 #### Quartz
-The number of chips and shatter in quartz are, as seen in tables \@ref(tab:general1) and \@ref(tab:general2), extremely high, both in its representativity within the raw material, with c. 94% for both Lower 5 and Upper 5/4E, and when compared to the relative frequencies of other raw materials.
+
+The number of chips and shatter in quartz are, as seen in Tables \@ref(tab:general1) and \@ref(tab:general2), extremely high, both in its representativity within the raw material, with c. 94% for both Lower 5 and Upper 5/4E, and when compared to the relative frequencies of other raw materials.
 
 Despite the low frequencies presented on the table, there is a large number of quartz blanks (n=281 for Lower 5 and n=438 for Upper 5/4E) compared to the rest of the classes, as well as cores (n=18 for Lower 5 and n=32 for Upper 5/4E) and retouched pieces (n=15 for Lower 5 and n=34 for Upper 5/4E).
-Most of the quartz artifacts do not show the presence of cortex, with nearly 95% of all artifacts having 0% cortex (Figure \@ref(fig:rmcortex)). When cortex is present, around 72% of the artifacts indicate the exploitation of cobbles or pebbles. These patterns are similar for both Lower 5 and Upper 5/4E (table \@ref(tab:cortextab1)).
+Most of the quartz artifacts do not show the presence of cortex, with nearly 95% of all artifacts having 0% cortex (Figure \@ref(fig:rmcortex)). When cortex is present, around 72% of the artifacts indicate the exploitation of cobbles or pebbles. These patterns are similar for both Lower 5 and Upper 5/4E (Table \@ref(tab:cortextab1)).
 
-As mentioned before, quartz was organized into groups regarding grain size. Analyzing the artifact class frequency through the different identified types of quartz confirmed an already expected pattern: the production of blanks was largely accomplished using fine and medium quality quartz (52.1% and 32.7% for Lower 5, table \@ref(tab:quartzquality1) and 49.3% and 32.1% for Upper 5/4E, table \@ref(tab:quartzquality2), respectively). Most of the retouched tools were also recorded for these two types of quartz quality (66.7% and 26.7% for Lower 5, and 55.9% and 44.1% for Upper 5/4E). No retouched pieces were identified in coarse quartz and rock crystal. The latter type represents, also, a rather small fraction of the assemblage. In accordance with previous studies on Vale Boi lithic industries (e.g. Cascalheira 2009, Marreiros 2009) coarse quartz appears mostly as knapping shatters, or as other type of fragments not related to human knapping (see Manne et al. 2012 for more information).
+As mentioned before, quartz was organized into groups regarding grain size. Analyzing the artifact class frequency through the different identified types of quartz confirmed an already expected pattern: the production of blanks was largely accomplished using fine and medium quality quartz (52.1% and 32.7% for Lower 5, Table \@ref(tab:quartzquality1) and 49.3% and 32.1% for Upper 5/4E, Table \@ref(tab:quartzquality2), respectively). 
 
+\  
 
 ```{r quartzquality1, echo=FALSE}
 
@@ -578,7 +587,7 @@ quartztab1 <- quartztab1 %>%
 
 knitr::kable(quartztab1, booktabs=TRUE, caption = "Vale Boi - Lower 5. Frequencies of technological classes by quartz quality.") %>% 
   column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
+  kable_styling(latex_options = "hold_position", font_size = 9) 
 
 ```
 
@@ -611,42 +620,47 @@ quartztab2 <- quartztab2 %>%
 
 knitr::kable(quartztab2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E. Frequencies of technological classes by quartz quality.") %>% 
   column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = c("scale_down"))
+  kable_styling(latex_options = c("hold_position"), font_size = 9)
 
 ```
 
+\  
+
+Most of the retouched tools were also recorded for these two types of quartz quality (66.7% and 26.7% for Lower 5, and 55.9% and 44.1% for Upper 5/4E). No retouched pieces were identified in coarse quartz and rock crystal. The latter type represents, also, a rather small fraction of the assemblage. In accordance with previous studies on Vale Boi lithic industries (e.g. Cascalheira 2009, Marreiros 2009) coarse quartz appears mostly as knapping shatters, or as other type of fragments not related to human knapping (see Manne et al. 2012 for more information).
+
 #### Chert
-Chert shows high frequencies of blanks (15.8% for Lower 5 and 19.6% for Upper 5/4E) when compared to every other class, excluding chips (tables \@ref(tab:general1) and \@ref(tab:general2)). The latter represents more than 50% of the chert assemblages, with an absolute frequency of 649 chips for Lower 5 and 1158 for Upper 5/4E.
+
+Chert shows high frequencies of blanks (15.8% for Lower 5 and 19.6% for Upper 5/4E) when compared to every other class, excluding chips (Tables \@ref(tab:general1) and \@ref(tab:general2)). The latter represents more than 50% of the chert assemblages, with an absolute frequency of 649 chips for Lower 5 and 1158 for Upper 5/4E.
 
 Although chert shows smaller absolute numbers for blanks (n=171 for Lower 5 and n=407 for Upper 5/4E) and blank fragments (n=90 for Lower 5 and n=155 for Upper 5/4E) compared to quartz, there is a large quantity of cores representing 2.1% of total chert in Lower 5 and 2% in Upper 5/4E. However, tables  \@ref(tab:general1) and \@ref(tab:general2) show a noticeable difference in the ratio between chert blanks and quartz blanks in Lower 5 and Upper 5/4E, with the latter showing a higher frequency of chert blanks compared to Upper 5/4E.
 
 Regarding retouched pieces, these represent more than 3% of chert for both phases, a number far higher than those in other raw materials. This shows that chert, although less present than quartz in blank absolute count (although barely in Upper 5/4E), might have been preferentially used for formal tool production.
 
-Chert also shows the most prominent variability of cortex frequencies in both phases (Figure \@(fig:rmcortex)), although there is a clear dominance of artifacts with 0% cortex, a pattern that was already expected, following the process of the knapping sequence, where only the first blanks removed from an unmodified block will be entirely cortical, showing increasingly less cortex for posterior removals  [@andrefsky2005]. It is noteworthy, however, that for both phases, a significant number of chert artifacts (c. 25%) presented cortical surfaces, confirming that chert nodules were imported to the site and thus all phases of the reduction sequences are likely represented.
+Chert also shows the most prominent variability of cortex frequencies in both phases (Figure \@ref(fig:rmcortex)), although there is a clear dominance of artifacts with 0% cortex, a pattern that was already expected, following the process of the knapping sequence, where only the first blanks removed from an unmodified block will be entirely cortical, showing increasingly less cortex for posterior removals  [@andrefsky2005]. It is noteworthy, however, that for both phases, a significant number of chert artifacts (c. 25%) presented cortical surfaces, confirming that chert nodules were imported to the site and thus all phases of the reduction sequences are likely represented.
 
 This variability in cortex presence is accompanied by some diversity of cortex types, with the presence of both cobble and outcrop sources, even though for almost 85% of the artifacts it was not possible to identify a specific type of cortex (Table \@ref(tab:cortextab1)).
 
-
 #### Greywacke
+
 Greywacke is a variety of sandstone, often characterized by its hardness, dark color and poorly sorted grains of quartz and feldspar [@haldar2013]. At Vale Boi, this raw material is highly heterogeneous, showing a wide variety of grain sizes and colors.
 
 Within the studied assemblage, greywacke is best represented by debitage waste, with around 25% of shatter and 70% of chips, for both Lower 5 and Upper 5/4E. In contrast, relatively low numbers for blanks (n=44 for Lower 5 and n=80 for Upper 5/4E) and cores (n=3 for Lower 5 and 1 for Upper 5/4E) were recorded. The same applies to the retouched tools category, with three artifacts recorded, one of which is a Vale Comprido piece, in the Upper 5/4E phase.
 
-When chips and shatters are removed, greywacke has a representation of less than 10% in both assemblages making it the third most used raw material (figure \@ref(fig:rmvb)).
+When chips and shatters are removed, greywacke has a representation of less than 10% in both assemblages making it the third most used raw material (Figure \@ref(fig:rmvb)).
 
 Similarly to the other raw materials, there is, for both phases, the predominance of debitage without cortex (Figure \@ref(fig:rmcortex)). There is, however, some variability in cortex presence, even if in smaller frequencies than the patterns observed for chert. As in the case of quartz, most of the identified cortex presented water-worned surfaces, indicating the exploitation of cobbles or, most likely, slabs.
 
-
 #### Dolerite
-Dolerite is a volcanic igneous rock, occurring mostly in dikes, varying between coarse and fine textures, and often having a dark, grey or greyish-green coloration [@haldar2013; @kempson2011]. Its presence is registered in the Algarve, through occasional outcrops and infiltrations in the southwest regions of the Algarve [@oliveira1984], also appearing as outcrops within the Messejana fault [@belmiro2018].
+
+Dolerite is a volcanic igneous rock, occurring mostly in dikes, varying between coarse and fine textures, and often having a dark, grey or greyish-green coloration [@haldar2013; @kempson2011]. Its presence is registered in the Algarve, through occasional outcrops in the southwest [@oliveira1984], also appearing as outcrops within the Messejana fault [@belmiro2018].
 
 At Vale Boi, this raw material was first identified as jasper when excavating the levels referring to the proto-solutrean occupation in the Terrace area (units J-L), before 2012 [@marreiros2009]. The material has a very characteristic reddish-brown color and fine texture, with a conchoidal fracture. Despite this coloration, which is also present in jasper (a red-colored variety of chalcedony), the raw material was later identified as dolerite, and its coloration explained by the presence of a reddish patina which would have altered the original rock by processes of iron mineral oxidation through contact with the terra rossa [@belmiro2018].
 
 The analysis of a thin section obtained from a dolerite fragment from the present assemblage allowed the characterization of this raw material, through its visible features and petrography.
 
-The reddish coloration was confirmed to be an exterior patina, no more than 1 mm thick, completely covering the artifacts. The actual rock still displays a fine texture but with an opaque black color.
+The reddish coloration was confirmed to be an exterior patina, no more than 1 mm thick, completely covering the artifacts. The actual rock still displays a fine texture but with an opaque black color (Figure \@ref(fig:doleritephoto)).
 
-Results from the petrographic analysis done through the observation of the thin section using a polarizing microscope revealed the presence of several minerals, such as feldspar, plagioclase, quartz, small quantities of silica, little presence of mica and iron oxide, which are in concordance with the mineral composition of dolerite or possibly hornfels [@kempson2011]. The feldspar minerals showed the presence of undulatory extinction, a deformation that takes place whenever certain minerals are exposed to high temperatures [@frost2019], thus indicating that the raw material is highly metamorphized.
+Results from the petrographic analysis done through the observation of the thin section using a polarizing microscope revealed the presence of several minerals (Figure \@ref(fig:doleritemicro), Appendix A), such as feldspar, plagioclase, quartz, small quantities of silica, little presence of mica and iron oxide, which are in concordance with the mineral composition of dolerite or possibly hornfels [@kempson2011]. The feldspar minerals showed the presence of undulatory extinction, a deformation that takes place whenever certain minerals are exposed to high temperatures [@frost2019], thus indicating that the raw material is highly metamorphized.
 
 Regarding the differentiation between dolerite and hornfels, although these two rocks have different origins, the latter being of volcanic igneous origin, considered a contact metamorphic rock [@haldar2013], they share enough visual and mineral characteristics (whenever the dolerite has a fine texture) to hinder their precise identification. Literature most often uses other methods to differentiate them, such as FTIR or XRF, by understanding not the mineral composition (which is essentially the same) but the ratio of components presence. This matter is further complexified by understanding that hornfels might originate from metamorphized igneous rocks, several sources of hornfels attributed to dolerite dikes [@hallinan2015; @kempson2011].
 
@@ -654,22 +668,31 @@ Given this difficulty, although the present analysis will use the term dolerite,
 
 Looking at the interior of dolerite allowed, during the second moment of analysis, to identify other products in the same raw material, which were not previously identified due to the lack of the same reddish patina. This patina also appears throughout the assemblage, mostly on greywacke, although without forming the same 1 mm thick layer visible on the dolerite pieces. This may be explained by the inherent mineral characteristics of this type of raw material and their reaction with the surrounding sediment.
 
-The presence of this patina in several degrees of intensity, preferentially in dolerite and greywacke, its presence in both finished complete artifacts and flake fragments or shatters, and its occurrence also reported in the literature as a process frequently affecting raw materials like hornfels (e.g., Hallinan and Shaw 2015), suggests that it is, in fact, the result of geological and chemical processes affecting these raw materials. Its absence from other raw materials, like chert or quartz, may reflect the inherent mineral properties of these rocks.
+The presence of this patina in several degrees of intensity, preferentially in dolerite and greywacke, its presence in both finished complete artifacts and flake fragments or shatters, and its occurrence also reported in the literature as a process frequently affecting raw materials like hornfels (*e.g.*, Hallinan and Shaw 2015), suggests that it is, in fact, the result of geological and chemical processes affecting these raw materials. Its absence from other raw materials, like chert or quartz, may reflect the inherent mineral properties of these rocks.
 
-Dolerite is a rather unusual raw material in the site of Vale Boi, appearing only in layers 4E and 5 of the Terrace and proto-solutrean levels of the Slope area. The most striking characteristic of this raw material in the assemblages under study is the low presence of chips or shatter (n=1 each), but high frequencies of blanks (50% in Lower 5 and 60.8% in Upper 5/4E) and blank fragments (16.6% in Lower 5 and 13% in Upper 5/4E) (tables \@ref(tab:general1) and \@ref(tab:general2)). Unlike Lower 5, in Upper 5/4E dolerite is represented by five retouched tools, some of which are Vale Comprido points. This raw material seems to have been used preferentially at Vale Boi for the production of these types of points, a pattern already observed in previous works [@marreiros2009], where three out of five Vale Comprido points were identified as dolerite (originally jasper).
+Dolerite is a rather unusual raw material in the site of Vale Boi, appearing only in layers 4E and 5 of the Terrace and proto-solutrean levels of the Slope area. The most striking characteristic of this raw material in the assemblages under study is the low presence of chips or shatter (n=1 each), but high frequencies of blanks (50% in Lower 5 and 60.8% in Upper 5/4E) and blank fragments (16.6% in Lower 5 and 13% in Upper 5/4E) (Tables \@ref(tab:general1) and \@ref(tab:general2)). Unlike Lower 5, in Upper 5/4E dolerite is represented by five retouched tools, some of which are Vale Comprido points. This raw material seems to have been used preferentially at Vale Boi for the production of these types of points, a pattern already observed in previous works [@marreiros2009], where 3 out of 5 Vale Comprido points were identified as dolerite (originally jasper).
 
 The absence of cores, with only one core fragment identified in the Lower 5 group, and low quantity of debitage waste may be explained by the importation of finished pieces or blanks to the site, suggesting that, most likely, no knapping activities occurred with this raw material at the site. This interpretation is, however, truncated by this study’s phase analysis. As the identification of the inner aspect of dolerite was only achieved at the start of the second phase, which as referred before, consisted of the analysis of all cores and debitage products with a more complete database, shatter, chips and fragments were not revisited, thus not allowing for the possible identification of unpatinated dolerite within those classes, which might have been mistaken for fine-grained greywacke. This caveat does not, however, seem to influence the patterns regarding complete blank and retouched tools frequency. 
 
+\  
+
+```{r doleritephoto, fig.cap="Dolerite flake removed from a debitage waste piece. Left: ventral side with interior colour and texture of the raw material; Right: dorsal side with patina.", fig.scap="Dolerite flake removed from a debitage waste piece.", out.width = '70%', fig.align='center', echo=FALSE}
+
+knitr::include_graphics("figure/doleritephoto.jpg")
+
+```
+
+\newpage
 
 #### Chalcedony
+
 Chalcedony is a type of cryptocrystalline quartz, characterized by a waxy and glossy appearance, ranging from a variety of possible colors [@haldar2013], although white is the only present variety in the studied assemblages. The chalcedony in levels 5 and 4E is also characterized by the frequent presence of inclusions, making this raw material poorly homogeneous.
 
-Results indicate it may have been mainly used for the production of blanks, which represent 37.5% of chalcedony in Lower 5 (table \@ref(tab:general1)) and 32.1% in Upper 5/4E (table \@ref(tab:general2)), with a rather small representation of retouched pieces (n=2), which include a Vale Comprido point in the Upper 5/4E group. The presence of a core in Lower 5, as well as the presence of shatter and chips (in small numbers, n<5 each for Lower 5 and n=15 each for Upper 5/4E, respectively) may indicate, contrary to the dolerite, onsite knapping of this raw material.
+Results indicate it may have been mainly used for the production of blanks, which represent 37.5% of chalcedony in Lower 5 (Table \@ref(tab:general1)) and 32.1% in Upper 5/4E (Table \@ref(tab:general2)), with a rather small representation of retouched pieces (n=2), which include a Vale Comprido point in the Upper 5/4E group. The presence of a core in Lower 5, as well as the presence of shatter and chips (in small numbers, n<5 each for Lower 5 and n=15 each for Upper 5/4E, respectively) may indicate, contrary to the dolerite, onsite knapping of this raw material.
 
 Compared to other raw materials, chalcedony has the lowest frequencies of cortex, in both phases, with almost 100% of all artifacts (except shatter and chips) having 0% cortex (Figure \@ref(fig:rmcortex)).
 
-
-```{r rmcortex, fig.cap="Vale Boi. Frequencies of cortex by raw material and phase. Chips and shatters not included.", echo=FALSE}
+```{r rmcortex, fig.cap="Vale Boi. Frequencies of cortex by raw material and phase. Chips and shatters not included.", echo=FALSE, out.width = '70%', fig.align='center', fig.pos="H"}
 
 dfRM_vb1 <- dfRM_vb %>% 
   filter(Phase=="Lower 5")
@@ -691,7 +714,7 @@ dfRM_vb %>%
   theme_minimal() + #type of theme
   labs(x = NULL, y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
-  theme(axis.title.x = element_text(size = 10, vjust = -1)) + # x axis size
+  theme(axis.text.x = element_text(angle = 50, hjust = 1)) +
   scale_fill_jco() +
   facet_wrap( ~ Phase, ncol = 2)# set colours
 
@@ -721,10 +744,16 @@ dfRM3p2 <- dfRM_vb2 %>%
   select(RawMaterial, Cortex, CortexType, CortexLocation)
 
 knitr::kable(cortextabp1, booktabs=TRUE, caption = "Vale Boi - Lower 5. Frequencies of cortex type by raw material.") %>% 
-  column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
+  column_spec(1, bold = T, width = "5cm") %>% 
+  column_spec(2, width = "2cm") %>%
+  column_spec(3, width = "2cm") %>%
+  column_spec(4, width = "2cm") %>% 
+  column_spec(5, width = "2cm") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
+
+\  
 
 ```{r cortextab2, echo=FALSE}
 
@@ -743,25 +772,25 @@ cortextabp2 <- cortextabp2 %>%
          "Other", "Overall") %>% 
   dplyr::rename("Total" = "Overall")
 
-knitr::kable(cortextabp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E. Frequencies of cortex typeby raw material.") %>% 
-  column_spec(1, bold = T) 
+knitr::kable(cortextabp2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E. Frequencies of cortex type by raw material.") %>% 
+  column_spec(1, bold = T) %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
+\  
 
 ### Lapa do Picareiro
-Comparatively to Vale Boi, Lapa do Picareiro shows less raw material variability, which might be explained by the lithological characteristics of the area, already explored in other studies that showed similar raw material presence patterns [@almeida2000; @zilhao1997], but can also be related to the location of the site in a high altitude environment with significant implications to the functional nature of the occupations (see Cascalheira and Bicho 2017). The main raw materials identified were quartz and chert (Figure \@ref(fig:rmlp)). Quartz is dominant in the U/Lower T phase, representing c. 60% of the assemblage, while chert is dominant in the Middle T phase, representing c. 59%. The sporadic occurrence of other raw materials is the result of the identification of some quartzite artifacts on both phases. 
 
+Comparatively to Vale Boi, Lapa do Picareiro shows less raw material variability, which might be explained by the lithological characteristics of the area, already explored in other studies that showed similar raw material presence patterns [@almeida2000; @zilhao1997], but can also be related to the location of the site in a high altitude environment with significant implications to the functional nature of the occupations (see Cascalheira and Bicho 2017). 
 
-```{r rmlp, fig.cap = "Lapa do Picareiro. Frequencies of raw material by phase. Chips and shatters not included.", echo=FALSE}
-
+```{r rmlp, fig.cap = "Lapa do Picareiro. Frequencies of raw material by phase. Chips and shatters not included.", echo=FALSE, out.width = '70%', fig.align='center', fig.pos="H"}
 dfRM_lp <- datasetlp %>% 
   filter(Class!="Chip") %>% 
   filter(Class!="Shatter") %>% 
   drop_na(Phase)
-
 dfRM_lp %>%
-  group_by(Phase, RawMaterial) %>% 
+  dplyr::group_by(Phase, RawMaterial) %>% 
   dplyr::summarise(n = n()) %>%
   mutate(percent = n/sum(n)) %>% 
   ggplot(aes(x=Phase, y = percent, fill = RawMaterial)) +
@@ -770,22 +799,31 @@ dfRM_lp %>%
   theme_minimal() + #type of theme
   labs(x = "", y = NULL) +# change labels
   guides(fill=guide_legend(title=NULL)) + # remove legend title
-  theme(axis.title.x = element_text(size = 10, vjust = -1)) + 
+  theme(axis.text.x = element_text(hjust = 1)) + 
   geom_text(aes(label=ifelse(percent >= 0.07, paste0(sprintf("%.0f", percent*100),"%"),"")),
                 position=position_stack(vjust=0.5), colour="white") +
   scale_fill_jco()
-
 ```
 
+The main raw materials identified were quartz and chert (Figure \@ref(fig:rmlp)). Quartz is dominant in the U/Lower T phase, representing c. 60% of the assemblage, while chert is dominant in the Middle T phase, representing c. 59%. The sporadic occurrence of other raw materials is the result of the identification of some quartzite artifacts on both phases.
 
 #### Quartz
-The number of chips in quartz, as seen on tables \@ref(tab:general1LP) and \@ref(tab:general2LP), is extremely high, representing nearly 60% of this raw material in both phases. Other waste products, i.e. shatters, show much smaller numbers (n=4 for U/Lower T and n=3 for Middle T). Comparatively, complete blanks are the second most present class in quartz, with a frequency of 20% (n=30) for the U/Lower T group, followed by blank fragments which represent 15.2% of that assemblage. For the Middle T group, complete blanks and blank fragments show similar frequencies, representing c. 19% each. Although in small numbers, quartz shows the highest number of cores (n=4, 2 in each group) from all raw materials, but a small number of retouched tools (n=1).
+
+The number of chips in quartz, as seen on Tables \@ref(tab:general1lp) and \@ref(tab:general2lp), is extremely high, representing nearly 60% of this raw material in both phases. Other waste products, i.e. shatters, show much smaller numbers (n=4 for U/Lower T and n=3 for Middle T). Comparatively, complete blanks are the second most present class in quartz, with a frequency of 20% (n=30) for the U/Lower T group, followed by blank fragments which represent 15.2% of that assemblage (Figure \@ref(fig:quartzbladelet). For the Middle T group, complete blanks and blank fragments show similar frequencies, representing c. 19% each. Although in small numbers, quartz shows the highest number of cores (n=4, 2 in each group) from all raw materials, but a small number of retouched tools (n=1).
+
+\  
+
+```{r quartzbladelet, fig.cap="Lapa do Picareiro - U/Lower T - Fine quartz and rock crystal blanks and blank fragments.", out.width = '60%', fig.align='center', echo=FALSE, fig.pos="H"}
+knitr::include_graphics("figure/prancha_bladelets.jpg")
+```
 
 Regarding cortex, quartz shows frequencies as low as 6% for cortex presence on the U/Lower T group, 12.5% on the Middle T, being mostly composed of pieces with no cortex on their dorsal surfaces. When present, cortical surfaces are all water-worned, indicating the exploitation of cobbles/pebbles (Tables \@ref(Tab:cortextabtg) and \@ref(tab:cortextabpr)).
 
-As in Vale Boi, quartz was categorized regarding grain quality and color (Tables \@ref(tab:quartzqualityTG and \@ref(tab:quartzqualityPR). For both the U/Lower T group and Middle T, it is possible to observe a majority of fine quality quartz and rock crystal for both cores and blanks, with barely any presence of medium and coarse quality quartz. The latter category is completely absent in the Middle T group. 
+As in Vale Boi, quartz was categorized regarding grain quality and color (Tables \@ref(tab:quartzqualityTG) and \@ref(tab:quartzqualityPR)). For both the U/Lower T group and Middle T, it is possible to observe a majority of fine quality quartz and rock crystal for both cores and blanks, with barely any presence of medium and coarse quality quartz. The latter category is completely absent in the Middle T group. 
 
 One observable difference between the two groups is in the percentages of rock crystal and fine quality: in the U/Lower T, fine quality quartz represents c. 56% of quartz, while rock crystal has a frequency of nearly 41%; for Middle T, these percentages change, as fine quality quartz represents c. 38%, against c. 57% of rock crystal. Finally, the single identified retouched tool in U/Lower T was made in fine quality quartz.
+
+\  
 
 ```{r quartzqualityTG, echo=FALSE}
 
@@ -810,9 +848,13 @@ quartztab1lp <- quartztab1lp %>%
   dplyr::rename("Total" = "Overall")
 
 knitr::kable(quartztab1lp, booktabs=TRUE, caption = "Lapa do Picareiro - U/Lower T. Frequencies of technological classes by quartz quality.") %>% 
-  column_spec(1, bold = T)
+  column_spec(1, bold = T) %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
+
 
 ```
+
+\  
 
 ```{r quartzqualityPR, echo=FALSE}
 
@@ -839,31 +881,26 @@ quartztab2lp <- quartztab2lp %>%
   dplyr::rename("Total" = "Overall")
 
 knitr::kable(quartztab2lp, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T. Frequencies of technological classes by quartz quality.") %>% 
-  column_spec(1, bold = T)
+  column_spec(1, bold = T) %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
+\newpage
 
 #### Chert
-Chert is characterized by a high frequency of complete blanks (c. 53% for U/Lower T and c. 63% for Middle T), with frequencies of cumulative c. 22% and c. 15% for chips and shatters in the U/Lower T (table \@ref(tab:general1LP)) and Middle T (table \@ref(tab:general2LP)) phases, respectively. Blank fragments are poorly represented comparatively to quartz, with an absolute count of 4 elements for U/Lower T and 9 for the Middle T phase, representing c. 9% and c. 12% of the whole chert assemblage. Although there are few cores (n=2), retouched pieces have a relatively high frequency within chert (c. 11% on U/Lower T and c. 7% on Middle T) but also across all materials, suggesting that chert was preferentially used for the manufacture of formal tools.
 
-Regarding cortex, chert shows mostly non-cortical pieces, particularly in the Middle T group where only 0% or 1-30% cortex frequencies were detected (Figure \@ref(fig:cortexlp)). The low frequencies of cortex resulted in a low rate of identification of cortex types across the assemblage. In fact, only two pieces for U/Lower T phase allowed to track its provenience to an outcrop source (tables \@ref(tab:cortextabtg) and \@ref(tab:cortextabpr)).
+Chert is characterized by a high frequency of complete blanks (c. 53% for U/Lower T and c. 63% for Middle T), with frequencies of cumulative c. 22% and c. 15% for chips and shatters in the U/Lower T (Table \@ref(tab:general1lp)) and Middle T (Table \@ref(tab:general2lp)) phases, respectively. Blank fragments are poorly represented comparatively to quartz, with an absolute count of 4 elements for U/Lower T and 9 for the Middle T phase, representing c. 9% and c. 12% of the whole chert assemblage. Although there are few cores (n=2), retouched pieces have a relatively high frequency within chert (c. 11% on U/Lower T and c. 7% on Middle T) but also across all materials, suggesting that chert was preferentially used for the manufacture of formal tools.
 
-Although chert was not initially subdivided regarding its visible characteristics, throughout the analysis, it became apparent that there were several groups with identical colors and grains, which might have belonged to the same nodule. As such, these groups were posteriorly individualized, adding a variable to the database called “ChertType” which included codes for each identified type of chert, whose description is presented in Table \@ref(tab:cherttable).
+Regarding cortex, chert shows mostly non-cortical pieces, particularly in the Middle T group where only 0% or 1-30% cortex frequencies were detected (Figure \@ref(fig:cortexlp)). The low frequencies of cortex resulted in a low rate of identification of cortex types across the assemblage. In fact, only two pieces for U/Lower T phase allowed to track its provenience to an outcrop source (Tables \@ref(tab:cortextabtg) and \@ref(tab:cortextabpr)).
 
+Although chert was not initially subdivided regarding its visible characteristics, throughout the analysis, it became apparent that there were several groups with identical colors and grains, which might have belonged to the same nodule. As such, these groups were posteriorly individualized, adding a variable to the database called “ChertType” which included codes for each identified type of chert (Table \@ref(tab:cherttable), Appendix A). 
 
-```{r cherttable, echo=FALSE}
+After the classification of the chert types, it was attempted to refit the pieces in each group, but due to the high level of modification/edge damage of each piece and the fragmentation of the reduction sequences, no reffits were possible. Additionally, using the spatial information of artifact distribution, each group was plotted in order to understand any spatial restriction or relationship that could help to identify specific clusters throughout the stratigraphy (Figure \@ref(fig:chertspatial)).
 
-## RM table
-RMtable <- tibble("Chert Type" = c("RM1", "RM2", "RM3", "RM4", "RM5", "RM6", "RM7"),
-                    Description = c("Fine grain, 2.5Y 7/6 and 6/6 (yellow and olive yellow) translucent color with opaque smoke-like patterns.
-","Mostly 5YR 4/2 (dark reddish gray) and 4/3 (reddish brown) colouration, with 1mm 10YR 7/3 (very pale brown) dots and bigger 0.5 to 1 mm circular 10YR 7/2 (light gray) inclusions with coarser texture.
-","Coarser texture, with veins and fog-like patterns with colour mix of 10YR 8/3, 7/3 (very pale brown), 7.5YR 7/3 (pink), 5YR 7/4 (pink) and 10YR 5/3 brown.
-","Mostly 2.5Y 8/1 (white) with interior translucent areas.
-","2.5Y 6/2 (light brownish gray), closer to cortex 10YR 8/2 and 8/3 (very pale yellow) with circular 0.5 mm marks of 10YR 7/2 /(light gray) and 5Y 5/1 (gray) dots.
-","10YR 8/3 (very pale brown) on borders, center fog-like pattern with mix of 10YR 4/2,3/3 (dark brown), 2.5Y 6/3 (light yellowish brown) and 5/1 (gray).
-","Stripped-like ondulating pattern with several tonalities: 5YR 7/3, 8/3 (pink), 6/6 (reddish yellow), 7/1 (light gray), with certain areas with 7.5YR 7/8 (reddish yellow).
-"))
+Most groups seem to show no particular spatial constraint or pattern when plotted. The exception are RM1 and RM6 that seem to have a significant concentration of materials, both around the 567 m of depth, which corresponds to the second spit of what is considered the Middle T phase, matching also with the highest quantity of chert in the whole stratigraphic sequence, and potentially indicating the isolation of that section of the sequence as a particularly undisturbed occupation episode. Further analyses will be, however, needed to better understand the meaning of clusters like these inside the cave.
+
+```{r chertspatial, fig.cap="Lapa do Picareiro. Spatial dispersion (Z vs Y) by chert type using total station data (countors represent a 2D Kernel density estimation).", out.width = '70%', fig.align='center', echo=FALSE, fig.pos="H"}
 
 ## Types of chert spatial analysis
 spatialRM <- datasetlp %>% 
@@ -872,20 +909,6 @@ spatialRM <- datasetlp %>%
   filter(Z > 1) %>% 
   select(ChertType,Z,Y) %>% 
   filter(ChertType %in% c("RM1","RM2","RM3","RM4","RM5","RM6","RM7"))
-
-knitr::kable(RMtable, booktabs=TRUE, caption = "Identified chert types. Description is mostly based on colour patterns, following the Munsel manual of color chart (Munsel Color (Firm) 2010).") %>% 
-  column_spec(1, bold = T) %>% 
-  column_spec(2, width = "10cm")
-
-```
-
-
-After the classification of the chert types, it was attempted to refit the pieces in each group, but due to the high level of modification/edge damage of each piece and the fragmentation of the reduction sequences, no reffits were possible. Additionally, using the spatial information of artifact distribution, each group was plotted in order to understand any spatial restriction or relationship that could help to identify specific clusters throughout the stratigraphy (Figure \@ref(fig:chertspatial)).
-
-Most groups seem to show no particular spatial constraint or pattern when plotted. The exception are RM1 and RM6 that seem to have a significant concentration of materials, both around the 567 m of depth, which corresponds to the second spit of what is considered the Middle T phase, matching also with the highest quantity of chert in the whole stratigraphic sequence, and potentially indicating the isolation of that section of the sequence as a particularly undisturbed occupation episode. Further analyses will be, however, needed to better understand the meaning of clusters like these inside the cave.
-
-
-```{r chertspatial, fig.cap="Spatial dispersion (Z vs Y) by chert type using total station data (countors represent a 2D Kernel density estimation).", echo=FALSE}
 
 spatialRM %>%
   ggplot(aes(Y, Z, colour = ChertType)) +
@@ -899,8 +922,7 @@ spatialRM %>%
 
 ```
 
-
-```{r cortexlp, echo = FALSE, fig.cap = "Lapa do Picareiro. Frequencies of cortex by raw material and by phase. Chips and shatters not included"}
+```{r cortexlp, echo = FALSE, fig.cap = "Lapa do Picareiro. Frequencies of cortex by raw material and by phase. Chips and shatters not included", out.width = '70%', fig.align='center', fig.pos="H"}
 
 # Cortex frequencies
 
@@ -924,7 +946,7 @@ dfRM_lp %>%
 
 ```
 
-```{r cortexabtg, echo=FALSE}
+```{r cortextabtg, echo=FALSE}
 
 cortex_TG <- dfRM_lp %>%
   filter(Phase == "U/Lower T") %>% 
@@ -942,8 +964,8 @@ cortex_tabTG <- cortex_tabTG %>%
   dplyr::rename("Total" = "Overall")
 
 knitr::kable(cortex_tabTG, booktabs=TRUE, caption = "Lapa do Picareiro - U/Lower T. Frequencies of cortex type by raw material.") %>% 
-  column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
+  column_spec(1, bold = T) %>%
+  kable_styling(font_size = 9, latex_options = "hold_position")
 ```
 
 ```{r cortextabpr, echo=FALSE}
@@ -967,7 +989,7 @@ cortex_tabPR <- cortex_tabPR %>%
 
 knitr::kable(cortex_tabPR, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T. Frequencies of cortex type by raw material.") %>% 
   column_spec(1, bold = T) %>% 
-  kable_styling(latex_options = "scale_down")
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
@@ -978,47 +1000,52 @@ knitr::kable(cortex_tabPR, booktabs=TRUE, caption = "Lapa do Picareiro - Middle 
 
 #### Vale Boi
 
-The core assemblage from Vale Boi totals 123 pieces, with 46 total pieces coming from the Lower 5 levels, and 77 from the Upper 5/4E group (tables \@ref(tab:general1) and \@ref(tab:general2)).
+The core assemblage from Vale Boi totals 123 pieces, with 46 total pieces coming from the Lower 5 levels, and 77 from the Upper 5/4E group (Tables \@ref(tab:general1) and \@ref(tab:general2)).
 
-Excluding inform cores, which were not considered here because they do not possess all the recordable attributes, there is a clear dominance of single platform cores, for most raw materials and in both phases. Chert presents the highest variability of core types, with high frequencies for single platform (50% for Lower 5 and 33.3% in Upper 5/4E), but also prismatic (37.5% on Lower 5). On Upper 5/4E, there are also opposed, pyramidal, two single platforms and other types of platforms in percentages higher than 10%. In the Lower 5 group chert unidirectional prismatic cores are more frequent (Figure \@ref(fig:coretypeVB).
+Excluding inform cores, which were not considered here because they do not possess all the recordable attributes, there is a clear dominance of single platform cores, for most raw materials and in both phases. Chert presents the highest variability of core types, with high frequencies for single platform (50% for Lower 5 and 33.3% in Upper 5/4E), but also prismatic (37.5% on Lower 5). On Upper 5/4E, there are also opposed, pyramidal, two single platforms and other types of platforms in percentages higher than 10%. In the Lower 5 group chert unidirectional prismatic cores are more frequent (Figure \@ref(fig:coretypeVB)).
 
-This variability can be seen in figures \@ref(fig:corelower) and \@ref(fig:coreupper), where vectorized scar cores from Upper 5/4E show a wider variety of scar directionalities and higher scar counts. Comparatively, vectorized cores from Lower 5 all show unidirectional patterns, with a general smaller scar count, thus showing somewhat more homogeneous results.
+This variability can be seen in Figures \@ref(fig:corelower) and \@ref(fig:coreupper), where vectorized scar cores from Upper 5/4E show a wider variety of scar directionalities and higher scar counts. Comparatively, vectorized cores from Lower 5 all show unidirectional patterns, with a general smaller scar count, thus showing somewhat more homogeneous results.
 
-```{r corelower, echo = FALSE, fig.cap = "Vale Boi - Lower 5 - Chert and iron oxide (upper right) cores with vectorized scar negatives and scar directionality.", fig.align= 'center', out.width = '80%'}
+\  
+
+```{r corelower, echo = FALSE, fig.cap = "Vale Boi - Lower 5. Chert and iron oxide (upper right) cores with vectorized scar negatives and scar directionality.", fig.align= 'center', out.width = '80%', fig.pos="H"}
 
 knitr::include_graphics("figure/coreL.jpg")
 
 ```
 
-```{r coreupper, echo = FALSE, fig.cap = "Vale Boi - Upper 5/4E - Chert cores with vectorized scar negatives and scar directionality.", fig.align= 'center', out.width = '80%'}
+```{r coreupper, echo = FALSE, fig.cap = "Vale Boi - Upper 5/4E. Chert cores with vectorized scar negatives and scar directionality.", fig.align= 'center', out.width = '80%', fig.pos="H"}
 
 knitr::include_graphics("figure/coreU.jpg")
 
 ```
 
-Most of the cores were used for the extraction of flakes, although blade and bladelet scars also show relatively high frequencies associated with the exploitation of unidirectional prismatic cores in Lower 5 and Upper5/4E groups (Figure \@ref(fig:coretypeVB)).
+\  
 
-```{r coretypeVB, echo = FALSE, fig.cap = "Vale Boi. Interaction of core type with type of extracted products by raw material and phase."}
+Most of the cores were used for the extraction of flakes, although blade and bladelet scars also show relatively high frequencies associated with the exploitation of unidirectional prismatic cores in Lower 5 and Upper 5/4E groups (Figure \@ref(fig:coretypeVB)).
 
+Most of the analyzed core platforms are plain or cortical. On Upper 5/4E there is a small frequency of faceted platforms on both quartz and chert (3.4% and 18.5% respectively). Platforms width and thickness means show smaller platforms for chert on both phases, while greywacke shows the highest means for platform measurements (Tables \@ref(tab:coremetricsVB1) and \@ref(tab:coremetricsVB2), Appendix B). This pattern is similar for other measurements, for which chert and quartz exhibit the smaller means.
+
+
+```{r coretypeVB, echo = FALSE, fig.cap = "Vale Boi. Interaction of core type with type of extracted products by raw material and phase.", fig.align= 'center', out.width = '90%', fig.pos="H"}
 cores <- dataset %>% 
   filter(Class == "Core" & !CoreType %in% c("Inform", "Other") & RawMaterial %in% c("Chert", "Quartz")) %>% 
-  group_by(Phase, RawMaterial, CoreType, MainFaceCoreUse) %>% 
+  dplyr::group_by(Phase, RawMaterial, CoreType, MainFaceCoreUse) %>% 
   dplyr::summarise(N = n())
-
 ggplot(data = cores,
        aes(axis1 = CoreType, axis2 = MainFaceCoreUse,
            y = N)) +
   scale_x_discrete(limits = c("Class", "MainFaceCoreUse"), expand = c(.1, .05)) +
   xlab("") +
   geom_alluvium(aes(fill = Phase)) +
-  geom_stratum() + geom_text(stat = "stratum", infer.label = TRUE) +
+  geom_stratum() + 
+  geom_text(stat = "stratum", infer.label = TRUE, size = 2) +
   theme_minimal() +
   scale_fill_jco() +
   facet_wrap("RawMaterial") +
-  ggtitle("")
-
+  ggtitle("")  +
+  theme(legend.position="bottom")
 ```
-
 
 ```{r ttestcoresVB, include = FALSE}
 
@@ -1033,7 +1060,6 @@ cores_chert <- dataset %>%
 var.test(CoreElongation ~ Phase, data = cores_chert)
 
 ttest_elong_cores_chert <- t.test(CoreElongation ~ Phase, var.equal = TRUE, data = cores_chert)
-
 
 cores_quartz <- dataset %>% 
   filter(Class == "Core" & RawMaterial == "Quartz" & CoreType != "Inform") %>% 
@@ -1061,14 +1087,13 @@ ttest_flat_cores_quartz <- t.test(CoreFlattening ~ Phase, var.equal = FALSE, dat
 
 ```
 
-Most of the analyzed core platforms are plain or cortical. On Upper 5/4E there is a small frequency of faceted platforms on both quartz and chert (3.4% and 18.5% respectively). Platforms width and thickness means show smaller platforms for chert on both phases, while greywacke shows the highest means for platform measurements (table \@ref(tab:coremetricsVB1) and \@ref(tab:coremetricsVB2)). This pattern is similar for other measurements, for which chert and quartz exhibit the smaller means.
 
-Regarding elongation, Figure \@ref(tab:coreboxplotVB) shows wider range and higher elongation values for chert cores in both phases. Upper 5/4E seems to have less elongated cores in both chert and quartz, but the t-test results indicate no significant difference between the sets (Chert p-value = `r ttest_elong_cores_chert$p.value`, Quartz p-value = `r ttest_elong_cores_quartz$p.value`. Other raw materials, including greywacke, show the lower values for elongation.
+Regarding elongation, Figure \@ref(fig:corebloxplotVB) shows wider range and higher elongation values for chert cores in both phases. Upper 5/4E seems to have less elongated cores in both chert and quartz, but the t-test results indicate no significant difference between the sets (Chert p-value = `r round(ttest_elong_cores_chert$p.value, 2)`, Quartz p-value = `r round(ttest_elong_cores_quartz$p.value, 2)`. Other raw materials, including greywacke, show the lower values for elongation.
 
-Core flattening (Figure \@ref(fig:coreboxplotVB)) (calculated by dividing maximum width by thickness) reveals that greywacke and other raw materials show higher values, while quartz and chert cores have similar values for both phases (Chert t-test p-value = `r ttest_flat_cores_chert$p.value`, Quartz t-test p-value = `r ttest_flat_cores_quartz$p.value`), with flattening median values of around 1.5, centered in between the second and third quartiles of the distribution.
+Core flattening (Figure \@ref(fig:corebloxplotVB)), calculated by dividing maximum width by thickness) reveals that greywacke and other raw materials show higher values, while quartz and chert cores have similar values for both phases (Chert t-test p-value = `r round(ttest_flat_cores_chert$p.value,2)`, Quartz t-test p-value = `r round(ttest_flat_cores_quartz$p.value, 2)`), with flattening median values of around 1.5, centered in between the second and third quartiles of the distribution.
 
 
-```{r corebloxplotVB, fig.cap="Vale Boi. Boxplots of core elongation and flattening by raw material and phase.", echo=FALSE}
+```{r corebloxplotVB, fig.cap="Vale Boi. Boxplots of core elongation and flattening by raw material and phase.", out.width='80%', fig.align='center', echo=FALSE}
 
 coreB <- dataset %>% 
   filter(Class=="Core") %>% 
@@ -1112,22 +1137,17 @@ ggarrange(core_elongation, core_flattening,
           legend = "right")
 ```
 
-
 #### Lapa do Picareiro
-A total of seven cores were recorded on the Lapa do Picareiro assemblages, two in the U/Lower T group (both in quartz) and five in the Middle T, of which two are in chert and two are in quartz.
 
-Single platform, prismatic and pyramidal cores were identified in the Middle T group (table \@ref(tab:coreattributesLP2). These were mainly used to remove flakes (Figure \@ref(fig:coretypeLP)) and only prismatic cores showed evidence for the production of mixed blanks. Platforms tend to be unfacetted, although a small number of cores presented dihedral platforms (2 in Middle T, in quartz and chert). The number of debitage surfaces is greater on chert cores for the Middle T group, while quartz varies between single and three faces (tables \@ref(tab:coreattributesLP1) and \@ref(tab:coreattributesLP2)).
+A total of 7 cores were recorded on the Lapa do Picareiro assemblages, two in the U/Lower T group (both in quartz) and five in the Middle T, of which 3 are in chert and 2 are in quartz.
 
-Metrically, chert has smaller mean values for all core measurements when compared to other raw materials (tables \@ref(tab:coremetricsLP1) and \@ref(tab:coremetricsLP2)), showing, however, higher elongation ratios (Figure \@ref(fig:coreboxplotLP)). Regarding quartz cores, the differences between the U/Lower T phase and the Middle T phase are very obvious, with the first group showing more elongated cores with low flattening values. However, these differences may simply be the result of the rather small number of cores present in the assemblage and a consequent low intra-assemblage variability.
+Single platform, prismatic and pyramidal cores were identified in the Middle T group (Table \@ref(tab:coreattributesLP2), Appendix B). These were mainly used to remove flakes (Figure \@ref(fig:coretypeLP)) and only prismatic cores showed evidence for the production of mixed blanks. Platforms tend to be unfacetted, although a small number of cores presented dihedral platforms (2 in Middle T, in quartz and chert). The number of debitage surfaces is greater on chert cores for the Middle T group, while quartz varies between single and three faces (Tables \@ref(tab:coreattributesLP1) and \@ref(tab:coreattributesLP2), Appendix B).
 
-
-```{r coretypeLP, echo = FALSE, fig.cap="Vale Boi. Interaction of core type with type of extracted products by raw material and phase."}
-
+```{r coretypeLP, echo = FALSE, fig.cap="Vale Boi. Interaction of core type with type of extracted products by raw material and phase.", fig.align= 'center', out.width = '60%', fig.pos="H"}
 cores_lp <- datasetlp %>% 
   filter(Class == "Core" & !CoreType %in% c("Inform", "Other") & RawMaterial %in% c("Chert", "Quartz")) %>% 
-  group_by(Phase, RawMaterial, CoreType, MainFaceCoreUse) %>% 
+  dplyr::group_by(Phase, RawMaterial, CoreType, MainFaceCoreUse) %>% 
   dplyr::summarise(N = n())
-
 ggplot(cores_lp,
        aes(axis1 = CoreType, axis2 = MainFaceCoreUse,
            y = N)) +
@@ -1138,18 +1158,19 @@ ggplot(cores_lp,
   theme_minimal() +
   scale_fill_jco() +
   facet_wrap("RawMaterial") +
-  ggtitle("")
-
+  ggtitle("") +
+  theme(legend.position="bottom")
 ```
 
-```{r corebloxplotLP, fig.cap="Lapa do Picareiro. Boxplots of core elongation and flattening by raw material and phase.", echo=FALSE}
+Metrically, chert has smaller mean values for all core measurements when compared to other raw materials (Tables \@ref(tab:coremetricsLP1) and \@ref(tab:coremetricsLP2), Appendix B), showing, however, higher elongation ratios (Figure \@ref(fig:corebloxplotLP)). Regarding quartz cores, the differences between the U/Lower T phase and the Middle T phase are very obvious, with the first group showing more elongated cores with low flattening values. However, these differences may simply be the result of the rather small number of cores present in the assemblage and a consequent low intra-assemblage variability.
+
+```{r corebloxplotLP, fig.cap="Lapa do Picareiro. Boxplots of core elongation and flattening by raw material and phase.", echo=FALSE, fig.align= 'center', out.width = '60%', fig.pos="H"}
 coreB_LP <- datasetlp %>% 
   filter(Class=="Core") %>% 
   mutate(CoreElongation=Length/MaxWidth) %>% 
   mutate(CoreFlattening=MaxWidth/Thickness) %>% 
   mutate(CoreConvergence=MedWidth/DistWidth) %>% 
   filter(RawMaterial %in% c("Quartz", "Chert"))
-
 core_elongation_LP <- coreB_LP %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert"))) %>%
   ggplot(aes(x=RawMaterial, y=CoreElongation, fill = Phase)) + 
@@ -1160,7 +1181,6 @@ core_elongation_LP <- coreB_LP %>%
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2)) +
   scale_fill_jco()
-
 core_flattening_LP <- coreB_LP %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert","Chalcedony", 
                                                       "Greywacke", "Other"))) %>%
@@ -1172,7 +1192,6 @@ core_flattening_LP <- coreB_LP %>%
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.2)) +
   scale_fill_jco()
-
 ggarrange(core_elongation_LP, core_flattening_LP,
           widths = c(8, 8),
           heights = c(10, 10),
@@ -1180,7 +1199,6 @@ ggarrange(core_elongation_LP, core_flattening_LP,
           common.legend = TRUE,
           legend = "right")
 ```
-
 
 ### Core maintenance products
 
@@ -1190,7 +1208,7 @@ At Vale Boi core maintenance products are of two types, core fronts and core tab
 
 No cortex was present in the dorsal surfaces of all core maintenance products. This pattern reveals that maintenance operations were performed at advanced stages of the reduction sequence.
 
-Finnaly, it is rather interesting the absence of crested pieces from both assemblages, mostly at Vale Boi, where this type of core maintenance product has been referenced for both Solutrean and Gravettian occupations [@cascalheira2013; @marreiros2009].
+Finally, it is rather interesting the absence of crested pieces from both assemblages, mostly at Vale Boi, where this type of core maintenance product has been referenced for both solutrean and gravettian occupations [@cascalheira2013; @marreiros2009].
 
 ```{r corepreptypeVB, echo=FALSE}
 
@@ -1198,13 +1216,13 @@ CP_table_1 <- dataset %>%
   filter(Class=="CorePreparProd") %>% 
   filter(Phase=="Lower 5") %>% 
   select(RawMaterial, CorePreparProd, Cortex) %>% 
-  group_by(RawMaterial, Cortex)
+  dplyr::group_by(RawMaterial, Cortex)
 
 CP_table_2 <- dataset %>% 
   filter(Class=="CorePreparProd") %>% 
   filter(Phase=="Upper 5/4E") %>% 
   select(RawMaterial, CorePreparProd, Cortex) %>% 
-  group_by(RawMaterial, Cortex)
+  dplyr::group_by(RawMaterial, Cortex)
 
 CP_table2 <- table(CP_table_2$CorePreparProd, CP_table_2$RawMaterial)
 CP_table2 <- as.data.frame.matrix(CP_table2)
@@ -1214,59 +1232,19 @@ CP_table2 <- CP_table2 %>%
   adorn_totals(where = "row", name = "Total") %>% 
   dplyr::rename("Core maintenance product" = "rowname")
 
-knitr::kable(CP_table2, booktabs=TRUE, caption = "Core maintenance products by raw material for Upper 5/4E.") %>% 
-  column_spec(1, bold = T)
+knitr::kable(CP_table2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E. Core maintenance products by raw material.") %>% 
+  column_spec(1, bold = T) %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
+\   
 
 ### Flakes
 
 #### Vale Boi
+
 A total of 1255 flakes were analysed from Vale Boi, 427 of those belonging to Lower 5 group, and 828 to the Upper 5/4E group. This increase was somehow expected according to the aforementioned general intensity of occupation and material density in the transition from one phase to the other. Although there are generally more flakes in quartz, it is obvious the difference in ratios between chert and quartz, when comparing Lower 5 to Upper 5/4E results.
-
-```{r flakeboxplot, fig.cap="Vale Boi. Boxplots of flake elongation and flattening by raw material and phase.", echo=FALSE}
-  
-flakeB <- dataset %>%
-  filter(BlankType=="Flake") %>%
-  mutate(FlakeElongation=Length/MaxWidth) %>% 
-  mutate(FlakeFlattening=MaxWidth/Thickness) %>% 
-  select(Phase, RawMaterial, FlakeFlattening, FlakeElongation) %>% 
-  filter(FlakeFlattening < 15) %>% # removing 3 outliers which pull the tails up distorting the graph 
-  na.omit()
-
-flake_elongation <- flakeB %>% 
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert", 
-                                                      "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=FlakeElongation, fill = Phase)) + 
-  geom_boxplot() +
-  theme_minimal() + #type of theme
-  theme(legend.title = element_blank()) +
-  labs(x = " ", y = "Elongation") +
-  theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_jco() +
-  scale_color_jco() 
-#  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.3))
-
-flake_flattening <- flakeB %>% 
-  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert",   "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
-  ggplot(aes(x=RawMaterial, y=FlakeFlattening, fill = Phase)) + 
-  geom_boxplot() +
-  theme_minimal() + #type of theme
-  theme(legend.title = element_blank()) +
-  labs(x = " ", y = "Flattening") +
-  theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_jco()+
-  scale_color_jco() 
-#  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.3))
-
-ggarrange(flake_elongation, flake_flattening,
-          widths = c(8, 8),
-          heights = c(10, 10),
-          nrow = 2,
-          common.legend = TRUE,
-          legend = "right")
-```
 
 ```{r ttestflakesVB, include = FALSE}
 
@@ -1309,43 +1287,29 @@ ttest_flat_flake_quartz <- t.test(FlakeFlattening ~ Phase, var.equal = FALSE, da
 
 ```
 
-Morphologically, Lower 5 flakes seem to have mostly irregular shapes, with frequencies over 45% for most raw materials, followed by convergent and parallel shapes in much lower frequencies (under 15%) (table \@ref(tab:flakeattributeVB1)). Dolerite, unlike other raw materials, shows only convergent and parallel shapes even if with low representativity (n=3). Cross sections are mostly irregular and triangular, varying slightly in frequency regarding each raw material. All raw materials, with exception of quartz, show high frequencies of straight profiles (over 40%), chert showing a similar percentage between straight and curved profiles (44.3% and 42.9% respectively). Quartz, however, has a frequency of 65% of straight profiles, showing much smaller frequencies for other types.
+Morphologically, Lower 5 flakes seem to have mostly irregular shapes, with frequencies over 45% for most raw materials, followed by convergent and parallel shapes in much lower frequencies (under 15%) (Table \@ref(tab:flakeattributeVB1), Appendix B). Dolerite, unlike other raw materials, shows only convergent and parallel shapes even if with low representativity (n=3). Cross sections are mostly irregular and triangular, varying slightly in frequency regarding each raw material. All raw materials, with exception of quartz, show high frequencies of straight profiles (over 40%), chert showing a similar percentage between straight and curved profiles (44.3% and 42.9% respectively). Quartz, however, has a frequency of 65% of straight profiles, showing much smaller frequencies for other types.
 
-On Upper 5/4E (table \@ref(tab:flakeattributeVB2)), irregular shapes are still frequent, representing over 25% on all raw materials. Convergent and parallel shapes show higher frequencies (over 20%) for quartz, chert and dolerite. Alike Lower 5, cross sections are mostly irregular (over 35% for most raw materials) or triangular (over 25% for all raw materials), and profile type show the same patterns and similar percentages as Lower 5.
+On Upper 5/4E (Table \@ref(tab:flakeattributeVB2), Appendix B), irregular shapes are still frequent, representing over 25% on all raw materials. Convergent and parallel shapes show higher frequencies (over 20%) for quartz, chert and dolerite. Alike Lower 5, cross sections are mostly irregular (over 35% for most raw materials) or triangular (over 25% for all raw materials), and profile type show the same patterns and similar percentages as Lower 5.
 
-Unidirectional scar patterns are dominant in both phases and all raw materials, with frequencies over 80%. Bidirectional patterns are slightly more relevant in chert (9.3%), and also in dolerite and chalcedony during Upper 5/4E. Dorsal patterns also show a dominance on both phases of 1, 2 and 3 scars for most raw materials, although chert shows the widest numbers and variety for higher scar counts.
+Unidirectional scar patterns are dominant in both phases and all raw materials, with frequencies over 80%. Bidirectional patterns are slightly more relevant in chert (9.3%), and also in dolerite and chalcedony during Upper 5/4E. Dorsal patterns also show on both phases a dominance of 1, 2 and 3 scars for most raw materials, although chert shows higher scar counts.
 
 Flakes have mostly plain platforms, although for certain raw materials, like quartz, there is a relevant presence of crushed platforms (33.3% for Lower 5 and 35.9% for Upper 5/4E). Faceted platforms are present in both phases but in low frequencies, in chert for both Lower 5 (1.4%) and Upper 5/4E (2.4%), but in no other raw material. Platforms are also mostly non-cortical (between 80% and 100% depending on raw material) in both phases.
 
-Blank metrics, including platform measurements, show for Lower 5 (table \@ref(tab:flakemetricsVB1)), the smallest means in chalcedony and dolerite, followed by chert and quartz, where greywacke mean values show bigger Flakes in this raw material. On Upper 5/4E (table \@ref(tab:flakemetricsVB2)), however, the smallest Flakes are in chert, followed by quartz and chalcedony, where dolerite mean values are fairly closer to those of greywacke, thus making these the Flakes with highest metric mean values.
+Blank metrics, including platform measurements, show for Lower 5 (Table \@ref(tab:flakemetricsVB1), Appendix B), the smallest means in chalcedony and dolerite, followed by chert and quartz, where greywacke mean values show bigger Flakes in this raw material. On Upper 5/4E (Table \@ref(tab:flakemetricsVB2), Appendix B), however, the smallest flakes are in chert, followed by quartz and chalcedony, where dolerite mean values are fairly closer to those of greywacke, thus making these the flakes with highest metric mean values.
 
-Regarding elongation (figure \@ref(fig:flakeboxplot)), quartz, chert and chalcedony show the highest values, although the latter raw material shows a bigger concentration of similar elongation flakes in the third quartil, thus showing less general elongation (Chert t-test p-value = `r ttest_elong_flake_chert$p.value`, Quartz t-test p-value = `r ttest_elong_flake_quartz$p.value`). Despite having similar elongation ranges in both groups, quartz shows relatively different medians, on Lower 5 showing a less variability in the lower quartil, while Upper 5/4E shows lower variability in the upper quartil, hinting at a bigger number of consistently elongated quartz flakes in Upper 5/4E. For chert, Upper 5/4E also seems to show higher elongation values for flakes, though once again, there is a wide range of variability within regarding elongation in the assemblage.
+Regarding elongation (Figure \@ref(fig:flakeboxplot)), quartz, chert and chalcedony show the highest values, although the latter raw material shows a bigger concentration of similar elongation flakes in the third quartil, thus showing less general elongation. Despite having similar elongation ranges in both groups, quartz shows relatively different medians, on Lower 5 showing a less variability in the lower quartil, while Upper 5/4E shows lower variability in the upper quartil, hinting at a bigger number of consistently elongated quartz flakes in Upper 5/4E (Chert t-test p-value = `r round(ttest_elong_flake_chert$p.value,2)`, Quartz t-test p-value = `r round(ttest_elong_flake_quartz$p.value, 2)`). For chert, Upper 5/4E also seems to show higher elongation values for flakes, though once again, there is a wide range of variability within regarding elongation in the assemblage.
 
-As for flattening (figure \@ref(fig:flakeboxplot)), quartz shows very low values for flake flattening, compared to other raw materials (Chert t-test p-value = `r ttest_flat_flake_chert$p.value`, Quartz t-test p-value = `r ttest_flat_flake_quartz$p.value`). The data, however, also shows the existance of a wide variability within each raw material, with the existance of several outliers which fall from the statistical groupings and quartils. As such, it seems that for all raw materials, perhaps with the exception of quartz, flake flattening is extremely variable in the assemblage.
-
-
-#### Lapa do Picareiro
-There are a total of plotted 122 Flakes, 46 attributed to the U/Lower T group, more than 50% being in quartz, and 67 attributed to the Middle T group, its vast majority in chert. On both groups, attributes are very similar.
-
-On the U/Lower T phase, for quartz, there seems to be the predominance of parallel shapes (35%) (table \@ref(tab:flakeattributesLP1)), followed by convergent ones (30%). Chert, however, shows higher percentages for irregular (28.6%) and divergent (42.9%) shapes. Cross sections are mostly triangular for all raw materials (over 40%), although chert also shows high frequencies of trapezoidal cross sections (42.9%). Profiles are, for all raw materials, mostly straight (60% on quartz and 85.7% on chert) and terminations show relevant raw material differences, with quartz having bigger frequencies of feathered and hinged terminations (35% and 40% respectively) and chert having a frequency of 42.9% on pointed terminations. For all raw materials, there is the predominance of unidirectional dorsal patterns, high frequencies over 85%. Dorsal scars show higher frequencies for 2 and 3 scars on quartz (35% and 40% respectively), while other raw materials show higher frequencies for 3 dorsal scars only (42.9% on chert).
-
-On the Middle T phase (table \@ref(tab:flakeattributesLP2)), quartz shows higher frequencies for irregular shapes (53.8%), followed by convergent ones (38.5%). Contrary to the patterns seen on the previous group, chert shows higher frequencies for parallel shapes (40.6%). For all raw materials, cross sections are predominantly triangular (over 40%) with straight profiles (over 50%) and feathered terminations for chert (40.6%), whereas quartz shows higher values for hinged terminations (46.2%) followed by feathered (38.5%). Alike the U/Lower T group, there is the predominance of unidirectional dorsal scar patterns (over 90% for all raw materials), with high frequencies for 2 dorsal scars in quartz (61.5%) and 2-3 dorsal scars in chert (34.4% both).
-
-Regarding platforms, for both groups, they are mostly plain for all raw materials (over 40%), followed by relatively high values of crushed platforms in quartz, with the presence of 1 faceted platform for quartz and chert in each group. Chert on the Middle T group also shows dihedral platforms (18.8%). Platforms seem to have barely any cortex, for all raw materials in both groups.
-
-Measurements, including platform width and thickness, show larger means for the chert flakes (19.5 mm width and 27.3 mm length), comparatively to the quartz ones (16.7 mm width and 21.8 mm length), for Lower 5 (table \@ref(tab:flakemetricsLP1)) and for Upper 5/4E (table \@ref(tab:flakemetricsLP2))(chert with 17.2 mm width and 20.9 mm length, and quartz with 13 mm width and 16.3 mm length). There also seems to be a size difference between groups, with the U/Lower T flakes showing bigger means (although with high standard deviation values), while Middle T means show smaller values and smaller SD values, the only constant seeming to be the thickness of flakes on chert (5-5.3 mm), wich seem to show little variability (standard deviations of 3.1 for the U/Lower T group and 2.3 for the Middle T group).
-
-```{r flakeboxplotLP, fig.cap="Flake elongation and flattening by phase and raw material.", echo=FALSE}
+```{r flakeboxplot, fig.cap="Vale Boi. Boxplots of flake elongation and flattening by raw material and phase.", echo=FALSE, fig.align= 'center', out.width = '80%', fig.pos="H"}
   
-flakeB_LP <- datasetlp %>%
-  filter(BlankType=="Flake") %>% 
-  filter(RawMaterial %in% c("Quartz", "Chert")) %>% 
+flakeB <- dataset %>%
+  filter(BlankType=="Flake") %>%
   mutate(FlakeElongation=Length/MaxWidth) %>% 
   mutate(FlakeFlattening=MaxWidth/Thickness) %>% 
   select(Phase, RawMaterial, FlakeFlattening, FlakeElongation) %>% 
+  filter(FlakeFlattening < 15) %>% # removing 3 outliers which pull the tails up distorting the graph 
   na.omit()
 
-flake_elongation_LP <- flakeB_LP %>% 
+flake_elongation <- flakeB %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert", 
                                                       "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
   ggplot(aes(x=RawMaterial, y=FlakeElongation, fill = Phase)) + 
@@ -1354,10 +1318,11 @@ flake_elongation_LP <- flakeB_LP %>%
   theme(legend.title = element_blank()) +
   labs(x = " ", y = "Elongation") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
-  scale_fill_jco()+
-  scale_color_jco()
+  scale_fill_jco() +
+  scale_color_jco() 
+#  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.3))
 
-flake_flattening_LP <- flakeB_LP %>% 
+flake_flattening <- flakeB %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert",   "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
   ggplot(aes(x=RawMaterial, y=FlakeFlattening, fill = Phase)) + 
   geom_boxplot() +
@@ -1366,15 +1331,32 @@ flake_flattening_LP <- flakeB_LP %>%
   labs(x = " ", y = "Flattening") +
   theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
   scale_fill_jco()+
-  scale_color_jco()
+  scale_color_jco() 
+#  geom_point(pch = 21, position = position_jitterdodge(jitter.width = 0.3))
 
-ggarrange(flake_elongation_LP, flake_flattening_LP,
+ggarrange(flake_elongation, flake_flattening,
           widths = c(8, 8),
           heights = c(10, 10),
           nrow = 2,
           common.legend = TRUE,
           legend = "right")
 ```
+
+\  
+
+As for flattening (Figure \@ref(fig:flakeboxplot)), quartz shows very low values for flake flattening, compared to other raw materials. The data, however, also shows the existance of a wide variability within each raw material, with the existance of several outliers which fall from the statistical groupings and quartils. As such, it seems that for all raw materials, perhaps with the exception of quartz, flake flattening is extremely variable in the assemblage. With the exception of dolerite, there doesn't seem to be much difference in elongation ratios between phases (Chert t-test p-value = `r round(ttest_flat_flake_chert$p.value, 2)`, Quartz t-test p-value = `r round(ttest_flat_flake_quartz$p.value, 2)`)
+
+#### Lapa do Picareiro
+
+There are a total of plotted 122 Flakes, 46 attributed to the U/Lower T group, more than 50% being in quartz, and 67 attributed to the Middle T group, its vast majority in chert. On both groups, attributes are very similar.
+
+On the U/Lower T phase, for quartz, there seems to be the predominance of parallel shapes (35%) (Table \@ref(tab:flakeattributesLP1), Appendix B), followed by convergent ones (30%). Chert, however, shows higher percentages for irregular (28.6%) and divergent (42.9%) shapes. Cross sections are mostly triangular for all raw materials (over 40%), although chert also shows high frequencies of trapezoidal cross sections (42.9%). Profiles are, for all raw materials, mostly straight (60% on quartz and 85.7% on chert) and terminations show relevant raw material differences, with quartz having bigger frequencies of feathered and hinged terminations (35% and 40% respectively) and chert having a frequency of 42.9% on pointed terminations. For all raw materials, there is the predominance of unidirectional dorsal patterns, high frequencies over 85%. Dorsal scars show higher frequencies for 2 and 3 scars on quartz (35% and 40% respectively), while other raw materials show higher frequencies for 3 dorsal scars only (42.9% on chert).
+
+On the Middle T phase (Table \@ref(tab:flakeattributesLP2), Appendix B), quartz shows higher frequencies for irregular shapes (53.8%), followed by convergent ones (38.5%). Contrary to the patterns seen on the previous group, chert shows higher frequencies for parallel shapes (40.6%). For all raw materials, cross sections are predominantly triangular (over 40%) with straight profiles (over 50%) and feathered terminations for chert (40.6%), whereas quartz shows higher values for hinged terminations (46.2%) followed by feathered (38.5%). Alike the U/Lower T group, there is the predominance of unidirectional dorsal scar patterns (over 90% for all raw materials), with high frequencies for 2 dorsal scars in quartz (61.5%) and 2-3 dorsal scars in chert (34.4% both).
+
+Regarding platforms, for both groups, they are mostly plain for all raw materials (over 40%), followed by relatively high values of crushed platforms in quartz, with the presence of 1 faceted platform for quartz and chert in each group. Chert on the Middle T group also shows dihedral platforms (18.8%). Platforms seem to have barely any cortex, for all raw materials in both groups.
+
+Measurements, including platform width and thickness, show larger means for the chert flakes (19.5 mm width and 27.3 mm length), comparatively to the quartz ones (16.7 mm width and 21.8 mm length), for Lower 5 (Table \@ref(tab:flakemetricsLP1), Appendix B) and for Upper 5/4E (Table \@ref(tab:flakemetricsLP2), Appendix B) (chert with 17.2 mm width and 20.9 mm length, and quartz with 13 mm width and 16.3 mm length). There also seems to be a size difference between groups, with the U/Lower T flakes showing bigger means (although with high standard deviation values), while Middle T means show smaller values and smaller standard deviation values, the only constant seeming to be the thickness of flakes on chert (5-5.3 mm), wich seem to show little variability (standard deviations of 3.1 for the U/Lower T group and 2.3 for the Middle T group).
 
 ```{r ttestflakesLP, include = FALSE}
 
@@ -1417,14 +1399,55 @@ ttest_flat_flake_quartzlp <- t.test(FlakeFlattening ~ Phase, var.equal = FALSE, 
 
 ```
 
-Regarding elongation (figure X), values between quartz and chert and even between groups seem to be fairly similar, all with elongation ratios which seem skewed above, thus showing less elongation variability above the 1.5 threshold (Chert t-test p-value = `r ttest_elong_flake_chertlp$p.value`, Quartz t-test p-value = `r ttest_elong_flake_quartzlp$p.value`). 
+Regarding elongation (Figure \@ref(fig:flakeboxplotLP)), values between quartz and chert and even between groups seem to be fairly similar, all with elongation ratios which seem skewed above, thus showing less elongation variability above the 1.5 threshold (Chert t-test p-value = `r round(ttest_elong_flake_chertlp$p.value, 2)`, Quartz t-test p-value = `r round(ttest_elong_flake_quartzlp$p.value, 2)`). 
 
-Flake flattening, however, shows more apparent differences between raw materials, with quartz showing lower flattening ratios than chert (Chert t-test p-value = `r ttest_flat_flake_chertlp$p.value`, Quartz t-test p-value = `r ttest_flat_flake_quartzlp$p.value`). Within chert, however, there also seems to be a difference in general flattening variability and interquartil skewness, showing a larger number of flakes with similar flattening values (at around 4).
+Flake flattening, however, shows more apparent differences between raw materials, with quartz showing lower flattening ratios than chert. Within chert, however, there also seems to be a difference in general flattening variability and interquartil skewness, showing a larger number of flakes with similar flattening values (at around 4). Flattening seems to be higher in U/Lower T, although without much representation (Chert t-test p-value = `r round(ttest_flat_flake_chertlp$p.value,2)`, Quartz t-test p-value = `r round(ttest_flat_flake_quartzlp$p.value, 2)`).
 
+```{r flakeboxplotLP, fig.cap="Lapa do Picareiro. Flake elongation and flattening by phase and raw material.", echo=FALSE, fig.align= 'center', out.width = '80%'}
+  
+flakeB_LP <- datasetlp %>%
+  filter(BlankType=="Flake") %>% 
+  filter(RawMaterial %in% c("Quartz", "Chert")) %>% 
+  mutate(FlakeElongation=Length/MaxWidth) %>% 
+  mutate(FlakeFlattening=MaxWidth/Thickness) %>% 
+  select(Phase, RawMaterial, FlakeFlattening, FlakeElongation) %>% 
+  na.omit()
+
+flake_elongation_LP <- flakeB_LP %>% 
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert", 
+                                                      "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
+  ggplot(aes(x=RawMaterial, y=FlakeElongation, fill = Phase)) + 
+  geom_boxplot() +
+  theme_minimal() + #type of theme
+  theme(legend.title = element_blank()) +
+  labs(x = " ", y = "Elongation") +
+  theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
+  scale_fill_jco()+
+  scale_color_jco()
+
+flake_flattening_LP <- flakeB_LP %>% 
+  mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz", "Chert",   "Greywacke","Dolerite","Chalcedony", "Other"))) %>%
+  ggplot(aes(x=RawMaterial, y=FlakeFlattening, fill = Phase)) + 
+  geom_boxplot() +
+  theme_minimal() + #type of theme
+  theme(legend.title = element_blank()) +
+  labs(x = " ", y = "Flattening") +
+  theme(axis.title = element_text(size = 10, vjust = -1)) + # x axis size
+  scale_fill_jco()+
+  scale_color_jco()
+
+ggarrange(flake_elongation_LP, flake_flattening_LP,
+          widths = c(8, 8),
+          heights = c(10, 10),
+          nrow = 2,
+          common.legend = TRUE,
+          legend = "right")
+```
 
 ### Elongated blanks
 
 #### Vale Boi
+
 A total of 219 elongated products were recorded in the Vale Boi's assemblages. 82 of these blanks are from Lower 5, while 137 are from the Upper 5/4E group. Comparatively to the whole group of blanks, there is a more significant number of chert pieces (n=106), this number only changing in Lower 5, where quartz elongated blank numbers (n=44) supersede chert ones (n=31). Figures \@ref(fig:elongdisp1) and \@ref(fig:elongdisp2) show the scatterplots for width and length of elongated blanks of the two main raw materials present at both phases identified at Vale Boi. Following the traditional subdivision between blade and bladelet, both charts clearly show that the main goal of the reduction sequences for elongated products were bladelets. Only in the Upper 5/4E group, there seems to be a bimodal distribution in the width variable for chert artifacts. 
 
 ```{r fishertestelongVB, include=FALSE}
@@ -1445,20 +1468,15 @@ shape <- fisher.test(table(elong_groups_AT2$BlankShape, elong_groups_AT2$elong_g
 
 ```
 
+Testing this apparent division (artifacts wider than 12.5 mm and those with less than 12.5 mm in width) against all other relevant morphological variables revealed, however, no significant difference between the two groups for almost all variables (Table \@ref(tab:fisherelongVB2)). 
 
-Testing this apparent division (artifacts wider than 12.5 mm and those with less than 12.5 in width) against all other relevant morphological variables revealed, however, no significant difference between the two groups for almost all variables (Table \@ref(tab:fisherelongVB2)). The exception to this pattern were the tests for scar count, scar pattern and cortex presence. In the first case, due to a more substantial presence of three scars on the blade products and two scars on the bladelet products. In the second case because of the higher frequency (c. 13% vs. c. 2%) of bidirectional removals on the dorsal surfaces of blades and bladelets, respectively. Finally, in the third case, as a result of the higher frequencies of cortical surfaces recorded for blades (c. 67%) vs. bladelets (c. 18%). Altogether, these results seem to indicate that the difference between the two classes is likely not related with the existence of two distinct reduction sequences but of a single reduction sequence with cortical or partially cortical elongated products at the beginning of core exploitation, when bidirectional strategies were used to perform decortication and core configuration. Together with the reasonably linear positive correlation showed by the chert tendency line displayed in Figure \@ref(fig:elongdisp2), the results seem enough to do the technological description of all elongated products as a single category.
-
-```{r elongdisp1, fig.cap="Vale Boi - Lower 5. Elongated products width and length dispersion by raw material.", echo=FALSE}
-  
+```{r elongdisp1, fig.cap="Vale Boi - Lower 5. Elongated products width and length dispersion by raw material.", echo=FALSE, fig.align= 'center', out.width = '80%', fig.pos='H'}
 elongAT1 <- elongAT %>% 
   filter(Phase=="Lower 5") 
-
-
 elong_disp1 <- elongAT1 %>% 
   filter(RawMaterial %in% c("Chert","Quartz")) %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
-                                                      "Chert", "Greywacke")))
-
+                                                    "Chert", "Greywacke")))
 disp_1 <- ggplot(elong_disp1, aes(MedWidth, Length, color = RawMaterial)) +
   geom_point() +
   theme_minimal() + #type of theme
@@ -1467,22 +1485,16 @@ disp_1 <- ggplot(elong_disp1, aes(MedWidth, Length, color = RawMaterial)) +
   labs(color = "Raw Material") + # x axis size
   scale_color_jco() + # set colours
   geom_smooth(method = "lm", se = FALSE)
-
 ggMarginal(disp_1, type = "density", groupColour = TRUE, groupFill = TRUE)
-
-
 ```
 
-```{r elongdisp2,fig.cap="Vale Boi - Upper 5/4E. Elongated product width and length dispersion by raw material.", echo=FALSE}
-
+```{r elongdisp2,fig.cap="Vale Boi - Upper 5/4E. Elongated product width and length dispersion by raw material.", echo=FALSE, fig.align= 'center', out.width = '80%', fig.pos='H'}
 elongAT2 <- elongAT %>% 
   filter(Phase=="Upper 5/4E")
-
 elong_disp2 <- elongAT2 %>% 
   filter(RawMaterial %in% c("Chert","Quartz")) %>% 
   mutate(RawMaterial = factor(RawMaterial, levels = c("Quartz",
                                                       "Chert", "Greywacke")))
-
 disp_2 <- ggplot(elong_disp2, aes(MedWidth, Length, color = RawMaterial)) +
   geom_point() +
   theme_minimal() + #type of theme
@@ -1491,11 +1503,10 @@ disp_2 <- ggplot(elong_disp2, aes(MedWidth, Length, color = RawMaterial)) +
   labs(color = "Raw Material") + # x axis size
   scale_color_jco() +  # set colours
   geom_smooth(method = "lm", se = FALSE)
-
 ggMarginal(disp_2, type = "density", groupColour = TRUE, groupFill = TRUE)
-
 ```
 
+The exception to this pattern were the tests for scar count, scar pattern and cortex presence. In the first case, due to a more substantial presence of three scars on the blade products and two scars on the bladelet products. In the second case because of the higher frequency (c. 13% vs. c. 2%) of bidirectional removals on the dorsal surfaces of blades and bladelets, respectively. Finally, in the third case, as a result of the higher frequencies of cortical surfaces recorded for blades (c. 67%) vs. bladelets (c. 18%). Altogether, these results seem to indicate that the difference between the two classes is likely not related with the existence of two distinct reduction sequences but of a single reduction sequence with cortical or partially cortical elongated products at the beginning of core exploitation, when bidirectional strategies were used to perform decortication and core configuration. Together with the reasonably linear positive correlation showed by the chert tendency line displayed in Figure \@ref(fig:elongdisp2), the results seem enough to do the technological description of all elongated products as a single category.
 
 ```{r fisherelongVB2, echo = FALSE, warning=FALSE, message=FALSE}
 
@@ -1523,14 +1534,20 @@ elong_test_AT2 <- tabmulti(elong_groups_AT2, "elong_group", c("CrossSection",
                         bold.colnames = TRUE,
                         overall.column = FALSE,
                         variable.colname = "Attributes")
+elong_test_AT2 <- as.data.frame(elong_test_AT2)
+elong_test_AT2 <- elong_test_AT2 %>% 
+  filter(Attributes %in% c("CrossSection, n (%)", "BlankShape, n (%)", "2	Profile, n (%)", "BlankTip, n (%)", "PlatformType, n (%)",
+                           "PlatformCortex, n (%)", "Cortex, n (%)", "ScarCount, n (%)", "ScarPattern, n (%)"))
+elong_test_AT2 <- elong_test_AT2 %>% 
+  select(1,4)
 
 
-knitr::kable(elong_test_AT2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper5/4E. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+knitr::kable(elong_test_AT2,booktabs=TRUE, caption = "Vale Boi - Upper5/4E. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
+\  
 
 Regarding morphology, elongated blanks have mostly parallel and convergent shapes, on both phases, although Lower 5 shows significant differences across the different raw materials, since c. 64% of quartz has parallel shapes, whereas c. 52% of chert has convergent ones. Cross sections are mostly triangular, with straight and curved profiles. Differences in profile types are rather significant between both phases, but only for quartz artifacts. While in Lower 5, quartz elongated blanks present a percentage of curved profiles of c. 23%, in Upper 5/4E, this percentage drops to c. 12%. Curved and twisted profiles in bladelets are usually associated with the exploitation of carinated cores, particularly in the Gravettian-Solutrean transition as presented by @almeida2000 for the Terminal Gravettian of Estremadura. Although no carinated cores were identified in the Lower 5 assemblage, the presence of a significant number of bladelets with curved profiles might indicate the use of such a type of reduction strategy.
 
@@ -1538,24 +1555,25 @@ Scar patterns show an evident tendency for unidirectional knapping strategies on
 
 Elongated blanks on both phases seem to be obtained without platform preparation, although quartz also shows a significant presence of crushed platforms. Only two faceted platforms were identified, in Upper 5/4E, on chert and dolerite pieces. The general tendency for both phases is for the absence of cortical platforms. Only chert and greywacke on Lower 5 (c. 10% and c. 17% respectively) and chert on Upper 5/4E (c. 13%) show completely cortical platforms.
 
-Finally, elongated products metrics, including platform measurements, show a tendency on both phases for smaller blanks on quartz, followed by chert, whereas greywacke, dolerite and chalcedony show the biggest blanks and widest platforms. On both phases, means for width, length and thickness for quartz and chert are around 9mm, 21-26mm, and 5mm, respectively. Higher standard deviation values are observed for length. Despite this, chert elongated blanks seem to show means which hint for higher elongation ratios than quartz.
-
+Finally, elongated products metrics, including platform measurements, show a tendency on both phases for smaller blanks on quartz, followed by chert, whereas greywacke, dolerite and chalcedony show the biggest blanks and widest platforms. On both phases, means for width, length and thickness for quartz and chert are around 9 mm, 21-26 mm, and 5 mm, respectively. Higher standard deviation values are observed for length. Despite this, chert elongated blanks seem to show means which hint for higher elongation ratios than quartz.
 
 #### Lapa do Picareiro
+
 A total of 47 elongated blanks were recorded for Lapa do Picareiro. U/Lower T phase contains 27 in total, of which more than 50% are on chert. For the Middle T phase, 20 elongated blanks were recorded, with also more than 50% on chert.
 
-When plotting width and length for elongated blanks, for chert and quartz, there seem to be two groups of different dimensions in both phases. Concerning the U/Lower T (fig. \@ref(fig:elongdisp1LP)), there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a group that although more disperse is composed mostly of chert, with width and length ranging between 13-26 mm and 40-60 mm, respectively, and that may be classified, according to the traditional definition, as blades.
+When plotting width and length for elongated blanks, for chert and quartz, there seem to be two groups of different dimensions in both phases. Concerning the U/Lower T (Figure \@ref(fig:elongdisp1LP)), there is a group of smaller blanks, ranging between 2-10 mm of width and 5-25 mm of length, thus falling into the traditional category of bladelet, and a group that although more disperse is composed mostly of chert, with width and length ranging between 13-26 mm and 40-60 mm, respectively, and that may be classified, according to the traditional definition, as blades.
 
-For the Middle T (fig. \@ref(fig:elongdisp2LP)), there is also a group of smaller blanks, with widths ranging from 3 to 10mm, and highly variable length values, ranging from between 5 to 30mm, from which the higher values represent mostly chert artifacts. Even so, these pieces may be characterized through the traditional classification as bladelets. The second group is made up entirely of chert, although it has fewer blanks and is very disperse in terms of width (>15mm), and length (>45mm), and thus classified as blades.
+For the Middle T (Figure \@ref(fig:elongdisp2LP)), there is also a group of smaller blanks, with widths ranging from 3 to 10 mm, and highly variable length values, ranging from between 5 to 30 mm, from which the higher values represent mostly chert artifacts. Even so, these pieces may be characterized through the traditional classification as bladelets. The second group is made up entirely of chert, although it has fewer blanks and is very disperse in terms of width (>15 mm), and length (>45 mm), and thus classified as blades.
 
 These patterns may represent different production strategies for specific chert elongated blank sizes, although, given the location of the site, it might merely reflect the truncated nature of the reduction sequences present at the site, only showing the presence of two groups of bladelets and blades.
 
 Tables \@ref(tab:fisherelongLP1) and \@ref(tab:fisherelongLP2) show the results of Fisher exact tests to evaluate whether the distribution of all the relevant technological variables differed across groups of chert artifacts. No significant statistical differences were detected in any of the technological variables for both phases.
 
-In fact, both blades and bladelets show a majority of parallel and convergent edge shapes, straight and curved profiles. Dorsal scars are unidirectional on the dorsal surfaces of all artifacts, with a majority of two previous removals for quartz and two to four scars for chert. Platforms are mostly plain, with no cortex (table \@ref(tab:elongtableLP1) and \@ref(tab:elongtableLP2)).
+In fact, both blades and bladelets show a majority of parallel and convergent edge shapes, straight and curved profiles. Dorsal scars are unidirectional on the dorsal surfaces of all artifacts, with a majority of two previous removals for quartz and two to four scars for chert. Platforms are mostly plain, with no cortex (Tables \@ref(tab:elongtableLP1) and \@ref(tab:elongtableLP2), Appendix B).
 
+\  
 
-```{r elongdisp1LP, fig.cap="Lapa do Picareiro - U/Lower T. Elongated product width and length dispersion by raw material.", echo=FALSE}
+```{r elongdisp1LP, fig.cap="Lapa do Picareiro - U/Lower T. Elongated product width and length dispersion by raw material.", echo=FALSE, fig.align= 'center', out.width = '80%'}
 
 elongATlp <- datasetlp %>% 
   filter(BlankType=="ElongatedProd")
@@ -1582,7 +1600,9 @@ ggMarginal(disp_1_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
 
 ```
 
-```{r elongdisp2LP,fig.cap="Lapa do Picareiro - Middle T. Elongated product width and length dispersion by raw material.", echo=FALSE}
+\newpage
+
+```{r elongdisp2LP,fig.cap="Lapa do Picareiro - Middle T. Elongated product width and length dispersion by raw material.", echo=FALSE, fig.align= 'center', out.width = '80%', fig.pos="H"}
 
 elongAT2lp <- elongATlp %>% 
   filter(Phase=="Middle T")
@@ -1605,6 +1625,8 @@ ggMarginal(disp_2_LP, type = "density", groupColour = TRUE, groupFill = TRUE)
 
 ```
 
+\  
+
 ```{r fisherelongLP1, echo = FALSE, warning=FALSE, message=FALSE}
 
 elong_groups_LP1 <- elongATlp %>% 
@@ -1613,7 +1635,7 @@ elong_groups_LP1 <- elongATlp %>%
   filter(RawMaterial == "Chert" & Phase == "U/Lower T")
 
 
-elong_test_LP2 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "BlankShape", 
+elong_test_LP1 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
                                                          "PlatformType", 
                                                          "PlatformCortex","Cortex", "ScarCount",
@@ -1627,22 +1649,29 @@ elong_test_LP2 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "B
                         bold.colnames = TRUE,
                         overall.column = FALSE,
                         variable.colname = "Attributes")
+elong_test_LP1 <- as.data.frame(elong_test_LP1)
+elong_test_LP1 <- elong_test_LP1 %>% 
+  filter(Attributes %in% c("CrossSection, n (%)", "BlankShape, n (%)", "2	Profile, n (%)", "BlankTip, n (%)", "PlatformType, n (%)",
+                           "PlatformCortex, n (%)", "Cortex, n (%)", "ScarCount, n (%)", "ScarPattern, n (%)"))
+elong_test_LP1 <- elong_test_LP1 %>% 
+  select(1,4)
 
 
-knitr::kable(elong_test_LP2, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+knitr::kable(elong_test_LP1, booktabs = TRUE, longtable = TRUE, caption = "Lapa do Picareiro - U/Lower T. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
+  row_spec(1, bold = T) %>%
+  kable_styling(position = "center", font_size = 9, latex_options = "hold_position")
 
 ```
-
 
 ```{r fisherelongLP2, echo = FALSE, warning=FALSE, message=FALSE}
 
 elong_groups_LP2 <- elongATlp %>% 
+   mutate(elong_group = case_when(MedWidth < 12.5 ~ "Bladelet",
+                                  MedWidth >= 12.5 ~ "Blade")) %>%
   filter(RawMaterial == "Chert" & Phase == "Middle T")
 
 
-elong_test_LP2 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "BlankShape", 
+elong_test_LP2 <- tabmulti(elong_groups_LP2, "elong_group", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
                                                          "PlatformType", 
                                                          "PlatformCortex", "Cortex", "ScarCount",
@@ -1657,30 +1686,36 @@ elong_test_LP2 <- tabmulti(elong_groups_LP1, "elong_group", c("CrossSection", "B
                         overall.column = FALSE,
                         variable.colname = "Attributes")
 
+elong_test_LP2 <- as.data.frame(elong_test_LP2)
+elong_test_LP2 <- elong_test_LP2 %>% 
+  filter(Attributes %in% c("CrossSection, n (%)", "BlankShape, n (%)", "2	Profile, n (%)", "BlankTip, n (%)", "PlatformType, n (%)",
+                           "PlatformCortex, n (%)", "Cortex, n (%)", "ScarCount, n (%)", "ScarPattern, n (%)"))
+elong_test_LP2 <- elong_test_LP2 %>% 
+  select(1,4)
+
 knitr::kable(elong_test_LP2, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - Middle T. Results of Fisher exact tests to evaluate whether the distribution of technological variables differed across metric groups (blades and bladelets) of chert elongated artifacts.") %>% 
-  row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center")
+  row_spec(1, bold = T) %>% 
+  kable_styling(position = "center", font_size = 9, latex_options = "hold_position")
 
 ```
-
 
 ### Retouched tools
 
 #### Vale Boi
-As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the Lower 5 group (table \@ref(tab:general1)), while 112 in the Upper 5/4E group (table \@ref(tab:general2)).
+
+As seen before, retouched pieces make up a small percentage of the assemblage, with 167 identified pieces, from which 55 can be inserted in the Lower 5 group (Table \@ref(tab:general1)), while 112 in the Upper 5/4E group (Table \@ref(tab:general2)).
 
 Lower 5 is comprised of several types, from which a few stand out by their high numbers, such as retouched flakes, corresponding to c. 27% of all retouched pieces, splintered pieces, with c. 25% of representativity, followed by notches with a frequency of 12.7%, the latter two occurring in similar numbers in chert (n=6 and n=4, respectively) and quartz (n=8 and n=3) (Table \@ref(tab:retouchVB1)).
 
 There is also the presence of endscrapers (c. 10%) and burins (c. 7%), mostly on chert.
 
-For Upper 5/4E, splintered pieces are still very frequent (c. 24%), in both chert and quartz, followed by endscrapers, which represent c. 22% of the total retouched pieces assemblage. Most of the endscapers are chert, although it may be relevant to point out that two of them are made of dolerite. Notches are, once again, the third most frequent retouched typology, representing c. 12%. Every other retouched tool type has frequencies under 10% (Table \@ref(retouchVB2)).
+For Upper 5/4E, splintered pieces are still very frequent (c. 24%), in both chert and quartz, followed by endscrapers, which represent c. 22% of the total retouched pieces assemblage. Most of the endscapers are chert, although it may be relevant to point out that two of them are made of dolerite. Notches are, once again, the third most frequent retouched typology, representing c. 12%. Every other retouched tool type has frequencies under 10% (Table \@ref(tab:retouchVB2)).
 
 Upper 5/4E thus shows not only a more significant number of retouched pieces, which might be the result of a more intensive occupation or series of occupations but also a wider variety of types, probably as a result of a more diverse set of activities occurring at the site. While Lower 5 shows 11 different retouched piece types, Upper 5/4E shows 15 types, introducing six new different types.
 
-One of these newly introduced retouched types is the Vale Comprido point, although only representing c. 5% of retouched pieces for Upper 5/4E. As mentioned before, Vale Comprido points have been identified as a Proto-Solutrean only technological solution, which may appear during the Proto-Solutrean in the Two-phase model, or during either the Terminal Gravettian or Proto-Solutrean in the Three-phase model. Thus, its presence in Upper 5/4E not only conforms to the data already presented for the Portuguese Estremadura (Zilhão 1997), and it further strengthens the separation of the two defined phases as two discrete temporal and cultural occupation horizons.
+One of these newly introduced retouched types is the Vale Comprido point, although only representing c. 5% of retouched pieces for Upper 5/4E. As mentioned before, Vale Comprido points have been identified as a Proto-Solutrean only technological solution, which seems to appear during the Proto-Solutrean in the Two-phase and Three-phase model. Thus, its presence in Upper 5/4E not only conforms to the data already presented for the Portuguese Estremadura (Zilhão 1997), and it further strengthens the separation of the two defined phases as two discrete temporal and cultural occupation horizons.
 
 The analyzed Vale Comprido points have been identified in chert (n=1), greywacke (n=1), dolerite (n=3) and chalcedony (n=1, which makes up 100% of retouched pieces made in this raw material). In fact, dolerite had already been identified as a preferred means for making these products (Marreiros 2009), a fact only strengthened by the fact this raw material has more Vale Comprido points than any other and only appears in one other typology: endscrapers. Comparatively, dolerite does not seem to be used for the production of any retouched piece in Lower 5.
-
 
 ```{r retouchVB1, echo=FALSE}
 
@@ -1688,7 +1723,7 @@ retouch1 <- dataset %>%
   filter(Class == "RetouchedPiece") %>%
   filter(Phase=="Lower 5") %>% 
   select(RawMaterial, RetouchedPieceTypology) %>% 
-  group_by(RawMaterial)
+  dplyr::group_by(RawMaterial)
 
 retouch_table1 <- table(retouch1$RetouchedPieceTypology, retouch1$RawMaterial)
 retouch_table1 <- as.data.frame.matrix(retouch_table1)
@@ -1715,10 +1750,13 @@ retouch_table1 <- retouch_table1 %>%
   as_tibble() %>% 
   slice(match(retouched_order, Typology))
 
-knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Lower 5 retouched piece typology by raw material.") %>% 
+knitr::kable(head(retouch_table1[1:11], 13), booktabs=TRUE, caption = "Vale Boi - Lower 5. Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>%
-  kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
+  kable_styling(font_size = 9, latex_options = "scale_down") %>%
+  column_spec(2:5, width = "1cm") %>% 
+  column_spec(6:9, width = "2cm") %>% 
+  column_spec(10:11, width = "1cm") %>% 
+  landscape()
 
 ```
 
@@ -1728,7 +1766,7 @@ retouch2 <- dataset %>%
   filter(Class == "RetouchedPiece") %>%
   filter(Phase=="Upper 5/4E") %>% 
   select(RawMaterial, RetouchedPieceTypology) %>% 
-  group_by(RawMaterial)
+  dplyr::group_by(RawMaterial)
 
 retouch_table2 <- table(retouch2$RetouchedPieceTypology, retouch2$RawMaterial)
 retouch_table2 <- as.data.frame.matrix(retouch_table2)
@@ -1756,22 +1794,31 @@ retouch_table2 <- retouch_table2 %>%
   as_tibble() %>% 
   slice(match(retouched_order2, Typology))
 
-knitr::kable(retouch_table2, booktabs=TRUE, caption = "Upper 5/4E Retouched piece typology by raw material.") %>% 
+knitr::kable(retouch_table2, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E. Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(latex_options = "scale_down") %>%
-  kableExtra::landscape()
+  kable_styling(font_size = 9, latex_options = "scale_down") %>% 
+  column_spec(2:5, width = "1cm") %>% 
+  column_spec(6:7, width = "2cm") %>% 
+  column_spec(8:9, width = "1.5cm") %>% 
+  column_spec(10:11, width = "2cm") %>% 
+  column_spec(12:13, width = "1cm") %>% 
+  landscape()
 
 ```
 
+\newpage
 
 #### Lapa do Picareiro
-The total number of retouched pieces from Lapa do Picareiro with spatial information, allowing the identification of phase is 11, of which six belong to the U/Lower T group and five to the Middle T group.
 
-The analysis of retouched pieces at Lapa do Picareiro is, however, possibly truncated by the edge damage of the assemblage. In all levels, many pieces, both quartz, and chert, although in larger quantities in the latter, show variable degrees of edge damage, from light to extensive (Figure XXX). Although some edges were damaged by either trampling or impact of clasts coming from roof collapsing, since there was no homogeneity in its distribution or directionality, some other edges show dubious marks. As such, the present study opted for a more reserved approach regarding the classification of retouch, understanding the caveats of the decision. Thus, retouched pieces, especially the retouched flakes, were only identified as such whenever they displayed homogeneous, localized and unidirectional retouch, which could not be mistaken for edge damage.
+The total number of retouched pieces from Lapa do Picareiro with spatial information, allowing the identification of phase is 11, of which 6 belong to the U/Lower T group and 5 to the Middle T group.
 
-As seen in Table \@ref(tab_retouchLP1), the U/Lower T shows four types of retouched piece types, the most present being the retouched flakes (n=3) all in chert, and the only quartz retouched piece is a splintered piece. From the retouched flakes, one shows similarities with a Vale Comprido point, although the use of platform/dorsal retouch to thin the proximal end is questionable (Figure XXX).
+The analysis of retouched pieces at Lapa do Picareiro is, however, possibly truncated by the edge damage of the assemblage. In all levels, many pieces, both quartz, and chert, although in larger quantities in the latter, show variable degrees of edge damage, from light to extensive. Although some edges were damaged by either trampling or impact of clasts coming from roof collapsing, since there was no homogeneity in its distribution or directionality, some other edges show dubious marks. As such, the present study opted for a more reserved approach regarding the classification of retouch, understanding the caveats of the decision. Thus, retouched pieces, especially the retouched flakes, were only identified as such whenever they displayed homogeneous, localized and unidirectional retouch, which could not be mistaken for edge damage.
 
-For the Middle T group (Table \@ref(retouchLP2)), there is a smaller variety of retouched pieces, all in chert: a notch, two retouched flakes, one truncation, and possibly a Vale Comprido point.
+As seen in Table \@ref(tab:retouchLP1), the U/Lower T shows four types of retouched piece types, the most present being the retouched flakes (n=3) all in chert, and the only quartz retouched piece is a splintered piece.
+
+For the Middle T group (Table \@ref(tab:retouchLP2)), there is a smaller variety of retouched pieces, all in chert: a notch, two retouched flakes, one truncation, and possibly a Vale Comprido point, although the thinning retouch at the platform questionable.
+
+\  
 
 ```{r retouchLP1, echo=FALSE}
 
@@ -1779,7 +1826,7 @@ retouch1lp <- datasetlp %>%
   filter(Class == "RetouchedPiece") %>%
   filter(Phase=="U/Lower T") %>% 
   select(RawMaterial, RetouchedPieceTypology) %>% 
-  group_by(RawMaterial)
+  dplyr::group_by(RawMaterial)
 
 
 retouch_table1lp <- table(retouch1lp$RetouchedPieceTypology, retouch1lp$RawMaterial)
@@ -1804,9 +1851,9 @@ retouch_table1lp <- retouch_table1lp %>%
   slice(match(retouched_order3, Typology))
 
 
-knitr::kable(retouch_table1lp, booktabs=TRUE, caption = "U/Lower T retouched piece typology by raw material.") %>% 
+knitr::kable(retouch_table1lp, booktabs=TRUE, caption = "Lapa do Picareiro - U/Lower T. Retouched piece typology by raw material.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(latex_options = "scale_down")
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
@@ -1816,7 +1863,7 @@ retouch2lp <- datasetlp %>%
   filter(Class == "RetouchedPiece") %>%
   filter(Phase=="Middle T") %>% 
   select(RawMaterial, RetouchedPieceTypology) %>% 
-  group_by(RawMaterial)
+  dplyr::group_by(RawMaterial)
 
 retouch_table2lp <- table(retouch2lp$RetouchedPieceTypology, retouch2lp$RawMaterial)
 retouch_table2lp <- as.data.frame.matrix(retouch_table2lp)
@@ -1836,14 +1883,13 @@ retouch_table2lp <- retouch_table2lp %>%
   as_tibble() %>% 
   slice(match(retouched_order4, Typology))
 
-knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Upper 5/4E Retouched piece typology by raw material.") %>% 
-  row_spec(0, bold = T, align = "c")
+knitr::kable(retouch_table2lp, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T. Retouched piece typology by raw material.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
 
 ```
 
-
 ### Vale Comprido technology
-
 ```{r VC_setup, include=FALSE}
 # Read df
 VCdb <- read_csv("data/ValeComprido_table.csv") #Vale comprido points and blanks db
@@ -1894,47 +1940,27 @@ VCdb <- VCdb %>%
 
 Throughout the analysis, some blanks, both in Vale Boi and Lapa do Picareiro, have been identified possibly as the result of Vale Comprido technology. These types of blanks have been identified in the Estremadura, as part of a specific reduction sequence with the end goal of producing convergent elongated flakes or blades, often characterized by plain platforms and unidirectional dorsal patterns (Zilhão 1997).
 
-Values referring to Vale Comprido points in Vale Boi include not only the points from units H, I and J from the Terrace. For this part of the study, all Vale Comprido points found in Vale Boi were analysed.
+Values referring to Vale Comprido points in Vale Boi include not only the points from units H, I and J from the Terrace. For this part of the study, all Vale Comprido points found in Vale Boi were analysed (Figures \@ref(fig:vct) and \@ref(fig:vct2)).
 
-In Vale Boi (table \@ref(tab:VCvb), these blanks seem to be equally flakes and blades (50%), a pattern closely followed by the points (46.7% elongated blanks and 53.3% flakes). Blank attributes seem relatively similar, with high frequencies of straight profiles (66.7%), triangular cross sections (66.7%) and plain platforms (83.3%). Regarding shape, Vale Boi shows equal percentages of convergent and parallel shapes. The points show similar patterns, with differences in blank shape with 86.7% of convergent shapes, and cross section with 53.3% of trapezoidal types and 46.7% of triangular types.
+In Vale Boi (Table \@ref(tab:VCvb), these blanks seem to be equally flakes and blades (50%), a pattern closely followed by the points (46.7% elongated blanks and 53.3% flakes). Blank attributes seem relatively similar, with high frequencies of straight profiles (66.7%), triangular cross sections (66.7%) and plain platforms (83.3%). Regarding shape, Vale Boi shows equal percentages of convergent and parallel shapes. The points show similar patterns, with differences in blank shape with 86.7% of convergent shapes, and cross section with 53.3% of trapezoidal types and 46.7% of triangular types.
 
-Lapa do Picareiro blanks (table \@ref(tab:vclpAT)) which have similarities to Vale Comprido technology show the same patterns as Vale Boi, without with less variability. As such, blanks are all elongated products, with straight profiles and plain platforms. Regarding shape, 40% are convergent and 60% parallel. The majority of these pieces have triangular cross sections (80%) with 1 trapezoidal cross section.
+Lapa do Picareiro blanks (Figure \@ref(fig:lpblades)) which have similarities to Vale Comprido technology show the same patterns as Vale Boi, without with less variability (Table \@ref(tab:VClpAT)). As such, blanks are all elongated products, with straight profiles and plain platforms. Regarding shape, 40% are convergent and 60% parallel. The majority of these pieces have triangular cross sections (80%) with 1 trapezoidal cross section.
 
-Regarding measurements, Vale Boi (both blanks and points, table \@ref(tab:VCvb) and Lapa do Picareiro (table \@ref(tab:VClpmean)) seem to show fairly similar results, where the only relevantly differing values seem to be the length, flattening (mesial width / thickness) and platform flattening (platform width / platform thickness).
+Regarding measurements, Vale Boi (both blanks and points, Table \@ref(tab:VCvb) and Lapa do Picareiro, Table \@ref(tab:VClpmean)) seem to show fairly similar results, where the only relevantly differing values seem to be the length, flattening (mesial width/thickness) and platform flattening (platform width/platform thickness).
 
-Although length for Vale Boi shows high standard deviation values, it seems that blanks have smaller lengths compared to both points and Lapa do Picareiro. From these, Lapa do Picareiro shows the highest values for length (5.20 mm).
+Although length for Vale Boi shows high standard deviation values, it seems that blanks have smaller lengths compared to both points and Lapa do Picareiro blanks. From these, Lapa do Picareiro shows the highest values for length (5.20 mm).
 
-The same seems to happen for flattening, where Lapa do Picareiro has a flattening ratio of nearly 4, comparared to Vale Boi's points (3.05) and blanks (3.77 although having high sd values). Platform flattening is also higher for Lapa do Picareiro (2.85).
+The same seems to happen for flattening, where Lapa do Picareiro has a flattening ratio of nearly 4, comparared to Vale Boi's points (3.05) and blanks (3.77 although having high standard deviation values). Platform flattening is also higher for Lapa do Picareiro (2.85).
 
+\  
 
-```{r VCvb, echo = FALSE}
+```{r VClpAT, echo = FALSE}
 
-## VB VC blanks
 VCblanks_vb <- VCdb %>% 
   filter(RawMaterial %in% c("Chert", "Dolerite"))
 
 VCblanks_lp <- VCdb %>% 
   filter(Site == "LP") 
-
-VC_blanks_tabVB <- tabmulti(VCblanks_vb, "Class", c("BlankType", "BlankShape", 
-                                                           "Profile", "CrossSection",
-                                                           "PlatformType", "WidthCM", "LengthCM","FlatteningCM","PlatformWidthCM","PlatformThicknessCM","PlatformFlatteningCM", "PlatformArea"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","mean","mean","mean","mean","mean", "mean", "mean"),
-                        p.include = FALSE,
-                        n.headings = FALSE,
-                        bold.varnames = TRUE,
-                        bold.colnames = TRUE,
-                        variable.colname = "Attributes")
-VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
-VC_blanks_tabVB<- VC_blanks_tabVB %>% 
-  select(Attributes, Blank, RetouchedPiece, Overall) %>% 
-  dplyr::rename("Points" = "RetouchedPiece")
-
-knitr::kable(VC_blanks_tabVB, booktabs=TRUE, caption = "Vale Comprido blank attributes and measurement means from Vale Boi by raw material.") %>% 
-  row_spec(0, bold = T, align = "c")
-```
-
-```{r VClpAT, echo = FALSE}
 
 ## LP VC blanks (attributes)
 
@@ -1945,11 +1971,13 @@ VC_attributesLP <- rbind(tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$Bl
                       tabfreq(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$PlatformType))
 VC_attributesLP <- as.data.frame(VC_attributesLP)
 VC_attributesLP <- VC_attributesLP %>% 
-  dplyr::rename("Vale Comprido-like technology n (%)" = "n (%)")
+  dplyr::rename("Blank technology n (%)" = "n (%)")
 
 
-knitr::kable(VC_attributesLP, booktabs=TRUE, caption = "Vale Comprido-like chert blank attributes from Lapa do Picareiro") %>% 
-  row_spec(0, bold = T, align = "c")
+knitr::kable(VC_attributesLP, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T. Technological attributes from blanks with similarities to Vale Comprido technology.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
+
 ```
 
 ```{r VClpmean, echo = FALSE}
@@ -1965,9 +1993,51 @@ meansLP <- rbind( tabmeans(x = VCblanks_lp$RawMaterial, y = VCblanks_lp$WidthCM,
 meansLP <- as.data.frame(meansLP)
 meansLP <- meansLP %>% 
   select(-"Overall (n = 5)") %>% 
-  dplyr::rename("Vale Comprido-like technology (n=5)" = "Chert (n = 5)")
+  dplyr::rename("Blank technology (n=5)" = "Chert (n = 5)")
 
-knitr::kable(meansLP, booktabs=TRUE, caption = "Vale Comprido-like chert blank measurement means from Lapa do Picareiro") %>% 
-  row_spec(0, bold = T, align = "c")
+knitr::kable(meansLP, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T. Mean and standard deviation for measurements from blanks with similarities to Vale Comprido technology.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
+
+```
+
+```{r VCvb, echo = FALSE}
+
+VC_blanks_tabVB <- tabmulti(VCblanks_vb, "Class", c("BlankType", "BlankShape", 
+                                                           "Profile", "CrossSection",
+                                                           "PlatformType", "WidthCM", "LengthCM","FlatteningCM","PlatformWidthCM","PlatformThicknessCM","PlatformFlatteningCM", "PlatformArea"),
+                        ymeasures = c("freq", "freq", "freq", "freq","freq","mean","mean","mean","mean","mean", "mean", "mean"),
+                        p.include = FALSE,
+                        n.headings = FALSE,
+                        bold.varnames = TRUE,
+                        bold.colnames = TRUE,
+                        variable.colname = "Attributes")
+VC_blanks_tabVB <- as.data.frame(VC_blanks_tabVB)
+VC_blanks_tabVB<- VC_blanks_tabVB %>% 
+  select(Attributes, Blank, RetouchedPiece, Overall) %>% 
+  dplyr::rename("Points" = "RetouchedPiece")
+
+knitr::kable(VC_blanks_tabVB, booktabs=TRUE, caption = "Vale Boi - Upper 5/4E. Vale Comprido blank and points attributes and measurement means by raw material.") %>% 
+  row_spec(0, bold = T, align = "c") %>% 
+  kable_styling(font_size = 9, latex_options = "hold_position")
+
+```
+
+```{r vct, fig.cap="Vale Boi - Vale Comprido points in dolerite, chert and chalcedony.", out.width = '70%', fig.align='center', echo=FALSE}
+
+knitr::include_graphics("figure/prancha_vct.jpg")
+
+```
+
+```{r vct2, fig.cap="Vale Boi - Vale Comprido points in dolerite.", out.width = '70%', fig.align='center', echo=FALSE}
+
+knitr::include_graphics("figure/prancha_vct2.jpg")
+
+```
+
+```{r lpblades, fig.cap="Lapa do Picareiro - Middle T - Chert blades with similarities to Vale Comprido technology.", out.width = '60%', fig.align='center', echo=FALSE}
+
+knitr::include_graphics("figure/prancha_blades.jpg")
+
 ```
 

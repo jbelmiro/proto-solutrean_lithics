@@ -1,12 +1,12 @@
 # Introduction
 
-The replacement of the Gravettian technocomplex by the Solutrean, impacted by adverse climatic conditions during the Heinrich Event 2 (HE2), continues to be an essential topic for understanding the Upper Paleolithic and Human adaptations to climatic changes. The Proto-Solutrean is, in this topic, an essential piece to understand how hunter-gatherer communities adapted, reinvented and destroyed their social and technologic organization which eventually allowed the development of the Solutrean. However, most of what is known for this technocomplex is still geographically constricted and lacking good chronological markers [@cascalheiraandbicho2013], which hampers the understanding of the Proto-Solutrean itself and its role in the Gravettian-Solutrean transition.
+The replacement of the gravettian technocomplex by the Solutrean, impacted by adverse climatic conditions during the Heinrich Event 2 (HE2), continues to be an essential topic to understand the Upper Paleolithic and Human adaptations to climatic changes. The Proto-Solutrean is, in this topic, an essential piece to understand how hunter-gatherer communities adapted, reinvented and destroyed their social and technologic organization which eventually allowed the development of the Solutrean. However, most of what is known for this technocomplex is still geographically constricted and lacking good chronological markers [@cascalheiraandbicho2013], which hampers the understanding of the Proto-Solutrean itself and its role in the Gravettian-Solutrean transition.
 
-By understanding the need to better comprehend the Proto-Solutrean and how adverse climate impacted these communities, this study aims to answer the following question: what impact did the HE 2 have on the technological organization of human communities, at the onset of the last glacial maximum, in south western Iberia? To do so, this study will analyse the lithic terminal gravettian/proto-solutrean assemblages of two recently excavated sites with resource to total stations, Vale Boi (south of Portugal) and Lapa do Picareiro (central Portugal).
+By understanding the need to better comprehend the Proto-Solutrean and how adverse climate impacted these communities, this study aims to answer the following question: what impact did the HE 2 have on the technological organization of human communities, at the onset of the Last Glacial Maximum (LGM), in south western Iberia? To do so, this study will analyse the lithic terminal gravettian/proto-solutrean assemblages of two recently excavated sites, with resource to total stations, Vale Boi (south of Portugal) and Lapa do Picareiro (central Portugal).
 
 To answer this question, we aim to accomplish the following goals:
 
-* Understand the technological organization of layers 5/4E of Vale Boi and U to Middle T from Lapa do Picareiro, by characterizing their technological patterns, reduction sequences and raw material use/preference patterns. The results will then be compared with the existing data from other proto-solutrean assemblages, mostly from the Estremadura Portuguesa.
+* Understand the technological organization of layers 5/4E of Vale Boi and U to Middle T from Lapa do Picareiro, by characterizing their technological patterns, reduction sequences and raw material use/preference patterns. The results will then be compared with the existing data from other proto-solutrean assemblages, mostly from the Portuguese Estremadura.
 
 * Identify possible terminal gravettian horizons or facies within the proto-solutrean occupations in Vale Boi and Lapa do Picareiro and their chronologies.
 
@@ -24,6 +24,6 @@ The present thesis is organized in 7 chapters:
 
 * Chapter 5 which will consist on the description of the results obtained through the analysis of the assemblages from Vale Boi and Lapa do Picareiro, respectively. This will be organized by assemblage description, raw materials and technology.
 
-* Chapter 6 will focus on the discussion of the results presented in the previous chapter, comparing them to other results from proto-solutrean assemblages, mostly from the Portuguese Estremadura. In this chapter we will also discuss problematics which relate to the goals abovementioned.
+* Chapter 6 will focus on the discussion of the results presented in the previous chapter, comparing them to other results from proto-solutrean assemblages, mostly from the Portuguese Estremadura. In this chapter we will also discuss problematics which relate to the goals aforementioned.
 
 * Chapter 9 will consist of this study’s conclusions, systematizing the analysis interpretations and discussion.
