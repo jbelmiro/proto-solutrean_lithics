@@ -139,7 +139,7 @@ One of the main differences between the models aforementioned is connected to th
 
 However, in the last decades, the Three-Phase model has been the most accepted, and the Terminal Gravettian phase is nowadays well-characterized technologically in Estremadura as a moment of chronological significance [@almeida2000], even if from a chronographic perspective, it lacks irrefutable evidence as shown by Cascalheira and Bicho [-@cascalheiraandbicho2013], for which the authors present two causes: most available radiocarbon dates, spreading through the entire HE 2 and covering the proto-solutrean’s time-span come from sites with assemblages which are attributed to the Terminal Gravettian (with the exception of Vale Boi and possibly Lapa do Picareiro); absolute ages of sites with a strong Vale Comprido component remain unknown.
 
-Although this has been explained by some authors, for example @aubryetal2011 and @zilhao2013Aubry, as the result of strong erosive processes affecting the archaeological sites during the HE 2, other authors [@haws2012] fail to recognize such an extensive erosion.
+Although this has been explained by some authors, [*e.g.* @aubryetal2011 and @zilhao2013], as the result of strong erosive processes affecting the archaeological sites during the HE 2, other authors [@haws2012] fail to recognize such an extensive erosion.
 
 Regardless of what model is accepted, the Proto-Solutrean, from the beginning of its transitional stage, stands as a technocomplex with technological innovations. These are reflected in the manufacture of Vale Comprido points and a complete operative sequence for their production, but marked by a high degree of technological variability in their lithic assemblages [@almeida2000; @zilhao1997; @zilhaoetal1999].
 
