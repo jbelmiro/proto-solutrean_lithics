@@ -46,7 +46,7 @@ resumo: |
 # Specify the location of the bibliography below
 bibliography: bib/thesis.bib
 # Download your specific csl file and refer to it in the line below.
-csl: csl/journal-of-human-evolution.csl
+csl: csl/cambridge-archaeological-journal.csl
 lot: true
 lof: true
 # If you prefer blank lines between paragraphs, un-silence lines  40-41 (this requires package tikz)
