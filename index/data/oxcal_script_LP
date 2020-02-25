@@ -1,0 +1,95 @@
+ Plot()
+ {
+  Sequence()
+  {
+   Boundary();
+   Phase()
+   {
+    R_Date("JJ", 40100, 1200);
+    R_Date("JJ", 41480, 220);
+   };
+   Boundary();
+   Phase()
+   {
+    R_Date("GG", 32060, 340);
+   };
+   Boundary();
+   Phase()
+   {
+    R_Date("FF", 32200, 90);
+    R_Date("FF", 33240, 420);
+    R_Date("FF", 28610, 300);
+    R_Date("FF", 33000, 260);
+    R_Date("FF", 27720, 260);
+   };
+   Boundary();
+   Phase()
+   {
+    R_Date("BB", 30030, 210);
+   };
+   Boundary();
+   Phase()
+   {
+    R_Date("Z", 29050, 220);
+    R_Date("Z", 28160, 330);
+    R_Date("Y", 28430, 210);
+    R_Date("X", 27230, 80);
+    R_Date("W", 26510, 270);
+    R_Date("V", 25580, 170);
+   };
+   Boundary();
+   Phase("Level U")
+   {
+    R_Date("Beta-234374e",22590, 110);
+    R_Date("Beta-208222e", 22660, 240);
+    R_Date("Beta-234373e", 22560, 110);
+   };
+   Boundary();
+   Phase("Level T")
+   {
+    R_Date("UGAMS-23722", 20630, 60);
+    R_Date("Wk-37656", 23100, 130);
+    R_Date("UGAMS-23721", 20710, 60);
+    R_Date("Beta-208221e", 20240, 110);
+    R_Date("Beta-229781e", 20700, 100);
+    R_Date("UGAMS-23727", 19530, 50);
+    R_Date("UGAMS-23726", 20530, 50);
+    R_Date("UGAMS-23718", 20240, 50);
+    R_Date("UGAMS-23725",20320, 50);
+    R_Date("Wk-37655c", 18960, 80);
+   };
+   Boundary();
+   Phase()
+   {
+    R_Date("S", 19290, 80);
+    R_Date("S", 18930, 50);
+    R_Date("R", 19100, 70);
+    R_Date("R", 19090, 50);
+    R_Date("O", 17480, 100);
+    R_Date("O", 16280, 40);
+    R_Date("O", 17570, 50);
+    R_Date("N", 16390, 110);
+    R_Date("L", 15680, 40);
+    R_Date("K", 15040, 90);
+    R_Date("J", 11880, 80);
+    R_Date("J", 10490, 110);
+    R_Date("J", 12120, 70);
+    R_Date("F", 12500, 160);
+    R_Date("F", 11780, 90);
+    R_Date("F", 12210, 100);
+    R_Date("F", 11760, 30);
+    R_Date("F", 12260, 30);
+    R_Date("E", 10070, 80);
+    R_Date("E", 11700, 120);
+    R_Date("E", 11550, 120);
+   };
+   Boundary();
+   Phase()
+   {
+    R_Date("D", 8310, 130);
+    R_Date("B", 8700, 30);
+    R_Date("B", 8500, 30);
+   };
+   Boundary();
+  };
+ };

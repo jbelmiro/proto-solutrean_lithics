@@ -1,0 +1,66 @@
+ Plot()
+ {
+  Sequence()
+  {
+   Boundary("1");
+   Phase("Gravettian Level 8")
+   {
+    Curve("Marine13","Marine13.14c");
+    Delta_R("LocalMarine",265,107);
+    R_Date("", 27349, 172);
+   };
+   Boundary("1/2");
+   Phase("Gravettian Level 7")
+   {
+    Curve("Marine13","Marine13.14c");
+    Delta_R("LocalMarine",265,107);
+    R_Date("", 26403, 149);
+   };
+   Boundary("2");
+   Phase("Level 5 bottom")
+   {
+    Curve("Marine13","Marine13.14c");
+    Delta_R("LocalMarine",265,107);
+    R_Date("Wk-44416", 22358, 80);
+   };
+   Boundary("3");
+   Phase("Level 5 upper")
+   {
+    Curve("IntCal13","IntCal13.14c");
+    R_Date("Wk-42830", 20818, 107);
+    Curve("Marine13","Marine13.14c");
+    Delta_R("LocalMarine",265,107);
+    R_Date("Wk-42831", 20329, 90);
+   };
+   Boundary("4");
+   Phase("Level 4")
+   {
+    Curve("Marine13","Marine13.14c");
+    Delta_R("LocalMarine",265,107);
+    R_Date("", 20554, 75);
+   };
+   Boundary("5");
+   Phase("Epipaleolithic")
+   {
+    Curve("IntCal13","IntCal13.14c");
+    R_Date("3", 8696, 54);
+    R_Date("3", 8749, 58);
+    R_Date("3", 8825, 57);
+    R_Date("3", 8886, 30);
+   };
+   Boundary("6");
+   Phase("Mesolithic")
+   {
+    R_Date("2", 7500, 90);
+   };
+   Boundary("7");
+   Phase("Neolithic")
+   {
+    R_Date("2", 6018, 34);
+    R_Date("2", 6036, 39);
+    R_Date("2", 6042, 34);
+    R_Date("2", 6095, 40);
+   };
+   Boundary("7");
+  };
+ };
