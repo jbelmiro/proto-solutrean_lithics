@@ -31,21 +31,22 @@ library(float)
 library(janitor)
 ```
 
-```{r lpstrat, echo=FALSE}
+```{r lpstrat, echo=FALSE, message=FALSE, warning=FALSE}
 
 lp_strat <- read_csv("data/lp_strat.csv")
 
 lp_strat <- lp_strat %>% 
   mutate_if(is.numeric , replace_na, replace = " ")
 
-knitr::kable(head(lp_strat [1:6], 35),  booktabs = TRUE, caption = "Lapa do Picareiro identified layers with sediment description and associated cultural horizons, whenever existent. After Benedetti et al. (2019).") %>% 
+knitr::kable(head(lp_strat [1:6], 35),  booktabs = TRUE, longtable = TRUE, caption = "Lapa do Picareiro identified layers with sediment description and associated cultural horizons, whenever existent. After Benedetti et al. (2019).") %>% 
   column_spec(1, bold = T, width = "1cm") %>%
   column_spec(2, width = "1cm") %>% 
   column_spec(3, width = "2cm") %>% 
   column_spec(4, width = "3cm") %>% 
   column_spec(5, width = "8cm") %>% 
   column_spec(6, width = "3cm") %>% 
-  kable_styling(latex_options = c("scale_down"), font_size = 9)
+  kable_styling(latex_options = c("repeat_header"), font_size = 9) %>% 
+  landscape()
   
 ```
 
@@ -95,7 +96,7 @@ RMtable <- tibble("Chert Type" = c("RM1", "RM2", "RM3", "RM4", "RM5", "RM6", "RM
 ","Stripped-like ondulating pattern with several tonalities: 5YR 7/3, 8/3 (pink), 6/6 (reddish yellow), 7/1 (light gray), with certain areas with 7.5YR 7/8 (reddish yellow).
 "))
 
-knitr::kable(RMtable, booktabs=TRUE, caption = "Lapa do Picareiro. Identified chert types. Description is mostly based on colour patterns, following the Munsel manual of color chart (Munsel Color, 2010).") %>% 
+knitr::kable(RMtable, booktabs=TRUE, caption = "Lapa do Picareiro. Identified chert types. Description is mostly based on colour patterns, following the color charts in the Munsell Soil Color Book (Munsell Color).") %>% 
   column_spec(1, bold = T) %>% 
   column_spec(2, width = "10cm") %>% 
   kable_styling(font_size = 9, latex_options = "hold_position")
@@ -225,7 +226,7 @@ blank_tablep1 <- tabmulti(dataset = blanksAT1,
                           xvarname = "RawMaterial", 
                           yvarname = c("CrossSection", "BlankShape", "Profile",
                                        "BlankTip", "PlatformType", "PlatformCortex",
-                                       "ScarCount", "Cortex"),
+                                       "ScarCount", "ScarPattern", "Cortex"),
                           ymeasures = c("freq", "freq", "freq", "freq", 
                                         "freq", "freq", "freq", "freq", "freq"),
                           listwise.deletion = FALSE,
@@ -257,7 +258,7 @@ blank_tablep2 <- tabmulti(dataset = blanksAT2,
                           xvarname = "RawMaterial", 
                           yvarname = c("CrossSection", "BlankShape", "Profile",
                                        "BlankTip", "PlatformType", "PlatformCortex",
-                                       "ScarCount", "Cortex"),
+                                       "ScarCount", "ScarPattern", "Cortex"),
                           ymeasures = c("freq", "freq", "freq", "freq", 
                                         "freq", "freq", "freq", "freq", "freq"),
                           listwise.deletion = FALSE,
@@ -341,7 +342,7 @@ elong_tablep1 <- tabmulti(dataset = elongAT1,
                           xvarname = "RawMaterial", 
                           yvarname = c("CrossSection", "BlankShape", "Profile",
                                        "BlankTip", "PlatformType", "PlatformCortex",
-                                       "ScarCount", "Cortex"),
+                                       "ScarCount","ScarPattern", "Cortex"),
                           ymeasures = c("freq", "freq", "freq", "freq", 
                                         "freq", "freq", "freq", "freq", "freq"),
                           listwise.deletion = FALSE,
@@ -357,7 +358,7 @@ elong_tablep1<- elong_tablep1 %>%
 
 knitr::kable(elong_tablep1, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Lower 5 - elongated products attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", font_size = 9, latex_options = "repeat_header") %>% 
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position")) %>% 
   column_spec(1:6, width = "0.8cm")
 
 ```
@@ -374,7 +375,7 @@ elong_tablep2 <- tabmulti(dataset = elongAT2,
                           xvarname = "RawMaterial", 
                           yvarname = c("CrossSection", "BlankShape", "Profile",
                                        "BlankTip", "PlatformType", "PlatformCortex",
-                                       "ScarCount", "Cortex"),
+                                       "ScarCount","ScarPattern", "Cortex"),
                           ymeasures = c("freq", "freq", "freq", "freq", 
                                         "freq", "freq", "freq", "freq", "freq"),
                           listwise.deletion = FALSE,
@@ -389,7 +390,7 @@ elong_tablep2 <- elong_tablep2 %>%
 
 knitr::kable(elong_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Boi - Upper 5/4E - elongated products attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", font_size = 9, latex_options = "repeat_header") %>% 
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position")) %>% 
   column_spec(1:8, width = "0.8cm")
 
 ```
@@ -520,7 +521,7 @@ core_metp1lp <- core_metp1lp %>%
 
 knitr::kable(core_metp1lp, booktabs=TRUE, caption = "Lapa do Picareiro - U/Lower T - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", font_size = 9)
+  kable_styling(position = "center", font_size = 9, latex_options = "hold_position")
 
 ```
 
@@ -545,7 +546,7 @@ core_metp2lp <- core_metp2lp %>%
 
 knitr::kable(core_metp2lp, booktabs=TRUE, caption = "Lapa do Picareiro - Middle T - mean and standard deviation of core measurements (in mm).") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", font_size = 9)
+  kable_styling(position = "center", font_size = 9, latex_options = "hold_position")
 
 ```
 
@@ -564,7 +565,7 @@ flakes_tablep1lp <- tabmulti(dataset = flakesAT1lp,
                           xvarname = "RawMaterial", 
                           yvarname = c("CrossSection", "BlankShape", "Profile",
                                        "BlankTip", "PlatformType", "PlatformCortex",
-                                       "ScarCount", "Cortex"),
+                                       "ScarCount","ScarPattern", "Cortex"),
                           ymeasures = c("freq", "freq", "freq", "freq", 
                                         "freq", "freq", "freq", "freq", "freq"),
                           listwise.deletion = FALSE,
@@ -578,7 +579,7 @@ flakes_tablep1lp<- flakes_tablep1lp %>%
   select(Attributes, Quartz, Chert, Other, Total)
 
 
-knitr::kable(flakes_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - flake attributes frequencies.") %>% 
+knitr::kable(flakes_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - flake attributes frequencies.") %>%
   row_spec(0, bold = T, align = "c") %>% 
   kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 
@@ -596,7 +597,7 @@ flakes_tablep2lp <- tabmulti(dataset = flakesAT2lp,
                           xvarname = "RawMaterial", 
                           yvarname = c("CrossSection", "BlankShape", "Profile",
                                        "BlankTip", "PlatformType", "PlatformCortex",
-                                       "ScarCount", "Cortex"),
+                                       "ScarCount","ScarPattern", "Cortex"),
                           ymeasures = c("freq", "freq", "freq", "freq", 
                                         "freq", "freq", "freq", "freq", "freq"),
                           listwise.deletion = FALSE,
@@ -674,9 +675,9 @@ elong_tablep1lp <- tabmulti(elongAT1lp, "RawMaterial", c("CrossSection", "BlankS
                                                            "Profile", "BlankTip",
                                                          "PlatformType", 
                                                          "PlatformCortex","ScarCount",
-                                                         "ScarPattern"),
+                                                         "ScarPattern", "Cortex"),
                         ymeasures = c("freq", "freq", "freq",
-                                      "freq","freq","freq","freq","freq"),
+                                      "freq","freq","freq","freq","freq", "freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         listwise.deletion = FALSE,
@@ -702,9 +703,9 @@ knitr::kable(elong_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa 
 #Elongated attribute table (all variables, by all raw materials) - Upper 5/4E
 elong_tablep2lp <- tabmulti(elongAT2lp, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
-                                                           "PlatformType", "PlatformCortex", "PlatformWidth", "PlatformThickness",
-                                                           "ScarCount", "ScarPattern"),
-                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
+                                                           "PlatformType", "PlatformCortex",
+                                                           "ScarCount", "ScarPattern", "Cortex"),
+                        ymeasures = c("freq", "freq", "freq", "freq","freq","freq","freq","freq", "freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         listwise.deletion = FALSE,

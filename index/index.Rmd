@@ -8,7 +8,7 @@ advisor: 'João Cascalheira'
 #altadvisor: 'Your Other Advisor'
 department: 'Arqueologia'
 degree: 'Mestrado em Arqueologia'
-title: 'Proto-Solutrean lithic technology of Western Iberia: sites of Vale Boi and Lapa do Picareiro'
+title: 'Proto-Solutrean lithic technology of western Iberia: sites of Vale Boi and Lapa do Picareiro'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 

@@ -40,7 +40,7 @@ VCshape <- VC %>%
 
 # Discussion
 
-The primary goal of this study was to better understand the technological organization at the onset of the LGM in westermost Europe, when the climatic conditions became abruptly harsh due to the Heinrich Event 2 (HE 2). 
+The primary goal of this study was to better understand the technological organization at the onset of the LGM in westermost Europe, when the climatic conditions became abruptly harsh due to the HE 2. 
 
 To do so, assemblages from the archaeological sites of Vale Boi and Lapa do Picareiro, which had been previously attributed to the Gravettian-Solutrean transition, were described and characterized. Different scales of analysis are important to evaluate the techno-cultural dynamics at both sites. The current chapter first describes intra-site specific patterns, critically evaluating the differences and similarities between the chrono-cultural phases identified; it then presents a comparison of the general patterns emerging from both sites; and, finally, the results are integrated in what is already known for the Central Portugal, as an attempt of testing and improving the existing models.
 
@@ -54,7 +54,7 @@ The aforementioned differing frequencies between quartz and chert can also be id
 
 Like at Vale Boi, Lapa do Picareiro also shows similar technological patterns between groups, following the attributes already described: plain platforms, unidirectional strategies through prismatic cores, presence of a large frequency of bladelets, most of which are in quartz in U/Lower T. However, the presence of blades seems relatively stable in both groups, which might not be the result of production preferences or reduction sequences, but rather site functionality.
 
-Such aspects as the high exploitation of quartz and application of similar reduction strategies to both chert and quartz can be integrated in a perspective of cultural diversification and techno-economical intensification as suggested elsewhere [@cascalheiraandbicho2013]. For the Gravettian-Solutrean transition these patterns have been interpreted as preferences resulting from tradition, more than technical or economic reasons [@almeida2006]. This interpretation steams from the understanding that, for the Estremadura, there is not a lack of good quality chert [@zilhao1997] since, even during times when quartz was highly used, chert continued to frequently appear in the archaeological record as a preference for formal tool production [@almeida2006]. The same seems to apply for Vale Boi and Lapa do Picareiro, where the assemblages of both phases show the existence of fairly good quality chert, that was used to produce a great majority of the retouched tools.
+Such aspects as the high exploitation of quartz and application of similar reduction strategies to both chert and quartz can be integrated in a perspective of cultural diversification and techno-economical intensification as suggested elsewhere [@cascalheiraandbicho2013]. For the Gravettian-Solutrean transition these patterns have been interpreted as preferences resulting from tradition, more than technical or economic reasons [@almeida2006]. This interpretation stems from the understanding that, for the Estremadura, there is not a lack of good quality chert [@zilhao1997] since, even during times when quartz was highly used, chert continued to frequently appear in the archaeological record as a preference for formal tool production [@almeida2006]. The same seems to apply for Vale Boi and Lapa do Picareiro, where the assemblages of both phases show the existence of fairly good quality chert, that was used to produce a great majority of the retouched tools.
 
 Consequently, when framing the transition as occuring during an abrupt climate event and at the onset of global environmental transformations, these patterns and preferences may be better explained by growing pressures in the cultural system, and the ability for such a system to cope by expanding the economical options. This may have been achieved using a previously secondary raw material, present in close proximity to the site (even if ranging between coarse to fine quality) as a primary one.
 
@@ -70,11 +70,9 @@ Likewise, the Middle T horizon from Lapa do Picareiro and Upper 5/4E phase from 
 
 Notwithstanding, despite the technological and raw material similarities between Lapa do Picareiro and Vale Boi in the more recent phase, the identification of the blade products in Middle T as part of a Vale Comprido technology is more problematic (see Haws *et al.*, 2019). The identified pieces do reveal the presence of convergent edge shapes, mostly with plain platforms and with unidirectional dorsal scars. Yet, there are sufficient morphological differences, between Middle T’s blanks and Upper 5/4E’s Vale Comprido points, to question the identification of these products from Lapa do Picareiro as part of a Vale Comprido technological strategy.
 
-To further explore and understand this variation, below is presented a comparison of the morphological data from Vale Comprido technology with that of unretouched blades coming from other sites in the Portuguese Estremadura, either from the same assumed chronology, such as the site of Vale Comprido - Encosta, or attributed to preceding and succeeding chronologies, such as Casal do Felipe and Vale de Porcos (Gravettian), Casal do Cepo and Vale Almoinha (Solutrean). The comparisons are presented in Figure \@ref(fig:plotsVCelong) and \@ref(fig:plotVCconverge), following the comparisons showed by @zilhao1997 and @zilhaoetal1995, which use metrical and morphological attributes. Since the data available from those publications is restricted to the means and standard deviations of the metric variables, the approach is rather limited, not allowing any statistical testing.
+To further explore and understand this variation, below is presented a comparison of the morphological data from Vale Comprido technology with that of unretouched blades coming from other sites in the Portuguese Estremadura, either from the same assumed chronology, such as the site of Vale Comprido - Encosta, or attributed to preceding and succeeding chronologies, such as Casal do Felipe and Vale de Porcos (Gravettian), Casal do Cepo and Vale Almoinha (Solutrean). The comparisons are presented in Figure \@ref(fig:plotsVCelong) to \@ref(fig:plotVCconverge), following the comparisons showed by @zilhao1997 and @zilhaoetal1995, which use metrical and morphological attributes. Since the data available from those publications is restricted to the means and standard deviations of the metric variables, the approach is rather limited, not allowing any statistical testing.
 
 Elongation means (Figure \@ref(fig:plotsVCelong)) of points and blades show similar ratios across all assemblages. The exception seems to be the Vale Comprido points for both Vale Boi and Vale Comprido - Encosta, presenting in average low elongation values, when compared with the remaining blanks and *pointe à face plan* assemblages. 
-
-Regarding flattening (mesial width/thickness - Figure \ref{fig: plotVCflat}) there seems to be a group of sites with smaller values, and thus with blades and points which are less flat: Vale Boi, Vale Comprido – encosta and Vale de Porcos. This seems to be in concordance with the already established patterns for Proto-Solutrean assemblages, where the production strategies seem to focus thick blanks which are then thinned at the platform. However, it is possible to notice the association between the Lapa do Picareiro blanks with assemblages with a point à face plan component, with blades and points with higher levels of flattening, thus showing that the Vale Comprido blades show some morphological differences in the flattening ratios from Vale Boi and Vale Comprido – encosta, both with Proto-Solutrean assemblages.
 
 ```{r plotsVCelong, fig.cap="Blades, points a face plane and Vale Comprido points elongation (in cm) by site.", echo=FALSE,fig.align='center', out.width= '70%', message=FALSE, warning=FALSE, fig.pos="H"}
 blades_meas <- read_csv("data/blade_VC_measurements.csv")
@@ -90,6 +88,12 @@ elong <- ggplot(blades_meas, aes(x=Assemblage, y=ElongMean, fill=Class)) +
 plot(elong)
 ```
 
+Regarding flattening (mesial width/thickness - Figure \@ref(fig:plotVCflat)) there seems to be a group of sites with smaller values, and thus with blades and points which are less flat: Vale Boi, Vale Comprido – encosta and Vale de Porcos. This seems to be in concordance with the already established patterns for Proto-Solutrean assemblages, where the production strategies seem to focus thick blanks which are then thinned at the platform. 
+
+However, it is possible to notice the association between the Lapa do Picareiro blanks with assemblages with a point *à face plane* component, with blades and points with higher levels of flattening, thus showing that the Vale Comprido blades show some morphological differences in the flattening ratios from Vale Boi and Vale Comprido – encosta, both with Proto-Solutrean assemblages.
+
+A different pattern can be observed for platform flattening means (Figure \@ref(fig:plotVCplatflat)), where, despite the large standard deviations presented for the materials of Lapa do Picareiro, it seems that those blanks are more similar to the ones from Vale Boi and Vale Comprido – Encosta. Using this metric variable, both Casal do Felipe and Vale de Porcos show, in average, higher values for platform flattening than the Proto-Solutrean, while the other groups seems rather similar.
+
 ```{r plotVCflat,fig.cap="Blades, points a face plane and Vale Comprido points elongation (in cm) by site.", echo=FALSE, fig.align='center', out.width= '70%', message=FALSE, warning=FALSE, fig.pos="H"}
 flat <- ggplot(blades_meas, aes(x=Assemblage, y=FlatMean, fill=Class)) + 
   geom_bar(stat="identity", color="black", 
@@ -103,12 +107,7 @@ flat <- ggplot(blades_meas, aes(x=Assemblage, y=FlatMean, fill=Class)) +
 plot(flat)
 ```
 
-A different pattern can be observed for platform flattening means (Figure \@ref(fig:plotVCplatflat)), where, despite the large standard deviations presented for the materials of Lapa do Picareiro, it seems that those blanks are more similar to the ones from Vale Boi and Vale Comprido – Encosta. Using this metric variable, both Casal do Felipe and Vale de Porcos show, in average, higher values for platform flattening than the Proto-Solutrean, while the other groups seems rather similar.
-
-Finally, an analysis to the percentage of covergent edges in the assemblages is presented in Figure \@ref(fig:plotVCconverge). This variable is one of the important factors in Vale Comprido technology, since that "the triangular geometry of the debitage surface is formed by the detachment of core edge removals
-with an oblique orientation (...) [and] these removals determine the convergence of the predetermined blank removed from the centre of the debitage surface" [@renard2011, p. 730]. There is a significant similarity in the percentage of convergent edges between Lapa do Picareiro, Vale Boi (blades) and Vale Comprido – encosta (blades). The blanks from these sites show the highest percentages of convergent edges (always above 25%) from all the groups considered, only surpassed by the values from Vale Comprido points, which reach 100% in Vale Boi and are 50% in Vale Comprido – Encosta. All the blades from other sites show values under 20%.
-
-```{r plotVCplatflat, fig.cap="Blades and Vale Comprido points platform flattening (in cm) by site.", echo=FALSE,fig.align='center', echo=FALSE, out.width= '70%', message=FALSE, warning=FALSE}
+```{r plotVCplatflat, fig.cap="Blades and Vale Comprido points platform flattening (in cm) by site.", echo=FALSE,fig.align='center', echo=FALSE, out.width= '70%', message=FALSE, warning=FALSE, fig.pos="H"}
 
 plat_flat <- blades_meas %>% 
   filter(!Assemblage %in% c("Casal do Cepo", "Vale Almoinha"))
@@ -127,7 +126,10 @@ plot(plat_flat)
 
 ```
 
-```{r plotVCconverge, fig.cap="Blades and Vale Comprido points edge convergence by site.", echo=FALSE, fig.align='center', out.width= '70%', message=FALSE, warning=FALSE}
+Finally, an analysis to the percentage of covergent edges in the assemblages is presented in Figure \@ref(fig:plotVCconverge). This variable is one of the important factors in Vale Comprido technology, since that "the triangular geometry of the debitage surface is formed by the detachment of core edge removals
+with an oblique orientation (...) [and] these removals determine the convergence of the predetermined blank removed from the centre of the debitage surface" [@renard2011, p. 730]. There is a significant similarity in the percentage of convergent edges between Lapa do Picareiro, Vale Boi (blades) and Vale Comprido – encosta (blades). The blanks from these sites show the highest percentages of convergent edges (always above 25%) from all the groups considered, only surpassed by the values from Vale Comprido points, which reach 100% in Vale Boi and are 50% in Vale Comprido – Encosta. All the blades from other sites show values under 20%.
+
+```{r plotVCconverge, fig.cap="Blades and Vale Comprido points edge convergence by site.", echo=FALSE, fig.align='center', out.width= '70%', message=FALSE, warning=FALSE, fig.pos="H"}
 
 converg <- blades_meas %>% 
   filter(Class != "Points a face plan")
@@ -144,11 +146,9 @@ plot(converge)
 
 ```
 
-\  
+In brief, it seems that only some of the analysed indicators are good for understanding the technological nature of the Lapa do Picareiro Middle T blanks. All assemblages seem to have a wide variability regarding metrical attributes, which creates difficulties in understanding specific groups based on the means of those variables. This is especially noticeable with the elongation ratio average values, which do not show clear differences between the blade assemblages from the different technocomplexes.
 
-In brief, it seems that only some of the analyzed indicators are good for understanding the technological nature of the Lapa do Picareiro Middle T blanks. All assemblages seem to have a wide variability regarding metrical attributes, which creates difficulties in understanding specific groups based on the means of those variables. This is especially noticeable with the elongation ratio average values, which do not show clear differences between the blade assemblages from the different technocomplexes.
-
-From all of the attributes analyzed, it was the frequency of convergent edges that showed the biggest differences between the Proto-Solutrean assemblages and Lapa do Picareiro, against the other assemblages with lesser percentages of convergent edges.
+From all of the attributes analysed, it was the frequency of convergent edges that showed the biggest differences between the Proto-Solutrean assemblages and Lapa do Picareiro, against the other assemblages with lesser percentages of convergent edges.
 
 Despite this similarity, Lapa do Picareiro, especially within the flattening ratios, showed values which were closer to those from the sSolutrean assemblages, with less robust blades than those from Vale Boi and Vale Comprido – Encosta.
 
@@ -164,13 +164,11 @@ The second phase seems to happen around 25 ka cal BP, reaching close to 24 ka ca
 
 Thus, these two groups of dates, combined with the differences in technology and raw material use, reflect discrete phases within the Gravettian-Solutrean transition models. As such, the older group of dates, concomitant with high use of quartz, may be representative of a Terminal Gravettian moment. The younger group, accompanied by a decrease in quartz and the emergence of Vale Comprido points at Vale Boi, represent a Proto-Solutrean occupation.
 
-```{r datesall, fig.cap="Comparison of the summed probability of radiocarbon dates from each studied archaeological context with the individual results from sites located in the Portuguese Estremadura and attributed to the Gravettian-Solutrean transition (Zilhão 1997). The summed probabilities are calculated based on the individual modeled dates of the Bayesian approach used in Chapter 3. All calibrations were done using IntCal13 and Marine13, in OxCal 4.1.7 online (Reimer et al. 2013).", out.width = '70%', fig.align='center', echo=FALSE}
+This interpretation, however, has some problems which lack a viable solution. The problem lies in the nonexistance of a higher resolution method for dating, which does not allow for the understanding of smaller scale chronological changes [@zilhao2013]. This, allied with various context and stratigraphic problems, hampers any chronological interpretation and organization.
+
+```{r datesall, fig.cap="Comparison of the summed probability of radiocarbon dates from each studied archaeological context with the individual results from sites located in the Portuguese Estremadura and attributed to the Gravettian-Solutrean transition (Zilhão 1997a). The summed probabilities are calculated based on the individual modeled dates of the Bayesian approach used in Chapter 3. All calibrations were done using IntCal13 and Marine13, in OxCal 4.1.7 online (Reimer et al. 2013).", out.width = '70%', fig.align='center', echo=FALSE, fig.pos="H"}
 knitr::include_graphics("figure/c14_all.png")
 ```
-
-\newpage
-
-This interpretation, however, has some problems which lack a viable solution. The problem lies in the nonexistance of a higher resolution method for dating, which does not allow for the understanding of smaller scale chronological changes [@zilhao2013]. This, allied with various context and stratigraphic problems, hampers any chronological interpretation and organization.
 
 Even so, it is possible to understand some curious temporal particularities (Figure \@ref(fig:datesall)). U/Lower T from Lapa do Picareiro, corresponding to the patterns for the Terminal Gravettian [@almeida2000], seems to occur at much older dates than other sites, although some sites show some probability of overlapping (such as the case of Lagar Velho). However, U/Lower T is the only context which at a two sigma probably falls completely out of the HE 2 time period. This may question the dominant use of quartz as an environmental response.
 
