@@ -31,7 +31,7 @@ library(float)
 library(janitor)
 ```
 
-```{r lpstrat, include=FALSE}
+```{r lpstrat, echo=FALSE}
 
 lp_strat <- read_csv("data/lp_strat.csv")
 
@@ -284,8 +284,8 @@ knitr::kable(blank_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Bo
 
 blank_metp1 <- tabmulti(blanksAT1, "RawMaterial", c("MedWidth", "Length",
                                                     "Thickness", "PlatformWidth",
-                                                    "PlatformThickness"),
-                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                                                    "PlatformThickness", "ExteriorPlatformAngle"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         listwise.deletion = FALSE,
@@ -307,8 +307,8 @@ knitr::kable(blank_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean an
 ```{r flakemetricsVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
 blank_metp2 <- tabmulti(blanksAT2, "RawMaterial", c("MedWidth", "Length", 
-                                                    "Thickness", "PlatformWidth", "PlatformThickness"),
-                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                                                    "Thickness", "PlatformWidth", "PlatformThickness", "ExteriorPlatformAngle"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         bold.varnames = TRUE,
@@ -398,8 +398,8 @@ knitr::kable(elong_tablep2, longtable= TRUE, booktabs = TRUE, caption = "Vale Bo
 
 ```{r elongmetricsVB1, echo = FALSE, message=FALSE, warning=FALSE}
 
-elong_metp1 <- tabmulti(elongAT1, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
+elong_metp1 <- tabmulti(elongAT1, "RawMaterial", c("MaxWidth", "Length", "Thickness","PlatformWidth", "PlatformThickness", "ExteriorPlatformAngle"),
+                          ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                           p.include = FALSE,
                           n.headings = FALSE,
                           bold.varnames = TRUE,
@@ -420,8 +420,8 @@ knitr::kable(elong_metp1, booktabs=TRUE, caption = "Vale Boi - Lower 5 - mean an
 
 ```{r elongmtericsVB2, echo=FALSE, message=FALSE, warning=FALSE}
 
-elong_metp2 <- tabmulti(elongAT2, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
+elong_metp2 <- tabmulti(elongAT2, "RawMaterial", c("MaxWidth", "Length", "Thickness","PlatformWidth", "PlatformThickness", "ExteriorPlatformAngle"),
+                          ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                           p.include = FALSE,
                           n.headings = FALSE,
                           bold.varnames = TRUE,
@@ -580,7 +580,7 @@ flakes_tablep1lp<- flakes_tablep1lp %>%
 
 knitr::kable(flakes_tablep1lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa do Picareiro - U/Lower T - flake attributes frequencies.") %>% 
   row_spec(0, bold = T, align = "c") %>% 
-  kable_styling(position = "center", font_size = 9, latex_options = "repeat_header")
+  kable_styling(position = "center", font_size = 9, latex_options = c("repeat_header", "hold_position"))
 
 ```
 
@@ -621,8 +621,8 @@ knitr::kable(flakes_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa
 
 flakes_metp1lp <- tabmulti(flakesAT1lp, "RawMaterial", c("MedWidth", "Length",
                                                     "Thickness", "PlatformWidth",
-                                                    "PlatformThickness"),
-                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                                                    "PlatformThickness", "ExteriorPlatformAngle"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         listwise.deletion = FALSE,
@@ -646,8 +646,8 @@ knitr::kable(flakes_metp1lp, booktabs=TRUE, caption = "Lapa do Picarerio - U/Low
 
 flakes_metp2lp <- tabmulti(flakesAT2lp, "RawMaterial", c("MedWidth", "Length",
                                                     "Thickness", "PlatformWidth",
-                                                    "PlatformThickness"),
-                        ymeasures = c("mean", "mean", "mean", "mean", "mean"),
+                                                    "PlatformThickness", "ExteriorPlatformAngle"),
+                        ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                         p.include = FALSE,
                         n.headings = FALSE,
                         listwise.deletion = FALSE,
@@ -668,7 +668,7 @@ knitr::kable(flakes_metp2lp, booktabs=TRUE, caption = "Lapa do Picarerio - Middl
 
 \newpage
 
-```{r elongtableLP1, include=FALSE}
+```{r elongtableLP1, echo=FALSE, message=FALSE, warning=FALSE}
 #Elongated attribute table (all variables, by all raw materials)
 elong_tablep1lp <- tabmulti(elongAT1lp, "RawMaterial", c("CrossSection", "BlankShape", 
                                                            "Profile", "BlankTip",
@@ -679,6 +679,7 @@ elong_tablep1lp <- tabmulti(elongAT1lp, "RawMaterial", c("CrossSection", "BlankS
                                       "freq","freq","freq","freq","freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
+                        listwise.deletion = FALSE,
                         bold.varnames = TRUE,
                         bold.colnames = TRUE,
                         variable.colname = "Attributes")
@@ -706,6 +707,7 @@ elong_tablep2lp <- tabmulti(elongAT2lp, "RawMaterial", c("CrossSection", "BlankS
                         ymeasures = c("freq", "freq", "freq", "freq","freq","freq","mean","mean","freq","freq"),
                         p.include = FALSE,
                         n.headings = FALSE,
+                        listwise.deletion = FALSE,
                         bold.varnames = TRUE,
                         bold.colnames = TRUE,
                         variable.colname = "Attributes")
@@ -723,10 +725,11 @@ knitr::kable(elong_tablep2lp, longtable= TRUE, booktabs = TRUE, caption = "Lapa 
 
 ```{r elongmetricsLP1, echo = FALSE, message=FALSE, warning=FALSE}
 #Elongated metrics (mean) by raw material
-elong_metp1lp <- tabmulti(elongAT1lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
+elong_metp1lp <- tabmulti(elongAT1lp, "RawMaterial", c("MaxWidth", "Length", "Thickness","PlatformWidth", "PlatformThickness", "ExteriorPlatformAngle"),
+                          ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                           p.include = TRUE,
                           n.headings = FALSE,
+                          listwise.deletion = FALSE,
                           bold.varnames = TRUE,
                           bold.colnames = TRUE,
                           variable.colname = "Measurements")
@@ -739,7 +742,6 @@ knitr::kable(elong_metp1lp, booktabs=TRUE, caption = "Lapa do Picarerio - U/Lowe
   column_spec(1, width = "4cm") %>% 
   column_spec(2, width = "2cm") %>% 
   column_spec(3, width = "2cm") %>%
-  column_spec(4, width = "2cm") %>%
   kable_styling(latex_options = "hold_position", font_size = 9)
 
 ```
@@ -748,10 +750,11 @@ knitr::kable(elong_metp1lp, booktabs=TRUE, caption = "Lapa do Picarerio - U/Lowe
 ```{r elongmetricsLP2, echo=FALSE, message=FALSE, warning=FALSE}
 
 #Elongated metrics (mean) by raw material
-elong_metp2lp <- tabmulti(elongAT2lp, "RawMaterial", c("MaxWidth", "Length", "Thickness"),
-                          ymeasures = c("mean", "mean", "mean"),
+elong_metp2lp <- tabmulti(elongAT2lp, "RawMaterial", c("MaxWidth", "Length", "Thickness","PlatformWidth", "PlatformThickness", "ExteriorPlatformAngle"),
+                          ymeasures = c("mean", "mean", "mean", "mean", "mean", "mean"),
                           p.include = FALSE,
                           n.headings = FALSE,
+                          listwise.deletion = FALSE,
                           bold.varnames = TRUE,
                           bold.colnames = TRUE,
                           variable.colname = "Measurements")
