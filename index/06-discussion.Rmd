@@ -164,7 +164,7 @@ The second phase seems to happen around 25 ka cal BP, reaching close to 24 ka ca
 
 Thus, these two groups of dates, combined with the differences in technology and raw material use, reflect discrete phases within the Gravettian-Solutrean transition models. As such, the older group of dates, concomitant with high use of quartz, may be representative of a Terminal Gravettian moment. The younger group, accompanied by a decrease in quartz and the emergence of Vale Comprido points at Vale Boi, represent a Proto-Solutrean occupation.
 
-```{r datesall, fig.cap="Sum of calibrated radiocarbon dates (IntCal13 and Marine13, using OxCal 4.1.7 online) for each studied archaeological context and results from the Estremadura (Zilhão 1997), with application of a Bayesian model.", out.width = '70%', fig.align='center', echo=FALSE}
+```{r datesall, fig.cap="Comparison of the summed probability of radiocarbon dates from each studied archaeological context with the individual results from sites located in the Portuguese Estremadura and attributed to the Gravettian-Solutrean transition (Zilhão 1997). The summed probabilities are calculated based on the individual modeled dates of the Bayesian approach used in Chapter 3. All calibrations were done using IntCal13 and Marine13, in OxCal 4.1.7 online (Reimer et al. 2013).", out.width = '70%', fig.align='center', echo=FALSE}
 knitr::include_graphics("figure/c14_all.png")
 ```
 
